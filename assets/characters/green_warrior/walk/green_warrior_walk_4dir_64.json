@@ -20,13 +20,8 @@
     "right": 2,
     "up": 3
   },
-  "source": "D:\\projects\\MotherSeed2D\\assets\\characters\\warrior\\green_haired_warrior_walk_sheet.png",
-  "sourceRowMapping": {
-    "down": 0,
-    "left": 3,
-    "right": 1,
-    "up": 2
-  },
+  "source": "D:\\projects\\MotherSeed2D\\assets\\characters\\green_warrior\\walk\\green_warrior_walk_4dir_64_before_8frame_extend.png",
+  "sourceRawCopy": "green_warrior_walk_4dir_64_before_8frame_extend.png",
   "anchor": {
     "x": 32,
     "y": 60,
@@ -34,9 +29,10 @@
   },
   "normalization": {
     "scale": 1.0,
-    "horizontalPlacement": "preserved from approved source sheet",
-    "verticalPlacement": "content bottom aligned to anchor.y",
-    "emptySlots": "transparent"
+    "frameCount": 8,
+    "extendedFromFiveFrameSource": true,
+    "sidePassingPoseSource": "approved side idle frames 2-4",
+    "note": "Left/right walk rows alternate stride extremes with centered-foot idle-derived passing poses to reduce sliding/floating."
   },
   "animations": {
     "walk_down": [
@@ -47,17 +43,13 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_down_01.png",
-        "sourceRow": 0,
+        "sourceRole": "walk_1",
         "sourceBox": [
           6,
-          1,
-          57,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          0,
+          58,
+          61
+        ]
       },
       {
         "frame": 1,
@@ -66,17 +58,13 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_down_02.png",
-        "sourceRow": 0,
+        "sourceRole": "walk_2",
         "sourceBox": [
           6,
           0,
-          56,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          57,
+          61
+        ]
       },
       {
         "frame": 2,
@@ -85,17 +73,13 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_down_03.png",
-        "sourceRow": 0,
+        "sourceRole": "walk_3",
         "sourceBox": [
           7,
           0,
-          56,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          57,
+          61
+        ]
       },
       {
         "frame": 3,
@@ -104,17 +88,13 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_down_04.png",
-        "sourceRow": 0,
+        "sourceRole": "walk_4",
         "sourceBox": [
           6,
           0,
-          56,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          57,
+          61
+        ]
       },
       {
         "frame": 4,
@@ -123,17 +103,58 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_down_05.png",
-        "sourceRow": 0,
+        "sourceRole": "walk_5",
         "sourceBox": [
           5,
           0,
+          58,
+          61
+        ]
+      },
+      {
+        "frame": 5,
+        "x": 320,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_down_06.png",
+        "sourceRole": "walk_4",
+        "sourceBox": [
+          6,
+          0,
           57,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          61
+        ]
+      },
+      {
+        "frame": 6,
+        "x": 384,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_down_07.png",
+        "sourceRole": "walk_3",
+        "sourceBox": [
+          7,
+          0,
+          57,
+          61
+        ]
+      },
+      {
+        "frame": 7,
+        "x": 448,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_down_08.png",
+        "sourceRole": "walk_2",
+        "sourceBox": [
+          6,
+          0,
+          57,
+          61
+        ]
       }
     ],
     "walk_left": [
@@ -144,17 +165,13 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_left_01.png",
-        "sourceRow": 3,
+        "sourceRole": "walk_1",
         "sourceBox": [
           7,
           0,
-          56,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          57,
+          61
+        ]
       },
       {
         "frame": 1,
@@ -163,17 +180,13 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_left_02.png",
-        "sourceRow": 3,
+        "sourceRole": "idle_2",
         "sourceBox": [
-          7,
-          1,
-          55,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          11,
+          3,
+          53,
+          61
+        ]
       },
       {
         "frame": 2,
@@ -182,17 +195,13 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_left_03.png",
-        "sourceRow": 3,
+        "sourceRole": "walk_2",
         "sourceBox": [
           7,
-          1,
-          55,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          0,
+          56,
+          61
+        ]
       },
       {
         "frame": 3,
@@ -201,17 +210,13 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_left_04.png",
-        "sourceRow": 3,
+        "sourceRole": "idle_3",
         "sourceBox": [
-          7,
-          1,
-          55,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          10,
+          3,
+          53,
+          61
+        ]
       },
       {
         "frame": 4,
@@ -220,17 +225,58 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_left_05.png",
-        "sourceRow": 3,
+        "sourceRole": "walk_4",
         "sourceBox": [
           7,
           0,
-          55,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          56,
+          61
+        ]
+      },
+      {
+        "frame": 5,
+        "x": 320,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_left_06.png",
+        "sourceRole": "idle_4",
+        "sourceBox": [
+          11,
+          3,
+          53,
+          61
+        ]
+      },
+      {
+        "frame": 6,
+        "x": 384,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_left_07.png",
+        "sourceRole": "walk_5",
+        "sourceBox": [
+          7,
+          0,
+          56,
+          61
+        ]
+      },
+      {
+        "frame": 7,
+        "x": 448,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_left_08.png",
+        "sourceRole": "idle_3",
+        "sourceBox": [
+          10,
+          3,
+          53,
+          61
+        ]
       }
     ],
     "walk_right": [
@@ -241,17 +287,13 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_right_01.png",
-        "sourceRow": 1,
+        "sourceRole": "walk_1",
         "sourceBox": [
           6,
-          1,
-          56,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          0,
+          57,
+          61
+        ]
       },
       {
         "frame": 1,
@@ -260,17 +302,13 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_right_02.png",
-        "sourceRow": 1,
+        "sourceRole": "idle_2",
         "sourceBox": [
-          6,
-          1,
-          56,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          8,
+          3,
+          55,
+          61
+        ]
       },
       {
         "frame": 2,
@@ -279,17 +317,13 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_right_03.png",
-        "sourceRow": 1,
+        "sourceRole": "walk_2",
         "sourceBox": [
-          7,
-          1,
-          55,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          6,
+          0,
+          57,
+          61
+        ]
       },
       {
         "frame": 3,
@@ -298,17 +332,13 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_right_04.png",
-        "sourceRow": 1,
+        "sourceRole": "idle_3",
         "sourceBox": [
-          6,
-          4,
-          56,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          9,
+          3,
+          54,
+          61
+        ]
       },
       {
         "frame": 4,
@@ -317,17 +347,58 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_right_05.png",
-        "sourceRow": 1,
+        "sourceRole": "walk_4",
+        "sourceBox": [
+          6,
+          2,
+          57,
+          61
+        ]
+      },
+      {
+        "frame": 5,
+        "x": 320,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_right_06.png",
+        "sourceRole": "idle_4",
+        "sourceBox": [
+          9,
+          3,
+          55,
+          61
+        ]
+      },
+      {
+        "frame": 6,
+        "x": 384,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_right_07.png",
+        "sourceRole": "walk_5",
         "sourceBox": [
           7,
-          1,
-          56,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          0,
+          57,
+          61
+        ]
+      },
+      {
+        "frame": 7,
+        "x": 448,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_right_08.png",
+        "sourceRole": "idle_3",
+        "sourceBox": [
+          9,
+          3,
+          54,
+          61
+        ]
       }
     ],
     "walk_up": [
@@ -338,17 +409,13 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_up_01.png",
-        "sourceRow": 2,
+        "sourceRole": "walk_1",
         "sourceBox": [
           8,
-          3,
-          55,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          1,
+          56,
+          61
+        ]
       },
       {
         "frame": 1,
@@ -357,17 +424,13 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_up_02.png",
-        "sourceRow": 2,
+        "sourceRole": "walk_2",
         "sourceBox": [
           8,
-          2,
-          55,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          0,
+          56,
+          61
+        ]
       },
       {
         "frame": 2,
@@ -376,17 +439,13 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_up_03.png",
-        "sourceRow": 2,
+        "sourceRole": "walk_3",
         "sourceBox": [
           9,
-          3,
-          54,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          1,
+          55,
+          61
+        ]
       },
       {
         "frame": 3,
@@ -395,17 +454,13 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_up_04.png",
-        "sourceRow": 2,
+        "sourceRole": "walk_4",
         "sourceBox": [
           9,
-          1,
-          53,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          0,
+          54,
+          61
+        ]
       },
       {
         "frame": 4,
@@ -414,17 +469,58 @@
         "w": 64,
         "h": 64,
         "file": "frames/walk_up_05.png",
-        "sourceRow": 2,
+        "sourceRole": "walk_5",
         "sourceBox": [
           8,
-          2,
+          0,
+          55,
+          61
+        ]
+      },
+      {
+        "frame": 5,
+        "x": 320,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_up_06.png",
+        "sourceRole": "walk_4",
+        "sourceBox": [
+          9,
+          0,
           54,
-          62
-        ],
-        "offset": {
-          "dx": 0,
-          "dy": -2
-        }
+          61
+        ]
+      },
+      {
+        "frame": 6,
+        "x": 384,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_up_07.png",
+        "sourceRole": "walk_3",
+        "sourceBox": [
+          9,
+          1,
+          55,
+          61
+        ]
+      },
+      {
+        "frame": 7,
+        "x": 448,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_up_08.png",
+        "sourceRole": "walk_2",
+        "sourceBox": [
+          8,
+          0,
+          56,
+          61
+        ]
       }
     ]
   }

@@ -1,11 +1,10 @@
 import "./style.css";
-import monsterSheetUrl from "../assets/Monsters.png?url";
 import rpgAssetsUrl from "../assets/RPGAssets.png?url";
 import titleImageUrl from "../assets/Title.png?url";
 import grassTerrainUrl from "../assets/world/terrain/rpg_grass_source/base_tiles_opaque/grass_plain.png?url";
 import { characterClasses, characterOrder } from "./game/content/classes";
 import { gameplayActionForCode, movementFromActions, type GameplayAction } from "./game/input-actions";
-import { clamp, directionFromVector, distance, dot, length, lengthSq, normalize, rects } from "./game/math";
+import { clamp, directionFromVector, distance, dot, length, lengthSq, normalize } from "./game/math";
 import type {
   AnimationName,
   ClassId,
@@ -22,6 +21,11 @@ import type {
 } from "./game/types";
 
 const warriorFrameUrls = import.meta.glob("../assets/characters/warrior/animated/*/*/frame_*.png", {
+  eager: true,
+  import: "default",
+  query: "?url",
+}) as Record<string, string>;
+const mossGolemFrameUrls = import.meta.glob("../assets/monsters/moss_golem/*/frames/*.png", {
   eager: true,
   import: "default",
   query: "?url",
@@ -46,6 +50,13 @@ const warriorSpriteDraw = {
   anchorX: 32,
   anchorY: 60,
   baselineOffset: 28,
+};
+const mossGolemSpriteDraw = {
+  scale: 1.78,
+  attackScale: 1.85,
+  anchorX: 112,
+  anchorY: 116,
+  baselineOffset: 34,
 };
 
 const app = document.querySelector<HTMLDivElement>("#app");
@@ -137,109 +148,6 @@ const camera = {
   x: 0,
   y: 0,
   scale: 1,
-};
-
-const mossGolemFrameRects: Record<DirectionName, Record<MonsterAnimationName, FrameRect[]>> = {
-  down: {
-    idle: rects([
-      [264, 802, 55, 74],
-      [338, 802, 53, 74],
-      [409, 802, 50, 74],
-    ]),
-    walk: rects([
-      [504, 802, 57, 78],
-      [571, 802, 74, 78],
-      [641, 802, 56, 78],
-      [711, 802, 55, 78],
-    ]),
-    run: rects([
-      [817, 802, 60, 80],
-      [889, 802, 56, 80],
-      [958, 802, 76, 80],
-      [1026, 802, 48, 80],
-    ]),
-    attack: rects([
-      [1116, 802, 86, 86],
-      [1196, 802, 113, 86],
-      [1301, 802, 108, 86],
-      [1401, 803, 71, 85],
-    ]),
-  },
-  left: {
-    idle: rects([
-      [273, 874, 46, 74],
-      [345, 874, 44, 74],
-      [414, 874, 43, 74],
-    ]),
-    walk: rects([
-      [505, 874, 53, 75],
-      [571, 874, 55, 75],
-      [641, 874, 52, 75],
-      [711, 874, 54, 75],
-    ]),
-    run: rects([
-      [818, 874, 58, 76],
-      [886, 874, 59, 76],
-      [956, 874, 78, 75],
-      [1026, 874, 48, 75],
-    ]),
-    attack: rects([
-      [1116, 874, 86, 75],
-      [1196, 874, 113, 86],
-      [1301, 874, 108, 86],
-      [1401, 874, 80, 76],
-    ]),
-  },
-  right: {
-    idle: rects([
-      [269, 951, 50, 59],
-      [340, 951, 51, 58],
-      [409, 951, 50, 58],
-    ]),
-    walk: rects([
-      [505, 951, 53, 59],
-      [571, 951, 53, 59],
-      [641, 950, 51, 60],
-      [711, 950, 53, 60],
-    ]),
-    run: rects([
-      [816, 950, 60, 60],
-      [887, 951, 57, 59],
-      [956, 950, 78, 60],
-      [1026, 951, 51, 59],
-    ]),
-    attack: rects([
-      [1116, 952, 60, 58],
-      [1201, 950, 108, 65],
-      [1301, 950, 48, 60],
-      [1201, 950, 108, 65],
-    ]),
-  },
-  up: {
-    idle: rects([
-      [273, 955, 50, 51],
-      [344, 955, 50, 50],
-      [413, 955, 48, 50],
-    ]),
-    walk: rects([
-      [509, 955, 45, 51],
-      [574, 955, 46, 51],
-      [643, 954, 45, 52],
-      [712, 954, 48, 52],
-    ]),
-    run: rects([
-      [819, 954, 53, 52],
-      [891, 955, 49, 51],
-      [960, 954, 48, 52],
-      [1027, 955, 46, 51],
-    ]),
-    attack: rects([
-      [1116, 956, 56, 50],
-      [1205, 959, 114, 52],
-      [1116, 956, 56, 50],
-      [1205, 959, 114, 52],
-    ]),
-  },
 };
 
 let selectedClassId: ClassId = "warrior";
@@ -483,16 +391,31 @@ function getWarriorFrameUrls(direction: DirectionName, animation: AnimationName)
   return urls;
 }
 
-async function loadMonsterSprites() {
-  const image = await loadImage(monsterSheetUrl);
-  const output = {} as Record<DirectionName, Record<MonsterAnimationName, SpriteFrame[]>>;
+function getMossGolemFrameUrls(direction: DirectionName, animation: MonsterAnimationName): string[] {
+  const prefix = `../assets/monsters/moss_golem/${animation}/frames/${animation}_${direction}_`;
+  const urls = Object.entries(mossGolemFrameUrls)
+    .filter(([path]) => path.startsWith(prefix))
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([, url]) => url);
 
-  (Object.keys(mossGolemFrameRects) as DirectionName[]).forEach((direction) => {
+  if (urls.length === 0) {
+    throw new Error(`Missing exported Moss Golem frames for ${direction}/${animation}. Run tools/extract_moss_golem_sprites.py.`);
+  }
+
+  return urls;
+}
+
+async function loadMonsterSprites() {
+  const output = {} as Record<DirectionName, Record<MonsterAnimationName, SpriteFrame[]>>;
+  const animations = ["idle", "walk", "run", "attack"] as const satisfies readonly MonsterAnimationName[];
+
+  await Promise.all((["down", "left", "right", "up"] as DirectionName[]).map(async (direction) => {
     output[direction] = {} as Record<MonsterAnimationName, SpriteFrame[]>;
-    (Object.keys(mossGolemFrameRects[direction]) as MonsterAnimationName[]).forEach((animation) => {
-      output[direction][animation] = mossGolemFrameRects[direction][animation].map((frame) => makeTransparentFrame(image, frame));
-    });
-  });
+    await Promise.all(animations.map(async (animation) => {
+      const urls = getMossGolemFrameUrls(direction, animation);
+      output[direction][animation] = await Promise.all(urls.map(async (url) => makeImageFrame(await loadImage(url))));
+    }));
+  }));
 
   monsterSprites = output;
 }
@@ -1162,17 +1085,19 @@ function drawPlayer() {
 
 function drawEnemy() {
   if (!enemy.visible) return;
-  drawShadow(enemy.x, enemy.y + 20, 74, 28, 0.38);
+  drawShadow(enemy.x, enemy.y + 20, 96, 34, 0.4);
 
   const frames = monsterSprites?.[enemy.direction][enemy.anim];
   const frame = frames?.[enemy.animFrame % frames.length];
   if (frame) {
-    const scale = enemy.anim === "attack" ? 1.85 : 1.78;
+    const scale = enemy.anim === "attack" ? mossGolemSpriteDraw.attackScale : mossGolemSpriteDraw.scale;
     const width = frame.w * scale;
     const height = frame.h * scale;
+    const drawX = enemy.x - mossGolemSpriteDraw.anchorX * scale;
+    const drawY = enemy.y + mossGolemSpriteDraw.baselineOffset - mossGolemSpriteDraw.anchorY * scale;
     ctx.save();
     ctx.filter = enemy.flashTimer > 0 ? "brightness(1.55) saturate(1.35)" : "none";
-    ctx.drawImage(frame.canvas, enemy.x - width / 2, enemy.y - height + 34, width, height);
+    ctx.drawImage(frame.canvas, drawX, drawY, width, height);
     ctx.restore();
   }
 
@@ -1182,7 +1107,7 @@ function drawEnemy() {
     ctx.lineWidth = 3;
     ctx.setLineDash([10, 8]);
     ctx.beginPath();
-    ctx.ellipse(enemy.x, enemy.y + 12, 58, 34, 0, 0, Math.PI * 2);
+    ctx.ellipse(enemy.x, enemy.y + 12, 72, 40, 0, 0, Math.PI * 2);
     ctx.stroke();
     ctx.restore();
   }
