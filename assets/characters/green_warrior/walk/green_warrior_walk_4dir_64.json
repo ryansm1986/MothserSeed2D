@@ -1,0 +1,431 @@
+{
+  "character": "green_warrior",
+  "animation": "walk",
+  "image": "green_warrior_walk_4dir_64.png",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "sheetWidth": 1024,
+  "sheetHeight": 1024,
+  "columns": 16,
+  "rows": 16,
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "rowOrder": {
+    "down": 0,
+    "left": 1,
+    "right": 2,
+    "up": 3
+  },
+  "source": "D:\\projects\\MotherSeed2D\\assets\\characters\\warrior\\green_haired_warrior_walk_sheet.png",
+  "sourceRowMapping": {
+    "down": 0,
+    "left": 3,
+    "right": 1,
+    "up": 2
+  },
+  "anchor": {
+    "x": 32,
+    "y": 60,
+    "type": "bottom-center"
+  },
+  "normalization": {
+    "scale": 1.0,
+    "horizontalPlacement": "preserved from approved source sheet",
+    "verticalPlacement": "content bottom aligned to anchor.y",
+    "emptySlots": "transparent"
+  },
+  "animations": {
+    "walk_down": [
+      {
+        "frame": 0,
+        "x": 0,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_down_01.png",
+        "sourceRow": 0,
+        "sourceBox": [
+          6,
+          1,
+          57,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      },
+      {
+        "frame": 1,
+        "x": 64,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_down_02.png",
+        "sourceRow": 0,
+        "sourceBox": [
+          6,
+          0,
+          56,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      },
+      {
+        "frame": 2,
+        "x": 128,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_down_03.png",
+        "sourceRow": 0,
+        "sourceBox": [
+          7,
+          0,
+          56,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      },
+      {
+        "frame": 3,
+        "x": 192,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_down_04.png",
+        "sourceRow": 0,
+        "sourceBox": [
+          6,
+          0,
+          56,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      },
+      {
+        "frame": 4,
+        "x": 256,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_down_05.png",
+        "sourceRow": 0,
+        "sourceBox": [
+          5,
+          0,
+          57,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      }
+    ],
+    "walk_left": [
+      {
+        "frame": 0,
+        "x": 0,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_left_01.png",
+        "sourceRow": 3,
+        "sourceBox": [
+          7,
+          0,
+          56,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      },
+      {
+        "frame": 1,
+        "x": 64,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_left_02.png",
+        "sourceRow": 3,
+        "sourceBox": [
+          7,
+          1,
+          55,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      },
+      {
+        "frame": 2,
+        "x": 128,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_left_03.png",
+        "sourceRow": 3,
+        "sourceBox": [
+          7,
+          1,
+          55,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      },
+      {
+        "frame": 3,
+        "x": 192,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_left_04.png",
+        "sourceRow": 3,
+        "sourceBox": [
+          7,
+          1,
+          55,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      },
+      {
+        "frame": 4,
+        "x": 256,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_left_05.png",
+        "sourceRow": 3,
+        "sourceBox": [
+          7,
+          0,
+          55,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      }
+    ],
+    "walk_right": [
+      {
+        "frame": 0,
+        "x": 0,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_right_01.png",
+        "sourceRow": 1,
+        "sourceBox": [
+          6,
+          1,
+          56,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      },
+      {
+        "frame": 1,
+        "x": 64,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_right_02.png",
+        "sourceRow": 1,
+        "sourceBox": [
+          6,
+          1,
+          56,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      },
+      {
+        "frame": 2,
+        "x": 128,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_right_03.png",
+        "sourceRow": 1,
+        "sourceBox": [
+          7,
+          1,
+          55,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      },
+      {
+        "frame": 3,
+        "x": 192,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_right_04.png",
+        "sourceRow": 1,
+        "sourceBox": [
+          6,
+          4,
+          56,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      },
+      {
+        "frame": 4,
+        "x": 256,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_right_05.png",
+        "sourceRow": 1,
+        "sourceBox": [
+          7,
+          1,
+          56,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      }
+    ],
+    "walk_up": [
+      {
+        "frame": 0,
+        "x": 0,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_up_01.png",
+        "sourceRow": 2,
+        "sourceBox": [
+          8,
+          3,
+          55,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      },
+      {
+        "frame": 1,
+        "x": 64,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_up_02.png",
+        "sourceRow": 2,
+        "sourceBox": [
+          8,
+          2,
+          55,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      },
+      {
+        "frame": 2,
+        "x": 128,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_up_03.png",
+        "sourceRow": 2,
+        "sourceBox": [
+          9,
+          3,
+          54,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      },
+      {
+        "frame": 3,
+        "x": 192,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_up_04.png",
+        "sourceRow": 2,
+        "sourceBox": [
+          9,
+          1,
+          53,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      },
+      {
+        "frame": 4,
+        "x": 256,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/walk_up_05.png",
+        "sourceRow": 2,
+        "sourceBox": [
+          8,
+          2,
+          54,
+          62
+        ],
+        "offset": {
+          "dx": 0,
+          "dy": -2
+        }
+      }
+    ]
+  }
+}

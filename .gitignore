@@ -1,0 +1,14 @@
+node_modules/
+dist/
+test-artifacts/
+__pycache__/
+*.py[cod]
+
+.devserver*.log
+*.log
+
+.env
+.env.*
+
+.DS_Store
+Thumbs.db

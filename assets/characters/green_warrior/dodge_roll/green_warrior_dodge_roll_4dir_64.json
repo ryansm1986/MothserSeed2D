@@ -1,0 +1,348 @@
+{
+  "character": "green_warrior",
+  "animation": "dodge_roll",
+  "image": "green_warrior_dodge_roll_4dir_64.png",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "sheetWidth": 1024,
+  "sheetHeight": 1024,
+  "columns": 16,
+  "rows": 16,
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "rowOrder": {
+    "down": 0,
+    "left": 1,
+    "right": 2,
+    "up": 3
+  },
+  "source": "C:\\Users\\there\\.codex\\generated_images\\019dc479-1bcb-77c0-90cb-d0d0c2cc4daa\\ig_066154525a16eabd0169ecbfa570d48196bb1293fdf18277c2.png",
+  "sourceRawCopy": "green_warrior_dodge_roll_raw_chromakey.png",
+  "anchor": {
+    "x": 32,
+    "y": 60,
+    "type": "bottom-center"
+  },
+  "normalization": {
+    "scale": 0.3333333333333333,
+    "maxSourceWidth": 169,
+    "maxSourceHeight": 174,
+    "background": "magenta chroma key removed locally",
+    "generationBase": "existing green_warrior idle, sprint, and attack previews",
+    "sequence": "brace, dive, curled roll, exit, recover"
+  },
+  "animations": {
+    "dodge_roll_down": [
+      {
+        "frame": 0,
+        "x": 0,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_down_01.png",
+        "sourceBox": [
+          50,
+          105,
+          174,
+          266
+        ],
+        "sourceSlotCenterX": 115.5
+      },
+      {
+        "frame": 1,
+        "x": 64,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_down_02.png",
+        "sourceBox": [
+          262,
+          123,
+          409,
+          244
+        ],
+        "sourceSlotCenterX": 346.0
+      },
+      {
+        "frame": 2,
+        "x": 128,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_down_03.png",
+        "sourceBox": [
+          498,
+          157,
+          605,
+          255
+        ],
+        "sourceSlotCenterX": 555.0
+      },
+      {
+        "frame": 3,
+        "x": 192,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_down_04.png",
+        "sourceBox": [
+          704,
+          138,
+          848,
+          268
+        ],
+        "sourceSlotCenterX": 774.5
+      },
+      {
+        "frame": 4,
+        "x": 256,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_down_05.png",
+        "sourceBox": [
+          928,
+          100,
+          1071,
+          269
+        ],
+        "sourceSlotCenterX": 1007.0
+      }
+    ],
+    "dodge_roll_left": [
+      {
+        "frame": 0,
+        "x": 0,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_left_01.png",
+        "sourceBox": [
+          49,
+          336,
+          182,
+          502
+        ],
+        "sourceSlotCenterX": 115.5
+      },
+      {
+        "frame": 1,
+        "x": 64,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_left_02.png",
+        "sourceBox": [
+          261,
+          364,
+          413,
+          485
+        ],
+        "sourceSlotCenterX": 346.0
+      },
+      {
+        "frame": 2,
+        "x": 128,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_left_03.png",
+        "sourceBox": [
+          499,
+          394,
+          607,
+          496
+        ],
+        "sourceSlotCenterX": 555.0
+      },
+      {
+        "frame": 3,
+        "x": 192,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_left_04.png",
+        "sourceBox": [
+          691,
+          373,
+          852,
+          504
+        ],
+        "sourceSlotCenterX": 774.5
+      },
+      {
+        "frame": 4,
+        "x": 256,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_left_05.png",
+        "sourceBox": [
+          945,
+          336,
+          1069,
+          509
+        ],
+        "sourceSlotCenterX": 1007.0
+      }
+    ],
+    "dodge_roll_right": [
+      {
+        "frame": 0,
+        "x": 0,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_right_01.png",
+        "sourceBox": [
+          50,
+          582,
+          174,
+          744
+        ],
+        "sourceSlotCenterX": 115.5
+      },
+      {
+        "frame": 1,
+        "x": 64,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_right_02.png",
+        "sourceBox": [
+          263,
+          621,
+          431,
+          731
+        ],
+        "sourceSlotCenterX": 346.0
+      },
+      {
+        "frame": 2,
+        "x": 128,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_right_03.png",
+        "sourceBox": [
+          503,
+          643,
+          612,
+          739
+        ],
+        "sourceSlotCenterX": 555.0
+      },
+      {
+        "frame": 3,
+        "x": 192,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_right_04.png",
+        "sourceBox": [
+          697,
+          619,
+          858,
+          739
+        ],
+        "sourceSlotCenterX": 774.5
+      },
+      {
+        "frame": 4,
+        "x": 256,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_right_05.png",
+        "sourceBox": [
+          949,
+          576,
+          1086,
+          746
+        ],
+        "sourceSlotCenterX": 1007.0
+      }
+    ],
+    "dodge_roll_up": [
+      {
+        "frame": 0,
+        "x": 0,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_up_01.png",
+        "sourceBox": [
+          50,
+          828,
+          182,
+          995
+        ],
+        "sourceSlotCenterX": 115.5
+      },
+      {
+        "frame": 1,
+        "x": 64,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_up_02.png",
+        "sourceBox": [
+          263,
+          869,
+          409,
+          972
+        ],
+        "sourceSlotCenterX": 346.0
+      },
+      {
+        "frame": 2,
+        "x": 128,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_up_03.png",
+        "sourceBox": [
+          508,
+          879,
+          611,
+          974
+        ],
+        "sourceSlotCenterX": 555.0
+      },
+      {
+        "frame": 3,
+        "x": 192,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_up_04.png",
+        "sourceBox": [
+          700,
+          858,
+          856,
+          989
+        ],
+        "sourceSlotCenterX": 774.5
+      },
+      {
+        "frame": 4,
+        "x": 256,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/dodge_roll_up_05.png",
+        "sourceBox": [
+          956,
+          828,
+          1083,
+          995
+        ],
+        "sourceSlotCenterX": 1007.0
+      }
+    ]
+  }
+}

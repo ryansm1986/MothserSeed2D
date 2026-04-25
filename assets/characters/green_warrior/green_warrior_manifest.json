@@ -1,0 +1,71 @@
+{
+  "character": "green_warrior",
+  "sourceFolder": "D:\\projects\\MotherSeed2D\\assets\\characters\\warrior",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "sheetWidth": 1024,
+  "sheetHeight": 1024,
+  "columns": 16,
+  "rows": 16,
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "rowOrder": {
+    "down": 0,
+    "left": 1,
+    "right": 2,
+    "up": 3
+  },
+  "sourceRowMapping": {
+    "down": 0,
+    "left": 3,
+    "right": 1,
+    "up": 2
+  },
+  "anchor": {
+    "x": 32,
+    "y": 60,
+    "type": "bottom-center"
+  },
+  "animations": {
+    "idle": {
+      "sheet": "idle/green_warrior_idle_4dir_64.png",
+      "metadata": "idle/green_warrior_idle_4dir_64.json",
+      "preview": "idle/green_warrior_idle_4dir_64_preview.png",
+      "frames": "idle/frames"
+    },
+    "walk": {
+      "sheet": "walk/green_warrior_walk_4dir_64.png",
+      "metadata": "walk/green_warrior_walk_4dir_64.json",
+      "preview": "walk/green_warrior_walk_4dir_64_preview.png",
+      "frames": "walk/frames"
+    },
+    "attack": {
+      "sheet": "attack/green_warrior_attack_4dir_64.png",
+      "metadata": "attack/green_warrior_attack_4dir_64.json",
+      "preview": "attack/green_warrior_attack_4dir_64_preview.png",
+      "frames": "attack/frames"
+    },
+    "special_attack": {
+      "sheet": "special_attack/green_warrior_special_attack_4dir_64.png",
+      "metadata": "special_attack/green_warrior_special_attack_4dir_64.json",
+      "preview": "special_attack/green_warrior_special_attack_4dir_64_preview.png",
+      "frames": "special_attack/frames"
+    },
+    "sprint": {
+      "sheet": "sprint/green_warrior_sprint_4dir_64.png",
+      "metadata": "sprint/green_warrior_sprint_4dir_64.json",
+      "preview": "sprint/green_warrior_sprint_4dir_64_preview.png",
+      "frames": "sprint/frames"
+    },
+    "dodge_roll": {
+      "sheet": "dodge_roll/green_warrior_dodge_roll_4dir_64.png",
+      "metadata": "dodge_roll/green_warrior_dodge_roll_4dir_64.json",
+      "preview": "dodge_roll/green_warrior_dodge_roll_4dir_64_preview.png",
+      "frames": "dodge_roll/frames"
+    }
+  }
+}

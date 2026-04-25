@@ -1,0 +1,347 @@
+{
+  "character": "green_warrior",
+  "animation": "sprint",
+  "image": "green_warrior_sprint_4dir_64.png",
+  "frameWidth": 64,
+  "frameHeight": 64,
+  "sheetWidth": 1024,
+  "sheetHeight": 1024,
+  "columns": 16,
+  "rows": 16,
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "rowOrder": {
+    "down": 0,
+    "left": 1,
+    "right": 2,
+    "up": 3
+  },
+  "source": "C:\\Users\\there\\.codex\\generated_images\\019dc479-1bcb-77c0-90cb-d0d0c2cc4daa\\ig_066154525a16eabd0169ecbdb2d2e881968bb8713c04376346.png",
+  "sourceRawCopy": "green_warrior_sprint_raw_chromakey.png",
+  "anchor": {
+    "x": 32,
+    "y": 60,
+    "type": "bottom-center"
+  },
+  "normalization": {
+    "scale": 0.26976744186046514,
+    "maxSourceWidth": 194,
+    "maxSourceHeight": 215,
+    "background": "magenta chroma key removed locally",
+    "generationBase": "existing green_warrior idle, walk, and attack previews"
+  },
+  "animations": {
+    "sprint_down": [
+      {
+        "frame": 0,
+        "x": 0,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_down_01.png",
+        "sourceBox": [
+          54,
+          75,
+          229,
+          279
+        ],
+        "sourceSlotCenterX": 136.5
+      },
+      {
+        "frame": 1,
+        "x": 64,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_down_02.png",
+        "sourceBox": [
+          290,
+          75,
+          465,
+          285
+        ],
+        "sourceSlotCenterX": 378.5
+      },
+      {
+        "frame": 2,
+        "x": 128,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_down_03.png",
+        "sourceBox": [
+          528,
+          77,
+          716,
+          280
+        ],
+        "sourceSlotCenterX": 620.0
+      },
+      {
+        "frame": 3,
+        "x": 192,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_down_04.png",
+        "sourceBox": [
+          784,
+          75,
+          959,
+          285
+        ],
+        "sourceSlotCenterX": 865.5
+      },
+      {
+        "frame": 4,
+        "x": 256,
+        "y": 0,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_down_05.png",
+        "sourceBox": [
+          1029,
+          75,
+          1203,
+          285
+        ],
+        "sourceSlotCenterX": 1113.0
+      }
+    ],
+    "sprint_left": [
+      {
+        "frame": 0,
+        "x": 0,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_left_01.png",
+        "sourceBox": [
+          44,
+          371,
+          220,
+          569
+        ],
+        "sourceSlotCenterX": 136.5
+      },
+      {
+        "frame": 1,
+        "x": 64,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_left_02.png",
+        "sourceBox": [
+          282,
+          368,
+          475,
+          567
+        ],
+        "sourceSlotCenterX": 378.5
+      },
+      {
+        "frame": 2,
+        "x": 128,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_left_03.png",
+        "sourceBox": [
+          523,
+          370,
+          705,
+          569
+        ],
+        "sourceSlotCenterX": 620.0
+      },
+      {
+        "frame": 3,
+        "x": 192,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_left_04.png",
+        "sourceBox": [
+          765,
+          371,
+          952,
+          569
+        ],
+        "sourceSlotCenterX": 865.5
+      },
+      {
+        "frame": 4,
+        "x": 256,
+        "y": 64,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_left_05.png",
+        "sourceBox": [
+          1022,
+          373,
+          1203,
+          559
+        ],
+        "sourceSlotCenterX": 1113.0
+      }
+    ],
+    "sprint_right": [
+      {
+        "frame": 0,
+        "x": 0,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_right_01.png",
+        "sourceBox": [
+          64,
+          664,
+          229,
+          864
+        ],
+        "sourceSlotCenterX": 136.5
+      },
+      {
+        "frame": 1,
+        "x": 64,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_right_02.png",
+        "sourceBox": [
+          286,
+          664,
+          475,
+          867
+        ],
+        "sourceSlotCenterX": 378.5
+      },
+      {
+        "frame": 2,
+        "x": 128,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_right_03.png",
+        "sourceBox": [
+          536,
+          665,
+          717,
+          865
+        ],
+        "sourceSlotCenterX": 620.0
+      },
+      {
+        "frame": 3,
+        "x": 192,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_right_04.png",
+        "sourceBox": [
+          777,
+          664,
+          966,
+          863
+        ],
+        "sourceSlotCenterX": 865.5
+      },
+      {
+        "frame": 4,
+        "x": 256,
+        "y": 128,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_right_05.png",
+        "sourceBox": [
+          1025,
+          665,
+          1204,
+          862
+        ],
+        "sourceSlotCenterX": 1113.0
+      }
+    ],
+    "sprint_up": [
+      {
+        "frame": 0,
+        "x": 0,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_up_01.png",
+        "sourceBox": [
+          57,
+          940,
+          209,
+          1145
+        ],
+        "sourceSlotCenterX": 136.5
+      },
+      {
+        "frame": 1,
+        "x": 64,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_up_02.png",
+        "sourceBox": [
+          286,
+          940,
+          445,
+          1145
+        ],
+        "sourceSlotCenterX": 378.5
+      },
+      {
+        "frame": 2,
+        "x": 128,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_up_03.png",
+        "sourceBox": [
+          523,
+          941,
+          689,
+          1155
+        ],
+        "sourceSlotCenterX": 620.0
+      },
+      {
+        "frame": 3,
+        "x": 192,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_up_04.png",
+        "sourceBox": [
+          787,
+          940,
+          939,
+          1144
+        ],
+        "sourceSlotCenterX": 865.5
+      },
+      {
+        "frame": 4,
+        "x": 256,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "file": "frames/sprint_up_05.png",
+        "sourceBox": [
+          1022,
+          940,
+          1193,
+          1141
+        ],
+        "sourceSlotCenterX": 1113.0
+      }
+    ]
+  }
+}
