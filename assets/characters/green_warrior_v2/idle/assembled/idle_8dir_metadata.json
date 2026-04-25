@@ -1,0 +1,38 @@
+{
+  "character": "green_warrior_v2",
+  "animation": "idle",
+  "frame_count": 5,
+  "frame_size": [
+    64,
+    64
+  ],
+  "directions": [
+    "down",
+    "down_right",
+    "right",
+    "up_right",
+    "up",
+    "up_left",
+    "left",
+    "down_left"
+  ],
+  "sheet": "assets/characters/green_warrior_v2/idle/assembled/idle_8dir_sheet.png",
+  "rows": {
+    "down": 0,
+    "down_right": 1,
+    "right": 2,
+    "up_right": 3,
+    "up": 4,
+    "up_left": 5,
+    "left": 6,
+    "down_left": 7
+  },
+  "columns": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05"
+  ],
+  "status": "approved"
+}

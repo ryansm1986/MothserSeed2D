@@ -4,7 +4,7 @@ import titleImageUrl from "../assets/Title.png?url";
 import grassTerrainUrl from "../assets/world/terrain/rpg_grass_source/base_tiles_opaque/grass_plain.png?url";
 import { characterClasses, characterOrder } from "./game/content/classes";
 import { gameplayActionForCode, movementFromActions, type GameplayAction } from "./game/input-actions";
-import { clamp, directionFromVector, distance, dot, length, lengthSq, normalize } from "./game/math";
+import { cardinalDirectionFromVector, clamp, directionFromVector, distance, dot, length, lengthSq, normalize } from "./game/math";
 import type {
   AnimationName,
   ClassId,
@@ -20,7 +20,7 @@ import type {
   WorldAssetName,
 } from "./game/types";
 
-const warriorFrameUrls = import.meta.glob("../assets/characters/warrior/animated/*/*/frame_*.png", {
+const warriorFrameUrls = import.meta.glob("../assets/characters/green_warrior_v2/*/frames/*.png", {
   eager: true,
   import: "default",
   query: "?url",
@@ -51,6 +51,17 @@ const warriorSpriteDraw = {
   anchorY: 60,
   baselineOffset: 28,
 };
+const warriorDirections = ["down", "down_right", "right", "up_right", "up", "up_left", "left", "down_left"] as const satisfies readonly DirectionName[];
+const monsterDirections = ["down", "left", "right", "up"] as const;
+const warriorAnimationPaths = {
+  idle: "idle",
+  walk: "walk",
+  run: "run",
+  sprint: "sprint",
+  dodge_roll: "dodge",
+  attack1: "attack",
+  attack2: "special",
+} as const satisfies Record<Exclude<AnimationName, "damage" | "victory">, string>;
 const mossGolemSpriteDraw = {
   scale: 1.78,
   attackScale: 1.85,
@@ -358,7 +369,7 @@ async function loadSprites() {
   const output = {} as Record<DirectionName, Record<AnimationName, SpriteFrame[]>>;
   const animations = ["idle", "walk", "run", "sprint", "dodge_roll", "attack1", "attack2"] as const satisfies readonly AnimationName[];
 
-  await Promise.all((["down", "left", "right", "up"] as DirectionName[]).map(async (direction) => {
+  await Promise.all(warriorDirections.map(async (direction) => {
     output[direction] = {} as Record<AnimationName, SpriteFrame[]>;
     await Promise.all(animations.map(async (animation) => {
       const urls = getWarriorFrameUrls(direction, animation);
@@ -378,14 +389,17 @@ function makePingPongFrames<T>(frames: T[]): T[] {
 }
 
 function getWarriorFrameUrls(direction: DirectionName, animation: AnimationName): string[] {
-  const prefix = `../assets/characters/warrior/animated/${direction}/${animation}/`;
+  if (animation === "damage" || animation === "victory") return [];
+
+  const assetAnimation = warriorAnimationPaths[animation];
+  const prefix = `../assets/characters/green_warrior_v2/${assetAnimation}/frames/${assetAnimation}_${direction}_`;
   const urls = Object.entries(warriorFrameUrls)
     .filter(([path]) => path.startsWith(prefix))
     .sort(([left], [right]) => left.localeCompare(right))
     .map(([, url]) => url);
 
   if (urls.length === 0) {
-    throw new Error(`Missing exported warrior frames for ${direction}/${animation}. Run tools/krita/run_animate_warrior_sprites.ps1.`);
+    throw new Error(`Missing green_warrior_v2 frames for ${direction}/${animation}. Run tools/generate_green_warrior_v2_sprites.py.`);
   }
 
   return urls;
@@ -409,7 +423,7 @@ async function loadMonsterSprites() {
   const output = {} as Record<DirectionName, Record<MonsterAnimationName, SpriteFrame[]>>;
   const animations = ["idle", "walk", "run", "attack"] as const satisfies readonly MonsterAnimationName[];
 
-  await Promise.all((["down", "left", "right", "up"] as DirectionName[]).map(async (direction) => {
+  await Promise.all(monsterDirections.map(async (direction) => {
     output[direction] = {} as Record<MonsterAnimationName, SpriteFrame[]>;
     await Promise.all(animations.map(async (animation) => {
       const urls = getMossGolemFrameUrls(direction, animation);
@@ -481,11 +495,7 @@ function updatePlayer(delta: number) {
   const moving = lengthSq(input) > 0;
   if (moving) {
     normalize(input);
-    if (Math.abs(input.x) > Math.abs(input.y)) {
-      player.direction = input.x > 0 ? "right" : "left";
-    } else {
-      player.direction = input.y > 0 ? "down" : "up";
-    }
+    player.direction = directionFromVector(input);
     player.facing = { ...input };
   }
 
@@ -631,7 +641,7 @@ function updateEnemy(delta: number) {
   const toPlayer = { x: player.x - enemy.x, y: player.y - enemy.y };
   const distanceToPlayer = length(toPlayer);
   if (distanceToPlayer > 0.001) normalize(toPlayer);
-  if (distanceToPlayer > 0.001) enemy.direction = directionFromVector(toPlayer);
+  if (distanceToPlayer > 0.001) enemy.direction = cardinalDirectionFromVector(toPlayer);
 
   if (enemy.state === "idle") {
     if (distanceToPlayer > 110) {

@@ -1,0 +1,57 @@
+job_id,animation,direction,frame_count,status,base_sprite,generated_pose,raw_output,normalized_output,preview,qa_notes
+idle_down,idle,down,5,approved,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,assets/characters/green_warrior_v2/idle/raw/idle_down_pose.png,assets/characters/green_warrior_v2/idle/raw/idle_down_raw.png,assets/characters/green_warrior_v2/idle/frames/idle_down_01.png,assets/characters/green_warrior_v2/idle/preview/idle_down_preview.png,"Approved: 5 frames, 64x64, transparent background, down-facing idle loop, no scenery/labels, detached artifacts removed."
+idle_down_right,idle,down_right,5,approved,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,assets/characters/green_warrior_v2/idle/raw/idle_down_right_pose.png,assets/characters/green_warrior_v2/idle/raw/idle_down_right_raw.png,assets/characters/green_warrior_v2/idle/frames/idle_down_right_01.png,assets/characters/green_warrior_v2/idle/preview/idle_down_right_preview.png,"Approved after revision: 5 frames, 64x64, transparent background, screen-right down_right orientation, raw slots repacked with padding, no scenery/labels."
+idle_right,idle,right,5,approved,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,assets/characters/green_warrior_v2/idle/raw/idle_right_pose.png,assets/characters/green_warrior_v2/idle/raw/idle_right_raw.png,assets/characters/green_warrior_v2/idle/frames/idle_right_01.png,assets/characters/green_warrior_v2/idle/preview/idle_right_preview.png,"Approved: 5 frames, 64x64, transparent background, right-facing idle, raw slots repacked with padding, no scenery/labels."
+idle_up_right,idle,up_right,5,approved,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,assets/characters/green_warrior_v2/idle/raw/idle_up_right_pose.png,assets/characters/green_warrior_v2/idle/raw/idle_up_right_raw.png,assets/characters/green_warrior_v2/idle/frames/idle_up_right_01.png,assets/characters/green_warrior_v2/idle/preview/idle_up_right_preview.png,"Approved: 5 frames, 64x64, transparent background, up_right-facing idle, raw slots repacked with padding, no scenery/labels."
+idle_up,idle,up,5,approved,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,assets/characters/green_warrior_v2/idle/raw/idle_up_pose.png,assets/characters/green_warrior_v2/idle/raw/idle_up_raw.png,assets/characters/green_warrior_v2/idle/frames/idle_up_01.png,assets/characters/green_warrior_v2/idle/preview/idle_up_preview.png,"Approved: 5 frames, 64x64, transparent background, up-facing idle, raw slots repacked with padding, no scenery/labels."
+idle_up_left,idle,up_left,5,approved,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,assets/characters/green_warrior_v2/idle/raw/idle_up_left_pose.png,assets/characters/green_warrior_v2/idle/raw/idle_up_left_raw.png,assets/characters/green_warrior_v2/idle/frames/idle_up_left_01.png,assets/characters/green_warrior_v2/idle/preview/idle_up_left_preview.png,"Approved: 5 frames, 64x64, transparent background, up_left-facing idle, raw slots repacked with padding, no scenery/labels. Other thread owns idle_up."
+idle_left,idle,left,5,approved,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,assets/characters/green_warrior_v2/idle/raw/idle_left_pose.png,assets/characters/green_warrior_v2/idle/raw/idle_left_raw.png,assets/characters/green_warrior_v2/idle/frames/idle_left_01.png,assets/characters/green_warrior_v2/idle/preview/idle_left_preview.png,"Approved: 5 frames, 64x64, transparent background, left-facing idle, raw slots repacked with padding, no scenery/labels. Other thread owns idle_up."
+idle_down_left,idle,down_left,5,approved,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,assets/characters/green_warrior_v2/idle/raw/idle_down_left_pose.png,assets/characters/green_warrior_v2/idle/raw/idle_down_left_raw.png,assets/characters/green_warrior_v2/idle/frames/idle_down_left_01.png,assets/characters/green_warrior_v2/idle/preview/idle_down_left_preview.png,"Approved: 5 frames, 64x64, transparent background, down_left-facing idle, raw slots repacked with padding, no scenery/labels."
+walk_down,walk,down,8,approved,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,assets/characters/green_warrior_v2/walk/raw/walk_down_pose.png,assets/characters/green_warrior_v2/walk/raw/walk_down_raw.png,assets/characters/green_warrior_v2/walk/frames/walk_down_01.png,assets/characters/green_warrior_v2/walk/preview/walk_down_preview.png,"Approved: 8 frames, 64x64, transparent background, down-facing walk cycle, raw slots repacked with padding, no scenery/labels."
+walk_down_right,walk,down_right,8,approved,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,assets/characters/green_warrior_v2/walk/raw/walk_down_right_pose.png,assets/characters/green_warrior_v2/walk/raw/walk_down_right_raw.png,assets/characters/green_warrior_v2/walk/frames/walk_down_right_01.png,assets/characters/green_warrior_v2/walk/preview/walk_down_right_preview.png,Approved after focused sword repair: frames 7 and 8 now show sword in hand; see walk_down_right_frames_06_08_sword_check_8x.png.
+walk_right,walk,right,8,in_progress,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,assets/characters/green_warrior_v2/walk/raw/walk_right_pose.png,assets/characters/green_warrior_v2/walk/raw/walk_right_raw.png,assets/characters/green_warrior_v2/walk/frames/walk_right_01.png,assets/characters/green_warrior_v2/walk/preview/walk_right_preview.png,Current active Codex thread repair: use existing walk_right candidate and restore sword visibility in all frames.
+walk_up_right,walk,up_right,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+walk_up,walk,up,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+walk_up_left,walk,up_left,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+walk_left,walk,left,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+walk_down_left,walk,down_left,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+run_down,run,down,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+run_down_right,run,down_right,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+run_right,run,right,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+run_up_right,run,up_right,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+run_up,run,up,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+run_up_left,run,up_left,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+run_left,run,left,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+run_down_left,run,down_left,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+sprint_down,sprint,down,12,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+sprint_down_right,sprint,down_right,12,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+sprint_right,sprint,right,12,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+sprint_up_right,sprint,up_right,12,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+sprint_up,sprint,up,12,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+sprint_up_left,sprint,up_left,12,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+sprint_left,sprint,left,12,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+sprint_down_left,sprint,down_left,12,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+dodge_down,dodge,down,5,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+dodge_down_right,dodge,down_right,5,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+dodge_right,dodge,right,5,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+dodge_up_right,dodge,up_right,5,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+dodge_up,dodge,up,5,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+dodge_up_left,dodge,up_left,5,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+dodge_left,dodge,left,5,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+dodge_down_left,dodge,down_left,5,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+attack_down,attack,down,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+attack_down_right,attack,down_right,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+attack_right,attack,right,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+attack_up_right,attack,up_right,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+attack_up,attack,up,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+attack_up_left,attack,up_left,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+attack_left,attack,left,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+attack_down_left,attack,down_left,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+special_down,special,down,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+special_down_right,special,down_right,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+special_right,special,right,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+special_up_right,special,up_right,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+special_up,special,up,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+special_up_left,special,up_left,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+special_left,special,left,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,
+special_down_left,special,down_left,8,pending,assets/characters/green_warrior_v2/base/warrior_base_v2_transparent.png,,,,,

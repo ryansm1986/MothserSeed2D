@@ -1,4 +1,4 @@
-import type { DirectionName, FrameRect, Vec2 } from "./types";
+import type { CardinalDirectionName, DirectionName, FrameRect, Vec2 } from "./types";
 
 export function rects(values: Array<[number, number, number, number]>): FrameRect[] {
   return values.map(([x, y, w, h]) => ({ x, y, w, h }));
@@ -33,6 +33,34 @@ export function clamp(value: number, min: number, max: number) {
 }
 
 export function directionFromVector(vector: Vec2): DirectionName {
+  const magnitude = length(vector);
+  if (magnitude <= 0.0001) return "down";
+
+  const angle = Math.atan2(vector.y, vector.x);
+  const octant = Math.round(angle / (Math.PI / 4));
+  switch ((octant + 8) % 8) {
+    case 0:
+      return "right";
+    case 1:
+      return "down_right";
+    case 2:
+      return "down";
+    case 3:
+      return "down_left";
+    case 4:
+      return "left";
+    case 5:
+      return "up_left";
+    case 6:
+      return "up";
+    case 7:
+      return "up_right";
+    default:
+      return "down";
+  }
+}
+
+export function cardinalDirectionFromVector(vector: Vec2): CardinalDirectionName {
   if (Math.abs(vector.x) > Math.abs(vector.y)) {
     return vector.x > 0 ? "right" : "left";
   }
