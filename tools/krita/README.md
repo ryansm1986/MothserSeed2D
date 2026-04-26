@@ -1,5 +1,8 @@
 # Green Warrior Runtime Animation Export
 
+> Note: Active generation/QA for `green_warrior_v2` is tracked in `assets/characters/green_warrior_v2/PIPELINE_RESUME.md`.
+> Use `npm run pipeline:green-warrior-v2:resume` before continuing that queue.
+
 This folder contains the repeatable export step that prepares the player character frames used by the game.
 
 ## Source Of Truth
@@ -55,10 +58,16 @@ The app uses `walk` for regular movement, `sprint` while Shift sprinting, and `d
 
 ## Run Command
 
-From the project root:
+From the project root on Windows with Krita installed:
 
 ```powershell
 .\tools\krita\run_animate_warrior_sprites.ps1
+```
+
+Cross-platform fallback (sync runtime frames; preview exports require `ffmpeg`):
+
+```bash
+npm run pipeline:warrior
 ```
 
 The launcher still uses Krita's `kritarunner.com` so the existing desktop workflow remains stable:
@@ -67,7 +76,7 @@ The launcher still uses Krita's `kritarunner.com` so the existing desktop workfl
 C:\Program Files\Krita (x64)\bin\kritarunner.com
 ```
 
-The script itself is now lightweight: it syncs the already-normalized `green_warrior` frames and uses Krita's bundled `ffmpeg.exe` to emit preview animations.
+The script itself is now lightweight: it syncs the already-normalized `green_warrior` frames and uses Krita's bundled `ffmpeg.exe` (or `MOTHERSEED_FFMPEG` / system `ffmpeg`) to emit preview animations.
 
 ## Output
 
@@ -85,7 +94,7 @@ dist/sprite-previews/warrior/
 
 Note: `npm run build` clears `dist/`, so preview files may disappear after a production build. The runtime frames under `assets/characters/warrior/animated/` are the important bundled game assets.
 
-Expected output:
+Expected output when `ffmpeg` is available:
 
 ```text
 28 GIF previews

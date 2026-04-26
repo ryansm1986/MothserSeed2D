@@ -56,7 +56,8 @@ At the latest check:
 
 - `approved`: 10
 - `in_progress`: 1
-- `pending`: 45
+- `needs_revision`: 1
+- `pending`: 44
 
 Approved rows:
 
@@ -73,9 +74,11 @@ Approved rows:
 
 Current active row:
 
-- `walk_right` is `in_progress`
+- `walk_up_right` is `in_progress`
 
-Do not approve `walk_right` until sword visibility is inspected and fixed across the full walk cycle.
+Parked row requiring follow-up:
+
+- `walk_right` is `needs_revision` pending focused sword QA/repair on late frames.
 
 ## Completed Work
 
@@ -98,7 +101,8 @@ Walk progress:
 
 - `walk_down` is approved.
 - `walk_down_right` is approved after a focused local sword repair.
-- `walk_right` is in progress and should be resumed next.
+- `walk_right` is parked in `needs_revision` for focused sword follow-up.
+- `walk_up_right` is now the active `in_progress` row (next available animation in plan order).
 
 ## Critical Recent Context
 
@@ -234,13 +238,12 @@ Visual checks:
 ## Immediate Resume Checklist
 
 1. Read `C:/Projects/MotherSeed2D/assets/characters/green_warrior_v2/animation_queue.csv`.
-2. Confirm `walk_right` is still the only `in_progress` row.
-3. Open `C:/Projects/MotherSeed2D/assets/characters/green_warrior_v2/walk/preview/walk_right_repair_inspect_4x.png`.
-4. Create or refresh an 8x close preview for `walk_right` frames 6-8.
-5. If any late frame is missing the sword, repair the normalized frame locally using the nearest good `walk_right` sword frame as the source.
-6. Rebuild `walk_right` previews and QA markdown.
-7. Mark `walk_right` approved only after sword visibility passes.
-8. Continue with `walk_up_right`, then follow the plan order.
+2. Confirm `walk_up_right` is the only `in_progress` row.
+3. Generate `walk_up_right` using only the canonical `green_warrior_v2` base reference.
+4. Repack and normalize to eight `64x64` frames with shared bottom-center anchoring.
+5. Render standard and enlarged previews, then run mechanical + visual QA.
+6. Mark `walk_up_right` approved only after QA passes.
+7. Return to `walk_right` (`needs_revision`) and finish the focused sword late-frame repair/QA before continuing further rows.
 
 ## Coordination Rule
 
