@@ -1,0 +1,80 @@
+{
+  "job": "sprint_down_left",
+  "direction": "down_left",
+  "source": "assets\\characters\\green_warrior_v3\\sprint\\raw\\sprint_down_left_imagegen_base_only_chromakey.png",
+  "base_reference_only": "assets/characters/green_warrior_v3/base/warrior_base_v3_seed_128.png",
+  "source_size": [
+    2172,
+    724
+  ],
+  "source_bboxes": [
+    [
+      5,
+      217,
+      272,
+      522
+    ],
+    [
+      272,
+      251,
+      543,
+      521
+    ],
+    [
+      543,
+      225,
+      814,
+      529
+    ],
+    [
+      814,
+      221,
+      1072,
+      527
+    ],
+    [
+      1098,
+      228,
+      1347,
+      531
+    ],
+    [
+      1358,
+      241,
+      1629,
+      528
+    ],
+    [
+      1629,
+      241,
+      1900,
+      528
+    ],
+    [
+      1900,
+      221,
+      2128,
+      527
+    ]
+  ],
+  "shared_scale": 0.3396551724137931,
+  "height_px_per_frame": [
+    98,
+    86,
+    98,
+    98,
+    97,
+    92,
+    92,
+    98
+  ],
+  "height_drift_px": 12,
+  "worst_padding_ltrb": [
+    18,
+    14,
+    18,
+    16
+  ],
+  "raw_slot_w": 640,
+  "raw_gutter_min_estimate_px": 369
+}

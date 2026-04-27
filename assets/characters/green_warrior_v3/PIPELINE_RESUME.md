@@ -1,6 +1,6 @@
 # green_warrior_v3 128 Sprite Pipeline Workflow And Resume Notes
 
-Last updated: 2026-04-26 after redoing all walk rows from the canonical base reference only and updating idle rows to a natural standing stance from the same base-only source rule.
+Last updated: 2026-04-26 after regenerating `walk_right` from a fresh base-only source strip with the explicit footfall cadence `right foot forward > feet middle > left foot forward > feet middle`, then approving the row.
 
 This document is the handoff note for running the `green_warrior_v3` sprite pipeline without mixing in another character, task, or thread.
 
@@ -78,10 +78,10 @@ All frames in one job must share the same profile. If a runtime integration requ
 
 At the latest check:
 
-- `pending`: 8
+- `pending`: 0
 - `in_progress`: 0
 - `needs_revision`: 1
-- `approved`: 39
+- `approved`: 47
 - `rejected`: 0
 
 Allowed queue statuses are exactly:
@@ -96,22 +96,13 @@ Multiple rows may be `in_progress` when multiple agents are active. Each `in_pro
 
 Queue rows currently marked `in_progress`: none
 
-Queue rows currently marked `pending`:
-
-- `sprint_down`
-- `sprint_down_right`
-- `sprint_right`
-- `sprint_up_right`
-- `sprint_up`
-- `sprint_up_left`
-- `sprint_left`
-- `sprint_down_left`
+Queue rows currently marked `pending`: none
 
 Queue rows currently marked `needs_revision`:
 
 - `special_left`
 
-There are 39 approved rows. Use `animation_queue.csv` as the source of truth for the full approved list.
+There are 47 approved rows. Use `animation_queue.csv` as the source of truth for the full approved list.
 
 ## Existing Outputs And Regeneration Policy
 
@@ -141,13 +132,32 @@ Walk outputs were redone on 2026-04-26 from the canonical base reference only:
 - All 8 walk directions are approved from fresh base-reference-only v3 source strips.
 - Each row has 8 frames normalized to the default v3 profile: `128x128`, anchor `{ x: 64, y: 120 }`.
 - Source method: each walk row was image-generated as a fresh 8-pose horizontal source strip using only the visible canonical v3 base/seed as visual reference. Do not use old walk outputs, idle outputs, dodge/sprint/action frames, v2 material, repaired strips, or normalized historical frames as source for this pass.
+- `walk_right` was regenerated again on 2026-04-26 because the previous right-facing walk read as sliding/floating, then regenerated once more to enforce the requested footfall cadence. The approved replacement uses the sequence `right foot/screen-right boot forward`, `feet in the middle`, `opposite/left foot forward`, `feet in the middle`, then repeats for frames 5-8. It uses a fresh base-only source strip and was repacked into wide raw gutters before normalization.
+- Rejected `walk_right` attempt: `assets/characters/green_warrior_v3/walk/raw/walk_right_rejected_tight_gutters_chromakey.png` improved foot motion but was rejected for tight native gutters.
+- Rejected `walk_right` attempt: `assets/characters/green_warrior_v3/walk/raw/walk_right_rejected_grounded_wrong_cadence_chromakey.png` was grounded but did not make the requested right/middle/left/middle cadence explicit enough.
 - Mechanical QA result: 64 walk frames, all `128x128`, transparent background, no empty frames, no normalized-frame edge contact, and 8 frames per direction.
+- Mechanical QA result for regenerated `walk_right`: 8 frames, all `128x128`, transparent background, no empty frames, no normalized-frame edge contact, one alpha component per frame, shared scale `0.4082`, height drift `3px`, worst padding L/T/R/B `[31, 12, 31, 16]`, and raw repack gutter estimate `520px`.
 - The successful walk prompts explicitly described the direction in camera terms, required the spiky-haired base identity, and stated that no other character reference should be used.
 - Raw strips use `640px` slots per pose after chroma cleanup/repack. The original image-generated sources are preserved as `assets/characters/green_warrior_v3/walk/raw/walk_<direction>_imagegen_base_only_chromakey.png`.
 - Frames live under `assets/characters/green_warrior_v3/walk/frames`.
 - QA notes live under `assets/characters/green_warrior_v3/walk/qa`.
 - Review contact sheet: `assets/characters/green_warrior_v3/walk/preview/walk_base_only_redo_contact_4x.png`.
 - Existing walk assembly outputs, if present, are stale relative to this redo unless rebuilt in a separate assembly step.
+
+Sprint outputs were redone on 2026-04-26 from the canonical base reference only:
+
+- All 8 sprint directions are approved from fresh base-reference-only v3 source strips.
+- Each row has 8 frames normalized to the default v3 profile: `128x128`, anchor `{ x: 64, y: 120 }`.
+- Source method: each sprint row was image-generated as a fresh 8-pose horizontal source strip using only the visible canonical v3 base/seed as visual reference. Do not use idle, walk, old sprint, dodge, attack, special, v2 material, repaired strips, normalized historical frames, or other character folders as source for sprint approvals.
+- Mechanical QA result: 64 sprint frames, all `128x128`, transparent background, no empty frames, no normalized-frame edge contact, and 8 frames per direction.
+- Final visual QA also checked and removed detached source specks/secondary alpha fragments from normalized frames, then regenerated the standard, 4x, weapon/no-shield, side-padding/no-crop, motion overlay, and GIF previews.
+- The successful sprint prompts described each direction in camera terms and asked for an energetic forward lean, long alternating stride, torso bob, sword-arm counter-swing, scarf/hair/cloth response, and the sword held in the character's right hand.
+- Raw strips use `640px` slots per pose after chroma cleanup/repack. The original image-generated sources are preserved as `assets/characters/green_warrior_v3/sprint/raw/sprint_<direction>_imagegen_base_only_chromakey.png`.
+- Rejected source attempt: `assets/characters/green_warrior_v3/sprint/raw/sprint_up_left_rejected_offhand_duplicate_sword_chromakey.png` was rejected for duplicated/off-hand sword before the accepted `sprint_up_left` pass.
+- Frames live under `assets/characters/green_warrior_v3/sprint/frames`.
+- QA notes live under `assets/characters/green_warrior_v3/sprint/qa`.
+- Review contact sheet: `assets/characters/green_warrior_v3/sprint/preview/sprint_base_only_redo_contact_4x.png`.
+- Existing sprint assembly outputs, if present, are stale relative to this redo unless rebuilt in a separate assembly step.
 
 Attack is being regenerated from full image-generation sources:
 

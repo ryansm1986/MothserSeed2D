@@ -1,7 +1,7 @@
 import "./style.css";
 import rpgAssetsUrl from "../assets/RPGAssets.png?url";
 import titleImageUrl from "../assets/Title.png?url";
-import grassTerrainUrl from "../assets/world/terrain/rpg_grass_source/base_tiles_opaque/grass_plain.png?url";
+import largeGrassTerrainUrl from "../assets/world/terrain/large_grass.png?url";
 import { characterClasses, characterOrder } from "./game/content/classes";
 import { gameplayActionForCode, movementFromActions, type GameplayAction } from "./game/input-actions";
 import { cardinalDirectionFromVector, clamp, directionFromVector, distance, dot, length, lengthSq, normalize } from "./game/math";
@@ -37,11 +37,6 @@ const mossGolemFrameUrls = import.meta.glob("../assets/monsters/moss_golem/*/fra
   import: "default",
   query: "?url",
 }) as Record<string, string>;
-const grassTerrainVariantUrls = import.meta.glob("../assets/world/terrain/rpg_grass_source/tiles/*.png", {
-  eager: true,
-  import: "default",
-  query: "?url",
-}) as Record<string, string>;
 const grassTerrainPropUrls = import.meta.glob("../assets/world/terrain/rpg_grass_source/props/*.png", {
   eager: true,
   import: "default",
@@ -65,6 +60,11 @@ const warriorSpriteDraw = {
     anchorY: 376,
     baselineOffset: 28,
   },
+};
+const warriorAttackDirectionScale: Partial<Record<DirectionName, number>> = {
+  up: 1.08,
+  left: 1.14,
+  right: 1.14,
 };
 const warriorDirections = ["down", "down_right", "right", "up_right", "up", "up_left", "left", "down_left"] as const satisfies readonly DirectionName[];
 const monsterDirections = ["down", "left", "right", "up"] as const;
@@ -203,6 +203,7 @@ const player = {
   staminaRegen: 18,
   dodgeSpeed: 680,
   dodgeTime: 0,
+  dodgeAnimTime: 0,
   invulnerableTime: 0,
   facing: { x: 0, y: -1 },
   anim: "idle" as AnimationName,
@@ -266,13 +267,35 @@ const animatedGrassTufts = Array.from({ length: 34 }, (_, index) => {
   };
 });
 
+const groveClearings = [
+  { x: world.center.x - 20, y: world.center.y + 40, rx: 500, ry: 315, rotation: -0.08, alpha: 0.18 },
+  { x: world.center.x - 430, y: world.center.y + 260, rx: 245, ry: 130, rotation: -0.28, alpha: 0.13 },
+  { x: world.center.x + 420, y: world.center.y - 155, rx: 280, ry: 150, rotation: 0.18, alpha: 0.12 },
+];
+
+const grovePathRoutes: Vec2[][] = [
+  [
+    { x: -140, y: world.center.y + 310 },
+    { x: world.center.x - 520, y: world.center.y + 255 },
+    { x: world.center.x - 150, y: world.center.y + 120 },
+    { x: world.center.x + 285, y: world.center.y - 15 },
+    { x: world.width + 140, y: world.center.y - 145 },
+  ],
+  [
+    { x: world.center.x - 60, y: -120 },
+    { x: world.center.x - 100, y: world.center.y - 365 },
+    { x: world.center.x + 40, y: world.center.y - 40 },
+    { x: world.center.x + 170, y: world.center.y + 315 },
+    { x: world.center.x + 230, y: world.height + 120 },
+  ],
+];
+
 const pressedActions = new Set<GameplayAction>();
 const cooldowns = new Map<string, number>();
 let sprites: Record<DirectionName, Record<AnimationName, SpriteFrame[]>> | null = null;
 let monsterSprites: Record<DirectionName, Record<MonsterAnimationName, SpriteFrame[]>> | null = null;
 let worldAssets: Partial<Record<WorldAssetName, SpriteFrame>> = {};
 let grassTerrainTile: SpriteFrame | null = null;
-let grassTerrainVariants: Record<string, SpriteFrame> = {};
 let grassTerrainProps: Record<string, SpriteFrame> = {};
 let animatedGrassFrames: SpriteFrame[] = [];
 let targetLocked = true;
@@ -472,7 +495,7 @@ async function loadMonsterSprites() {
 
 async function loadWorldAssets() {
   const image = await loadImage(rpgAssetsUrl);
-  const grassImage = await loadImage(grassTerrainUrl);
+  const grassImage = await loadImage(largeGrassTerrainUrl);
   const output: Partial<Record<WorldAssetName, SpriteFrame>> = {};
 
   (Object.keys(worldAssetRects) as WorldAssetName[]).forEach((name) => {
@@ -480,7 +503,6 @@ async function loadWorldAssets() {
   });
 
   grassTerrainTile = makeImageFrame(grassImage);
-  grassTerrainVariants = await loadFrameMap(grassTerrainVariantUrls);
   grassTerrainProps = await loadFrameMap(grassTerrainPropUrls);
   animatedGrassFrames = (await Promise.all(
     Object.entries(animatedGrassFrameUrls)
@@ -513,6 +535,7 @@ function resizeCanvas() {
 function updatePlayer(delta: number) {
   if (player.lifeState === "dead") {
     player.dodgeTime = 0;
+    player.dodgeAnimTime = 0;
     player.invulnerableTime = 0;
     player.attackFlash = 0;
     player.specialFlash = 0;
@@ -521,6 +544,7 @@ function updatePlayer(delta: number) {
   }
 
   player.dodgeTime = Math.max(0, player.dodgeTime - delta);
+  player.dodgeAnimTime = Math.max(0, player.dodgeAnimTime - delta);
   player.invulnerableTime = Math.max(0, player.invulnerableTime - delta);
   player.attackFlash = Math.max(0, player.attackFlash - delta);
   player.specialFlash = Math.max(0, player.specialFlash - delta);
@@ -546,6 +570,7 @@ function updatePlayer(delta: number) {
   if (pressedActions.has("dodge") && player.stamina >= 28 && player.dodgeTime <= 0) {
     player.stamina -= 28;
     player.dodgeTime = 0.24;
+    player.dodgeAnimTime = 0.44;
     player.invulnerableTime = 0.38;
     pushLog("Dodge window", "");
   }
@@ -566,7 +591,7 @@ function updatePlayer(delta: number) {
       ? "attack2"
       : player.attackFlash > 0
         ? "attack1"
-        : player.dodgeTime > 0
+        : player.dodgeAnimTime > 0
           ? "dodge_roll"
           : sprinting
           ? "sprint"
@@ -596,18 +621,20 @@ function updateSpriteAnimation(nextAnim: AnimationName, delta: number) {
     player.anim === "idle"
       ? 0.22
       : player.anim === "attack1"
-        ? 0.06
+        ? 0.12
         : player.anim === "attack2"
-          ? 0.075
+          ? 0.13
           : player.anim === "dodge_roll"
-            ? 0.048
+            ? 0.125
             : player.anim === "sprint"
               ? 0.075
               : 0.105;
   const frames = sprites?.[player.direction][player.anim];
   if (frames && player.animTimer >= rate) {
     player.animTimer = 0;
-    player.animFrame = (player.animFrame + 1) % frames.length;
+    const oneShot = player.anim === "attack1" || player.anim === "attack2" || player.anim === "dodge_roll";
+    const nextFrame = player.animFrame + 1;
+    player.animFrame = oneShot && nextFrame >= frames.length ? frames.length - 1 : nextFrame % frames.length;
   }
 }
 
@@ -651,7 +678,7 @@ function updateAutoAttack() {
   if (distance(player, enemy) > 120 || player.autoTimer > 0) return;
 
   player.autoTimer = 1.35;
-  player.attackFlash = 0.5;
+  player.attackFlash = 1.05;
   player.autoCount += 1;
 
   let damage = 8 + equippedGear.power;
@@ -786,7 +813,7 @@ function castSpecial(index: number) {
 
   player.meter -= ability.cost;
   cooldowns.set(ability.id, ability.cooldown);
-  player.specialFlash = 0.64;
+  player.specialFlash = 1.18;
 
   if (ability.id === "shield-break") {
     dealEnemyDamage(20 + equippedGear.power, "Shield Break");
@@ -932,6 +959,8 @@ function respawnPlayer() {
   player.health = player.maxHealth;
   player.stamina = player.maxStamina;
   player.meter = 0;
+  player.dodgeTime = 0;
+  player.dodgeAnimTime = 0;
   player.invulnerableTime = 1.2;
   player.direction = "down";
   player.facing = { x: 0, y: -1 };
@@ -980,52 +1009,106 @@ function drawWorld() {
 }
 
 function drawTileGround() {
-  const grassTile = grassTerrainTile ?? worldAssets.grassTile;
-  if (!grassTile) {
+  const grassTexture = grassTerrainTile ?? worldAssets.grassTile;
+  if (!grassTexture) {
     ctx.fillStyle = "#6b8f32";
     ctx.fillRect(0, 0, world.width, world.height);
     return;
   }
 
-  drawBaseGrassLayer(grassTile);
-  drawGrassVariantLayer();
+  drawLargeGrassLayer(grassTexture);
+  drawGroveClearings();
+  drawGrassPathNetwork();
   drawTerrainPropLayer();
   drawAnimatedGrassLayer();
+  drawArenaBoundaryShade();
 }
 
-function drawBaseGrassLayer(grassTile: SpriteFrame) {
-  for (let y = 0; y < world.height; y += terrainTileSize) {
-    for (let x = 0; x < world.width; x += terrainTileSize) {
-      const col = x / terrainTileSize;
-      const row = y / terrainTileSize;
-      drawTileImage(grassTile, x, y, terrainTileSize + 1, terrainTileSize + 1, terrainNoise(col, row, 4) > 0.5, terrainNoise(col, row, 8) > 0.5);
+function drawLargeGrassLayer(grassTexture: SpriteFrame) {
+  ctx.save();
+  ctx.fillStyle = "#7fac38";
+  ctx.fillRect(0, 0, world.width, world.height);
+
+  for (let y = 0; y < world.height; y += grassTexture.h) {
+    for (let x = 0; x < world.width; x += grassTexture.w) {
+      ctx.drawImage(grassTexture.canvas, x, y, grassTexture.w + 1, grassTexture.h + 1);
     }
   }
+
+  ctx.globalAlpha = 0.18;
+  ctx.globalCompositeOperation = "multiply";
+  for (let index = 0; index < 20; index += 1) {
+    const angle = index * 2.399963;
+    const radius = 130 + ((index * 127) % 620);
+    const x = world.center.x + Math.cos(angle) * radius;
+    const y = world.center.y + Math.sin(angle) * radius * 0.72;
+    ctx.fillStyle = index % 3 === 0 ? "#5e7330" : "#446038";
+    ctx.beginPath();
+    ctx.ellipse(x, y, 95 + (index % 4) * 25, 44 + (index % 5) * 14, angle * 0.25, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  ctx.restore();
 }
 
-function drawGrassVariantLayer() {
-  const moss = grassTerrainVariants.moss_grass_plain;
-  const dirt = grassTerrainVariants.grass_dirt_transition;
-  const path = grassTerrainVariants.dirt_path_grass_edges;
-  if (!moss && !dirt && !path) return;
+function drawGroveClearings() {
+  ctx.save();
+  ctx.globalCompositeOperation = "screen";
+  groveClearings.forEach((clearing) => {
+    ctx.globalAlpha = clearing.alpha;
+    ctx.fillStyle = "#b7c95a";
+    ctx.beginPath();
+    ctx.ellipse(clearing.x, clearing.y, clearing.rx, clearing.ry, clearing.rotation, 0, Math.PI * 2);
+    ctx.fill();
+  });
+  ctx.restore();
+}
+
+function drawGrassPathNetwork() {
+  grovePathRoutes.forEach((route, index) => {
+    drawSoftRoute(route, 118 - index * 12, "rgba(55, 72, 28, 0.24)");
+    drawSoftRoute(route, 72 - index * 8, "rgba(151, 164, 68, 0.19)");
+    drawSoftRoute(route, 22, "rgba(232, 221, 126, 0.09)");
+  });
+}
+
+function drawSoftRoute(points: Vec2[], width: number, strokeStyle: string) {
+  if (points.length < 2) return;
 
   ctx.save();
-  for (let y = 0; y < world.height; y += terrainTileSize) {
-    for (let x = 0; x < world.width; x += terrainTileSize) {
-      const col = x / terrainTileSize;
-      const row = y / terrainTileSize;
-      const roll = terrainNoise(col, row, 18);
-      const tile =
-        roll < 0.075 ? moss :
-        roll < 0.105 ? dirt :
-        roll < 0.128 ? path :
-        null;
-      if (!tile) continue;
+  ctx.lineWidth = width;
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  ctx.strokeStyle = strokeStyle;
+  ctx.beginPath();
+  ctx.moveTo(points[0].x, points[0].y);
 
-      ctx.globalAlpha = roll < 0.075 ? 0.36 : 0.24;
-      drawTileImage(tile, x, y, terrainTileSize + 1, terrainTileSize + 1, terrainNoise(col, row, 27) > 0.5, terrainNoise(col, row, 31) > 0.5);
-    }
+  for (let index = 1; index < points.length - 1; index += 1) {
+    const current = points[index];
+    const next = points[index + 1];
+    ctx.quadraticCurveTo(current.x, current.y, (current.x + next.x) / 2, (current.y + next.y) / 2);
   }
+
+  const last = points[points.length - 1];
+  ctx.lineTo(last.x, last.y);
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawArenaBoundaryShade() {
+  ctx.save();
+  ctx.fillStyle = "rgba(6, 16, 11, 0.32)";
+  ctx.beginPath();
+  ctx.rect(0, 0, world.width, world.height);
+  ctx.ellipse(world.center.x, world.center.y, world.safeRadius, world.safeRadius * 0.74, 0, 0, Math.PI * 2);
+  ctx.fill("evenodd");
+
+  ctx.strokeStyle = "rgba(223, 215, 127, 0.2)";
+  ctx.lineWidth = 7;
+  ctx.setLineDash([28, 24]);
+  ctx.beginPath();
+  ctx.ellipse(world.center.x, world.center.y, world.safeRadius - 10, (world.safeRadius - 10) * 0.74, 0, 0, Math.PI * 2);
+  ctx.stroke();
   ctx.restore();
 }
 
@@ -1117,7 +1200,7 @@ function drawPlayer() {
   if (!frame) return;
 
   const drawProfile = getWarriorDrawProfile(player.anim);
-  const scale = drawProfile.scale;
+  const scale = drawProfile.scale * getWarriorDirectionScale(player.anim, player.direction);
   const width = frame.w * scale;
   const height = frame.h * scale;
   const flash = player.invulnerableTime > 0 && Math.floor(performance.now() / 75) % 2 === 0;
@@ -1134,6 +1217,10 @@ function getWarriorDrawProfile(animation: AnimationName) {
   return animation === "attack1" || animation === "attack2"
     ? warriorSpriteDraw.wideAction
     : warriorSpriteDraw.standard;
+}
+
+function getWarriorDirectionScale(animation: AnimationName, direction: DirectionName) {
+  return animation === "attack1" ? warriorAttackDirectionScale[direction] ?? 1 : 1;
 }
 
 function drawEnemy() {

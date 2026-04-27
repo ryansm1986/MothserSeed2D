@@ -7,74 +7,131 @@
     2172,
     724
   ],
+  "source_key_rgb": [
+    245,
+    9,
+    242
+  ],
   "source_bboxes": [
     [
-      50,
-      194,
-      231,
-      513
+      56,
+      242,
+      218,
+      483
     ],
     [
-      321,
-      194,
-      515,
-      513
+      329,
+      239,
+      459,
+      484
     ],
     [
-      586,
-      190,
-      786,
-      507
+      607,
+      242,
+      756,
+      484
     ],
     [
-      859,
-      196,
-      1060,
-      513
+      876,
+      243,
+      1025,
+      482
     ],
     [
-      1124,
-      203,
-      1334,
-      512
+      1139,
+      246,
+      1299,
+      486
     ],
     [
-      1395,
-      196,
-      1581,
-      507
+      1419,
+      245,
+      1556,
+      484
     ],
     [
-      1664,
-      205,
-      1857,
-      516
+      1695,
+      242,
+      1849,
+      482
     ],
     [
-      1916,
-      195,
-      2102,
-      512
+      1969,
+      244,
+      2109,
+      482
     ]
   ],
-  "shared_scale": 0.3250825082508251,
+  "raw_bboxes": [
+    [
+      256,
+      241,
+      418,
+      482
+    ],
+    [
+      946,
+      239,
+      1076,
+      484
+    ],
+    [
+      1610,
+      241,
+      1759,
+      483
+    ],
+    [
+      2284,
+      242,
+      2433,
+      481
+    ],
+    [
+      2953,
+      242,
+      3113,
+      482
+    ],
+    [
+      3638,
+      242,
+      3775,
+      481
+    ],
+    [
+      4304,
+      242,
+      4458,
+      482
+    ],
+    [
+      4985,
+      243,
+      5125,
+      481
+    ]
+  ],
+  "shared_scale": 0.40816326530612246,
   "height_px_per_frame": [
     98,
+    100,
+    99,
     98,
     98,
     98,
-    95,
-    96,
-    96,
-    98
+    98,
+    97
   ],
   "height_drift_px": 3,
   "worst_padding_ltrb": [
-    33,
-    14,
-    32,
+    31,
+    12,
+    31,
     16
   ],
-  "raw_slot_w": 640,
-  "raw_gutter_min_estimate_px": 430
+  "raw_slot_w": 674,
+  "raw_gutter_min_estimate_px": 520,
+  "footfall_sequence": "1 right-foot/screen-right boot forward, 2 feet middle, 3 opposite/left foot forward, 4 feet middle, 5 right-foot forward, 6 feet middle, 7 opposite/left foot forward, 8 feet middle",
+  "accepted_source_note": "Fresh regenerated walk_right strip with explicit right-foot-forward > feet-middle > left-foot-forward > feet-middle cadence."
 }

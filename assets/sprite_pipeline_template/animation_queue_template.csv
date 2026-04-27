@@ -1,0 +1,2 @@
+job_id,animation,direction,frame_count,status,base_sprite,generated_pose,raw_output,normalized_output,preview,gif,qa_notes
+<animation>_<direction>,<animation>,<direction>,<frame_count>,pending,<base_image_path>,,,,,assets/<subject_folder>/<animation>/gif/<animation>_<direction>.gif,"Fresh pipeline row. Replace placeholders after intake."

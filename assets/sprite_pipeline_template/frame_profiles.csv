@@ -1,0 +1,3 @@
+profile,animations,frame_width,frame_height,anchor_x,anchor_y,min_top_side_padding_px,min_floor_padding_px,min_initial_source_spacing_px,min_raw_gutter_px,notes
+default_128,"idle;walk;run;sprint;dodge;hurt;block;interact",128,128,64,120,12,8,128,256,"Default gameplay profile. Generate a fresh source strip with at least one full frame of empty space between neighboring visible poses before cleanup/repack."
+expanded_action_384,"attack;cast;special;skill;death;large_effect",384,384,192,376,96,8,384,3072,"Expanded action profile for large body motion, weapons, wings, tails, leaps, spells, flashes, and special effects. Use one fixed scale across the job."
