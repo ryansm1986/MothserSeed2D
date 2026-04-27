@@ -1,0 +1,456 @@
+{
+  "animation": "attack",
+  "subject": "tree_goblin",
+  "direction_order": [
+    "south",
+    "southeast",
+    "east",
+    "northeast",
+    "north",
+    "northwest",
+    "west",
+    "southwest"
+  ],
+  "frame_count": 8,
+  "frame_width": 384,
+  "frame_height": 384,
+  "anchor": {
+    "x": 192,
+    "y": 376
+  },
+  "profile": "expanded_action_384",
+  "rows": [
+    {
+      "direction": "south",
+      "job_id": "attack_south",
+      "frames": [
+        {
+          "index": 1,
+          "x": 0,
+          "y": 0,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_south_01.png"
+        },
+        {
+          "index": 2,
+          "x": 384,
+          "y": 0,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_south_02.png"
+        },
+        {
+          "index": 3,
+          "x": 768,
+          "y": 0,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_south_03.png"
+        },
+        {
+          "index": 4,
+          "x": 1152,
+          "y": 0,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_south_04.png"
+        },
+        {
+          "index": 5,
+          "x": 1536,
+          "y": 0,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_south_05.png"
+        },
+        {
+          "index": 6,
+          "x": 1920,
+          "y": 0,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_south_06.png"
+        },
+        {
+          "index": 7,
+          "x": 2304,
+          "y": 0,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_south_07.png"
+        },
+        {
+          "index": 8,
+          "x": 2688,
+          "y": 0,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_south_08.png"
+        }
+      ]
+    },
+    {
+      "direction": "southeast",
+      "job_id": "attack_southeast",
+      "frames": [
+        {
+          "index": 1,
+          "x": 0,
+          "y": 384,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_southeast_01.png"
+        },
+        {
+          "index": 2,
+          "x": 384,
+          "y": 384,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_southeast_02.png"
+        },
+        {
+          "index": 3,
+          "x": 768,
+          "y": 384,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_southeast_03.png"
+        },
+        {
+          "index": 4,
+          "x": 1152,
+          "y": 384,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_southeast_04.png"
+        },
+        {
+          "index": 5,
+          "x": 1536,
+          "y": 384,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_southeast_05.png"
+        },
+        {
+          "index": 6,
+          "x": 1920,
+          "y": 384,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_southeast_06.png"
+        },
+        {
+          "index": 7,
+          "x": 2304,
+          "y": 384,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_southeast_07.png"
+        },
+        {
+          "index": 8,
+          "x": 2688,
+          "y": 384,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_southeast_08.png"
+        }
+      ]
+    },
+    {
+      "direction": "east",
+      "job_id": "attack_east",
+      "frames": [
+        {
+          "index": 1,
+          "x": 0,
+          "y": 768,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_east_01.png"
+        },
+        {
+          "index": 2,
+          "x": 384,
+          "y": 768,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_east_02.png"
+        },
+        {
+          "index": 3,
+          "x": 768,
+          "y": 768,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_east_03.png"
+        },
+        {
+          "index": 4,
+          "x": 1152,
+          "y": 768,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_east_04.png"
+        },
+        {
+          "index": 5,
+          "x": 1536,
+          "y": 768,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_east_05.png"
+        },
+        {
+          "index": 6,
+          "x": 1920,
+          "y": 768,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_east_06.png"
+        },
+        {
+          "index": 7,
+          "x": 2304,
+          "y": 768,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_east_07.png"
+        },
+        {
+          "index": 8,
+          "x": 2688,
+          "y": 768,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_east_08.png"
+        }
+      ]
+    },
+    {
+      "direction": "northeast",
+      "job_id": "attack_northeast",
+      "frames": [
+        {
+          "index": 1,
+          "x": 0,
+          "y": 1152,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_northeast_01.png"
+        },
+        {
+          "index": 2,
+          "x": 384,
+          "y": 1152,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_northeast_02.png"
+        },
+        {
+          "index": 3,
+          "x": 768,
+          "y": 1152,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_northeast_03.png"
+        },
+        {
+          "index": 4,
+          "x": 1152,
+          "y": 1152,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_northeast_04.png"
+        },
+        {
+          "index": 5,
+          "x": 1536,
+          "y": 1152,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_northeast_05.png"
+        },
+        {
+          "index": 6,
+          "x": 1920,
+          "y": 1152,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_northeast_06.png"
+        },
+        {
+          "index": 7,
+          "x": 2304,
+          "y": 1152,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_northeast_07.png"
+        },
+        {
+          "index": 8,
+          "x": 2688,
+          "y": 1152,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_northeast_08.png"
+        }
+      ]
+    },
+    {
+      "direction": "north",
+      "job_id": "attack_north",
+      "frames": [
+        {
+          "index": 1,
+          "x": 0,
+          "y": 1536,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_north_01.png"
+        },
+        {
+          "index": 2,
+          "x": 384,
+          "y": 1536,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_north_02.png"
+        },
+        {
+          "index": 3,
+          "x": 768,
+          "y": 1536,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_north_03.png"
+        },
+        {
+          "index": 4,
+          "x": 1152,
+          "y": 1536,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_north_04.png"
+        },
+        {
+          "index": 5,
+          "x": 1536,
+          "y": 1536,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_north_05.png"
+        },
+        {
+          "index": 6,
+          "x": 1920,
+          "y": 1536,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_north_06.png"
+        },
+        {
+          "index": 7,
+          "x": 2304,
+          "y": 1536,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_north_07.png"
+        },
+        {
+          "index": 8,
+          "x": 2688,
+          "y": 1536,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_north_08.png"
+        }
+      ]
+    },
+    {
+      "direction": "northwest",
+      "job_id": "attack_northwest",
+      "frames": [
+        {
+          "index": 1,
+          "x": 0,
+          "y": 1920,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_northwest_01.png"
+        },
+        {
+          "index": 2,
+          "x": 384,
+          "y": 1920,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_northwest_02.png"
+        },
+        {
+          "index": 3,
+          "x": 768,
+          "y": 1920,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_northwest_03.png"
+        },
+        {
+          "index": 4,
+          "x": 1152,
+          "y": 1920,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_northwest_04.png"
+        },
+        {
+          "index": 5,
+          "x": 1536,
+          "y": 1920,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_northwest_05.png"
+        },
+        {
+          "index": 6,
+          "x": 1920,
+          "y": 1920,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_northwest_06.png"
+        },
+        {
+          "index": 7,
+          "x": 2304,
+          "y": 1920,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_northwest_07.png"
+        },
+        {
+          "index": 8,
+          "x": 2688,
+          "y": 1920,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_northwest_08.png"
+        }
+      ]
+    },
+    {
+      "direction": "west",
+      "job_id": "attack_west",
+      "frames": [
+        {
+          "index": 1,
+          "x": 0,
+          "y": 2304,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_west_01.png"
+        },
+        {
+          "index": 2,
+          "x": 384,
+          "y": 2304,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_west_02.png"
+        },
+        {
+          "index": 3,
+          "x": 768,
+          "y": 2304,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_west_03.png"
+        },
+        {
+          "index": 4,
+          "x": 1152,
+          "y": 2304,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_west_04.png"
+        },
+        {
+          "index": 5,
+          "x": 1536,
+          "y": 2304,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_west_05.png"
+        },
+        {
+          "index": 6,
+          "x": 1920,
+          "y": 2304,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_west_06.png"
+        },
+        {
+          "index": 7,
+          "x": 2304,
+          "y": 2304,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_west_07.png"
+        },
+        {
+          "index": 8,
+          "x": 2688,
+          "y": 2304,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_west_08.png"
+        }
+      ]
+    },
+    {
+      "direction": "southwest",
+      "job_id": "attack_southwest",
+      "frames": [
+        {
+          "index": 1,
+          "x": 0,
+          "y": 2688,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_southwest_01.png"
+        },
+        {
+          "index": 2,
+          "x": 384,
+          "y": 2688,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_southwest_02.png"
+        },
+        {
+          "index": 3,
+          "x": 768,
+          "y": 2688,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_southwest_03.png"
+        },
+        {
+          "index": 4,
+          "x": 1152,
+          "y": 2688,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_southwest_04.png"
+        },
+        {
+          "index": 5,
+          "x": 1536,
+          "y": 2688,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_southwest_05.png"
+        },
+        {
+          "index": 6,
+          "x": 1920,
+          "y": 2688,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_southwest_06.png"
+        },
+        {
+          "index": 7,
+          "x": 2304,
+          "y": 2688,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_southwest_07.png"
+        },
+        {
+          "index": 8,
+          "x": 2688,
+          "y": 2688,
+          "path": "D:\\projects\\MotherSeed2D\\assets\\monsters\\tree_goblin\\attack\\frames\\attack_southwest_08.png"
+        }
+      ]
+    }
+  ]
+}

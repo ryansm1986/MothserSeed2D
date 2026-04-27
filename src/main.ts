@@ -4,7 +4,7 @@ import titleImageUrl from "../assets/Title.png?url";
 import largeGrassTerrainUrl from "../assets/world/terrain/large_grass.png?url";
 import { characterClasses, characterOrder } from "./game/content/classes";
 import { gameplayActionForCode, movementFromActions, type GameplayAction } from "./game/input-actions";
-import { cardinalDirectionFromVector, clamp, directionFromVector, distance, dot, length, lengthSq, normalize } from "./game/math";
+import { clamp, directionFromVector, distance, dot, length, lengthSq, normalize } from "./game/math";
 import type {
   AnimationName,
   ClassId,
@@ -32,7 +32,10 @@ const warriorFrameUrls = import.meta.glob([
   import: "default",
   query: "?url",
 }) as Record<string, string>;
-const mossGolemFrameUrls = import.meta.glob("../assets/monsters/moss_golem/*/frames/*.png", {
+const mossGolemFrameUrls = import.meta.glob([
+  "../assets/monsters/moss_golem/*/frames/*.png",
+  "../assets/monsters/moss_golem_v2/*/frames/*.png",
+], {
   eager: true,
   import: "default",
   query: "?url",
@@ -67,7 +70,7 @@ const warriorAttackDirectionScale: Partial<Record<DirectionName, number>> = {
   right: 1.14,
 };
 const warriorDirections = ["down", "down_right", "right", "up_right", "up", "up_left", "left", "down_left"] as const satisfies readonly DirectionName[];
-const monsterDirections = ["down", "left", "right", "up"] as const;
+const monsterDirections = warriorDirections;
 const warriorAnimationPaths = {
   idle: "idle",
   walk: "walk",
@@ -78,11 +81,25 @@ const warriorAnimationPaths = {
   attack2: "special",
 } as const satisfies Record<Exclude<AnimationName, "damage" | "victory">, string>;
 const mossGolemSpriteDraw = {
-  scale: 1.78,
-  attackScale: 1.85,
-  anchorX: 112,
-  anchorY: 116,
-  baselineOffset: 34,
+  v2Standard: {
+    scale: 0.74,
+    anchorX: 192,
+    anchorY: 360,
+    baselineOffset: 34,
+  },
+  v2Action: {
+    scale: 0.48,
+    anchorX: 576,
+    anchorY: 1128,
+    baselineOffset: 34,
+  },
+  legacy: {
+    scale: 1.78,
+    attackScale: 1.85,
+    anchorX: 112,
+    anchorY: 116,
+    baselineOffset: 34,
+  },
 };
 
 const app = document.querySelector<HTMLDivElement>("#app");
@@ -465,22 +482,71 @@ function findWarriorFrameUrls(assetAnimation: string, direction: DirectionName):
 }
 
 function getMossGolemFrameUrls(direction: DirectionName, animation: MonsterAnimationName): string[] {
-  const prefix = `../assets/monsters/moss_golem/${animation}/frames/${animation}_${direction}_`;
-  const urls = Object.entries(mossGolemFrameUrls)
-    .filter(([path]) => path.startsWith(prefix))
-    .sort(([left], [right]) => left.localeCompare(right))
-    .map(([, url]) => url);
+  const v2Urls = findMossGolemV2FrameUrls(animation, direction);
+  if (v2Urls.length > 0) return v2Urls;
 
-  if (urls.length === 0) {
-    throw new Error(`Missing exported Moss Golem frames for ${direction}/${animation}. Run tools/extract_moss_golem_sprites.py.`);
+  if (animation === "idle") {
+    const walkUrls = findMossGolemV2FrameUrls("walk", direction);
+    if (walkUrls.length > 0) return [walkUrls[0]];
   }
 
-  return urls;
+  if (animation === "run") {
+    const walkUrls = findMossGolemV2FrameUrls("walk", direction);
+    if (walkUrls.length > 0) return walkUrls;
+  }
+
+  const legacyAnimation = animation === "rock_slam" ? "attack" : animation;
+  const legacyUrls = findMossGolemFrameUrls("moss_golem", legacyAnimation, legacyDirectionFor(direction));
+  if (legacyUrls.length > 0) return legacyUrls;
+
+  throw new Error(`Missing exported Moss Golem frames for ${direction}/${animation}.`);
+}
+
+function findMossGolemV2FrameUrls(animation: string, direction: DirectionName): string[] {
+  const candidates = animation === "rock_spray"
+    ? [compassDirectionFor(direction), direction]
+    : [direction, compassDirectionFor(direction)];
+
+  for (const candidate of new Set(candidates)) {
+    const urls = findMossGolemFrameUrls("moss_golem_v2", animation, candidate);
+    if (urls.length > 0) return urls;
+  }
+
+  return [];
+}
+
+function findMossGolemFrameUrls(
+  subject: "moss_golem" | "moss_golem_v2",
+  animation: string,
+  direction: string,
+): string[] {
+  const prefix = `../assets/monsters/${subject}/${animation}/frames/${animation}_${direction}_`;
+  return Object.entries(mossGolemFrameUrls)
+    .filter(([path]) => path.startsWith(prefix) && /^\d{2}\.png$/.test(path.slice(prefix.length)))
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([, url]) => url);
+}
+
+function legacyDirectionFor(direction: DirectionName): DirectionName {
+  if (direction === "down_left" || direction === "down_right") return "down";
+  if (direction === "up_left" || direction === "up_right") return "up";
+  return direction;
+}
+
+function compassDirectionFor(direction: DirectionName): string {
+  if (direction === "down") return "south";
+  if (direction === "down_right") return "southeast";
+  if (direction === "right") return "east";
+  if (direction === "up_right") return "northeast";
+  if (direction === "up") return "north";
+  if (direction === "up_left") return "northwest";
+  if (direction === "left") return "west";
+  return "southwest";
 }
 
 async function loadMonsterSprites() {
   const output = {} as Record<DirectionName, Record<MonsterAnimationName, SpriteFrame[]>>;
-  const animations = ["idle", "walk", "run", "attack"] as const satisfies readonly MonsterAnimationName[];
+  const animations = ["idle", "walk", "run", "attack", "rock_slam", "rock_spray"] as const satisfies readonly MonsterAnimationName[];
 
   await Promise.all(monsterDirections.map(async (direction) => {
     output[direction] = {} as Record<MonsterAnimationName, SpriteFrame[]>;
@@ -704,7 +770,7 @@ function updateEnemy(delta: number) {
   const toPlayer = { x: player.x - enemy.x, y: player.y - enemy.y };
   const distanceToPlayer = length(toPlayer);
   if (distanceToPlayer > 0.001) normalize(toPlayer);
-  if (distanceToPlayer > 0.001) enemy.direction = cardinalDirectionFromVector(toPlayer);
+  if (distanceToPlayer > 0.001) enemy.direction = directionFromVector(toPlayer);
 
   if (enemy.state === "idle") {
     if (distanceToPlayer > 110) {
@@ -725,7 +791,7 @@ function updateEnemy(delta: number) {
   }
 
   enemy.stateTimer -= delta;
-  updateMonsterAnimation(enemy.state === "windup" || enemy.state === "active" ? "attack" : "idle", delta);
+  updateMonsterAnimation(enemy.state === "windup" || enemy.state === "active" ? getEnemyAttackAnimation() : "idle", delta);
 
   if (enemy.state === "windup" && enemy.stateTimer <= 0) {
     enemy.state = "active";
@@ -751,12 +817,16 @@ function updateMonsterAnimation(nextAnim: MonsterAnimationName, delta: number) {
   }
 
   enemy.animTimer += delta;
-  const rate = enemy.anim === "attack" ? 0.11 : enemy.anim === "idle" ? 0.22 : 0.13;
+  const rate = enemy.anim === "attack" || enemy.anim === "rock_slam" || enemy.anim === "rock_spray" ? 0.11 : enemy.anim === "idle" ? 0.22 : 0.13;
   const frames = monsterSprites?.[enemy.direction][enemy.anim];
   if (frames && enemy.animTimer >= rate) {
     enemy.animTimer = 0;
     enemy.animFrame = (enemy.animFrame + 1) % frames.length;
   }
+}
+
+function getEnemyAttackAnimation(): MonsterAnimationName {
+  return enemy.currentAttack === "slam" ? "rock_slam" : "rock_spray";
 }
 
 function beginEnemyAttack() {
@@ -1230,11 +1300,12 @@ function drawEnemy() {
   const frames = monsterSprites?.[enemy.direction][enemy.anim];
   const frame = frames?.[enemy.animFrame % frames.length];
   if (frame) {
-    const scale = enemy.anim === "attack" ? mossGolemSpriteDraw.attackScale : mossGolemSpriteDraw.scale;
+    const drawProfile = getMossGolemDrawProfile(enemy.anim);
+    const scale = drawProfile.scale;
     const width = frame.w * scale;
     const height = frame.h * scale;
-    const drawX = enemy.x - mossGolemSpriteDraw.anchorX * scale;
-    const drawY = enemy.y + mossGolemSpriteDraw.baselineOffset - mossGolemSpriteDraw.anchorY * scale;
+    const drawX = enemy.x - drawProfile.anchorX * scale;
+    const drawY = enemy.y + drawProfile.baselineOffset - drawProfile.anchorY * scale;
     ctx.save();
     ctx.filter = enemy.flashTimer > 0 ? "brightness(1.55) saturate(1.35)" : "none";
     ctx.drawImage(frame.canvas, drawX, drawY, width, height);
@@ -1251,6 +1322,16 @@ function drawEnemy() {
     ctx.stroke();
     ctx.restore();
   }
+}
+
+function getMossGolemDrawProfile(animation: MonsterAnimationName) {
+  if (animation === "rock_slam" || animation === "rock_spray") return mossGolemSpriteDraw.v2Action;
+  if (animation === "walk" || animation === "run" || animation === "idle") return mossGolemSpriteDraw.v2Standard;
+
+  return {
+    ...mossGolemSpriteDraw.legacy,
+    scale: mossGolemSpriteDraw.legacy.attackScale,
+  };
 }
 
 function drawRock(obstacle: (typeof obstacles)[number]) {

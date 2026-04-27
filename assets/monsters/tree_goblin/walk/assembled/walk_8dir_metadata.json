@@ -1,0 +1,139 @@
+{
+  "animation": "walk",
+  "subject_id": "tree_goblin",
+  "subject_type": "monster",
+  "direction_set": "8_directional",
+  "row_order": [
+    "south",
+    "southeast",
+    "east",
+    "northeast",
+    "north",
+    "northwest",
+    "west",
+    "southwest"
+  ],
+  "frame_count": 8,
+  "frame_width": 128,
+  "frame_height": 128,
+  "frame_profile": "default_128",
+  "anchor": {
+    "x": 64,
+    "y": 120
+  },
+  "sheet": "walk_8dir_sheet.png",
+  "rows": {
+    "south": {
+      "job_id": "walk_south",
+      "y": 0,
+      "frames": [
+        "../frames/walk_south_01.png",
+        "../frames/walk_south_02.png",
+        "../frames/walk_south_03.png",
+        "../frames/walk_south_04.png",
+        "../frames/walk_south_05.png",
+        "../frames/walk_south_06.png",
+        "../frames/walk_south_07.png",
+        "../frames/walk_south_08.png"
+      ]
+    },
+    "southeast": {
+      "job_id": "walk_southeast",
+      "y": 128,
+      "frames": [
+        "../frames/walk_southeast_01.png",
+        "../frames/walk_southeast_02.png",
+        "../frames/walk_southeast_03.png",
+        "../frames/walk_southeast_04.png",
+        "../frames/walk_southeast_05.png",
+        "../frames/walk_southeast_06.png",
+        "../frames/walk_southeast_07.png",
+        "../frames/walk_southeast_08.png"
+      ]
+    },
+    "east": {
+      "job_id": "walk_east",
+      "y": 256,
+      "frames": [
+        "../frames/walk_east_01.png",
+        "../frames/walk_east_02.png",
+        "../frames/walk_east_03.png",
+        "../frames/walk_east_04.png",
+        "../frames/walk_east_05.png",
+        "../frames/walk_east_06.png",
+        "../frames/walk_east_07.png",
+        "../frames/walk_east_08.png"
+      ]
+    },
+    "northeast": {
+      "job_id": "walk_northeast",
+      "y": 384,
+      "frames": [
+        "../frames/walk_northeast_01.png",
+        "../frames/walk_northeast_02.png",
+        "../frames/walk_northeast_03.png",
+        "../frames/walk_northeast_04.png",
+        "../frames/walk_northeast_05.png",
+        "../frames/walk_northeast_06.png",
+        "../frames/walk_northeast_07.png",
+        "../frames/walk_northeast_08.png"
+      ]
+    },
+    "north": {
+      "job_id": "walk_north",
+      "y": 512,
+      "frames": [
+        "../frames/walk_north_01.png",
+        "../frames/walk_north_02.png",
+        "../frames/walk_north_03.png",
+        "../frames/walk_north_04.png",
+        "../frames/walk_north_05.png",
+        "../frames/walk_north_06.png",
+        "../frames/walk_north_07.png",
+        "../frames/walk_north_08.png"
+      ]
+    },
+    "northwest": {
+      "job_id": "walk_northwest",
+      "y": 640,
+      "frames": [
+        "../frames/walk_northwest_01.png",
+        "../frames/walk_northwest_02.png",
+        "../frames/walk_northwest_03.png",
+        "../frames/walk_northwest_04.png",
+        "../frames/walk_northwest_05.png",
+        "../frames/walk_northwest_06.png",
+        "../frames/walk_northwest_07.png",
+        "../frames/walk_northwest_08.png"
+      ]
+    },
+    "west": {
+      "job_id": "walk_west",
+      "y": 768,
+      "frames": [
+        "../frames/walk_west_01.png",
+        "../frames/walk_west_02.png",
+        "../frames/walk_west_03.png",
+        "../frames/walk_west_04.png",
+        "../frames/walk_west_05.png",
+        "../frames/walk_west_06.png",
+        "../frames/walk_west_07.png",
+        "../frames/walk_west_08.png"
+      ]
+    },
+    "southwest": {
+      "job_id": "walk_southwest",
+      "y": 896,
+      "frames": [
+        "../frames/walk_southwest_01.png",
+        "../frames/walk_southwest_02.png",
+        "../frames/walk_southwest_03.png",
+        "../frames/walk_southwest_04.png",
+        "../frames/walk_southwest_05.png",
+        "../frames/walk_southwest_06.png",
+        "../frames/walk_southwest_07.png",
+        "../frames/walk_southwest_08.png"
+      ]
+    }
+  }
+}

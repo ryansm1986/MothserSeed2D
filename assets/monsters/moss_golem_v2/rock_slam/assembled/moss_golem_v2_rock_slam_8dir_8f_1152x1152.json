@@ -1,0 +1,88 @@
+{
+  "monster": "moss_golem_v2",
+  "animation": "rock_slam",
+  "subjectSize": "large",
+  "frameProfile": "monster_large_action_1152",
+  "image": "moss_golem_v2_rock_slam_8dir_8f_1152x1152.png",
+  "frameWidth": 1152,
+  "frameHeight": 1152,
+  "columns": 8,
+  "rows": 8,
+  "directions": [
+    "down",
+    "down_right",
+    "right",
+    "up_right",
+    "up",
+    "up_left",
+    "left",
+    "down_left"
+  ],
+  "rowOrder": {
+    "down": 0,
+    "down_right": 1,
+    "right": 2,
+    "up_right": 3,
+    "up": 4,
+    "up_left": 5,
+    "left": 6,
+    "down_left": 7
+  },
+  "anchor": {
+    "x": 576,
+    "y": 1128,
+    "type": "bottom-center"
+  },
+  "sourceBase": "assets/monsters/moss_golem_v2/base/moss_golem_base.png",
+  "normalization": "source strips chroma-keyed from #ff00ff, segmented by pose groups, repacked with 1152px gutters, normalized with one shared scale per direction and aggressive fuchsia despill",
+  "jobs": {
+    "rock_slam_down": {
+      "runs": 8,
+      "scale": 2.1265822784810124,
+      "edge": false,
+      "magenta_pixels": 0
+    },
+    "rock_slam_down_right": {
+      "runs": 8,
+      "scale": 2.0945454545454547,
+      "edge": false,
+      "magenta_pixels": 0
+    },
+    "rock_slam_right": {
+      "runs": 8,
+      "scale": 1.9393939393939394,
+      "edge": false,
+      "magenta_pixels": 0
+    },
+    "rock_slam_up_right": {
+      "runs": 8,
+      "scale": 1.9726027397260273,
+      "edge": false,
+      "magenta_pixels": 0
+    },
+    "rock_slam_up": {
+      "runs": 8,
+      "scale": 2.0338983050847457,
+      "edge": false,
+      "magenta_pixels": 0
+    },
+    "rock_slam_up_left": {
+      "runs": 8,
+      "scale": 2.1492537313432836,
+      "edge": false,
+      "magenta_pixels": 0
+    },
+    "rock_slam_left": {
+      "runs": 8,
+      "scale": 2.0945454545454547,
+      "edge": false,
+      "magenta_pixels": 0
+    },
+    "rock_slam_down_left": {
+      "runs": 8,
+      "scale": 2.1333333333333333,
+      "edge": false,
+      "magenta_pixels": 0
+    }
+  }
+}

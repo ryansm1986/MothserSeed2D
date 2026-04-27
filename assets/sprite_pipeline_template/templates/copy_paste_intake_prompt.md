@@ -2,34 +2,80 @@
 
 Use `$game-studio:sprite-pipeline`.
 
+Keep using `$game-studio:sprite-pipeline` throughout the full animation build: intake, setup, source-strip generation, normalization, preview rendering, GIF creation, QA, and assembly.
+
 I want to start a reusable 2D sprite animation pipeline for a character or monster.
 
-Project: `<PROJECT_PATH>`
-Subject id: `<SUBJECT_ID>`
-Base image path: `<BASE_IMAGE_PATH_REQUIRED>`
-Destination folder: `<assets/characters/SUBJECT_ID or assets/monsters/SUBJECT_ID>`
+Infer the project root, subject type, subject id, and destination folder from the base folder location I provide. Do not ask me for project id, project path, subject id, or subject type separately.
 
-The base image is required. If the base image path is missing or the file does not exist, ask me for the base image before starting generation.
+The base folder should already be inside this project in the correct asset location:
+
+- Character base folder: `<project>/assets/characters/<subject_id>/base/`
+- Monster base folder: `<project>/assets/monsters/<subject_id>/base/`
+
+The folder under `assets/characters/` or `assets/monsters/` is the subject id. The `characters` or `monsters` path segment is the subject type. The subject pipeline folder is the subject folder that contains `base/`.
+
+Reusable template folder: `<inferred_project_root>/assets/sprite_pipeline_template`
+
+The base folder is required. Question 2 must have an answer, and that answer must resolve to an existing local base folder under `<project>/assets/characters/<subject_id>/base/` or `<project>/assets/monsters/<subject_id>/base/` before starting generation. The base folder must contain `north.png`, `south.png`, `east.png`, and `west.png`. If the base folder is outside the project, outside the correct asset location, or missing any required cardinal base file, tell me to move or complete it before generation.
+
+Use these reusable template files for the fresh pipeline:
+
+- `<inferred_project_root>/assets/sprite_pipeline_template/README.md`: overview and expected destination layout.
+- `<inferred_project_root>/assets/sprite_pipeline_template/PIPELINE_TEMPLATE.md`: source, spacing, normalization, directory, QA, GIF, and assembly rules.
+- `<inferred_project_root>/assets/sprite_pipeline_template/frame_profiles.csv`: default frame profiles to copy into the subject pipeline folder.
+- `<inferred_project_root>/assets/sprite_pipeline_template/animation_queue_template.csv`: queue schema and placeholder rows to adapt for the selected animation and direction set.
+- `<inferred_project_root>/assets/sprite_pipeline_template/templates/agent_job_prompt_template.md`: per-animation-direction job prompt template.
+- `<inferred_project_root>/assets/sprite_pipeline_template/templates/job_qa_template.md`: per-job QA note template.
+
+Use only those reusable template files and `$game-studio:sprite-pipeline` for the animation build. Do not search the project for existing animation tools, old pipeline scripts, prior generated sheets, prior normalized frames, hidden automation, or another character/monster pipeline. If a tool is not named in these template files, do not use it unless I explicitly approve it. If you create a fresh helper script, config, checklist, or temporary processing tool for the process, create it only under the current animation folder at `<animation>/tools/`, name job-specific tools with the active `<job_id>`, and list it in QA. Create all source strips, normalized frames, previews, GIFs, and QA notes from scratch for the current subject and active queue job.
 
 Before generating or editing assets, ask me these questions:
 
 1. What animation do you want to work on? Required.
-2. Do you have any direction on how the animation should look? Optional. Default: readable production animation with clear body motion, grounded weight, and no static pose with effects pasted on top.
-3. Is there a number of frames you'd like the animation to be? Optional. Defaults: idle 5, walk 8, run/sprint 8, dodge/hurt/block/interact 5, attack/cast/special/skill 8, death 8, unknown animation 8.
-4. Do you want 8 directional or 4 directional set of animations? Optional. Default: 8 directional. 8 directions are down, down_right, right, up_right, up, up_left, left, down_left. 4 directions are down, right, up, left.
-5. Are there any required items/weapons the character should have on them or in their hands? Optional. Default: preserve visible base-image equipment/features and do not add unrequested items. For monsters, treat this as required visible features such as horns, claws, wings, tail, armor, glow, or carried objects.
+2. What is the location of the base folder? Required. Provide the local path to the `base/` folder that contains `north.png`, `south.png`, `east.png`, and `west.png`. The base folder should already be under `<project>/assets/characters/<subject_id>/base/` or `<project>/assets/monsters/<subject_id>/base/` so the project, subject type, subject id, and destination folder can be inferred.
+3. Do you have any direction on how the animation should look? Optional. Default: readable production animation with clear body motion, grounded weight, distinct newly drawn poses for every frame, and no static pose with effects pasted on top.
+4. Is there a number of frames you'd like the animation to be? Optional. Defaults: idle 5, walk 8, run/sprint 8, dodge/hurt/block/interact 5, attack/cast/special/skill 8, death 8, unknown animation 8.
+5. Do you want 8 directional or 4 directional set of animations? Optional. Default: 8 directional. If 8 directional is selected, all eight directions are required: south, southeast, east, northeast, north, northwest, west, southwest. If 4 directional is selected, all four directions are required: south, east, north, west.
+6. Are there any required items/weapons the character should have on them or in their hands? Optional. Default: preserve visible base-set equipment/features and do not add unrequested items. For monsters, treat this as required visible features such as horns, claws, wings, tail, armor, glow, or carried objects.
+7. For monsters, would you like default size, medium, or large? Optional. Default: default size, about character size. Medium is about 2 times character size. Large is about 3 times character size.
+8. Should I follow the one-job-at-a-time pipeline from these templates? Optional. Default: Yes, strictly follow the templates.
 
 After I answer:
 
-- Create or update the subject pipeline folder.
-- Generate a queue for the selected animation and direction set.
-- Use the base image as the required source reference.
-- Preserve base-image colors for character items, clothes, skin, hair, fur, scales, armor, and equipment unless I specifically ask for changes.
-- Generate one fresh full horizontal source strip per animation/direction job.
-- Require at least one full frame of empty flat `#ff00ff` space between neighboring visible pose bounds in the initial generated source strip before cleanup/repack.
-- Normalize to the chosen profile using one shared scale and bottom-center anchor.
-- Save normalized frames under `<animation>/frames/`.
-- Save preview PNGs under `<animation>/preview/`.
-- Save one looping GIF per direction under `<animation>/gif/<job_id>.gif`.
-- Save QA notes under `<animation>/qa/`.
-- Do not approve rows with frame-edge contact, inter-frame bleed, wrong direction, color drift, missing required items/features, unrequested items, or static body motion.
+- Continue using `$game-studio:sprite-pipeline` for every build step and every animation/direction job.
+- Use only the reusable template files listed above plus the current subject base folder. Do not search for or reuse existing animation tooling, prior output folders, old source strips, old normalized frames, or tools from another pipeline.
+- If fresh helper tooling is needed for cleanup, normalization, preview, GIF, QA, or queue work, create it inside the active animation folder under `<animation>/tools/`. Do not create or modify shared tools in the project root, project `scripts/`, reusable template folder, another subject folder, or another animation folder unless I explicitly approve it.
+- Record any created helper tools in `animation_queue.csv` and the job QA note.
+- If I leave the one-job-at-a-time answer blank or answer yes, strictly follow the template pipeline: one queue row, one animation, one direction, one source prompt, one source strip, one normalization pass, one preview set, one GIF, and one QA note at a time.
+- If I answer no to the one-job-at-a-time question, stop before generation and ask me to explicitly approve the alternate workflow, including whether directions may be batched and which template QA gates still apply.
+- Process one animation/direction job at a time. Do not batch directions together.
+- Create or update the subject pipeline folder using the destination layout from `PIPELINE_TEMPLATE.md`.
+- Infer the subject pipeline folder from the base folder location, using `<project>/assets/characters/<subject_id>/` or `<project>/assets/monsters/<subject_id>/`.
+- Copy `frame_profiles.csv` into the subject pipeline folder unless an equivalent current file already exists.
+- Create or update `<destination>/animation_queue.csv` from `animation_queue_template.csv`, generating one row for every required direction in the selected direction set.
+- For 8 directional, the queue must include all eight directions: `south`, `southeast`, `east`, `northeast`, `north`, `northwest`, `west`, and `southwest`.
+- For 4 directional, the queue must include all four directions: `south`, `east`, `north`, and `west`.
+- Use `agent_job_prompt_template.md` as the working prompt for each animation/direction job.
+- Verify the base folder exists and contains `north.png`, `south.png`, `east.png`, and `west.png` before generation.
+- Apply the selected monster size when choosing frame profiles. Use default size for characters and for blank monster-size answers.
+- For monsters, check the initial source strip for a full frame's worth of empty space between every neighboring pair of visible pose bounds before cleanup, slicing, repack, or normalization. Use the selected monster frame width as the minimum empty gutter: `256px` for medium gameplay, `384px` for large gameplay, `768px` for medium action/effect rows, and `1152px` for large action/effect rows.
+- If a generated source strip needs more room to satisfy spacing, expand the horizontal source canvas width, pose lane width, and flat `#ff00ff` gutters. Do not make the character or monster smaller, reduce the animation scale, or crop effects to fit the strip.
+- Reject and regenerate monster source strips on a wider source canvas if any body part, limb, tail, wing, weapon, shadow, glow, slash, particle, alpha haze, or effect enters a neighboring pose lane or reduces the empty gutter below one selected-frame width.
+- Use the mapped directional base file or adjacent cardinal base pair for each animation/direction job, following the source rules in `PIPELINE_TEMPLATE.md`.
+- Preserve base-set colors for character items, clothes, skin, hair, fur, scales, armor, and equipment unless I specifically ask for changes.
+- Before generating each source strip, write a numbered frame-by-frame pose plan for the requested frame count.
+- Generate one fresh full horizontal source strip per animation/direction job using the source strip rules from `PIPELINE_TEMPLATE.md`.
+- Each source-generation request must name exactly one animation and exactly one direction, and must produce exactly one horizontal strip for that direction only.
+- The source-generation request should explicitly prefer a wider horizontal canvas over smaller poses when spacing is tight.
+- Do not ask for or accept a multi-direction sheet, multi-row sheet, direction set, turnaround, comparison panel, or batch of directions in a single generated image.
+- Finish the current direction job to `approved` or `needs_revision` before starting source generation for another direction.
+- Require every frame slot in the source strip to be a distinct newly drawn animation pose. Do not accept repeated, near-identical, shifted, rotated, or effect-only copies of the same body pose.
+- Require at least one full frame of empty flat `#ff00ff` space between neighboring visible pose bounds in the initial generated source strip before cleanup/repack, as defined in `PIPELINE_TEMPLATE.md`.
+- Normalize to the chosen size-aware profile from `frame_profiles.csv` using one shared scale and bottom-center anchor.
+- Save normalized frames under `<animation>/frames/` according to the directory layout in `PIPELINE_TEMPLATE.md`.
+- Save preview PNGs under `<animation>/preview/` according to the directory layout in `PIPELINE_TEMPLATE.md`.
+- Save one looping GIF per direction under `<animation>/gif/<job_id>.gif` according to the GIF requirement in `PIPELINE_TEMPLATE.md`.
+- Create QA notes from `job_qa_template.md` under `<animation>/qa/`.
+- Do not assemble or mark the animation complete until every required direction in the selected direction set has approved frames, previews, GIF, and QA notes.
+- Do not approve rows unless the QA gates in `PIPELINE_TEMPLATE.md` and `job_qa_template.md` pass, including template-only tooling, any freshly created tools being scoped to `<animation>/tools/`, one-direction-only source generation, distinct newly drawn poses for every frame, monster full-frame source spacing when applicable, no frame-edge contact, no inter-frame bleed, correct direction, no color drift, no missing required items/features, no unrequested items, and clear body motion.
