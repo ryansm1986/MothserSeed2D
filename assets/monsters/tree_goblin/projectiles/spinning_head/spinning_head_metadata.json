@@ -1,0 +1,30 @@
+{
+  "subject": "tree_goblin",
+  "effect": "spinning_head_projectile",
+  "source": "assets/monsters/tree_goblin/head_throw/raw/head_throw_south_generated_attempt_01_base_style.png",
+  "source_component_bbox": [
+    1060,
+    255,
+    1164,
+    360
+  ],
+  "frame_size": [
+    128,
+    128
+  ],
+  "frame_count": 8,
+  "origin": [
+    64,
+    64
+  ],
+  "frame_rate_fps": 14,
+  "loop": true,
+  "files": {
+    "source": "spinning_head_source.png",
+    "strip": "spinning_head_8x128.png",
+    "frames": "frames/spinning_head_01.png through frames/spinning_head_08.png",
+    "preview": "preview/spinning_head_preview_2x.png",
+    "gif": "spinning_head.gif"
+  },
+  "notes": "Transparent 8-frame rotating tree-goblin head projectile with small sap/leaf orbit particles. Center origin is stable across frames."
+}
