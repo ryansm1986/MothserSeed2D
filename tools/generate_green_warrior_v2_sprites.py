@@ -22,7 +22,6 @@ ANIMATIONS = OrderedDict(
     (
         ("idle", 5),
         ("walk", 8),
-        ("run", 8),
         ("sprint", 12),
         ("dodge", 5),
         ("attack", 8),
@@ -30,7 +29,7 @@ ANIMATIONS = OrderedDict(
     )
 )
 
-LOOPING_ANIMATIONS = {"idle", "walk", "run", "sprint"}
+LOOPING_ANIMATIONS = {"idle", "walk", "sprint"}
 ORIGINAL_COPY_NAME = "warrior_base_v2_original.png"
 WORKING_COPY_NAME = "green_warrior_v2_base_working_copy.png"
 
@@ -256,11 +255,6 @@ def frame_for(base: Image.Image, animation: str, direction: str, frame: int, tot
         oy = round(-1 - abs(double) * 1.4)
         sprite = rotate(squash(sprite, 1.0 + 0.018 * double, 1.0 - 0.018 * double), 1.8 * wave)
         shadow_scale = 0.96 + 0.05 * abs(double)
-    elif animation == "run":
-        ox = round(dir_x * (2.1 * wave))
-        oy = round(-2 - abs(double) * 1.8)
-        sprite = rotate(squash(sprite, 1.03 + 0.015 * double, 0.98 - 0.012 * double), dir_x * 5 + 2.4 * wave)
-        shadow_scale = 1.02 + 0.06 * abs(double)
     elif animation == "sprint":
         lean = (dir_x * 7) + (dir_y * -3)
         ox = round(dir_x * 2 * (1 + wave))
@@ -299,7 +293,7 @@ def frame_for(base: Image.Image, animation: str, direction: str, frame: int, tot
         canvas = Image.alpha_composite(glow_layer(frame, total), canvas)
         if frame in {3, 4, 5}:
             canvas.alpha_composite(slash_layer(direction, frame - 3, (119, 236, 91, 185)))
-    if animation in {"run", "sprint", "dodge"} and frame not in {0, total - 1}:
+    if animation in {"sprint", "dodge"} and frame not in {0, total - 1}:
         canvas.alpha_composite(motion_streak(direction, frame))
 
     return canvas
@@ -483,7 +477,7 @@ def assemble_animation(animation: str, frame_count: int) -> dict[str, object]:
     frames_dir = anim_dir / "frames"
     all_frames: list[Image.Image] = []
     meta_frames: list[dict[str, object]] = []
-    duration = round(1000 / {"idle": 6, "walk": 10, "run": 12, "sprint": 14, "dodge": 18, "attack": 14, "special": 11}[animation])
+    duration = round(1000 / {"idle": 6, "walk": 10, "sprint": 14, "dodge": 18, "attack": 14, "special": 11}[animation])
 
     for direction in DIRECTIONS:
         direction_frames: list[Image.Image] = []

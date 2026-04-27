@@ -1,0 +1,80 @@
+{
+  "job": "walk_up_right",
+  "direction": "up_right",
+  "source": "assets\\characters\\green_warrior_v3\\walk\\raw\\walk_up_right_imagegen_base_only_chromakey.png",
+  "base_reference_only": "assets/characters/green_warrior_v3/base/warrior_base_v3_seed_128.png",
+  "source_size": [
+    2172,
+    724
+  ],
+  "source_bboxes": [
+    [
+      48,
+      179,
+      272,
+      488
+    ],
+    [
+      325,
+      180,
+      543,
+      495
+    ],
+    [
+      543,
+      177,
+      814,
+      488
+    ],
+    [
+      874,
+      177,
+      1086,
+      484
+    ],
+    [
+      1086,
+      188,
+      1358,
+      496
+    ],
+    [
+      1394,
+      187,
+      1626,
+      482
+    ],
+    [
+      1665,
+      191,
+      1888,
+      502
+    ],
+    [
+      1931,
+      175,
+      2161,
+      488
+    ]
+  ],
+  "shared_scale": 0.3294314381270903,
+  "height_px_per_frame": [
+    97,
+    98,
+    97,
+    96,
+    96,
+    92,
+    97,
+    98
+  ],
+  "height_drift_px": 6,
+  "worst_padding_ltrb": [
+    20,
+    14,
+    19,
+    16
+  ],
+  "raw_slot_w": 640,
+  "raw_gutter_min_estimate_px": 368
+}

@@ -1,0 +1,59 @@
+{
+  "job": "idle_up_right",
+  "direction": "up_right",
+  "source": "assets\\characters\\green_warrior_v3\\idle\\raw\\idle_up_right_imagegen_base_only_natural_stance_chromakey.png",
+  "base_reference_only": "assets/characters/green_warrior_v3/base/warrior_base_v3_seed_128.png",
+  "source_size": [
+    2143,
+    734
+  ],
+  "source_bboxes": [
+    [
+      76,
+      170,
+      374,
+      586
+    ],
+    [
+      503,
+      170,
+      798,
+      586
+    ],
+    [
+      921,
+      176,
+      1216,
+      591
+    ],
+    [
+      1355,
+      176,
+      1647,
+      588
+    ],
+    [
+      1782,
+      173,
+      2077,
+      588
+    ]
+  ],
+  "shared_scale": 0.24625,
+  "height_px_per_frame": [
+    98,
+    98,
+    98,
+    98,
+    98
+  ],
+  "height_drift_px": 0,
+  "worst_padding_ltrb": [
+    30,
+    14,
+    29,
+    16
+  ],
+  "raw_slot_w": 640,
+  "raw_gutter_min_estimate_px": 342
+}

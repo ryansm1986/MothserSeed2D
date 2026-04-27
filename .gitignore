@@ -6,6 +6,8 @@ __pycache__/
 
 .devserver*.log
 *.log
+.codex-chrome-profile/
+.chrome-ui-review/
 
 .env
 .env.*

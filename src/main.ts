@@ -20,7 +20,14 @@ import type {
   WorldAssetName,
 } from "./game/types";
 
-const warriorFrameUrls = import.meta.glob("../assets/characters/green_warrior_v2/*/frames/*.png", {
+const warriorFrameUrls = import.meta.glob([
+  "../assets/characters/green_warrior_v3/idle/frames/idle_*_[0-9][0-9].png",
+  "../assets/characters/green_warrior_v3/walk/frames/walk_*_[0-9][0-9].png",
+  "../assets/characters/green_warrior_v3/sprint/frames/sprint_*_[0-9][0-9].png",
+  "../assets/characters/green_warrior_v3/dodge/frames/dodge_*_[0-9][0-9].png",
+  "../assets/characters/green_warrior_v3/attack/frames/attack_*_[0-9][0-9].png",
+  "../assets/characters/green_warrior_v3/special/frames/special_*_[0-9][0-9].png",
+], {
   eager: true,
   import: "default",
   query: "?url",
@@ -46,17 +53,25 @@ const animatedGrassFrameUrls = import.meta.glob("../assets/world/grass/frames/*.
   query: "?url",
 }) as Record<string, string>;
 const warriorSpriteDraw = {
-  scale: 1.75,
-  anchorX: 32,
-  anchorY: 60,
-  baselineOffset: 28,
+  standard: {
+    scale: 0.92,
+    anchorX: 64,
+    anchorY: 120,
+    baselineOffset: 28,
+  },
+  wideAction: {
+    scale: 0.54,
+    anchorX: 192,
+    anchorY: 376,
+    baselineOffset: 28,
+  },
 };
 const warriorDirections = ["down", "down_right", "right", "up_right", "up", "up_left", "left", "down_left"] as const satisfies readonly DirectionName[];
 const monsterDirections = ["down", "left", "right", "up"] as const;
 const warriorAnimationPaths = {
   idle: "idle",
   walk: "walk",
-  run: "run",
+  run: "sprint",
   sprint: "sprint",
   dodge_roll: "dodge",
   attack1: "attack",
@@ -367,7 +382,7 @@ const worldAssetRects: Record<WorldAssetName, FrameRect> = {
 
 async function loadSprites() {
   const output = {} as Record<DirectionName, Record<AnimationName, SpriteFrame[]>>;
-  const animations = ["idle", "walk", "run", "sprint", "dodge_roll", "attack1", "attack2"] as const satisfies readonly AnimationName[];
+  const animations = ["idle", "walk", "sprint", "dodge_roll", "attack1", "attack2"] as const satisfies readonly AnimationName[];
 
   await Promise.all(warriorDirections.map(async (direction) => {
     output[direction] = {} as Record<AnimationName, SpriteFrame[]>;
@@ -376,6 +391,7 @@ async function loadSprites() {
       const frames = await Promise.all(urls.map(async (url) => makeImageFrame(await loadImage(url))));
       output[direction][animation] = animation === "idle" ? makePingPongFrames(frames) : frames;
     }));
+    output[direction].run = output[direction].sprint;
     output[direction].damage = output[direction].idle;
     output[direction].victory = output[direction].idle;
   }));
@@ -392,15 +408,35 @@ function getWarriorFrameUrls(direction: DirectionName, animation: AnimationName)
   if (animation === "damage" || animation === "victory") return [];
 
   const assetAnimation = warriorAnimationPaths[animation];
-  const prefix = `../assets/characters/green_warrior_v2/${assetAnimation}/frames/${assetAnimation}_${direction}_`;
+  const urls = findWarriorFrameUrls(assetAnimation, direction);
+
+  if (urls.length > 0) return urls;
+
+  if (animation === "sprint" || animation === "run") {
+    const fallbackUrls = findWarriorFrameUrls("walk", direction);
+    if (fallbackUrls.length > 0) {
+      console.warn(`Missing green_warrior_v3 ${assetAnimation}/${direction}; using walk frames until that sprint direction is exported.`);
+      return fallbackUrls;
+    }
+  }
+
+  if (animation === "attack2") {
+    const fallbackUrls = findWarriorFrameUrls("attack", direction);
+    if (fallbackUrls.length > 0) {
+      console.warn(`Missing green_warrior_v3 ${assetAnimation}/${direction}; using attack frames until that special direction is exported.`);
+      return fallbackUrls;
+    }
+  }
+
+  throw new Error(`Missing green_warrior_v3 frames for ${direction}/${animation}. Expected canonical ${assetAnimation}_${direction}_NN.png files.`);
+}
+
+function findWarriorFrameUrls(assetAnimation: string, direction: DirectionName): string[] {
+  const prefix = `../assets/characters/green_warrior_v3/${assetAnimation}/frames/${assetAnimation}_${direction}_`;
   const urls = Object.entries(warriorFrameUrls)
-    .filter(([path]) => path.startsWith(prefix))
+    .filter(([path]) => path.startsWith(prefix) && /^\d{2}\.png$/.test(path.slice(prefix.length)))
     .sort(([left], [right]) => left.localeCompare(right))
     .map(([, url]) => url);
-
-  if (urls.length === 0) {
-    throw new Error(`Missing green_warrior_v2 frames for ${direction}/${animation}. Run tools/generate_green_warrior_v2_sprites.py.`);
-  }
 
   return urls;
 }
@@ -1080,17 +1116,24 @@ function drawPlayer() {
   const frame = frames?.[player.animFrame % frames.length];
   if (!frame) return;
 
-  const scale = warriorSpriteDraw.scale;
+  const drawProfile = getWarriorDrawProfile(player.anim);
+  const scale = drawProfile.scale;
   const width = frame.w * scale;
   const height = frame.h * scale;
   const flash = player.invulnerableTime > 0 && Math.floor(performance.now() / 75) % 2 === 0;
-  const drawX = player.x - warriorSpriteDraw.anchorX * scale;
-  const drawY = player.y + warriorSpriteDraw.baselineOffset - warriorSpriteDraw.anchorY * scale;
+  const drawX = player.x - drawProfile.anchorX * scale;
+  const drawY = player.y + drawProfile.baselineOffset - drawProfile.anchorY * scale;
 
   ctx.save();
   ctx.globalAlpha = flash ? 0.54 : 1;
   ctx.drawImage(frame.canvas, drawX, drawY, width, height);
   ctx.restore();
+}
+
+function getWarriorDrawProfile(animation: AnimationName) {
+  return animation === "attack1" || animation === "attack2"
+    ? warriorSpriteDraw.wideAction
+    : warriorSpriteDraw.standard;
 }
 
 function drawEnemy() {
