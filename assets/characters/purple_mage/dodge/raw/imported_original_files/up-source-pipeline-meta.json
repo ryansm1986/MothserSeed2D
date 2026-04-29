@@ -1,0 +1,219 @@
+{
+  "target": "player",
+  "mode": "idle",
+  "prompt": "1x6 up/back-facing floating magical dodge jump for the moon mage; proportional tall JRPG sprite; lift off, airborne hover, magic motes, descend, recover",
+  "role": "",
+  "input": "C:\\Users\\there\\.codex\\generated_images\\019dd561-1674-7b62-8f43-061279e6b4c5\\ig_0fce2ef0e645fa8d0169f1201761408197a33b0fff0edd8640.png",
+  "threshold": 100,
+  "edge_threshold": 150,
+  "duration": 110,
+  "rows": 1,
+  "cols": 6,
+  "cell_size": 256,
+  "fit_scale": 0.88,
+  "trim_border": 4,
+  "edge_clean_depth": 3,
+  "align": "feet",
+  "shared_scale": true,
+  "component_mode": "all",
+  "component_padding": 0,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "frame_labels": [
+    "up-dodge-1",
+    "up-dodge-2",
+    "up-dodge-3",
+    "up-dodge-4",
+    "up-dodge-5",
+    "up-dodge-6"
+  ],
+  "frames": [
+    {
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        348,
+        753
+      ],
+      "component_mode": "all",
+      "component_count": 3,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        82,
+        188,
+        274,
+        545
+      ],
+      "edge_touch": false,
+      "output_size": [
+        101,
+        188
+      ],
+      "paste_position": [
+        77,
+        53
+      ]
+    },
+    {
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        348,
+        0,
+        696,
+        753
+      ],
+      "component_mode": "all",
+      "component_count": 9,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        69,
+        175,
+        269,
+        584
+      ],
+      "edge_touch": false,
+      "output_size": [
+        105,
+        215
+      ],
+      "paste_position": [
+        75,
+        26
+      ]
+    },
+    {
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        696,
+        0,
+        1044,
+        753
+      ],
+      "component_mode": "all",
+      "component_count": 3,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        20,
+        171,
+        244,
+        522
+      ],
+      "edge_touch": false,
+      "output_size": [
+        118,
+        185
+      ],
+      "paste_position": [
+        69,
+        56
+      ]
+    },
+    {
+      "grid": [
+        0,
+        3
+      ],
+      "source_box": [
+        1044,
+        0,
+        1392,
+        753
+      ],
+      "component_mode": "all",
+      "component_count": 15,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        14,
+        141,
+        259,
+        568
+      ],
+      "edge_touch": false,
+      "output_size": [
+        129,
+        225
+      ],
+      "paste_position": [
+        63,
+        16
+      ]
+    },
+    {
+      "grid": [
+        0,
+        4
+      ],
+      "source_box": [
+        1392,
+        0,
+        1740,
+        753
+      ],
+      "component_mode": "all",
+      "component_count": 9,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        63,
+        185,
+        266,
+        587
+      ],
+      "edge_touch": false,
+      "output_size": [
+        107,
+        212
+      ],
+      "paste_position": [
+        74,
+        29
+      ]
+    },
+    {
+      "grid": [
+        0,
+        5
+      ],
+      "source_box": [
+        1740,
+        0,
+        2088,
+        753
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        62,
+        188,
+        260,
+        545
+      ],
+      "edge_touch": false,
+      "output_size": [
+        104,
+        188
+      ],
+      "paste_position": [
+        76,
+        53
+      ]
+    }
+  ],
+  "edge_touch_frames": []
+}

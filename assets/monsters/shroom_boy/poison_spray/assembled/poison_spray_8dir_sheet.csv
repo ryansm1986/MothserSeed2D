@@ -1,0 +1,9 @@
+direction,row,frame_count,frame_width,frame_height,anchor_x,anchor_y
+south,0,8,384,384,192,376
+southeast,1,8,384,384,192,376
+east,2,8,384,384,192,376
+northeast,3,8,384,384,192,376
+north,4,8,384,384,192,376
+northwest,5,8,384,384,192,376
+west,6,8,384,384,192,376
+southwest,7,8,384,384,192,376

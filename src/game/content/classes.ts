@@ -1,4 +1,5 @@
 import warriorPortraitUrl from "../../../assets/characters/green_warrior/portrait/green_warrior_character_select_portrait.png?url";
+import purpleMagePortraitUrl from "../../../assets/characters/purple_mage/portrait.png?url";
 import type { CharacterClass, ClassId } from "../types";
 
 export const characterClasses: Record<ClassId, CharacterClass> = {
@@ -39,19 +40,18 @@ export const characterClasses: Record<ClassId, CharacterClass> = {
   },
   mage: {
     id: "mage",
-    name: "Mage",
-    title: "Stormleaf Arcanist",
-    weapon: "Staff",
-    role: "Prime elemental chains and control enemy movement.",
-    status: "Planned",
-    implemented: false,
-    accent: "#7fc8ff",
+    name: "Purple Mage",
+    title: "Moonveil Arcanist",
+    weapon: "Lunar Staff",
+    role: "Pressure enemies from range with magic missiles and lunar burst damage.",
+    status: "Implemented",
+    implemented: true,
+    accent: "#b274e4",
+    portraitUrl: purpleMagePortraitUrl,
     glyph: "M",
-    stats: { health: 95, stamina: 90, meter: 120 },
+    stats: { health: 95, stamina: 95, meter: 120 },
     abilities: [
-      { key: "1", id: "flame-lance", name: "Flame Lance", cost: 30, cooldown: 4.2, range: 380 },
-      { key: "2", id: "frost-ring", name: "Frost Ring", cost: 40, cooldown: 7.5, range: 180 },
-      { key: "3", id: "storm-sigil", name: "Storm Sigil", cost: 65, cooldown: 9.5, range: 340 },
+      { key: "1", id: "moonfall", name: "Moonfall", cost: 45, cooldown: 8.5, range: 560 },
     ],
   },
   thief: {

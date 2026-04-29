@@ -1,0 +1,233 @@
+{
+  "target": "player",
+  "mode": "idle",
+  "prompt": "1x6 down-facing floating magical dodge jump for the moon mage; proportional tall JRPG sprite; lift off, airborne hover, magic motes, descend, recover",
+  "role": "",
+  "input": "C:\\Users\\there\\.codex\\generated_images\\019dd561-1674-7b62-8f43-061279e6b4c5\\ig_0fce2ef0e645fa8d0169f11d25c2a48197a1557036bb9a856c.png",
+  "threshold": 100,
+  "edge_threshold": 150,
+  "duration": 110,
+  "rows": 1,
+  "cols": 6,
+  "cell_size": 256,
+  "fit_scale": 0.88,
+  "trim_border": 4,
+  "edge_clean_depth": 3,
+  "align": "feet",
+  "shared_scale": true,
+  "component_mode": "all",
+  "component_padding": 0,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "frame_labels": [
+    "down-dodge-1",
+    "down-dodge-2",
+    "down-dodge-3",
+    "down-dodge-4",
+    "down-dodge-5",
+    "down-dodge-6"
+  ],
+  "frames": [
+    {
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        362,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 6,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        72,
+        262,
+        305,
+        625
+      ],
+      "edge_touch": false,
+      "output_size": [
+        126,
+        197
+      ],
+      "paste_position": [
+        65,
+        44
+      ]
+    },
+    {
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        362,
+        0,
+        724,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 16,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        55,
+        211,
+        318,
+        589
+      ],
+      "edge_touch": false,
+      "output_size": [
+        143,
+        205
+      ],
+      "paste_position": [
+        56,
+        36
+      ]
+    },
+    {
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        724,
+        0,
+        1086,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 6,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        39,
+        186,
+        322,
+        491
+      ],
+      "edge_touch": false,
+      "output_size": [
+        153,
+        165
+      ],
+      "paste_position": [
+        51,
+        76
+      ]
+    },
+    {
+      "grid": [
+        0,
+        3
+      ],
+      "source_box": [
+        1086,
+        0,
+        1448,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 16,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        40,
+        149,
+        315,
+        563
+      ],
+      "edge_touch": false,
+      "output_size": [
+        149,
+        225
+      ],
+      "paste_position": [
+        53,
+        16
+      ]
+    },
+    {
+      "grid": [
+        0,
+        4
+      ],
+      "source_box": [
+        1448,
+        0,
+        1810,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 31,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        45,
+        215,
+        313,
+        594
+      ],
+      "edge_touch": false,
+      "output_size": [
+        145,
+        206
+      ],
+      "paste_position": [
+        55,
+        35
+      ]
+    },
+    {
+      "grid": [
+        0,
+        5
+      ],
+      "source_box": [
+        1810,
+        0,
+        2172,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 5,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        56,
+        262,
+        281,
+        625
+      ],
+      "edge_touch": false,
+      "output_size": [
+        122,
+        197
+      ],
+      "paste_position": [
+        67,
+        44
+      ]
+    }
+  ],
+  "edge_touch_frames": [],
+  "asset": "down-facing floating magical dodge",
+  "frames_per_direction": 6,
+  "duration_ms": 110,
+  "strip": "down-dodge-strip.png",
+  "preview": "preview-checker.png",
+  "min_frame_margin_px": 15,
+  "worst_frames": [
+    "down-dodge-1",
+    "down-dodge-2",
+    "down-dodge-3",
+    "down-dodge-4",
+    "down-dodge-5",
+    "down-dodge-6"
+  ]
+}

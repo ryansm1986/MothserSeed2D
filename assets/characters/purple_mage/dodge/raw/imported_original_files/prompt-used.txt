@@ -1,0 +1,3 @@
+8-direction 6-frame floating magical dodge bundle. Generated down, left, up, down-left, and up-left from approved proportional idle/dodge anchors; mirrored left-side rows to create right, down-right, and up-right to preserve exact proportions and avoid extra-foot artifacts. Row order: down, down-left, left, up-left, up, up-right, right, down-right.
+
+Patch v2: fixed duplicate staff in up-dodge-4 and up-left-dodge-4; remirrored up-right-dodge-4.

@@ -1,0 +1,58 @@
+{
+  "character": "purple_mage",
+  "animation": "walk_v2",
+  "frame_size": [
+    576,
+    832
+  ],
+  "source_frame_size": [
+    496,
+    794
+  ],
+  "frames_per_direction": 4,
+  "directions": [
+    "south",
+    "southeast",
+    "east",
+    "northeast",
+    "north",
+    "northwest",
+    "west",
+    "southwest"
+  ],
+  "row_order": [
+    "south",
+    "southeast",
+    "east",
+    "northeast",
+    "north",
+    "northwest",
+    "west",
+    "southwest"
+  ],
+  "columns": 4,
+  "background": "transparent standardized frames/sheet; green previews only",
+  "source_direction_mapping": {
+    "south": "down",
+    "southeast": "down-right",
+    "east": "right",
+    "northeast": "up-right",
+    "north": "up",
+    "northwest": "up-left",
+    "west": "left",
+    "southwest": "down-left"
+  },
+  "notes": [
+    "Organized from user-supplied green-background walk_v2 frames.",
+    "Green background converted to transparency for standardized frames.",
+    "Source direction names converted from down/up/left/right naming to compass naming used by the purple mage pipeline.",
+    "Original 496x794/496x793 art was centered and bottom-aligned into a padded 576x832 source cell to avoid edge-touching frames.",
+    "Original green-background imports archived under raw/imported_original_files."
+  ],
+  "files": {
+    "sheet": "D:\\projects\\MotherSeed2D\\assets\\characters\\purple_mage\\walk_v2\\assembled\\purple_mage_walk_v2_8dir_4f_576x832.png",
+    "preview_half": "D:\\projects\\MotherSeed2D\\assets\\characters\\purple_mage\\walk_v2\\assembled\\purple_mage_walk_v2_8dir_4f_576x832_preview_half.png",
+    "green_preview": "D:\\projects\\MotherSeed2D\\assets\\characters\\purple_mage\\walk_v2\\assembled\\purple_mage_walk_v2_8dir_4f_576x832_green_preview.png",
+    "frames_dir": "D:\\projects\\MotherSeed2D\\assets\\characters\\purple_mage\\walk_v2\\frames"
+  }
+}

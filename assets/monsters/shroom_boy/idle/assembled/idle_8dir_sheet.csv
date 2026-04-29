@@ -1,0 +1,9 @@
+row,direction,job_id,frames,frame_width,frame_height
+0,south,idle_south,5,128,128
+1,southeast,idle_southeast,5,128,128
+2,east,idle_east,5,128,128
+3,northeast,idle_northeast,5,128,128
+4,north,idle_north,5,128,128
+5,northwest,idle_northwest,5,128,128
+6,west,idle_west,5,128,128
+7,southwest,idle_southwest,5,128,128

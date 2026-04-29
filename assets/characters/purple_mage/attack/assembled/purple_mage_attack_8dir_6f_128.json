@@ -1,0 +1,42 @@
+{
+  "character": "purple_mage",
+  "animation": "attack_staff_tip_blue",
+  "frame_size": [
+    128,
+    128
+  ],
+  "frames_per_direction": 6,
+  "directions": [
+    "south",
+    "southeast",
+    "east",
+    "northeast",
+    "north",
+    "northwest",
+    "west",
+    "southwest"
+  ],
+  "row_order": [
+    "south",
+    "southeast",
+    "east",
+    "northeast",
+    "north",
+    "northwest",
+    "west",
+    "southwest"
+  ],
+  "columns": 6,
+  "source_spacing_px": 512,
+  "background": "transparent sheet; green preview only",
+  "notes": [
+    "Staff attack points by facing direction at about hip height.",
+    "Blue effect is limited to the staff tip and disappears before return-to-neutral.",
+    "No projectiles or additional spell effects.",
+    "West, southeast, northeast, and northwest were re-extracted from wide source strips using full pose bounds to preserve thin/extended staff pixels."
+  ],
+  "files": {
+    "sheet": "D:\\projects\\MotherSeed2D\\assets\\characters\\purple_mage\\attack\\assembled\\purple_mage_attack_8dir_6f_128.png",
+    "preview_2x": "D:\\projects\\MotherSeed2D\\assets\\characters\\purple_mage\\attack\\assembled\\purple_mage_attack_8dir_6f_128_preview_2x.png"
+  }
+}

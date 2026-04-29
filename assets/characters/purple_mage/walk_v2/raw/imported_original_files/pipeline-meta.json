@@ -1,0 +1,32 @@
+{
+  "mode": "diagonal-green-background-frame-sheet",
+  "rows": 4,
+  "cols": 4,
+  "row_order": [
+    "down-right",
+    "down-left",
+    "up-right",
+    "up-left"
+  ],
+  "column_order": [
+    "foot-forward-torso-up",
+    "neutral-torso-down",
+    "opposite-foot-forward-torso-up",
+    "neutral"
+  ],
+  "cell_size": [
+    496,
+    793
+  ],
+  "sheet_size": [
+    1984,
+    3172
+  ],
+  "background": "#00FF00",
+  "source_files": {
+    "down-right": "C:\\Users\\there\\.codex\\generated_images\\019dd6b0-d31f-7bd1-80bc-5581d655258c\\ig_023198ea75fb348a0169f15c89af90819a8026575f0e4500cd.png",
+    "down-left": "C:\\Users\\there\\.codex\\generated_images\\019dd6b0-d31f-7bd1-80bc-5581d655258c\\ig_023198ea75fb348a0169f15d2ae16c819a9ce65c1b5da74a73.png",
+    "up-right": "C:\\Users\\there\\.codex\\generated_images\\019dd6b0-d31f-7bd1-80bc-5581d655258c\\ig_023198ea75fb348a0169f15d97b398819abd0a7b9ac90da052.png",
+    "up-left": "C:\\Users\\there\\.codex\\generated_images\\019dd6b0-d31f-7bd1-80bc-5581d655258c\\ig_023198ea75fb348a0169f15e0ce530819ab7e6bd53a6d5ccfb.png"
+  }
+}

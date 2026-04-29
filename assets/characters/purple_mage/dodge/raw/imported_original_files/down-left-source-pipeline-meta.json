@@ -1,0 +1,219 @@
+{
+  "target": "player",
+  "mode": "idle",
+  "prompt": "1x6 diagonal down-left floating magical dodge jump for the moon mage; proportional tall JRPG sprite; lift off, airborne hover, magic motes, descend, recover",
+  "role": "",
+  "input": "C:\\Users\\there\\.codex\\generated_images\\019dd561-1674-7b62-8f43-061279e6b4c5\\ig_0fce2ef0e645fa8d0169f1212e50a08197817257019e6b223e.png",
+  "threshold": 100,
+  "edge_threshold": 150,
+  "duration": 110,
+  "rows": 1,
+  "cols": 6,
+  "cell_size": 256,
+  "fit_scale": 0.88,
+  "trim_border": 4,
+  "edge_clean_depth": 3,
+  "align": "feet",
+  "shared_scale": true,
+  "component_mode": "all",
+  "component_padding": 0,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "frame_labels": [
+    "down-left-dodge-1",
+    "down-left-dodge-2",
+    "down-left-dodge-3",
+    "down-left-dodge-4",
+    "down-left-dodge-5",
+    "down-left-dodge-6"
+  ],
+  "frames": [
+    {
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        362,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 7,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        74,
+        288,
+        288,
+        623
+      ],
+      "edge_touch": false,
+      "output_size": [
+        114,
+        179
+      ],
+      "paste_position": [
+        71,
+        62
+      ]
+    },
+    {
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        362,
+        0,
+        724,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 9,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        64,
+        220,
+        296,
+        603
+      ],
+      "edge_touch": false,
+      "output_size": [
+        124,
+        204
+      ],
+      "paste_position": [
+        66,
+        37
+      ]
+    },
+    {
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        724,
+        0,
+        1086,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 2,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        54,
+        199,
+        313,
+        510
+      ],
+      "edge_touch": false,
+      "output_size": [
+        138,
+        166
+      ],
+      "paste_position": [
+        59,
+        75
+      ]
+    },
+    {
+      "grid": [
+        0,
+        3
+      ],
+      "source_box": [
+        1086,
+        0,
+        1448,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 21,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        57,
+        151,
+        318,
+        572
+      ],
+      "edge_touch": false,
+      "output_size": [
+        139,
+        225
+      ],
+      "paste_position": [
+        58,
+        16
+      ]
+    },
+    {
+      "grid": [
+        0,
+        4
+      ],
+      "source_box": [
+        1448,
+        0,
+        1810,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 13,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        49,
+        228,
+        271,
+        606
+      ],
+      "edge_touch": false,
+      "output_size": [
+        118,
+        202
+      ],
+      "paste_position": [
+        69,
+        39
+      ]
+    },
+    {
+      "grid": [
+        0,
+        5
+      ],
+      "source_box": [
+        1810,
+        0,
+        2172,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 10,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        38,
+        287,
+        252,
+        624
+      ],
+      "edge_touch": false,
+      "output_size": [
+        114,
+        180
+      ],
+      "paste_position": [
+        71,
+        61
+      ]
+    }
+  ],
+  "edge_touch_frames": []
+}

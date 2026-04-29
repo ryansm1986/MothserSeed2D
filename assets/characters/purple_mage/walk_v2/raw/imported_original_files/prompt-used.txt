@@ -1,0 +1,1 @@
+Diagonal source-style JRPG mage walk set on exact #00FF00 green background. Rows: down-right, down-left, up-right, up-left. Columns: foot-forward torso-up, neutral torso-down, opposite-foot-forward torso-up, neutral. Uses only the approved v3 cardinal sheet as visual reference.

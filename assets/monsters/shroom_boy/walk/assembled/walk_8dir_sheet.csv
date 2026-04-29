@@ -1,0 +1,9 @@
+row,direction,job_id,frames,frame_width,frame_height
+0,south,walk_south,8,128,128
+1,southeast,walk_southeast,8,128,128
+2,east,walk_east,8,128,128
+3,northeast,walk_northeast,8,128,128
+4,north,walk_north,8,128,128
+5,northwest,walk_northwest,8,128,128
+6,west,walk_west,8,128,128
+7,southwest,walk_southwest,8,128,128

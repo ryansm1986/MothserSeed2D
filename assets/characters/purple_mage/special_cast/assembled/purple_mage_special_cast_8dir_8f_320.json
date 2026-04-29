@@ -1,0 +1,53 @@
+{
+  "character": "purple_mage",
+  "animation": "special_cast",
+  "frame_size": [
+    320,
+    320
+  ],
+  "frames_per_direction": 8,
+  "directions": [
+    "south",
+    "southeast",
+    "east",
+    "northeast",
+    "north",
+    "northwest",
+    "west",
+    "southwest"
+  ],
+  "row_order": [
+    "south",
+    "southeast",
+    "east",
+    "northeast",
+    "north",
+    "northwest",
+    "west",
+    "southwest"
+  ],
+  "columns": 8,
+  "background": "transparent sheet; green preview only",
+  "duration_ms": 120,
+  "source_direction_mapping": {
+    "south": "down",
+    "southeast": "down-right",
+    "east": "right",
+    "northeast": "up-right",
+    "north": "up",
+    "northwest": "up-left",
+    "west": "left",
+    "southwest": "down-left"
+  },
+  "notes": [
+    "Organized from user-supplied 320px special-cast frames.",
+    "Direction names converted from down/up/left/right source naming to compass naming used by the purple mage pipeline.",
+    "Assembled sheet row order matches the other 8-direction purple mage animations.",
+    "Imported originals archived under raw/imported_original_files."
+  ],
+  "files": {
+    "sheet": "D:\\projects\\MotherSeed2D\\assets\\characters\\purple_mage\\special_cast\\assembled\\purple_mage_special_cast_8dir_8f_320.png",
+    "preview_2x": "D:\\projects\\MotherSeed2D\\assets\\characters\\purple_mage\\special_cast\\assembled\\purple_mage_special_cast_8dir_8f_320_preview_2x.png",
+    "frames_dir": "D:\\projects\\MotherSeed2D\\assets\\characters\\purple_mage\\special_cast\\frames"
+  }
+}

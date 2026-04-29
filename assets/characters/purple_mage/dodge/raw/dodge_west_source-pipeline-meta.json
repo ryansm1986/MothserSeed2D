@@ -1,0 +1,219 @@
+{
+  "target": "player",
+  "mode": "idle",
+  "prompt": "1x6 left-facing floating magical dodge jump for the moon mage; proportional tall JRPG sprite; lift off, airborne hover, magic motes, descend, recover",
+  "role": "",
+  "input": "C:\\Users\\there\\.codex\\generated_images\\019dd561-1674-7b62-8f43-061279e6b4c5\\ig_0fce2ef0e645fa8d0169f11f3bfb5081979a1bfa2a9e606b54.png",
+  "threshold": 100,
+  "edge_threshold": 150,
+  "duration": 110,
+  "rows": 1,
+  "cols": 6,
+  "cell_size": 256,
+  "fit_scale": 0.88,
+  "trim_border": 4,
+  "edge_clean_depth": 3,
+  "align": "feet",
+  "shared_scale": true,
+  "component_mode": "all",
+  "component_padding": 0,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "frame_labels": [
+    "left-dodge-1",
+    "left-dodge-2",
+    "left-dodge-3",
+    "left-dodge-4",
+    "left-dodge-5",
+    "left-dodge-6"
+  ],
+  "frames": [
+    {
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        362,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 2,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        97,
+        207,
+        286,
+        544
+      ],
+      "edge_touch": false,
+      "output_size": [
+        103,
+        183
+      ],
+      "paste_position": [
+        76,
+        58
+      ]
+    },
+    {
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        362,
+        0,
+        724,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 4,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        90,
+        175,
+        280,
+        519
+      ],
+      "edge_touch": false,
+      "output_size": [
+        103,
+        187
+      ],
+      "paste_position": [
+        76,
+        54
+      ]
+    },
+    {
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        724,
+        0,
+        1086,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 11,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        62,
+        157,
+        303,
+        539
+      ],
+      "edge_touch": false,
+      "output_size": [
+        131,
+        208
+      ],
+      "paste_position": [
+        62,
+        33
+      ]
+    },
+    {
+      "grid": [
+        0,
+        3
+      ],
+      "source_box": [
+        1086,
+        0,
+        1448,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 16,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        50,
+        125,
+        289,
+        538
+      ],
+      "edge_touch": false,
+      "output_size": [
+        130,
+        225
+      ],
+      "paste_position": [
+        63,
+        16
+      ]
+    },
+    {
+      "grid": [
+        0,
+        4
+      ],
+      "source_box": [
+        1448,
+        0,
+        1810,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 7,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        66,
+        197,
+        265,
+        558
+      ],
+      "edge_touch": false,
+      "output_size": [
+        108,
+        196
+      ],
+      "paste_position": [
+        74,
+        45
+      ]
+    },
+    {
+      "grid": [
+        0,
+        5
+      ],
+      "source_box": [
+        1810,
+        0,
+        2172,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 2,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        66,
+        208,
+        256,
+        544
+      ],
+      "edge_touch": false,
+      "output_size": [
+        103,
+        183
+      ],
+      "paste_position": [
+        76,
+        58
+      ]
+    }
+  ],
+  "edge_touch_frames": []
+}

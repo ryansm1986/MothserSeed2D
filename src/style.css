@@ -62,7 +62,7 @@ canvas {
   padding: min(8vh, 72px) 24px;
   background:
     linear-gradient(180deg, rgba(7, 18, 15, 0) 40%, rgba(7, 18, 15, 0.52) 74%, rgba(7, 18, 15, 0.82) 100%),
-    var(--title-image) center / cover no-repeat;
+    var(--title-image) 44% center / cover no-repeat;
 }
 
 .start-button {
@@ -727,6 +727,7 @@ canvas {
 @media (max-width: 760px) {
   .title-screen {
     padding-bottom: 34px;
+    background-position: center, 46% center;
   }
 
   .character-select {

@@ -1,6 +1,7 @@
 export type Vec2 = { x: number; y: number };
 export type FrameRect = { x: number; y: number; w: number; h: number };
-export type SpriteFrame = { canvas: HTMLCanvasElement; w: number; h: number };
+export type SpriteBounds = { x: number; y: number; w: number; h: number };
+export type SpriteFrame = { canvas: HTMLCanvasElement; w: number; h: number; bounds?: SpriteBounds };
 
 export type DirectionName = "down" | "down_right" | "right" | "up_right" | "up" | "up_left" | "left" | "down_left";
 export type CardinalDirectionName = "down" | "left" | "right" | "up";

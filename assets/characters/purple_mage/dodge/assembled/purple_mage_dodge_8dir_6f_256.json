@@ -1,0 +1,53 @@
+{
+  "character": "purple_mage",
+  "animation": "dodge",
+  "frame_size": [
+    256,
+    256
+  ],
+  "frames_per_direction": 6,
+  "directions": [
+    "south",
+    "southeast",
+    "east",
+    "northeast",
+    "north",
+    "northwest",
+    "west",
+    "southwest"
+  ],
+  "row_order": [
+    "south",
+    "southeast",
+    "east",
+    "northeast",
+    "north",
+    "northwest",
+    "west",
+    "southwest"
+  ],
+  "columns": 6,
+  "background": "transparent sheet; green preview only",
+  "source_direction_mapping": {
+    "south": "down",
+    "southeast": "down-right",
+    "east": "right",
+    "northeast": "up-right",
+    "north": "up",
+    "northwest": "up-left",
+    "west": "left",
+    "southwest": "down-left"
+  },
+  "notes": [
+    "Reorganized from latest user-dumped dodge update files.",
+    "Loose source-named frames at the dodge root were treated as replacements for existing standardized frames.",
+    "Direction names converted from down/up/left/right source naming to compass naming used by the purple mage pipeline.",
+    "Assembled sheet row order matches the other 8-direction purple mage animations.",
+    "Near-transparent chroma-green import specks were cleared from standardized frames."
+  ],
+  "files": {
+    "sheet": "D:\\projects\\MotherSeed2D\\assets\\characters\\purple_mage\\dodge\\assembled\\purple_mage_dodge_8dir_6f_256.png",
+    "preview_2x": "D:\\projects\\MotherSeed2D\\assets\\characters\\purple_mage\\dodge\\assembled\\purple_mage_dodge_8dir_6f_256_preview_2x.png",
+    "frames_dir": "D:\\projects\\MotherSeed2D\\assets\\characters\\purple_mage\\dodge\\frames"
+  }
+}

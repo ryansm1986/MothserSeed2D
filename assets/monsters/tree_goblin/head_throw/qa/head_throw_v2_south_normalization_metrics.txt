@@ -1,0 +1,15 @@
+raw=D:\projects\MotherSeed2D\assets\monsters\tree_goblin\head_throw_v2\raw\head_throw_v2_south_raw.png
+spaced_raw=D:\projects\MotherSeed2D\assets\monsters\tree_goblin\head_throw_v2\raw\head_throw_v2_south_raw_spaced_768px.png
+spaced_raw_size=7601x724
+enforced_empty_gutter_px=768
+source_pose_groups=[(39, 219), (310, 463), (578, 721), (804, 1063), (1139, 1306), (1393, 1610), (1676, 1821), (1932, 2117)]
+frame_size=384x384
+anchor=192,376
+frame=01, lane=352-597, source_bbox=(32, 385, 213, 644), cropped_size=(181, 259)
+frame=02, lane=1301-1519, source_bbox=(32, 427, 186, 644), cropped_size=(154, 217)
+frame=03, lane=2223-2431, source_bbox=(32, 307, 176, 644), cropped_size=(144, 337)
+frame=04, lane=3135-3459, source_bbox=(32, 407, 292, 644), cropped_size=(260, 237)
+frame=05, lane=4163-4395, source_bbox=(32, 430, 200, 644), cropped_size=(168, 214)
+frame=06, lane=5099-5381, source_bbox=(32, 303, 250, 644), cropped_size=(218, 341)
+frame=07, lane=6085-6295, source_bbox=(32, 431, 178, 644), cropped_size=(146, 213)
+frame=08, lane=6999-7249, source_bbox=(32, 385, 218, 644), cropped_size=(186, 259)

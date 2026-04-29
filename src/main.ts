@@ -1,7 +1,14 @@
 import "./style.css";
 import rpgAssetsUrl from "../assets/RPGAssets.png?url";
 import titleImageUrl from "../assets/Title.png?url";
+import titleMusicUrl from "../assets/Music/Mothertree_Intro_Short.mp3?url";
 import largeGrassTerrainUrl from "../assets/world/terrain/large_grass.png?url";
+import magicMissileUrl from "../assets/characters/purple_mage/projectiles/magic_missile/magic_missile.png?url";
+import moonfallUrl from "../assets/characters/purple_mage/spells/moonfall/moonfall.png?url";
+import moonfallCrashUrl from "../assets/characters/purple_mage/spells/moonfall/sound_effects/Crashing.mp3?url";
+import moonfallPortalUrl from "../assets/characters/purple_mage/spells/moonfall/sound_effects/Portal.mp3?url";
+import moonfallVoiceUrl from "../assets/characters/purple_mage/spells/moonfall/voiceline/Moonfall.mp3?url";
+import golemRockSlamCrashUrl from "../assets/sound_effects/Crashing.mp3?url";
 import { characterClasses, characterOrder } from "./game/content/classes";
 import { gameplayActionForCode, movementFromActions, type GameplayAction } from "./game/input-actions";
 import { clamp, directionFromVector, distance, dot, length, lengthSq, normalize } from "./game/math";
@@ -14,6 +21,7 @@ import type {
   GearDrop,
   MonsterAnimationName,
   PlayerLifeState,
+  SpriteBounds,
   SpriteFrame,
   TelegraphKind,
   Vec2,
@@ -27,6 +35,19 @@ const warriorFrameUrls = import.meta.glob([
   "../assets/characters/green_warrior_v3/dodge/frames/dodge_*_[0-9][0-9].png",
   "../assets/characters/green_warrior_v3/attack/frames/attack_*_[0-9][0-9].png",
   "../assets/characters/green_warrior_v3/special/frames/special_*_[0-9][0-9].png",
+], {
+  eager: true,
+  import: "default",
+  query: "?url",
+}) as Record<string, string>;
+const purpleMageFrameUrls = import.meta.glob([
+  "../assets/characters/purple_mage/idle/frames/idle_*_[0-9][0-9].png",
+  "../assets/characters/purple_mage/walk/frames/walk_*_[0-9][0-9].png",
+  "../assets/characters/purple_mage/walk_v2/frames/walk_v2_*_[0-9][0-9].png",
+  "../assets/characters/purple_mage/sprint/frames/sprint_*_[0-9][0-9].png",
+  "../assets/characters/purple_mage/dodge/frames/dodge_*_[0-9][0-9].png",
+  "../assets/characters/purple_mage/attack/frames/attack_*_[0-9][0-9].png",
+  "../assets/characters/purple_mage/special_cast/frames/special_cast_*_[0-9][0-9].png",
 ], {
   eager: true,
   import: "default",
@@ -50,6 +71,16 @@ const animatedGrassFrameUrls = import.meta.glob("../assets/world/grass/frames/*.
   import: "default",
   query: "?url",
 }) as Record<string, string>;
+const magicMissileFrameUrls = import.meta.glob("../assets/characters/purple_mage/projectiles/magic_missile/frames/magic_missile_left_[0-9][0-9].png", {
+  eager: true,
+  import: "default",
+  query: "?url",
+}) as Record<string, string>;
+const moonfallFrameUrls = import.meta.glob("../assets/characters/purple_mage/spells/moonfall/frames/moonfall_[0-9][0-9].png", {
+  eager: true,
+  import: "default",
+  query: "?url",
+}) as Record<string, string>;
 const warriorSpriteDraw = {
   standard: {
     scale: 0.92,
@@ -64,6 +95,35 @@ const warriorSpriteDraw = {
     baselineOffset: 28,
   },
 };
+const purpleMageSpriteDraw = {
+  standard: {
+    scale: 0.98,
+    anchorX: 64,
+    anchorY: 118,
+    baselineOffset: 28,
+    targetContentHeight: 120,
+  },
+  wideAction: {
+    scale: 0.98,
+    anchorX: 96,
+    anchorY: 140,
+    baselineOffset: 28,
+    targetContentHeight: 120,
+  },
+  dodge: {
+    scale: 0.54,
+    anchorX: 128,
+    anchorY: 241,
+    baselineOffset: 28,
+    targetContentHeight: 112,
+  },
+  specialCast: {
+    scale: 0.62,
+    anchorX: 160,
+    anchorY: 298,
+    baselineOffset: 28,
+  },
+};
 const warriorAttackDirectionScale: Partial<Record<DirectionName, number>> = {
   up: 1.08,
   left: 1.14,
@@ -71,6 +131,26 @@ const warriorAttackDirectionScale: Partial<Record<DirectionName, number>> = {
 };
 const warriorDirections = ["down", "down_right", "right", "up_right", "up", "up_left", "left", "down_left"] as const satisfies readonly DirectionName[];
 const monsterDirections = warriorDirections;
+const purpleMageDirectionAssets: Record<DirectionName, string> = {
+  down: "south",
+  down_right: "southeast",
+  right: "east",
+  up_right: "northeast",
+  up: "north",
+  up_left: "northwest",
+  left: "west",
+  down_left: "southwest",
+};
+const purpleMageIdleDirectionFallbackAssets: Record<DirectionName, "south" | "east" | "north" | "west"> = {
+  down: "south",
+  down_right: "south",
+  right: "east",
+  up_right: "north",
+  up: "north",
+  up_left: "north",
+  left: "west",
+  down_left: "south",
+};
 const warriorAnimationPaths = {
   idle: "idle",
   walk: "walk",
@@ -101,6 +181,43 @@ const mossGolemSpriteDraw = {
     baselineOffset: 34,
   },
 };
+const enemyAttackTimings = {
+  cone: {
+    windup: 1.2,
+    active: 0.4,
+    recovery: 0.9,
+  },
+  slam: {
+    windup: 1.35,
+    active: 0.45,
+    recovery: 0.9,
+  },
+} as const satisfies Record<TelegraphKind, { windup: number; active: number; recovery: number }>;
+const magicMissileCastTiming = {
+  releaseDelay: 0.28,
+  attackFlash: 0.7,
+} as const;
+const magicMissileLifetime = 1.4;
+const magicMissileAnimationRate = 0.075;
+// Source missile frames are authored with the left side as the forward edge.
+const magicMissileForwardRotation = Math.PI;
+const moonfallCastTiming = {
+  releaseDelay: 0.62,
+  specialFlash: 1.08,
+} as const;
+const moonfallStrikeDuration = 1.64;
+const moonfallImpactDuration = 0.68;
+const moonfallFrameScale = 0.864;
+const moonfallAudio = {
+  voiceVolume: 0.8,
+  portalVolume: 0.62,
+  crashVolume: 0.82,
+} as const;
+const golemAudio = {
+  rockSlamCrashVolume: 0.82,
+} as const;
+const titleMusicVolume = 0.54;
+const defaultAttackCooldown = 3;
 
 const app = document.querySelector<HTMLDivElement>("#app");
 
@@ -127,7 +244,7 @@ app.innerHTML = `
         <aside class="character-detail" id="character-detail"></aside>
       </div>
       <div class="select-footer">
-        <div class="select-hint">Five paths. Two awaken in this build.</div>
+        <div class="select-hint">Five paths. Three awaken in this build.</div>
         <button class="menu-button continue-button" type="button">Enter Grove</button>
       </div>
     </div>
@@ -245,6 +362,7 @@ const enemy = {
   currentAttack: "cone" as TelegraphKind,
   attackForward: { x: 0, y: 1 },
   hasHitPlayer: false,
+  rockSlamCrashPlayed: false,
   chainTag: "",
   chainTimer: 0,
   bleedTimer: 0,
@@ -258,6 +376,42 @@ const enemy = {
 };
 
 type Obstacle = { x: number; y: number; rx: number; ry: number; asset: WorldAssetName; scale: number };
+type PlayerSpriteSet = Record<DirectionName, Record<AnimationName, SpriteFrame[]>>;
+type DrawProfile = { scale: number; anchorX: number; anchorY: number; baselineOffset: number; targetContentHeight?: number; minScale?: number };
+type MagicMissileProjectile = {
+  x: number;
+  y: number;
+  rotation: number;
+  speed: number;
+  damage: number;
+  ttl: number;
+};
+type MoonfallStrike = {
+  x: number;
+  startY: number;
+  targetY: number;
+  timer: number;
+  duration: number;
+  damage: number;
+  radius: number;
+  impacted: boolean;
+  crashPlayed: boolean;
+};
+type PendingMagicMissileCast = {
+  damage: number;
+  timer: number;
+};
+type PendingMoonfallCast = {
+  x: number;
+  y: number;
+  damage: number;
+  radius: number;
+  timer: number;
+};
+type FrameUrlResolution = {
+  urls: string[];
+  mirrorX?: boolean;
+};
 
 const obstacles: Obstacle[] = [];
 
@@ -308,13 +462,20 @@ const grovePathRoutes: Vec2[][] = [
 ];
 
 const pressedActions = new Set<GameplayAction>();
+let sprintExhaustedUntilRelease = false;
 const cooldowns = new Map<string, number>();
-let sprites: Record<DirectionName, Record<AnimationName, SpriteFrame[]>> | null = null;
+let playerSprites: Partial<Record<ClassId, PlayerSpriteSet>> = {};
 let monsterSprites: Record<DirectionName, Record<MonsterAnimationName, SpriteFrame[]>> | null = null;
 let worldAssets: Partial<Record<WorldAssetName, SpriteFrame>> = {};
 let grassTerrainTile: SpriteFrame | null = null;
 let grassTerrainProps: Record<string, SpriteFrame> = {};
 let animatedGrassFrames: SpriteFrame[] = [];
+let magicMissileFrames: SpriteFrame[] = [];
+let moonfallFrames: SpriteFrame[] = [];
+const magicMissiles: MagicMissileProjectile[] = [];
+const moonfallStrikes: MoonfallStrike[] = [];
+let pendingMagicMissileCast: PendingMagicMissileCast | null = null;
+let pendingMoonfallCast: PendingMoonfallCast | null = null;
 let targetLocked = true;
 let droppedGear: GearDrop | null = null;
 let equippedGear: GearDrop = {
@@ -328,6 +489,11 @@ let respawnTimer = 0;
 let isTitleActive = true;
 let isCharacterSelectActive = false;
 let lastFrame = performance.now();
+let titleMusic: HTMLAudioElement | null = null;
+
+function isGameplayActive() {
+  return !isTitleActive && !isCharacterSelectActive;
+}
 
 function loadImage(url: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
@@ -336,6 +502,37 @@ function loadImage(url: string): Promise<HTMLImageElement> {
     image.onerror = () => reject(new Error(`Unable to load ${url}`));
     image.src = url;
   });
+}
+
+function playSound(url: string, volume = 1) {
+  if (!isGameplayActive()) return;
+  const sound = new Audio(url);
+  sound.volume = clamp(volume, 0, 1);
+  sound.play().catch(() => {
+    // Browsers may block audio until the first trusted interaction; gameplay continues silently.
+  });
+}
+
+function ensureTitleMusic() {
+  if (titleMusic) return titleMusic;
+  titleMusic = new Audio(titleMusicUrl);
+  titleMusic.loop = true;
+  titleMusic.volume = titleMusicVolume;
+  return titleMusic;
+}
+
+function playTitleMusic() {
+  if (isGameplayActive()) return;
+  const music = ensureTitleMusic();
+  music.play().catch(() => {
+    // Menu music waits for the first trusted interaction if autoplay is blocked.
+  });
+}
+
+function stopTitleMusic() {
+  if (!titleMusic) return;
+  titleMusic.pause();
+  titleMusic.currentTime = 0;
 }
 
 function makeTransparentFrame(image: HTMLImageElement, frame: FrameRect): SpriteFrame {
@@ -370,7 +567,7 @@ function makeTransparentFrame(image: HTMLImageElement, frame: FrameRect): Sprite
   frameCtx.putImageData(pixels, 0, 0);
 
   if (maxX < minX || maxY < minY) {
-    return { canvas: buffer, w: frame.w, h: frame.h };
+    return makeSpriteFrame(buffer);
   }
 
   const padding = 2;
@@ -383,7 +580,56 @@ function makeTransparentFrame(image: HTMLImageElement, frame: FrameRect): Sprite
   trimmed.height = trimmedH;
   trimmed.getContext("2d")!.drawImage(buffer, trimmedX, trimmedY, trimmedW, trimmedH, 0, 0, trimmedW, trimmedH);
 
-  return { canvas: trimmed, w: trimmedW, h: trimmedH };
+  return makeSpriteFrame(trimmed);
+}
+
+function makeGreenScreenFrame(image: HTMLImageElement): SpriteFrame {
+  const buffer = document.createElement("canvas");
+  buffer.width = image.naturalWidth;
+  buffer.height = image.naturalHeight;
+  const frameCtx = buffer.getContext("2d")!;
+  frameCtx.drawImage(image, 0, 0);
+
+  const pixels = frameCtx.getImageData(0, 0, buffer.width, buffer.height);
+  let minX = buffer.width;
+  let minY = buffer.height;
+  let maxX = -1;
+  let maxY = -1;
+
+  for (let index = 0; index < pixels.data.length; index += 4) {
+    const r = pixels.data[index];
+    const g = pixels.data[index + 1];
+    const b = pixels.data[index + 2];
+    const isGreenScreen = g > 150 && r < 100 && b < 120;
+    if (isGreenScreen) {
+      pixels.data[index + 3] = 0;
+    } else {
+      const pixelIndex = index / 4;
+      const x = pixelIndex % buffer.width;
+      const y = Math.floor(pixelIndex / buffer.width);
+      minX = Math.min(minX, x);
+      minY = Math.min(minY, y);
+      maxX = Math.max(maxX, x);
+      maxY = Math.max(maxY, y);
+    }
+  }
+  frameCtx.putImageData(pixels, 0, 0);
+
+  if (maxX < minX || maxY < minY) {
+    return makeSpriteFrame(buffer);
+  }
+
+  const padding = 2;
+  const trimmedX = Math.max(0, minX - padding);
+  const trimmedY = Math.max(0, minY - padding);
+  const trimmedW = Math.min(buffer.width - trimmedX, maxX - trimmedX + 1 + padding);
+  const trimmedH = Math.min(buffer.height - trimmedY, maxY - trimmedY + 1 + padding);
+  const trimmed = document.createElement("canvas");
+  trimmed.width = trimmedW;
+  trimmed.height = trimmedH;
+  trimmed.getContext("2d")!.drawImage(buffer, trimmedX, trimmedY, trimmedW, trimmedH, 0, 0, trimmedW, trimmedH);
+
+  return makeSpriteFrame(trimmed);
 }
 
 function makeImageFrame(image: HTMLImageElement): SpriteFrame {
@@ -391,7 +637,65 @@ function makeImageFrame(image: HTMLImageElement): SpriteFrame {
   buffer.width = image.naturalWidth;
   buffer.height = image.naturalHeight;
   buffer.getContext("2d")!.drawImage(image, 0, 0);
-  return { canvas: buffer, w: buffer.width, h: buffer.height };
+  return makeSpriteFrame(buffer);
+}
+
+function makeSpriteFrame(canvas: HTMLCanvasElement): SpriteFrame {
+  return { canvas, w: canvas.width, h: canvas.height, bounds: measureOpaqueBounds(canvas) };
+}
+
+function measureOpaqueBounds(canvas: HTMLCanvasElement, alphaThreshold = 8): SpriteBounds | undefined {
+  const frameCtx = canvas.getContext("2d")!;
+  const pixels = frameCtx.getImageData(0, 0, canvas.width, canvas.height);
+  let minX = canvas.width;
+  let minY = canvas.height;
+  let maxX = -1;
+  let maxY = -1;
+
+  for (let index = 0; index < pixels.data.length; index += 4) {
+    if (pixels.data[index + 3] <= alphaThreshold) continue;
+    const pixelIndex = index / 4;
+    const x = pixelIndex % canvas.width;
+    const y = Math.floor(pixelIndex / canvas.width);
+    minX = Math.min(minX, x);
+    minY = Math.min(minY, y);
+    maxX = Math.max(maxX, x);
+    maxY = Math.max(maxY, y);
+  }
+
+  if (maxX < minX || maxY < minY) return undefined;
+  return { x: minX, y: minY, w: maxX - minX + 1, h: maxY - minY + 1 };
+}
+
+function makeMoonfallFrame(image: HTMLImageElement): SpriteFrame {
+  const frame = makeImageFrame(image);
+  const frameCtx = frame.canvas.getContext("2d")!;
+  const pixels = frameCtx.getImageData(0, 0, frame.w, frame.h);
+
+  for (let index = 0; index < pixels.data.length; index += 4) {
+    const pixelIndex = index / 4;
+    const y = Math.floor(pixelIndex / frame.w);
+    const inGuideBand = y < 80 || y > frame.h - 80;
+    const isWhiteGuide = pixels.data[index] > 220 && pixels.data[index + 1] > 220 && pixels.data[index + 2] > 220;
+
+    if (inGuideBand && isWhiteGuide) {
+      pixels.data[index + 3] = 0;
+    }
+  }
+
+  frameCtx.putImageData(pixels, 0, 0);
+  return makeSpriteFrame(frame.canvas);
+}
+
+function mirrorFrameHorizontally(frame: SpriteFrame): SpriteFrame {
+  const buffer = document.createElement("canvas");
+  buffer.width = frame.w;
+  buffer.height = frame.h;
+  const bufferCtx = buffer.getContext("2d")!;
+  bufferCtx.translate(frame.w, 0);
+  bufferCtx.scale(-1, 1);
+  bufferCtx.drawImage(frame.canvas, 0, 0);
+  return makeSpriteFrame(buffer);
 }
 
 function assetNameFromPath(path: string): string {
@@ -421,7 +725,19 @@ const worldAssetRects: Record<WorldAssetName, FrameRect> = {
 };
 
 async function loadSprites() {
-  const output = {} as Record<DirectionName, Record<AnimationName, SpriteFrame[]>>;
+  const [warriorSprites, mageSprites] = await Promise.all([
+    loadWarriorSprites(),
+    loadPurpleMageSprites(),
+  ]);
+  playerSprites = {
+    warrior: warriorSprites,
+    cleric: warriorSprites,
+    mage: mageSprites,
+  };
+}
+
+async function loadWarriorSprites(): Promise<PlayerSpriteSet> {
+  const output = {} as PlayerSpriteSet;
   const animations = ["idle", "walk", "sprint", "dodge_roll", "attack1", "attack2"] as const satisfies readonly AnimationName[];
 
   await Promise.all(warriorDirections.map(async (direction) => {
@@ -436,7 +752,27 @@ async function loadSprites() {
     output[direction].victory = output[direction].idle;
   }));
 
-  sprites = output;
+  return output;
+}
+
+async function loadPurpleMageSprites(): Promise<PlayerSpriteSet> {
+  const output = {} as PlayerSpriteSet;
+  const animations = ["idle", "walk", "sprint", "dodge_roll", "attack1", "attack2"] as const satisfies readonly AnimationName[];
+
+  await Promise.all(warriorDirections.map(async (direction) => {
+    output[direction] = {} as Record<AnimationName, SpriteFrame[]>;
+    await Promise.all(animations.map(async (animation) => {
+      const source = getPurpleMageFrameSource(direction, animation);
+      const frames = await Promise.all(source.urls.map(async (url) => makeImageFrame(await loadImage(url))));
+      const resolvedFrames = source.mirrorX ? frames.map(mirrorFrameHorizontally) : frames;
+      output[direction][animation] = resolvedFrames;
+    }));
+    output[direction].run = output[direction].sprint;
+    output[direction].damage = output[direction].idle;
+    output[direction].victory = output[direction].idle;
+  }));
+
+  return output;
 }
 
 function makePingPongFrames<T>(frames: T[]): T[] {
@@ -479,6 +815,64 @@ function findWarriorFrameUrls(assetAnimation: string, direction: DirectionName):
     .map(([, url]) => url);
 
   return urls;
+}
+
+function getPurpleMageFrameSource(direction: DirectionName, animation: AnimationName): FrameUrlResolution {
+  const assetDirection = purpleMageDirectionAssets[direction];
+
+  if (animation === "idle" || animation === "damage" || animation === "victory") {
+    const directionalIdleUrls = findPurpleMageFrameUrls("idle", assetDirection);
+    if (directionalIdleUrls.length > 0) return { urls: directionalIdleUrls };
+    return { urls: findPurpleMageFrameUrls("idle", purpleMageIdleDirectionFallbackAssets[direction]) };
+  }
+
+  if (animation === "walk") {
+    const walkV2Urls = findPurpleMageFrameUrls("walk_v2", assetDirection);
+    if (walkV2Urls.length > 0) return { urls: walkV2Urls };
+    return { urls: findPurpleMageFrameUrls("walk", assetDirection) };
+  }
+
+  if (animation === "sprint" || animation === "run") {
+    const sprintUrls = findPurpleMageFrameUrls("sprint", assetDirection);
+    if (sprintUrls.length > 0) return { urls: sprintUrls };
+    if (assetDirection === "southwest") {
+      const mirroredSoutheastUrls = findPurpleMageFrameUrls("sprint", "southeast");
+      if (mirroredSoutheastUrls.length > 0) return { urls: mirroredSoutheastUrls, mirrorX: true };
+    }
+    const walkV2Urls = findPurpleMageFrameUrls("walk_v2", assetDirection);
+    if (walkV2Urls.length > 0) return { urls: walkV2Urls };
+    return { urls: findPurpleMageFrameUrls("walk", assetDirection) };
+  }
+
+  if (animation === "dodge_roll") {
+    const dodgeUrls = findPurpleMageFrameUrls("dodge", assetDirection);
+    if (dodgeUrls.length > 0) return { urls: dodgeUrls };
+    return { urls: findPurpleMageFrameUrls("sprint", assetDirection) };
+  }
+
+  if (animation === "attack1") {
+    return { urls: findPurpleMageFrameUrls("attack", assetDirection) };
+  }
+
+  if (animation === "attack2") {
+    const specialCastUrls = findPurpleMageFrameUrls("special_cast", assetDirection);
+    if (specialCastUrls.length > 0) return { urls: specialCastUrls };
+    return { urls: findPurpleMageFrameUrls("attack", assetDirection) };
+  }
+
+  throw new Error(`Missing purple_mage frames for ${direction}/${animation}.`);
+}
+
+function findPurpleMageFrameUrls(assetAnimation: "idle" | "walk" | "walk_v2" | "sprint" | "dodge" | "attack" | "special_cast", assetDirection: string): string[] {
+  const prefix = `../assets/characters/purple_mage/${assetAnimation}/frames/${assetAnimation}_${assetDirection}_`;
+  return Object.entries(purpleMageFrameUrls)
+    .filter(([path]) => path.startsWith(prefix) && /^\d{2}\.png$/.test(path.slice(prefix.length)))
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([, url]) => url);
+}
+
+function activePlayerSpriteSet(): PlayerSpriteSet | null {
+  return playerSprites[selectedClassId] ?? playerSprites.warrior ?? null;
 }
 
 function getMossGolemFrameUrls(direction: DirectionName, animation: MonsterAnimationName): string[] {
@@ -575,6 +969,19 @@ async function loadWorldAssets() {
       .sort(([left], [right]) => left.localeCompare(right))
       .map(async ([, url]) => makeImageFrame(await loadImage(url))),
   ));
+  const magicMissileEntries = Object.entries(magicMissileFrameUrls)
+    .sort(([left], [right]) => left.localeCompare(right));
+  const moonfallEntries = Object.entries(moonfallFrameUrls)
+    .sort(([left], [right]) => left.localeCompare(right));
+
+  [magicMissileFrames, moonfallFrames] = await Promise.all([
+    magicMissileEntries.length > 0
+      ? Promise.all(magicMissileEntries.map(([, url]) => loadImage(url).then(makeImageFrame)))
+      : loadImage(magicMissileUrl).then(makeGreenScreenFrame).then((frame) => [frame]),
+    moonfallEntries.length > 0
+      ? Promise.all(moonfallEntries.map(([, url]) => loadImage(url).then(makeMoonfallFrame)))
+      : loadImage(moonfallUrl).then(makeGreenScreenFrame).then((frame) => [frame]),
+  ]);
   worldAssets = output;
 }
 
@@ -625,10 +1032,17 @@ function updatePlayer(delta: number) {
     player.facing = { ...input };
   }
 
-  const sprinting = moving && pressedActions.has("sprint") && player.stamina > 0 && player.dodgeTime <= 0;
+  const sprinting = moving
+    && pressedActions.has("sprint")
+    && !sprintExhaustedUntilRelease
+    && player.stamina > 0
+    && player.dodgeTime <= 0;
 
   if (sprinting) {
     player.stamina = Math.max(0, player.stamina - player.sprintStaminaCost * delta);
+    if (player.stamina <= 0) {
+      sprintExhaustedUntilRelease = true;
+    }
   } else {
     player.stamina = Math.min(player.maxStamina, player.stamina + player.staminaRegen * delta);
   }
@@ -650,7 +1064,9 @@ function updatePlayer(delta: number) {
 
   clampToArena(player);
   resolveObstacleCollision(player, player.radius);
-  updateTargetFacing();
+  if (!sprinting && player.dodgeTime <= 0) {
+    updateTargetFacing();
+  }
 
   const nextAnim: AnimationName =
     player.specialFlash > 0
@@ -675,6 +1091,34 @@ function updateTargetFacing() {
   player.direction = directionFromVector(toEnemy);
 }
 
+function lockTarget() {
+  if (enemy.state === "dead" || !enemy.visible) return;
+  targetLocked = true;
+  pushLog("Target locked", "Rootbound Elite");
+}
+
+function clearTarget() {
+  if (!targetLocked && !pendingMagicMissileCast) return;
+  targetLocked = false;
+  pendingMagicMissileCast = null;
+  pushLog("Target cleared", "Movement controls facing");
+}
+
+function screenToWorld(clientX: number, clientY: number): Vec2 {
+  const rect = canvas.getBoundingClientRect();
+  return {
+    x: (clientX - rect.left) / camera.scale + camera.x,
+    y: (clientY - rect.top) / camera.scale + camera.y,
+  };
+}
+
+function isEnemyAtWorldPoint(point: Vec2) {
+  if (enemy.state === "dead" || !enemy.visible) return false;
+  const dx = (point.x - enemy.x) / 72;
+  const dy = (point.y - (enemy.y + 12)) / 48;
+  return dx * dx + dy * dy <= 1;
+}
+
 function updateSpriteAnimation(nextAnim: AnimationName, delta: number) {
   if (player.anim !== nextAnim) {
     player.anim = nextAnim;
@@ -695,7 +1139,7 @@ function updateSpriteAnimation(nextAnim: AnimationName, delta: number) {
             : player.anim === "sprint"
               ? 0.075
               : 0.105;
-  const frames = sprites?.[player.direction][player.anim];
+  const frames = activePlayerSpriteSet()?.[player.direction][player.anim];
   if (frames && player.animTimer >= rate) {
     player.animTimer = 0;
     const oneShot = player.anim === "attack1" || player.anim === "attack2" || player.anim === "dodge_roll";
@@ -715,6 +1159,8 @@ function updateCamera(delta: number) {
 
 function updateCombat(delta: number) {
   if (player.lifeState === "dead") {
+    pendingMagicMissileCast = null;
+    pendingMoonfallCast = null;
     playerRespawnTimer -= delta;
     if (playerRespawnTimer <= 0) respawnPlayer();
     return;
@@ -727,6 +1173,10 @@ function updateCombat(delta: number) {
   }
 
   enemy.flashTimer = Math.max(0, enemy.flashTimer - delta);
+  updatePendingMagicMissileCast(delta);
+  updateMagicMissiles(delta);
+  updatePendingMoonfallCast(delta);
+  updateMoonfallStrikes(delta);
 
   if (enemy.chainTimer > 0) {
     enemy.chainTimer -= delta;
@@ -741,12 +1191,24 @@ function updateCombat(delta: number) {
 function updateAutoAttack() {
   if (player.lifeState !== "alive") return;
   if (!targetLocked || enemy.health <= 0) return;
-  if (distance(player, enemy) > 120 || player.autoTimer > 0) return;
+  const isMage = selectedClassId === "mage";
+  const autoRange = isMage ? 520 : 120;
+  if (distance(player, enemy) > autoRange || player.autoTimer > 0) return;
 
-  player.autoTimer = 1.35;
-  player.attackFlash = 1.05;
+  player.autoTimer = defaultAttackCooldown;
   player.autoCount += 1;
 
+  if (isMage) {
+    player.attackFlash = magicMissileCastTiming.attackFlash;
+    const damage = 10 + Math.ceil(equippedGear.power * 0.6) + (player.autoCount % 3 === 0 ? 5 : 0);
+    pendingMagicMissileCast = {
+      damage,
+      timer: magicMissileCastTiming.releaseDelay,
+    };
+    return;
+  }
+
+  player.attackFlash = 1.05;
   let damage = 8 + equippedGear.power;
   if (player.autoCount % 3 === 0) {
     damage += 5;
@@ -761,6 +1223,120 @@ function updateAutoAttack() {
   player.meter = Math.min(player.maxMeter, player.meter + 8);
 }
 
+function updatePendingMagicMissileCast(delta: number) {
+  if (!pendingMagicMissileCast) return;
+  pendingMagicMissileCast.timer -= delta;
+
+  if (pendingMagicMissileCast.timer > 0) return;
+
+  const damage = pendingMagicMissileCast.damage;
+  pendingMagicMissileCast = null;
+  if (!targetLocked || player.lifeState !== "alive" || enemy.health <= 0 || enemy.state === "dead") return;
+  spawnMagicMissile(damage);
+}
+
+function spawnMagicMissile(damage: number) {
+  const castDirection = { x: enemy.x - player.x, y: enemy.y - player.y };
+  if (lengthSq(castDirection) > 0.001) {
+    normalize(castDirection);
+  } else {
+    castDirection.x = player.facing.x;
+    castDirection.y = player.facing.y;
+  }
+  const castOffset = {
+    x: castDirection.x * 24,
+    y: castDirection.y * 18 - 26,
+  };
+
+  magicMissiles.push({
+    x: player.x + castOffset.x,
+    y: player.y + castOffset.y,
+    rotation: Math.atan2(castDirection.y, castDirection.x),
+    speed: 640,
+    damage,
+    ttl: magicMissileLifetime,
+  });
+}
+
+function updateMagicMissiles(delta: number) {
+  for (let index = magicMissiles.length - 1; index >= 0; index -= 1) {
+    const missile = magicMissiles[index];
+    missile.ttl -= delta;
+
+    if (enemy.state !== "dead" && enemy.visible) {
+      const toEnemy = { x: enemy.x - missile.x, y: enemy.y - missile.y };
+      if (lengthSq(toEnemy) > 0.001) {
+        normalize(toEnemy);
+        missile.rotation = Math.atan2(toEnemy.y, toEnemy.x);
+        missile.x += toEnemy.x * missile.speed * delta;
+        missile.y += toEnemy.y * missile.speed * delta;
+      }
+
+      if (distance(missile, enemy) <= enemy.radius + 18) {
+        magicMissiles.splice(index, 1);
+        dealEnemyDamage(missile.damage, "Magic Missile");
+        player.meter = Math.min(player.maxMeter, player.meter + 7);
+        continue;
+      }
+    }
+
+    if (missile.ttl <= 0) {
+      magicMissiles.splice(index, 1);
+    }
+  }
+}
+
+function updateMoonfallStrikes(delta: number) {
+  for (let index = moonfallStrikes.length - 1; index >= 0; index -= 1) {
+    const strike = moonfallStrikes[index];
+    strike.timer += delta;
+    const progress = Math.min(strike.timer / strike.duration, 1);
+    const finalFrameStart = moonfallFrames.length > 1 ? (moonfallFrames.length - 1) / moonfallFrames.length : 0.78;
+
+    if (!strike.impacted && progress >= 0.78) {
+      strike.impacted = true;
+      if (enemy.state !== "dead" && distance({ x: strike.x, y: strike.targetY }, enemy) <= strike.radius) {
+        dealEnemyDamage(strike.damage, "Moonfall");
+        applyChain("Moonstruck", 5);
+      } else {
+        pushLog("Moonfall missed", "The target slipped away");
+      }
+    }
+
+    if (!strike.crashPlayed && progress >= finalFrameStart) {
+      strike.crashPlayed = true;
+      playSound(moonfallCrashUrl, moonfallAudio.crashVolume);
+    }
+
+    if (strike.timer >= strike.duration + moonfallImpactDuration) {
+      moonfallStrikes.splice(index, 1);
+    }
+  }
+}
+
+function updatePendingMoonfallCast(delta: number) {
+  if (!pendingMoonfallCast) return;
+  pendingMoonfallCast.timer -= delta;
+
+  if (pendingMoonfallCast.timer > 0) return;
+
+  const cast = pendingMoonfallCast;
+  pendingMoonfallCast = null;
+  if (player.lifeState !== "alive" || enemy.health <= 0 || enemy.state === "dead") return;
+
+  moonfallStrikes.push({
+    x: cast.x,
+    startY: cast.y - 430,
+    targetY: cast.y,
+    timer: 0,
+    duration: moonfallStrikeDuration,
+    damage: cast.damage,
+    radius: cast.radius,
+    impacted: false,
+    crashPlayed: false,
+  });
+}
+
 function updateEnemy(delta: number) {
   if (player.lifeState !== "alive") {
     updateMonsterAnimation("idle", delta);
@@ -770,9 +1346,10 @@ function updateEnemy(delta: number) {
   const toPlayer = { x: player.x - enemy.x, y: player.y - enemy.y };
   const distanceToPlayer = length(toPlayer);
   if (distanceToPlayer > 0.001) normalize(toPlayer);
-  if (distanceToPlayer > 0.001) enemy.direction = directionFromVector(toPlayer);
 
   if (enemy.state === "idle") {
+    if (distanceToPlayer > 0.001) enemy.direction = directionFromVector(toPlayer);
+
     if (distanceToPlayer > 110) {
       enemy.x += toPlayer.x * 108 * delta;
       enemy.y += toPlayer.y * 108 * delta;
@@ -795,13 +1372,13 @@ function updateEnemy(delta: number) {
 
   if (enemy.state === "windup" && enemy.stateTimer <= 0) {
     enemy.state = "active";
-    enemy.stateTimer = enemy.currentAttack === "cone" ? 0.28 : 0.4;
+    enemy.stateTimer = enemyAttackTimings[enemy.currentAttack].active;
     enemy.hasHitPlayer = false;
   } else if (enemy.state === "active") {
     resolveEnemyHit();
     if (enemy.stateTimer <= 0) {
       enemy.state = "recovery";
-      enemy.stateTimer = 0.82;
+      enemy.stateTimer = enemyAttackTimings[enemy.currentAttack].recovery;
     }
   } else if (enemy.state === "recovery" && enemy.stateTimer <= 0) {
     enemy.state = "idle";
@@ -817,11 +1394,22 @@ function updateMonsterAnimation(nextAnim: MonsterAnimationName, delta: number) {
   }
 
   enemy.animTimer += delta;
-  const rate = enemy.anim === "attack" || enemy.anim === "rock_slam" || enemy.anim === "rock_spray" ? 0.11 : enemy.anim === "idle" ? 0.22 : 0.13;
   const frames = monsterSprites?.[enemy.direction][enemy.anim];
+  const isAttackAnimation = enemy.anim === "attack" || enemy.anim === "rock_slam" || enemy.anim === "rock_spray";
+  const attackDuration = enemyAttackTimings[enemy.currentAttack].windup + enemyAttackTimings[enemy.currentAttack].active;
+  const rate = isAttackAnimation && frames
+    ? attackDuration / frames.length
+    : enemy.anim === "idle"
+      ? 0.22
+      : 0.13;
   if (frames && enemy.animTimer >= rate) {
     enemy.animTimer = 0;
-    enemy.animFrame = (enemy.animFrame + 1) % frames.length;
+    const nextFrame = enemy.animFrame + 1;
+    enemy.animFrame = isAttackAnimation && nextFrame >= frames.length ? frames.length - 1 : nextFrame % frames.length;
+    if (enemy.anim === "rock_slam" && !enemy.rockSlamCrashPlayed && enemy.animFrame >= Math.max(0, frames.length - 2)) {
+      enemy.rockSlamCrashPlayed = true;
+      playSound(golemRockSlamCrashUrl, golemAudio.rockSlamCrashVolume);
+    }
   }
 }
 
@@ -835,9 +1423,11 @@ function beginEnemyAttack() {
   enemy.attackForward = toPlayer;
   enemy.currentAttack = enemy.attackIndex % 2 === 0 ? "cone" : "slam";
   enemy.attackIndex += 1;
+  enemy.direction = directionFromVector(enemy.attackForward);
   enemy.state = "windup";
-  enemy.stateTimer = enemy.currentAttack === "cone" ? 0.92 : 1.12;
+  enemy.stateTimer = enemyAttackTimings[enemy.currentAttack].windup;
   enemy.hasHitPlayer = false;
+  enemy.rockSlamCrashPlayed = false;
 }
 
 function resolveEnemyHit() {
@@ -884,6 +1474,22 @@ function castSpecial(index: number) {
   player.meter -= ability.cost;
   cooldowns.set(ability.id, ability.cooldown);
   player.specialFlash = 1.18;
+
+  if (ability.id === "moonfall") {
+    player.specialFlash = moonfallCastTiming.specialFlash;
+    playSound(moonfallVoiceUrl, moonfallAudio.voiceVolume);
+    playSound(moonfallPortalUrl, moonfallAudio.portalVolume);
+    const toEnemy = { x: enemy.x - player.x, y: enemy.y - player.y };
+    if (lengthSq(toEnemy) > 0.001) player.direction = directionFromVector(toEnemy);
+    pendingMoonfallCast = {
+      x: enemy.x,
+      y: enemy.y,
+      damage: 48 + Math.ceil(equippedGear.power * 0.75),
+      radius: 132,
+      timer: moonfallCastTiming.releaseDelay,
+    };
+    pushLog("Moonfall called", "The spell gathers overhead");
+  }
 
   if (ability.id === "shield-break") {
     dealEnemyDamage(20 + equippedGear.power, "Shield Break");
@@ -957,6 +1563,9 @@ function dealEnemyDamage(amount: number, source: string) {
   if (enemy.health <= 0) {
     enemy.state = "dead";
     enemy.visible = false;
+    pendingMagicMissileCast = null;
+    pendingMoonfallCast = null;
+    magicMissiles.length = 0;
     droppedGear = generateGear();
     respawnTimer = 5.2;
     pushLog(`${droppedGear.rarity} drop: ${droppedGear.name}`, "Press E to equip");
@@ -1018,6 +1627,8 @@ function defeatPlayer() {
   player.meter = 0;
   player.dodgeTime = 0;
   player.invulnerableTime = 0;
+  pendingMagicMissileCast = null;
+  pendingMoonfallCast = null;
   playerRespawnTimer = 3.2;
   pushLog("You fall", "Regrowing at the grove heart");
 }
@@ -1037,6 +1648,8 @@ function respawnPlayer() {
   player.anim = "idle";
   player.animFrame = 0;
   player.animTimer = 0;
+  pendingMagicMissileCast = null;
+  pendingMoonfallCast = null;
   cooldowns.clear();
   pushLog("Regrown", "Back in the fight");
 }
@@ -1048,9 +1661,14 @@ function respawnEnemy() {
   enemy.chainTag = "";
   enemy.chainTimer = 0;
   enemy.bleedTimer = 0;
+  enemy.rockSlamCrashPlayed = false;
   enemy.x = world.center.x + (Math.random() - 0.5) * 520;
   enemy.y = world.center.y - 260 - Math.random() * 120;
   enemy.visible = true;
+  pendingMagicMissileCast = null;
+  pendingMoonfallCast = null;
+  magicMissiles.length = 0;
+  moonfallStrikes.length = 0;
   pushLog("New elite enters the grove", "");
 }
 
@@ -1062,6 +1680,7 @@ function draw() {
 
   drawWorld();
   drawTelegraph();
+  drawMagicMissiles();
 
   const drawables = [
     { y: enemy.y, draw: drawEnemy },
@@ -1069,6 +1688,7 @@ function draw() {
   ].sort((a, b) => a.y - b.y);
 
   drawables.forEach((item) => item.draw());
+  drawMoonfallStrikes();
   drawLoot();
 
   ctx.restore();
@@ -1262,20 +1882,119 @@ function drawTelegraph() {
   ctx.restore();
 }
 
+function drawMagicMissiles() {
+  magicMissiles.forEach((missile) => {
+    ctx.save();
+    ctx.translate(missile.x, missile.y);
+    ctx.rotate(missile.rotation + magicMissileForwardRotation);
+
+    const animationAge = magicMissileLifetime - missile.ttl;
+    const frame = magicMissileFrames[Math.floor(animationAge / magicMissileAnimationRate) % magicMissileFrames.length];
+    if (frame) {
+      const scale = 58 / Math.max(frame.w, 1);
+      const width = frame.w * scale;
+      const height = frame.h * scale;
+      ctx.shadowColor = "rgba(127, 200, 255, 0.72)";
+      ctx.shadowBlur = 18;
+      ctx.drawImage(frame.canvas, -width * 0.5, -height * 0.5, width, height);
+    } else {
+      ctx.fillStyle = "#7fc8ff";
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 18, 7, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.restore();
+  });
+}
+
+function drawMoonfallStrikes() {
+  moonfallStrikes.forEach((strike) => {
+    const progress = Math.min(strike.timer / strike.duration, 1);
+    const eased = progress * progress * (3 - 2 * progress);
+    const moonY = strike.startY + (strike.targetY - 38 - strike.startY) * eased;
+    const impactProgress = strike.impacted ? Math.min((strike.timer - strike.duration * 0.78) / moonfallImpactDuration, 1) : 0;
+
+    ctx.save();
+    ctx.globalAlpha = 0.2 + progress * 0.34;
+    ctx.strokeStyle = "#d9bbff";
+    ctx.lineWidth = 4;
+    ctx.setLineDash([16, 12]);
+    ctx.beginPath();
+    ctx.ellipse(strike.x, strike.targetY + 8, strike.radius, strike.radius * 0.38, 0, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
+
+    if (impactProgress > 0) {
+      ctx.save();
+      ctx.globalAlpha = 1 - impactProgress;
+      ctx.strokeStyle = "#fff0a8";
+      ctx.lineWidth = 5;
+      ctx.beginPath();
+      ctx.ellipse(strike.x, strike.targetY + 8, strike.radius * impactProgress, strike.radius * 0.38 * impactProgress, 0, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    if (moonfallFrames.length > 1) {
+      const frameIndex = Math.min(moonfallFrames.length - 1, Math.floor(progress * moonfallFrames.length));
+      const frame = moonfallFrames[frameIndex];
+      const scale = moonfallFrameScale;
+      const width = frame.w * scale;
+      const height = frame.h * scale;
+      const anchorX = frame.w / 2;
+      const anchorY = frame.h * 0.68;
+      ctx.save();
+      ctx.translate(strike.x, strike.targetY);
+      ctx.shadowColor = "rgba(217, 187, 255, 0.82)";
+      ctx.shadowBlur = 26;
+      ctx.drawImage(frame.canvas, -anchorX * scale, -anchorY * scale, width, height);
+      ctx.restore();
+      return;
+    }
+
+    ctx.save();
+    ctx.translate(strike.x, moonY);
+    ctx.rotate(-0.18 + progress * 0.46);
+    if (moonfallFrames[0]) {
+      const frame = moonfallFrames[0];
+      const scale = ((150 + progress * 18) * 1.2) / Math.max(frame.w, 1);
+      const width = frame.w * scale;
+      const height = frame.h * scale;
+      ctx.shadowColor = "rgba(217, 187, 255, 0.82)";
+      ctx.shadowBlur = 26;
+      ctx.drawImage(frame.canvas, -width / 2, -height / 2, width, height);
+    } else {
+      ctx.fillStyle = "#d9bbff";
+      ctx.beginPath();
+      ctx.arc(0, 0, 54, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.restore();
+  });
+}
+
 function drawPlayer() {
   drawShadow(player.x, player.y + 18, 52, 20, 0.34);
 
-  const frames = sprites?.[player.direction][player.anim];
+  const frames = activePlayerSpriteSet()?.[player.direction][player.anim];
   const frame = frames?.[player.animFrame % frames.length];
   if (!frame) return;
 
-  const drawProfile = getWarriorDrawProfile(player.anim);
-  const scale = drawProfile.scale * getWarriorDirectionScale(player.anim, player.direction);
+  const drawProfile = getPlayerDrawProfile(player.anim);
+  const directionScale = getPlayerDirectionScale(player.anim, player.direction);
+  const bounds = frame.bounds ?? { x: 0, y: 0, w: frame.w, h: frame.h };
+  const normalizedScale = drawProfile.targetContentHeight
+    ? drawProfile.targetContentHeight / Math.max(bounds.h, 1)
+    : drawProfile.scale;
+  const scale = Math.max(normalizedScale, drawProfile.minScale ?? 0) * directionScale;
   const width = frame.w * scale;
   const height = frame.h * scale;
   const flash = player.invulnerableTime > 0 && Math.floor(performance.now() / 75) % 2 === 0;
-  const drawX = player.x - drawProfile.anchorX * scale;
-  const drawY = player.y + drawProfile.baselineOffset - drawProfile.anchorY * scale;
+  const anchorX = drawProfile.targetContentHeight ? bounds.x + bounds.w / 2 : drawProfile.anchorX;
+  const anchorY = drawProfile.targetContentHeight ? bounds.y + bounds.h : drawProfile.anchorY;
+  const drawX = player.x - anchorX * scale;
+  const drawY = player.y + drawProfile.baselineOffset - anchorY * scale;
 
   ctx.save();
   ctx.globalAlpha = flash ? 0.54 : 1;
@@ -1283,13 +2002,21 @@ function drawPlayer() {
   ctx.restore();
 }
 
-function getWarriorDrawProfile(animation: AnimationName) {
+function getPlayerDrawProfile(animation: AnimationName): DrawProfile {
+  if (selectedClassId === "mage") {
+    if (animation === "dodge_roll") return purpleMageSpriteDraw.dodge;
+    if (animation === "attack2") return purpleMageSpriteDraw.specialCast;
+    if (animation === "attack1") return purpleMageSpriteDraw.wideAction;
+    return purpleMageSpriteDraw.standard;
+  }
+
   return animation === "attack1" || animation === "attack2"
     ? warriorSpriteDraw.wideAction
     : warriorSpriteDraw.standard;
 }
 
-function getWarriorDirectionScale(animation: AnimationName, direction: DirectionName) {
+function getPlayerDirectionScale(animation: AnimationName, direction: DirectionName) {
+  if (selectedClassId === "mage") return 1;
   return animation === "attack1" ? warriorAttackDirectionScale[direction] ?? 1 : 1;
 }
 
@@ -1429,13 +2156,21 @@ function updateHud() {
   `;
 
   const targetValue = enemy.health / enemy.maxHealth;
-  targetPanel.innerHTML = `
-    <div class="label-row"><strong>Rootbound Elite</strong><span>${enemy.state === "dead" ? "Respawning" : `${Math.ceil(enemy.health)} / ${enemy.maxHealth}`}</span></div>
-    <div class="bar"><div class="fill target-health" style="--value:${targetValue}"></div></div>
-    <div class="label-row"><span>Chain</span><span>${enemy.chainTag || "None"}</span></div>
-    <div class="label-row"><span>Gear</span><span>${equippedGear.rarity}</span></div>
-    <div class="${droppedGear ? "loot" : ""}">${droppedGear ? `${droppedGear.name}: ${droppedGear.ability}` : equippedGear.ability}</div>
-  `;
+  targetPanel.innerHTML = targetLocked
+    ? `
+      <div class="label-row"><strong>Rootbound Elite</strong><span>${enemy.state === "dead" ? "Respawning" : `${Math.ceil(enemy.health)} / ${enemy.maxHealth}`}</span></div>
+      <div class="bar"><div class="fill target-health" style="--value:${targetValue}"></div></div>
+      <div class="label-row"><span>Chain</span><span>${enemy.chainTag || "None"}</span></div>
+      <div class="label-row"><span>Gear</span><span>${equippedGear.rarity}</span></div>
+      <div class="${droppedGear ? "loot" : ""}">${droppedGear ? `${droppedGear.name}: ${droppedGear.ability}` : equippedGear.ability}</div>
+    `
+    : `
+      <div class="label-row"><strong>No Target</strong><span>Free facing</span></div>
+      <div class="bar"><div class="fill target-health" style="--value:0"></div></div>
+      <div class="label-row"><span>Chain</span><span>None</span></div>
+      <div class="label-row"><span>Gear</span><span>${equippedGear.rarity}</span></div>
+      <div class="${droppedGear ? "loot" : ""}">${droppedGear ? `${droppedGear.name}: ${droppedGear.ability}` : equippedGear.ability}</div>
+    `;
 
   abilityPanel.innerHTML = activeAbilities()
     .map((ability) => {
@@ -1520,6 +2255,9 @@ function showCharacterSelect() {
   if (!isTitleActive) return;
   isTitleActive = false;
   isCharacterSelectActive = true;
+  pressedActions.clear();
+  sprintExhaustedUntilRelease = false;
+  playTitleMusic();
   titleScreen.classList.add("is-hidden");
   characterSelect.classList.remove("is-hidden");
   renderCharacterSelect();
@@ -1528,6 +2266,9 @@ function showCharacterSelect() {
 function showTitleScreen() {
   isTitleActive = true;
   isCharacterSelectActive = false;
+  pressedActions.clear();
+  sprintExhaustedUntilRelease = false;
+  playTitleMusic();
   characterSelect.classList.add("is-hidden");
   titleScreen.classList.remove("is-hidden");
 }
@@ -1556,6 +2297,7 @@ function applySelectedClass() {
 function startGame() {
   if (!isCharacterSelectActive || !applySelectedClass()) return;
   isCharacterSelectActive = false;
+  stopTitleMusic();
   characterSelect.classList.add("is-hidden");
   hud.classList.remove("is-hidden");
   pushLog(`${selectedClass().name} enters the grove`, selectedClass().weapon);
@@ -1565,11 +2307,14 @@ function animate(now: number) {
   const delta = Math.min((now - lastFrame) / 1000, 0.05);
   lastFrame = now;
 
-  updateCooldowns(delta);
-  updatePlayer(delta);
-  updateCombat(delta);
-  updateCamera(delta);
-  updateHud();
+  if (isGameplayActive()) {
+    updateCooldowns(delta);
+    updatePlayer(delta);
+    updateCombat(delta);
+    updateCamera(delta);
+    updateHud();
+  }
+
   draw();
 
   requestAnimationFrame(animate);
@@ -1601,8 +2346,19 @@ function resolveObstacleCollision(entity: Vec2, radius: number) {
 }
 
 startButton.addEventListener("click", showCharacterSelect);
+titleScreen.addEventListener("pointerdown", playTitleMusic);
 backButton.addEventListener("click", showTitleScreen);
 continueButton.addEventListener("click", startGame);
+
+canvas.addEventListener("click", (event) => {
+  if (event.button !== 0 || isTitleActive || isCharacterSelectActive) return;
+  const worldPoint = screenToWorld(event.clientX, event.clientY);
+  if (isEnemyAtWorldPoint(worldPoint)) {
+    lockTarget();
+  } else {
+    clearTarget();
+  }
+});
 
 characterGrid.addEventListener("click", (event) => {
   const card = (event.target as HTMLElement).closest<HTMLButtonElement>(".character-card");
@@ -1648,8 +2404,7 @@ window.addEventListener("keydown", (event) => {
 
   if (action === "target-next") {
     event.preventDefault();
-    targetLocked = true;
-    pushLog("Target locked", "Rootbound Elite");
+    lockTarget();
   }
   if (action === "special-1") castSpecial(0);
   if (action === "special-2") castSpecial(1);
@@ -1659,7 +2414,12 @@ window.addEventListener("keydown", (event) => {
 
 window.addEventListener("keyup", (event) => {
   const action = gameplayActionForCode(event.code);
-  if (action) pressedActions.delete(action);
+  if (action) {
+    pressedActions.delete(action);
+    if (action === "sprint") {
+      sprintExhaustedUntilRelease = false;
+    }
+  }
 });
 window.addEventListener("resize", resizeCanvas);
 

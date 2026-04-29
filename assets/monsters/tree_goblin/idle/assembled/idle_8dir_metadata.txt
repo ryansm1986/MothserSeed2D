@@ -1,0 +1,7 @@
+animation=idle
+subject=tree_goblin
+directions=south,southeast,east,northeast,north,northwest,west,southwest
+frame_count=5
+frame_width=128
+frame_height=128
+row_order=south,southeast,east,northeast,north,northwest,west,southwest

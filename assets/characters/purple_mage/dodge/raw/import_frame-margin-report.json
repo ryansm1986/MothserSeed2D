@@ -1,0 +1,290 @@
+{
+  "down-dodge-1": {
+    "left": 65,
+    "top": 44,
+    "right": 65,
+    "bottom": 15
+  },
+  "down-dodge-2": {
+    "left": 56,
+    "top": 36,
+    "right": 57,
+    "bottom": 15
+  },
+  "down-dodge-3": {
+    "left": 51,
+    "top": 76,
+    "right": 52,
+    "bottom": 15
+  },
+  "down-dodge-4": {
+    "left": 53,
+    "top": 16,
+    "right": 54,
+    "bottom": 15
+  },
+  "down-dodge-5": {
+    "left": 55,
+    "top": 35,
+    "right": 56,
+    "bottom": 15
+  },
+  "down-dodge-6": {
+    "left": 67,
+    "top": 44,
+    "right": 67,
+    "bottom": 15
+  },
+  "down-left-dodge-1": {
+    "left": 71,
+    "top": 62,
+    "right": 71,
+    "bottom": 15
+  },
+  "down-left-dodge-2": {
+    "left": 66,
+    "top": 37,
+    "right": 66,
+    "bottom": 15
+  },
+  "down-left-dodge-3": {
+    "left": 59,
+    "top": 75,
+    "right": 59,
+    "bottom": 15
+  },
+  "down-left-dodge-4": {
+    "left": 58,
+    "top": 16,
+    "right": 59,
+    "bottom": 15
+  },
+  "down-left-dodge-5": {
+    "left": 69,
+    "top": 39,
+    "right": 69,
+    "bottom": 15
+  },
+  "down-left-dodge-6": {
+    "left": 71,
+    "top": 61,
+    "right": 71,
+    "bottom": 15
+  },
+  "left-dodge-1": {
+    "left": 76,
+    "top": 58,
+    "right": 77,
+    "bottom": 15
+  },
+  "left-dodge-2": {
+    "left": 76,
+    "top": 54,
+    "right": 77,
+    "bottom": 15
+  },
+  "left-dodge-3": {
+    "left": 62,
+    "top": 33,
+    "right": 63,
+    "bottom": 15
+  },
+  "left-dodge-4": {
+    "left": 63,
+    "top": 16,
+    "right": 63,
+    "bottom": 15
+  },
+  "left-dodge-5": {
+    "left": 74,
+    "top": 45,
+    "right": 74,
+    "bottom": 15
+  },
+  "left-dodge-6": {
+    "left": 76,
+    "top": 58,
+    "right": 77,
+    "bottom": 15
+  },
+  "up-left-dodge-1": {
+    "left": 73,
+    "top": 67,
+    "right": 74,
+    "bottom": 15
+  },
+  "up-left-dodge-2": {
+    "left": 61,
+    "top": 39,
+    "right": 62,
+    "bottom": 15
+  },
+  "up-left-dodge-3": {
+    "left": 60,
+    "top": 69,
+    "right": 61,
+    "bottom": 15
+  },
+  "up-left-dodge-4": {
+    "left": 60,
+    "top": 69,
+    "right": 61,
+    "bottom": 15
+  },
+  "up-left-dodge-5": {
+    "left": 73,
+    "top": 33,
+    "right": 74,
+    "bottom": 15
+  },
+  "up-left-dodge-6": {
+    "left": 73,
+    "top": 67,
+    "right": 74,
+    "bottom": 15
+  },
+  "up-dodge-1": {
+    "left": 77,
+    "top": 53,
+    "right": 78,
+    "bottom": 15
+  },
+  "up-dodge-2": {
+    "left": 75,
+    "top": 26,
+    "right": 76,
+    "bottom": 15
+  },
+  "up-dodge-3": {
+    "left": 69,
+    "top": 56,
+    "right": 69,
+    "bottom": 15
+  },
+  "up-dodge-4": {
+    "left": 67,
+    "top": 56,
+    "right": 68,
+    "bottom": 15
+  },
+  "up-dodge-5": {
+    "left": 74,
+    "top": 29,
+    "right": 75,
+    "bottom": 15
+  },
+  "up-dodge-6": {
+    "left": 76,
+    "top": 53,
+    "right": 76,
+    "bottom": 15
+  },
+  "up-right-dodge-1": {
+    "left": 74,
+    "top": 67,
+    "right": 73,
+    "bottom": 15
+  },
+  "up-right-dodge-2": {
+    "left": 62,
+    "top": 39,
+    "right": 61,
+    "bottom": 15
+  },
+  "up-right-dodge-3": {
+    "left": 61,
+    "top": 69,
+    "right": 60,
+    "bottom": 15
+  },
+  "up-right-dodge-4": {
+    "left": 61,
+    "top": 69,
+    "right": 60,
+    "bottom": 15
+  },
+  "up-right-dodge-5": {
+    "left": 74,
+    "top": 33,
+    "right": 73,
+    "bottom": 15
+  },
+  "up-right-dodge-6": {
+    "left": 74,
+    "top": 67,
+    "right": 73,
+    "bottom": 15
+  },
+  "right-dodge-1": {
+    "left": 77,
+    "top": 58,
+    "right": 76,
+    "bottom": 15
+  },
+  "right-dodge-2": {
+    "left": 77,
+    "top": 54,
+    "right": 76,
+    "bottom": 15
+  },
+  "right-dodge-3": {
+    "left": 63,
+    "top": 33,
+    "right": 62,
+    "bottom": 15
+  },
+  "right-dodge-4": {
+    "left": 63,
+    "top": 16,
+    "right": 63,
+    "bottom": 15
+  },
+  "right-dodge-5": {
+    "left": 74,
+    "top": 45,
+    "right": 74,
+    "bottom": 15
+  },
+  "right-dodge-6": {
+    "left": 77,
+    "top": 58,
+    "right": 76,
+    "bottom": 15
+  },
+  "down-right-dodge-1": {
+    "left": 71,
+    "top": 62,
+    "right": 71,
+    "bottom": 15
+  },
+  "down-right-dodge-2": {
+    "left": 66,
+    "top": 37,
+    "right": 66,
+    "bottom": 15
+  },
+  "down-right-dodge-3": {
+    "left": 59,
+    "top": 75,
+    "right": 59,
+    "bottom": 15
+  },
+  "down-right-dodge-4": {
+    "left": 59,
+    "top": 16,
+    "right": 58,
+    "bottom": 15
+  },
+  "down-right-dodge-5": {
+    "left": 69,
+    "top": 39,
+    "right": 69,
+    "bottom": 15
+  },
+  "down-right-dodge-6": {
+    "left": 71,
+    "top": 61,
+    "right": 71,
+    "bottom": 15
+  }
+}
