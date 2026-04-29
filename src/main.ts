@@ -2,6 +2,7 @@ import "./style.css";
 import rpgAssetsUrl from "../assets/RPGAssets.png?url";
 import titleImageUrl from "../assets/Title.png?url";
 import titleMusicUrl from "../assets/Music/Mothertree_Intro_Short.mp3?url";
+import overworldMusicUrl from "../assets/Music/Mothertree_Chill_Overworld.mp3?url";
 import largeGrassTerrainUrl from "../assets/world/terrain/large_grass.png?url";
 import magicMissileUrl from "../assets/characters/purple_mage/projectiles/magic_missile/magic_missile.png?url";
 import moonfallUrl from "../assets/characters/purple_mage/spells/moonfall/moonfall.png?url";
@@ -54,7 +55,6 @@ const purpleMageFrameUrls = import.meta.glob([
   query: "?url",
 }) as Record<string, string>;
 const mossGolemFrameUrls = import.meta.glob([
-  "../assets/monsters/moss_golem/*/frames/*.png",
   "../assets/monsters/moss_golem_v2/*/frames/*.png",
 ], {
   eager: true,
@@ -118,7 +118,7 @@ const purpleMageSpriteDraw = {
     targetContentHeight: 112,
   },
   specialCast: {
-    scale: 0.62,
+    scale: 0.68,
     anchorX: 160,
     anchorY: 298,
     baselineOffset: 28,
@@ -173,21 +173,14 @@ const mossGolemSpriteDraw = {
     anchorY: 1128,
     baselineOffset: 34,
   },
-  legacy: {
-    scale: 1.78,
-    attackScale: 1.85,
-    anchorX: 112,
-    anchorY: 116,
-    baselineOffset: 34,
-  },
 };
 const enemyAttackTimings = {
-  cone: {
+  rock_spray: {
     windup: 1.2,
     active: 0.4,
     recovery: 0.9,
   },
-  slam: {
+  rock_slam: {
     windup: 1.35,
     active: 0.45,
     recovery: 0.9,
@@ -218,6 +211,11 @@ const golemAudio = {
 } as const;
 const titleMusicVolume = 0.54;
 const defaultAttackCooldown = 3;
+const audioSettingsStorageKey = "motherseed-audio-settings";
+const defaultAudioSettings = {
+  music: 0.8,
+  sfx: 0.8,
+};
 
 const app = document.querySelector<HTMLDivElement>("#app");
 
@@ -228,7 +226,11 @@ if (!app) {
 app.innerHTML = `
   <div class="game-shell"></div>
   <section class="title-screen" style="--title-image: url('${titleImageUrl}')">
-    <button class="start-button" type="button">Start</button>
+    <nav class="title-menu" aria-label="Main menu">
+      <button class="title-menu-option start-button" type="button">Start</button>
+      <button class="title-menu-option title-controls-button" type="button">Controls</button>
+      <button class="title-menu-option title-sound-button" type="button">Sound</button>
+    </nav>
   </section>
   <section class="character-select is-hidden" aria-labelledby="character-select-title" style="--title-image: url('${titleImageUrl}')">
     <div class="select-frame">
@@ -269,11 +271,60 @@ app.innerHTML = `
       </section>
     </div>
   </div>
+  <section class="pause-menu is-hidden" role="dialog" aria-modal="true" aria-labelledby="pause-title">
+    <div class="pause-frame" tabindex="-1">
+      <header class="pause-header">
+        <div>
+          <p class="pause-kicker">Grove suspended</p>
+          <h1 id="pause-title">Paused</h1>
+        </div>
+        <button class="menu-button resume-button" type="button">Resume</button>
+      </header>
+      <div class="pause-layout">
+        <nav class="pause-tabs" aria-label="Pause menu">
+          <button class="pause-tab is-active" type="button" data-pause-tab="controls">Controls</button>
+          <button class="pause-tab" type="button" data-pause-tab="sound">Sound</button>
+        </nav>
+        <div class="pause-content">
+          <section class="pause-panel" data-pause-panel="controls" aria-label="Controls">
+            <div class="control-list">
+              <div><kbd>WASD</kbd><span>Move</span></div>
+              <div><kbd>Shift</kbd><span>Sprint</span></div>
+              <div><kbd>Space</kbd><span>Dodge</span></div>
+              <div><kbd>Mouse</kbd><span>Target</span></div>
+              <div><kbd>Tab</kbd><span>Lock target</span></div>
+              <div><kbd>1</kbd><span>First special</span></div>
+              <div><kbd>2</kbd><span>Second special</span></div>
+              <div><kbd>3</kbd><span>Third special</span></div>
+              <div><kbd>E</kbd><span>Equip drop</span></div>
+              <div><kbd>Esc</kbd><span>Pause</span></div>
+            </div>
+          </section>
+          <section class="pause-panel is-hidden" data-pause-panel="sound" aria-label="Sound">
+            <div class="sound-controls">
+              <label class="sound-control" for="music-volume">
+                <span>Music</span>
+                <input id="music-volume" type="range" min="0" max="100" step="1" />
+                <strong id="music-volume-value">80%</strong>
+              </label>
+              <label class="sound-control" for="sfx-volume">
+                <span>Sound effects</span>
+                <input id="sfx-volume" type="range" min="0" max="100" step="1" />
+                <strong id="sfx-volume-value">80%</strong>
+              </label>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
 `;
 
 const shell = document.querySelector<HTMLDivElement>(".game-shell")!;
 const titleScreen = document.querySelector<HTMLElement>(".title-screen")!;
 const startButton = document.querySelector<HTMLButtonElement>(".start-button")!;
+const titleControlsButton = document.querySelector<HTMLButtonElement>(".title-controls-button")!;
+const titleSoundButton = document.querySelector<HTMLButtonElement>(".title-sound-button")!;
 const characterSelect = document.querySelector<HTMLElement>(".character-select")!;
 const characterGrid = document.querySelector<HTMLDivElement>("#character-grid")!;
 const characterDetail = document.querySelector<HTMLElement>("#character-detail")!;
@@ -284,6 +335,17 @@ const playerPanel = document.querySelector<HTMLDivElement>("#player-panel")!;
 const targetPanel = document.querySelector<HTMLDivElement>("#target-panel")!;
 const abilityPanel = document.querySelector<HTMLDivElement>("#abilities")!;
 const eventLog = document.querySelector<HTMLDivElement>("#event-log")!;
+const pauseMenu = document.querySelector<HTMLElement>(".pause-menu")!;
+const pauseFrame = document.querySelector<HTMLDivElement>(".pause-frame")!;
+const pauseKicker = document.querySelector<HTMLElement>(".pause-kicker")!;
+const pauseTitle = document.querySelector<HTMLElement>("#pause-title")!;
+const resumeButton = document.querySelector<HTMLButtonElement>(".resume-button")!;
+const pauseTabs = Array.from(document.querySelectorAll<HTMLButtonElement>(".pause-tab"));
+const pausePanels = Array.from(document.querySelectorAll<HTMLElement>(".pause-panel"));
+const musicVolumeInput = document.querySelector<HTMLInputElement>("#music-volume")!;
+const sfxVolumeInput = document.querySelector<HTMLInputElement>("#sfx-volume")!;
+const musicVolumeValue = document.querySelector<HTMLElement>("#music-volume-value")!;
+const sfxVolumeValue = document.querySelector<HTMLElement>("#sfx-volume-value")!;
 
 const canvas = document.createElement("canvas");
 const canvasContext = canvas.getContext("2d", { alpha: false });
@@ -359,7 +421,7 @@ const enemy = {
   state: "idle" as CombatState,
   stateTimer: 1.8,
   attackIndex: 0,
-  currentAttack: "cone" as TelegraphKind,
+  currentAttack: "rock_spray" as TelegraphKind,
   attackForward: { x: 0, y: 1 },
   hasHitPlayer: false,
   rockSlamCrashPlayed: false,
@@ -488,11 +550,59 @@ let playerRespawnTimer = 0;
 let respawnTimer = 0;
 let isTitleActive = true;
 let isCharacterSelectActive = false;
+let isPaused = false;
+let pauseMenuSource: "gameplay" | "title" | null = null;
 let lastFrame = performance.now();
 let titleMusic: HTMLAudioElement | null = null;
+let gameplayMusic: HTMLAudioElement | null = null;
+let audioSettings = loadAudioSettings();
 
 function isGameplayActive() {
+  return !isTitleActive && !isCharacterSelectActive && !isPaused;
+}
+
+function isGameplayVisible() {
   return !isTitleActive && !isCharacterSelectActive;
+}
+
+function loadAudioSettings() {
+  try {
+    const stored = localStorage.getItem(audioSettingsStorageKey);
+    if (!stored) return { ...defaultAudioSettings };
+    const parsed = JSON.parse(stored) as Partial<typeof defaultAudioSettings>;
+    return {
+      music: clamp(Number(parsed.music ?? defaultAudioSettings.music), 0, 1),
+      sfx: clamp(Number(parsed.sfx ?? defaultAudioSettings.sfx), 0, 1),
+    };
+  } catch {
+    return { ...defaultAudioSettings };
+  }
+}
+
+function saveAudioSettings() {
+  localStorage.setItem(audioSettingsStorageKey, JSON.stringify(audioSettings));
+}
+
+function scaledVolume(baseVolume: number, categoryVolume: number) {
+  return clamp(baseVolume, 0, 1) * clamp(categoryVolume, 0, 1);
+}
+
+function updateAudioSettingsUi() {
+  const musicPercent = Math.round(audioSettings.music * 100);
+  const sfxPercent = Math.round(audioSettings.sfx * 100);
+  musicVolumeInput.value = String(musicPercent);
+  sfxVolumeInput.value = String(sfxPercent);
+  musicVolumeValue.textContent = `${musicPercent}%`;
+  sfxVolumeValue.textContent = `${sfxPercent}%`;
+}
+
+function applyMusicVolume() {
+  if (titleMusic) {
+    titleMusic.volume = scaledVolume(titleMusicVolume, audioSettings.music);
+  }
+  if (gameplayMusic) {
+    gameplayMusic.volume = scaledVolume(0.48, audioSettings.music);
+  }
 }
 
 function loadImage(url: string): Promise<HTMLImageElement> {
@@ -507,7 +617,7 @@ function loadImage(url: string): Promise<HTMLImageElement> {
 function playSound(url: string, volume = 1) {
   if (!isGameplayActive()) return;
   const sound = new Audio(url);
-  sound.volume = clamp(volume, 0, 1);
+  sound.volume = scaledVolume(volume, audioSettings.sfx);
   sound.play().catch(() => {
     // Browsers may block audio until the first trusted interaction; gameplay continues silently.
   });
@@ -517,8 +627,16 @@ function ensureTitleMusic() {
   if (titleMusic) return titleMusic;
   titleMusic = new Audio(titleMusicUrl);
   titleMusic.loop = true;
-  titleMusic.volume = titleMusicVolume;
+  applyMusicVolume();
   return titleMusic;
+}
+
+function ensureGameplayMusic() {
+  if (gameplayMusic) return gameplayMusic;
+  gameplayMusic = new Audio(overworldMusicUrl);
+  gameplayMusic.loop = true;
+  applyMusicVolume();
+  return gameplayMusic;
 }
 
 function playTitleMusic() {
@@ -533,6 +651,20 @@ function stopTitleMusic() {
   if (!titleMusic) return;
   titleMusic.pause();
   titleMusic.currentTime = 0;
+}
+
+function playGameplayMusic() {
+  if (!isGameplayVisible()) return;
+  const music = ensureGameplayMusic();
+  music.play().catch(() => {
+    // Gameplay continues if the browser defers music until another interaction.
+  });
+}
+
+function stopGameplayMusic() {
+  if (!gameplayMusic) return;
+  gameplayMusic.pause();
+  gameplayMusic.currentTime = 0;
 }
 
 function makeTransparentFrame(image: HTMLImageElement, frame: FrameRect): SpriteFrame {
@@ -889,11 +1021,7 @@ function getMossGolemFrameUrls(direction: DirectionName, animation: MonsterAnima
     if (walkUrls.length > 0) return walkUrls;
   }
 
-  const legacyAnimation = animation === "rock_slam" ? "attack" : animation;
-  const legacyUrls = findMossGolemFrameUrls("moss_golem", legacyAnimation, legacyDirectionFor(direction));
-  if (legacyUrls.length > 0) return legacyUrls;
-
-  throw new Error(`Missing exported Moss Golem frames for ${direction}/${animation}.`);
+  throw new Error(`Missing exported moss_golem_v2 frames for ${direction}/${animation}.`);
 }
 
 function findMossGolemV2FrameUrls(animation: string, direction: DirectionName): string[] {
@@ -910,7 +1038,7 @@ function findMossGolemV2FrameUrls(animation: string, direction: DirectionName): 
 }
 
 function findMossGolemFrameUrls(
-  subject: "moss_golem" | "moss_golem_v2",
+  subject: "moss_golem_v2",
   animation: string,
   direction: string,
 ): string[] {
@@ -919,12 +1047,6 @@ function findMossGolemFrameUrls(
     .filter(([path]) => path.startsWith(prefix) && /^\d{2}\.png$/.test(path.slice(prefix.length)))
     .sort(([left], [right]) => left.localeCompare(right))
     .map(([, url]) => url);
-}
-
-function legacyDirectionFor(direction: DirectionName): DirectionName {
-  if (direction === "down_left" || direction === "down_right") return "down";
-  if (direction === "up_left" || direction === "up_right") return "up";
-  return direction;
 }
 
 function compassDirectionFor(direction: DirectionName): string {
@@ -940,7 +1062,7 @@ function compassDirectionFor(direction: DirectionName): string {
 
 async function loadMonsterSprites() {
   const output = {} as Record<DirectionName, Record<MonsterAnimationName, SpriteFrame[]>>;
-  const animations = ["idle", "walk", "run", "attack", "rock_slam", "rock_spray"] as const satisfies readonly MonsterAnimationName[];
+  const animations = ["idle", "walk", "run", "rock_slam", "rock_spray"] as const satisfies readonly MonsterAnimationName[];
 
   await Promise.all(monsterDirections.map(async (direction) => {
     output[direction] = {} as Record<MonsterAnimationName, SpriteFrame[]>;
@@ -1395,7 +1517,7 @@ function updateMonsterAnimation(nextAnim: MonsterAnimationName, delta: number) {
 
   enemy.animTimer += delta;
   const frames = monsterSprites?.[enemy.direction][enemy.anim];
-  const isAttackAnimation = enemy.anim === "attack" || enemy.anim === "rock_slam" || enemy.anim === "rock_spray";
+  const isAttackAnimation = enemy.anim === "rock_slam" || enemy.anim === "rock_spray";
   const attackDuration = enemyAttackTimings[enemy.currentAttack].windup + enemyAttackTimings[enemy.currentAttack].active;
   const rate = isAttackAnimation && frames
     ? attackDuration / frames.length
@@ -1414,14 +1536,14 @@ function updateMonsterAnimation(nextAnim: MonsterAnimationName, delta: number) {
 }
 
 function getEnemyAttackAnimation(): MonsterAnimationName {
-  return enemy.currentAttack === "slam" ? "rock_slam" : "rock_spray";
+  return enemy.currentAttack;
 }
 
 function beginEnemyAttack() {
   const toPlayer = { x: player.x - enemy.x, y: player.y - enemy.y };
   if (lengthSq(toPlayer) > 0.001) normalize(toPlayer);
   enemy.attackForward = toPlayer;
-  enemy.currentAttack = enemy.attackIndex % 2 === 0 ? "cone" : "slam";
+  enemy.currentAttack = enemy.attackIndex % 2 === 0 ? "rock_spray" : "rock_slam";
   enemy.attackIndex += 1;
   enemy.direction = directionFromVector(enemy.attackForward);
   enemy.state = "windup";
@@ -1437,7 +1559,7 @@ function resolveEnemyHit() {
   let hit = false;
   let damage = 0;
 
-  if (enemy.currentAttack === "slam") {
+  if (enemy.currentAttack === "rock_slam") {
     hit = distanceToPlayer <= 155;
     damage = 24;
   } else {
@@ -1863,7 +1985,7 @@ function drawTelegraph() {
   ctx.strokeStyle = active ? "#ffd0c8" : "#fff0a8";
   ctx.lineWidth = 3;
 
-  if (enemy.currentAttack === "slam") {
+  if (enemy.currentAttack === "rock_slam") {
     ctx.beginPath();
     ctx.arc(enemy.x, enemy.y, 155, 0, Math.PI * 2);
     ctx.fill();
@@ -2053,12 +2175,7 @@ function drawEnemy() {
 
 function getMossGolemDrawProfile(animation: MonsterAnimationName) {
   if (animation === "rock_slam" || animation === "rock_spray") return mossGolemSpriteDraw.v2Action;
-  if (animation === "walk" || animation === "run" || animation === "idle") return mossGolemSpriteDraw.v2Standard;
-
-  return {
-    ...mossGolemSpriteDraw.legacy,
-    scale: mossGolemSpriteDraw.legacy.attackScale,
-  };
+  return mossGolemSpriteDraw.v2Standard;
 }
 
 function drawRock(obstacle: (typeof obstacles)[number]) {
@@ -2255,9 +2372,13 @@ function showCharacterSelect() {
   if (!isTitleActive) return;
   isTitleActive = false;
   isCharacterSelectActive = true;
+  isPaused = false;
+  pauseMenuSource = null;
   pressedActions.clear();
   sprintExhaustedUntilRelease = false;
+  stopGameplayMusic();
   playTitleMusic();
+  pauseMenu.classList.add("is-hidden");
   titleScreen.classList.add("is-hidden");
   characterSelect.classList.remove("is-hidden");
   renderCharacterSelect();
@@ -2266,11 +2387,66 @@ function showCharacterSelect() {
 function showTitleScreen() {
   isTitleActive = true;
   isCharacterSelectActive = false;
+  isPaused = false;
+  pauseMenuSource = null;
   pressedActions.clear();
   sprintExhaustedUntilRelease = false;
+  stopGameplayMusic();
   playTitleMusic();
+  pauseMenu.classList.add("is-hidden");
+  hud.classList.add("is-hidden");
   characterSelect.classList.add("is-hidden");
   titleScreen.classList.remove("is-hidden");
+}
+
+function selectPauseTab(tabName: string) {
+  pauseTabs.forEach((tab) => {
+    const active = tab.dataset.pauseTab === tabName;
+    tab.classList.toggle("is-active", active);
+    tab.setAttribute("aria-selected", String(active));
+  });
+
+  pausePanels.forEach((panel) => {
+    panel.classList.toggle("is-hidden", panel.dataset.pausePanel !== tabName);
+  });
+}
+
+function setPauseMenuCopy(source: "gameplay" | "title") {
+  const isTitleMenu = source === "title";
+  pauseKicker.textContent = isTitleMenu ? "Motherseed" : "Grove suspended";
+  pauseTitle.textContent = isTitleMenu ? "Menu" : "Paused";
+  resumeButton.textContent = isTitleMenu ? "Back" : "Resume";
+}
+
+function openPauseMenu(tabName = "controls", source: "gameplay" | "title" = "gameplay") {
+  if (source === "gameplay" && (!isGameplayVisible() || isPaused)) return;
+  if (source === "title" && !isTitleActive) return;
+  isPaused = source === "gameplay";
+  pauseMenuSource = source;
+  pressedActions.clear();
+  sprintExhaustedUntilRelease = false;
+  setPauseMenuCopy(source);
+  updateAudioSettingsUi();
+  selectPauseTab(tabName);
+  pauseMenu.classList.remove("is-hidden");
+  requestAnimationFrame(() => pauseFrame.focus());
+}
+
+function closePauseMenu() {
+  if (!pauseMenuSource) return;
+  isPaused = false;
+  pauseMenuSource = null;
+  pressedActions.clear();
+  sprintExhaustedUntilRelease = false;
+  pauseMenu.classList.add("is-hidden");
+}
+
+function togglePauseMenu() {
+  if (isPaused) {
+    closePauseMenu();
+  } else {
+    openPauseMenu();
+  }
 }
 
 function moveCharacterSelection(direction: number) {
@@ -2297,8 +2473,12 @@ function applySelectedClass() {
 function startGame() {
   if (!isCharacterSelectActive || !applySelectedClass()) return;
   isCharacterSelectActive = false;
+  isPaused = false;
+  pauseMenuSource = null;
   stopTitleMusic();
+  playGameplayMusic();
   characterSelect.classList.add("is-hidden");
+  pauseMenu.classList.add("is-hidden");
   hud.classList.remove("is-hidden");
   pushLog(`${selectedClass().name} enters the grove`, selectedClass().weapon);
 }
@@ -2346,12 +2526,39 @@ function resolveObstacleCollision(entity: Vec2, radius: number) {
 }
 
 startButton.addEventListener("click", showCharacterSelect);
+titleControlsButton.addEventListener("click", () => openPauseMenu("controls", "title"));
+titleSoundButton.addEventListener("click", () => openPauseMenu("sound", "title"));
 titleScreen.addEventListener("pointerdown", playTitleMusic);
 backButton.addEventListener("click", showTitleScreen);
 continueButton.addEventListener("click", startGame);
+resumeButton.addEventListener("click", closePauseMenu);
+
+pauseTabs.forEach((tab) => {
+  tab.setAttribute("role", "tab");
+  tab.addEventListener("click", () => selectPauseTab(tab.dataset.pauseTab ?? "controls"));
+});
+
+musicVolumeInput.addEventListener("input", () => {
+  audioSettings = {
+    ...audioSettings,
+    music: clamp(Number(musicVolumeInput.value) / 100, 0, 1),
+  };
+  applyMusicVolume();
+  updateAudioSettingsUi();
+  saveAudioSettings();
+});
+
+sfxVolumeInput.addEventListener("input", () => {
+  audioSettings = {
+    ...audioSettings,
+    sfx: clamp(Number(sfxVolumeInput.value) / 100, 0, 1),
+  };
+  updateAudioSettingsUi();
+  saveAudioSettings();
+});
 
 canvas.addEventListener("click", (event) => {
-  if (event.button !== 0 || isTitleActive || isCharacterSelectActive) return;
+  if (event.button !== 0 || !isGameplayActive()) return;
   const worldPoint = screenToWorld(event.clientX, event.clientY);
   if (isEnemyAtWorldPoint(worldPoint)) {
     lockTarget();
@@ -2369,6 +2576,20 @@ characterGrid.addEventListener("click", (event) => {
 });
 
 window.addEventListener("keydown", (event) => {
+  if (event.code === "Escape" && pauseMenuSource === "title") {
+    event.preventDefault();
+    closePauseMenu();
+    return;
+  }
+
+  if (pauseMenuSource === "title") return;
+
+  if (event.code === "Escape" && isGameplayVisible()) {
+    event.preventDefault();
+    togglePauseMenu();
+    return;
+  }
+
   if (isTitleActive) {
     if (event.code === "Enter" || event.code === "Space") {
       event.preventDefault();
@@ -2397,6 +2618,8 @@ window.addEventListener("keydown", (event) => {
     return;
   }
 
+  if (isPaused) return;
+
   const action = gameplayActionForCode(event.code);
   if (!action) return;
 
@@ -2423,6 +2646,7 @@ window.addEventListener("keyup", (event) => {
 });
 window.addEventListener("resize", resizeCanvas);
 
+updateAudioSettingsUi();
 resizeCanvas();
 Promise.all([loadSprites(), loadMonsterSprites(), loadWorldAssets()]).then(() => {
   pushLog("MotherSeed prototype ready", "Close for melee, dodge the red telegraphs");
