@@ -1,0 +1,249 @@
+{
+  "target": "creature",
+  "mode": "attack",
+  "prompt": "East-facing mushroom monster bite animation, 2x3 pixel-art sheet on solid #FF00FF magenta background; preserve source mushroom monster identity; frames: wind-up, open, strike, snap, recoil, settle; same scale and containment.",
+  "role": "",
+  "input": "D:\\projects\\agent-sprite-forge-main\\generated\\mushroom_bite_east\\raw-sheet.png",
+  "threshold": 100,
+  "edge_threshold": 150,
+  "duration": 110,
+  "rows": 2,
+  "cols": 3,
+  "cell_size": 128,
+  "fit_scale": 0.92,
+  "trim_border": 4,
+  "edge_clean_depth": 3,
+  "align": "bottom",
+  "shared_scale": true,
+  "component_mode": "largest",
+  "component_padding": 8,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "frame_labels": [
+    "mushroom_bite_east-1",
+    "mushroom_bite_east-2",
+    "mushroom_bite_east-3",
+    "mushroom_bite_east-4",
+    "mushroom_bite_east-5",
+    "mushroom_bite_east-6"
+  ],
+  "frames": [
+    {
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "component_mode": "largest",
+      "component_count": 1,
+      "selected_component_area": 84579,
+      "selected_component_bbox": [
+        90,
+        74,
+        430,
+        465
+      ],
+      "crop_bbox": [
+        82,
+        66,
+        438,
+        473
+      ],
+      "edge_touch": false,
+      "output_size": [
+        103,
+        117
+      ],
+      "paste_position": [
+        12,
+        6
+      ]
+    },
+    {
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "component_mode": "largest",
+      "component_count": 1,
+      "selected_component_area": 85013,
+      "selected_component_bbox": [
+        86,
+        94,
+        426,
+        464
+      ],
+      "crop_bbox": [
+        78,
+        86,
+        434,
+        472
+      ],
+      "edge_touch": false,
+      "output_size": [
+        103,
+        111
+      ],
+      "paste_position": [
+        12,
+        12
+      ]
+    },
+    {
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "component_mode": "largest",
+      "component_count": 1,
+      "selected_component_area": 88653,
+      "selected_component_bbox": [
+        63,
+        112,
+        432,
+        464
+      ],
+      "crop_bbox": [
+        55,
+        104,
+        440,
+        472
+      ],
+      "edge_touch": false,
+      "output_size": [
+        111,
+        106
+      ],
+      "paste_position": [
+        8,
+        17
+      ]
+    },
+    {
+      "grid": [
+        1,
+        0
+      ],
+      "source_box": [
+        0,
+        512,
+        512,
+        1024
+      ],
+      "component_mode": "largest",
+      "component_count": 1,
+      "selected_component_area": 80154,
+      "selected_component_bbox": [
+        112,
+        59,
+        430,
+        422
+      ],
+      "crop_bbox": [
+        104,
+        51,
+        438,
+        430
+      ],
+      "edge_touch": false,
+      "output_size": [
+        96,
+        109
+      ],
+      "paste_position": [
+        16,
+        14
+      ]
+    },
+    {
+      "grid": [
+        1,
+        1
+      ],
+      "source_box": [
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "component_mode": "largest",
+      "component_count": 1,
+      "selected_component_area": 81082,
+      "selected_component_bbox": [
+        52,
+        48,
+        390,
+        422
+      ],
+      "crop_bbox": [
+        44,
+        40,
+        398,
+        430
+      ],
+      "edge_touch": false,
+      "output_size": [
+        102,
+        112
+      ],
+      "paste_position": [
+        13,
+        11
+      ]
+    },
+    {
+      "grid": [
+        1,
+        2
+      ],
+      "source_box": [
+        1024,
+        512,
+        1536,
+        1024
+      ],
+      "component_mode": "largest",
+      "component_count": 1,
+      "selected_component_area": 79856,
+      "selected_component_bbox": [
+        39,
+        48,
+        373,
+        422
+      ],
+      "crop_bbox": [
+        31,
+        40,
+        381,
+        430
+      ],
+      "edge_touch": false,
+      "output_size": [
+        101,
+        112
+      ],
+      "paste_position": [
+        13,
+        11
+      ]
+    }
+  ],
+  "edge_touch_frames": []
+}

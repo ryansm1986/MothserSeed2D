@@ -1,0 +1,155 @@
+{
+  "target": "player",
+  "mode": "walk",
+  "prompt": "Regenerated up/back-facing walk. Sword on top of hair, same broad dark sword style. Cadence: right foot forward, both feet middle, left foot forward, both feet middle.",
+  "role": "",
+  "input": "D:\\projects\\agent-sprite-forge-main\\output\\green_sword_walk_up_regen\\raw-sheet.png",
+  "threshold": 100,
+  "edge_threshold": 150,
+  "duration": 140,
+  "rows": 1,
+  "cols": 4,
+  "cell_size": 128,
+  "fit_scale": 0.92,
+  "trim_border": 4,
+  "edge_clean_depth": 3,
+  "align": "feet",
+  "shared_scale": true,
+  "component_mode": "all",
+  "component_padding": 8,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "frame_labels": [
+    "walk_up-1",
+    "walk_up-2",
+    "walk_up-3",
+    "walk_up-4"
+  ],
+  "frames": [
+    {
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        495,
+        793
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        105,
+        120,
+        480,
+        642
+      ],
+      "edge_touch": false,
+      "output_size": [
+        84,
+        117
+      ],
+      "paste_position": [
+        22,
+        6
+      ]
+    },
+    {
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        495,
+        0,
+        990,
+        793
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        67,
+        120,
+        442,
+        642
+      ],
+      "edge_touch": false,
+      "output_size": [
+        84,
+        117
+      ],
+      "paste_position": [
+        22,
+        6
+      ]
+    },
+    {
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        990,
+        0,
+        1485,
+        793
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        44,
+        120,
+        418,
+        636
+      ],
+      "edge_touch": false,
+      "output_size": [
+        84,
+        116
+      ],
+      "paste_position": [
+        22,
+        7
+      ]
+    },
+    {
+      "grid": [
+        0,
+        3
+      ],
+      "source_box": [
+        1485,
+        0,
+        1980,
+        793
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        32,
+        121,
+        405,
+        643
+      ],
+      "edge_touch": false,
+      "output_size": [
+        84,
+        117
+      ],
+      "paste_position": [
+        22,
+        6
+      ]
+    }
+  ],
+  "edge_touch_frames": []
+}

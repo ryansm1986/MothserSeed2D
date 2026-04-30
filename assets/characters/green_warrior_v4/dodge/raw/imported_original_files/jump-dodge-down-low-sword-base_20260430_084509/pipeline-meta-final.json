@@ -1,0 +1,197 @@
+{
+  "target": "player",
+  "mode": "jump_dodge_down",
+  "prompt": "Down-facing/front-facing dodge jump animation from base pose; source identity preserved; huge sword remains gripped in right hand in every frame; 1x4 strip.",
+  "role": "",
+  "input": "D:\\projects\\agent-sprite-forge-main\\generated-assets\\jump-dodge-down-low-sword-base\\raw-sheet.png",
+  "threshold": 100,
+  "edge_threshold": 150,
+  "duration": 90,
+  "rows": 1,
+  "cols": 4,
+  "cell_size": 128,
+  "fit_scale": 0.88,
+  "trim_border": 4,
+  "edge_clean_depth": 3,
+  "align": "center",
+  "shared_scale": true,
+  "component_mode": "all",
+  "component_padding": 20,
+  "min_component_area": 1,
+  "edge_touch_margin": 3,
+  "frame_labels": [
+    "jump_dodge_down-1",
+    "jump_dodge_down-2",
+    "jump_dodge_down-3",
+    "jump_dodge_down-4"
+  ],
+  "frames": [
+    {
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        543,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        49,
+        261,
+        405,
+        589
+      ],
+      "edge_touch": false,
+      "output_size": [
+        92,
+        85
+      ],
+      "paste_position": [
+        18,
+        21
+      ]
+    },
+    {
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        543,
+        0,
+        1086,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        50,
+        186,
+        424,
+        588
+      ],
+      "edge_touch": false,
+      "output_size": [
+        97,
+        104
+      ],
+      "paste_position": [
+        15,
+        12
+      ]
+    },
+    {
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        1086,
+        0,
+        1629,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        55,
+        156,
+        406,
+        589
+      ],
+      "edge_touch": false,
+      "output_size": [
+        91,
+        112
+      ],
+      "paste_position": [
+        18,
+        8
+      ]
+    },
+    {
+      "grid": [
+        0,
+        3
+      ],
+      "source_box": [
+        1629,
+        0,
+        2172,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        41,
+        284,
+        418,
+        588
+      ],
+      "edge_touch": false,
+      "output_size": [
+        98,
+        79
+      ],
+      "paste_position": [
+        15,
+        24
+      ]
+    }
+  ],
+  "edge_touch_frames": [],
+  "padded_outputs": {
+    "sheet-padded-transparent.png": [
+      1210,
+      176
+    ],
+    "sheet-padded-magenta.png": [
+      1210,
+      176
+    ],
+    "gutters": [
+      256,
+      256,
+      256
+    ],
+    "boxes": [
+      [
+        32,
+        45,
+        124,
+        130
+      ],
+      [
+        380,
+        36,
+        477,
+        140
+      ],
+      [
+        733,
+        32,
+        824,
+        144
+      ],
+      [
+        1080,
+        48,
+        1178,
+        127
+      ]
+    ]
+  },
+  "qa": "Visual QA: down-facing/front-facing dodge jump. Sword remains gripped in right hand in all 4 frames; standard split passed edge-touch rejection."
+}

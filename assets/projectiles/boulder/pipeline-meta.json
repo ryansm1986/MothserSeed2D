@@ -1,0 +1,340 @@
+{
+  "target": "asset",
+  "mode": "boulder_rotate",
+  "prompt": "Rotating tan cracked pixel-art boulder projectile, 8-frame 2x4 loop, same centered scale and silhouette, magenta background.",
+  "role": "",
+  "input": "D:\\projects\\agent-sprite-forge-main\\output\\moss_golem_boulder_rotate\\raw-generated.png",
+  "threshold": 100,
+  "edge_threshold": 190,
+  "duration": 80,
+  "rows": 2,
+  "cols": 4,
+  "cell_size": 256,
+  "fit_scale": 0.88,
+  "trim_border": 4,
+  "edge_clean_depth": 4,
+  "align": "center",
+  "shared_scale": true,
+  "component_mode": "largest",
+  "component_padding": 8,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "frame_labels": [
+    "boulder-rotate-1",
+    "boulder-rotate-2",
+    "boulder-rotate-3",
+    "boulder-rotate-4",
+    "boulder-rotate-5",
+    "boulder-rotate-6",
+    "boulder-rotate-7",
+    "boulder-rotate-8"
+  ],
+  "frames": [
+    {
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        384,
+        512
+      ],
+      "component_mode": "largest",
+      "component_count": 1,
+      "selected_component_area": 66544,
+      "selected_component_bbox": [
+        59,
+        128,
+        352,
+        418
+      ],
+      "crop_bbox": [
+        51,
+        120,
+        360,
+        426
+      ],
+      "edge_touch": false,
+      "output_size": [
+        225,
+        223
+      ],
+      "paste_position": [
+        15,
+        16
+      ]
+    },
+    {
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        384,
+        0,
+        768,
+        512
+      ],
+      "component_mode": "largest",
+      "component_count": 1,
+      "selected_component_area": 65126,
+      "selected_component_bbox": [
+        48,
+        129,
+        332,
+        418
+      ],
+      "crop_bbox": [
+        40,
+        121,
+        340,
+        426
+      ],
+      "edge_touch": false,
+      "output_size": [
+        218,
+        222
+      ],
+      "paste_position": [
+        19,
+        17
+      ]
+    },
+    {
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        768,
+        0,
+        1152,
+        512
+      ],
+      "component_mode": "largest",
+      "component_count": 1,
+      "selected_component_area": 65874,
+      "selected_component_bbox": [
+        36,
+        130,
+        327,
+        418
+      ],
+      "crop_bbox": [
+        28,
+        122,
+        335,
+        426
+      ],
+      "edge_touch": false,
+      "output_size": [
+        223,
+        221
+      ],
+      "paste_position": [
+        16,
+        17
+      ]
+    },
+    {
+      "grid": [
+        0,
+        3
+      ],
+      "source_box": [
+        1152,
+        0,
+        1536,
+        512
+      ],
+      "component_mode": "largest",
+      "component_count": 1,
+      "selected_component_area": 65866,
+      "selected_component_bbox": [
+        27,
+        129,
+        314,
+        418
+      ],
+      "crop_bbox": [
+        19,
+        121,
+        322,
+        426
+      ],
+      "edge_touch": false,
+      "output_size": [
+        220,
+        222
+      ],
+      "paste_position": [
+        18,
+        17
+      ]
+    },
+    {
+      "grid": [
+        1,
+        0
+      ],
+      "source_box": [
+        0,
+        512,
+        384,
+        1024
+      ],
+      "component_mode": "largest",
+      "component_count": 1,
+      "selected_component_area": 64963,
+      "selected_component_bbox": [
+        56,
+        66,
+        342,
+        355
+      ],
+      "crop_bbox": [
+        48,
+        58,
+        350,
+        363
+      ],
+      "edge_touch": false,
+      "output_size": [
+        220,
+        222
+      ],
+      "paste_position": [
+        18,
+        17
+      ]
+    },
+    {
+      "grid": [
+        1,
+        1
+      ],
+      "source_box": [
+        384,
+        512,
+        768,
+        1024
+      ],
+      "component_mode": "largest",
+      "component_count": 1,
+      "selected_component_area": 64608,
+      "selected_component_bbox": [
+        46,
+        66,
+        331,
+        356
+      ],
+      "crop_bbox": [
+        38,
+        58,
+        339,
+        364
+      ],
+      "edge_touch": false,
+      "output_size": [
+        219,
+        223
+      ],
+      "paste_position": [
+        18,
+        16
+      ]
+    },
+    {
+      "grid": [
+        1,
+        2
+      ],
+      "source_box": [
+        768,
+        512,
+        1152,
+        1024
+      ],
+      "component_mode": "largest",
+      "component_count": 1,
+      "selected_component_area": 64491,
+      "selected_component_bbox": [
+        35,
+        66,
+        318,
+        356
+      ],
+      "crop_bbox": [
+        27,
+        58,
+        326,
+        364
+      ],
+      "edge_touch": false,
+      "output_size": [
+        217,
+        223
+      ],
+      "paste_position": [
+        19,
+        16
+      ]
+    },
+    {
+      "grid": [
+        1,
+        3
+      ],
+      "source_box": [
+        1152,
+        512,
+        1536,
+        1024
+      ],
+      "component_mode": "largest",
+      "component_count": 1,
+      "selected_component_area": 65403,
+      "selected_component_bbox": [
+        24,
+        66,
+        312,
+        355
+      ],
+      "crop_bbox": [
+        16,
+        58,
+        320,
+        363
+      ],
+      "edge_touch": false,
+      "output_size": [
+        221,
+        222
+      ],
+      "paste_position": [
+        17,
+        17
+      ]
+    }
+  ],
+  "edge_touch_frames": [],
+  "post_chroma_cleanup": {
+    "applied": true,
+    "reason": "Removed residual magenta/purple background spill from exported transparent PNGs; raw-generated.png left unchanged.",
+    "changed_pixels": {
+      "sheet-transparent.png": 1017,
+      "raw-sheet-clean.png": 2526,
+      "boulder-rotate-1.png": 529,
+      "boulder-rotate-2.png": 488,
+      "boulder-rotate-3.png": 477,
+      "boulder-rotate-4.png": 513,
+      "boulder-rotate-5.png": 497,
+      "boulder-rotate-6.png": 545,
+      "boulder-rotate-7.png": 574,
+      "boulder-rotate-8.png": 643
+    },
+    "final_magenta_spill_pixels": 0
+  }
+}

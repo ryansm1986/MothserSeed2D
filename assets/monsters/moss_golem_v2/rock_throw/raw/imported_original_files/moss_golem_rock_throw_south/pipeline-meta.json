@@ -1,0 +1,234 @@
+{
+  "target": "creature",
+  "mode": "rock_throw",
+  "prompt": "Moss golem SOUTH-facing rock throw 2x3 sheet: bend, pick up boulder, lift, wind up, stronger wind up, release anticipation toward viewer/front with boulder still at hand.",
+  "role": "",
+  "input": "D:\\projects\\agent-sprite-forge-main\\output\\moss_golem_rock_throw_south\\raw-generated.png",
+  "threshold": 100,
+  "edge_threshold": 190,
+  "duration": 130,
+  "rows": 2,
+  "cols": 3,
+  "cell_size": 512,
+  "fit_scale": 0.9,
+  "trim_border": 4,
+  "edge_clean_depth": 4,
+  "align": "bottom",
+  "shared_scale": true,
+  "component_mode": "all",
+  "component_padding": 12,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "frame_labels": [
+    "south-rock-throw-1",
+    "south-rock-throw-2",
+    "south-rock-throw-3",
+    "south-rock-throw-4",
+    "south-rock-throw-5",
+    "south-rock-throw-6"
+  ],
+  "frames": [
+    {
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        95,
+        91,
+        470,
+        450
+      ],
+      "edge_touch": false,
+      "output_size": [
+        376,
+        360
+      ],
+      "paste_position": [
+        68,
+        127
+      ]
+    },
+    {
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        78,
+        119,
+        424,
+        451
+      ],
+      "edge_touch": false,
+      "output_size": [
+        347,
+        333
+      ],
+      "paste_position": [
+        82,
+        154
+      ]
+    },
+    {
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        64,
+        72,
+        404,
+        448
+      ],
+      "edge_touch": false,
+      "output_size": [
+        341,
+        377
+      ],
+      "paste_position": [
+        85,
+        110
+      ]
+    },
+    {
+      "grid": [
+        1,
+        0
+      ],
+      "source_box": [
+        0,
+        512,
+        512,
+        1024
+      ],
+      "component_mode": "all",
+      "component_count": 2,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        57,
+        39,
+        488,
+        442
+      ],
+      "edge_touch": false,
+      "output_size": [
+        432,
+        404
+      ],
+      "paste_position": [
+        40,
+        83
+      ]
+    },
+    {
+      "grid": [
+        1,
+        1
+      ],
+      "source_box": [
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        32,
+        27,
+        491,
+        442
+      ],
+      "edge_touch": false,
+      "output_size": [
+        460,
+        416
+      ],
+      "paste_position": [
+        26,
+        71
+      ]
+    },
+    {
+      "grid": [
+        1,
+        2
+      ],
+      "source_box": [
+        1024,
+        512,
+        1536,
+        1024
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        43,
+        99,
+        427,
+        451
+      ],
+      "edge_touch": false,
+      "output_size": [
+        385,
+        353
+      ],
+      "paste_position": [
+        63,
+        134
+      ]
+    }
+  ],
+  "edge_touch_frames": [],
+  "post_chroma_cleanup": {
+    "applied": true,
+    "reason": "Removed residual magenta/purple background spill from exported transparent PNGs; raw-generated.png left unchanged.",
+    "changed_pixels": {
+      "sheet-transparent.png": 4406,
+      "raw-sheet-clean.png": 4317,
+      "south-rock-throw-1.png": 1531,
+      "south-rock-throw-2.png": 787,
+      "south-rock-throw-3.png": 1243,
+      "south-rock-throw-4.png": 2153,
+      "south-rock-throw-5.png": 2256,
+      "south-rock-throw-6.png": 1733
+    },
+    "final_magenta_spill_pixels": 0
+  }
+}

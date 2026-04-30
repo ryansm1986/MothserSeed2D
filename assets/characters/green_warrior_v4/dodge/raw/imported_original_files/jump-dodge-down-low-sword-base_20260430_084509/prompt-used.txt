@@ -1,0 +1,1 @@
+Down-facing/front-facing dodge jump animation from base pose; source identity preserved; huge sword remains gripped in right hand in every frame; 1x4 strip.

@@ -88,8 +88,8 @@ Normalization uses one shared scale per GIF. The source anchor is the union boun
 
 After extracting frames:
 
-1. Confirm frame names match the Vite glob in `src/main.ts`.
+1. Confirm frame names match the Vite glob in `src/render/canvas2d/character-sprites.ts` or `src/render/canvas2d/monster-sprites.ts`.
 2. Confirm every direction needed by the loader exists or has an explicit fallback.
 3. Run `npm run build`.
 4. Test the character in the browser and watch for missing frame warnings.
-5. Tune the draw profile in `src/main.ts` if the canvas size or baseline changed.
+5. Tune the draw profile in `src/render/canvas2d/renderer.ts` if the canvas size or baseline changed.

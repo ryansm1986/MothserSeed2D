@@ -1,0 +1,344 @@
+{
+  "subject": "moss_golem_v2",
+  "animation": "rock_throw",
+  "directions": [
+    "south",
+    "east",
+    "north",
+    "west"
+  ],
+  "frames_per_direction": 6,
+  "frame_size": [
+    1152,
+    1152
+  ],
+  "anchor": [
+    576,
+    1128
+  ],
+  "shared_scale": 1.2173913043478262,
+  "source": "raw/imported_original_files",
+  "notes": [
+    "Organized from user-supplied four-direction rock throw intake.",
+    "Runtime diagonal facings fall back to nearest cardinal throw frames.",
+    "Replaced north normalized frames from newer loose intake at raw/imported_original_files/moss_golem_rock_throw_north_update_20260429_105325.",
+    "Replaced west normalized frames from newer loose intake at raw/imported_original_files/moss_golem_rock_throw_west_update_20260429_105616."
+  ],
+  "north_replacement": {
+    "source": "D:\\projects\\MotherSeed2D\\assets\\monsters\\moss_golem_v2\\rock_throw\\raw\\imported_original_files\\moss_golem_rock_throw_north_update_20260429_105325",
+    "updated_at": "20260429_105325",
+    "shared_north_scale": 1.2173913043478262,
+    "max_source_bbox": [
+      409,
+      460
+    ],
+    "target_content_bounds": [
+      620,
+      560
+    ],
+    "anchor": [
+      576,
+      1128
+    ],
+    "source_bboxes": [
+      {
+        "file": "north-rock-throw-1.png",
+        "bbox": [
+          88,
+          106,
+          423,
+          487
+        ],
+        "trimmedSize": [
+          335,
+          381
+        ]
+      },
+      {
+        "file": "north-rock-throw-2.png",
+        "bbox": [
+          106,
+          159,
+          405,
+          487
+        ],
+        "trimmedSize": [
+          299,
+          328
+        ]
+      },
+      {
+        "file": "north-rock-throw-3.png",
+        "bbox": [
+          115,
+          70,
+          397,
+          487
+        ],
+        "trimmedSize": [
+          282,
+          417
+        ]
+      },
+      {
+        "file": "north-rock-throw-4.png",
+        "bbox": [
+          86,
+          128,
+          425,
+          487
+        ],
+        "trimmedSize": [
+          339,
+          359
+        ]
+      },
+      {
+        "file": "north-rock-throw-5.png",
+        "bbox": [
+          57,
+          67,
+          455,
+          487
+        ],
+        "trimmedSize": [
+          398,
+          420
+        ]
+      },
+      {
+        "file": "north-rock-throw-6.png",
+        "bbox": [
+          51,
+          27,
+          460,
+          487
+        ],
+        "trimmedSize": [
+          409,
+          460
+        ]
+      }
+    ],
+    "placements": [
+      {
+        "frame": 1,
+        "file": "frames/rock_throw_north_01.png",
+        "placement": {
+          "x": 372,
+          "y": 664,
+          "w": 408,
+          "h": 464
+        }
+      },
+      {
+        "frame": 2,
+        "file": "frames/rock_throw_north_02.png",
+        "placement": {
+          "x": 394,
+          "y": 729,
+          "w": 364,
+          "h": 399
+        }
+      },
+      {
+        "frame": 3,
+        "file": "frames/rock_throw_north_03.png",
+        "placement": {
+          "x": 405,
+          "y": 620,
+          "w": 343,
+          "h": 508
+        }
+      },
+      {
+        "frame": 4,
+        "file": "frames/rock_throw_north_04.png",
+        "placement": {
+          "x": 370,
+          "y": 691,
+          "w": 413,
+          "h": 437
+        }
+      },
+      {
+        "frame": 5,
+        "file": "frames/rock_throw_north_05.png",
+        "placement": {
+          "x": 334,
+          "y": 617,
+          "w": 485,
+          "h": 511
+        }
+      },
+      {
+        "frame": 6,
+        "file": "frames/rock_throw_north_06.png",
+        "placement": {
+          "x": 327,
+          "y": 568,
+          "w": 498,
+          "h": 560
+        }
+      }
+    ],
+    "strict_green_pixels_recolored": 9
+  },
+  "west_replacement": {
+    "source": "D:\\projects\\MotherSeed2D\\assets\\monsters\\moss_golem_v2\\rock_throw\\raw\\imported_original_files\\moss_golem_rock_throw_west_update_20260429_105616",
+    "updated_at": "20260429_105616",
+    "shared_west_scale": 1.2173913043478262,
+    "max_source_bbox": [
+      442,
+      378
+    ],
+    "anchor": [
+      576,
+      1128
+    ],
+    "source_bboxes": [
+      {
+        "file": "west-rock-throw-1.png",
+        "bbox": [
+          82,
+          180,
+          430,
+          487
+        ],
+        "trimmedSize": [
+          348,
+          307
+        ]
+      },
+      {
+        "file": "west-rock-throw-2.png",
+        "bbox": [
+          91,
+          201,
+          420,
+          487
+        ],
+        "trimmedSize": [
+          329,
+          286
+        ]
+      },
+      {
+        "file": "west-rock-throw-3.png",
+        "bbox": [
+          105,
+          162,
+          406,
+          487
+        ],
+        "trimmedSize": [
+          301,
+          325
+        ]
+      },
+      {
+        "file": "west-rock-throw-4.png",
+        "bbox": [
+          64,
+          131,
+          448,
+          487
+        ],
+        "trimmedSize": [
+          384,
+          356
+        ]
+      },
+      {
+        "file": "west-rock-throw-5.png",
+        "bbox": [
+          26,
+          109,
+          415,
+          487
+        ],
+        "trimmedSize": [
+          389,
+          378
+        ]
+      },
+      {
+        "file": "west-rock-throw-6.png",
+        "bbox": [
+          8,
+          214,
+          450,
+          486
+        ],
+        "trimmedSize": [
+          442,
+          272
+        ]
+      }
+    ],
+    "placements": [
+      {
+        "frame": 1,
+        "file": "frames/rock_throw_west_01.png",
+        "placement": {
+          "x": 364,
+          "y": 754,
+          "w": 424,
+          "h": 374
+        }
+      },
+      {
+        "frame": 2,
+        "file": "frames/rock_throw_west_02.png",
+        "placement": {
+          "x": 376,
+          "y": 780,
+          "w": 401,
+          "h": 348
+        }
+      },
+      {
+        "frame": 3,
+        "file": "frames/rock_throw_west_03.png",
+        "placement": {
+          "x": 393,
+          "y": 732,
+          "w": 366,
+          "h": 396
+        }
+      },
+      {
+        "frame": 4,
+        "file": "frames/rock_throw_west_04.png",
+        "placement": {
+          "x": 343,
+          "y": 695,
+          "w": 467,
+          "h": 433
+        }
+      },
+      {
+        "frame": 5,
+        "file": "frames/rock_throw_west_05.png",
+        "placement": {
+          "x": 339,
+          "y": 668,
+          "w": 474,
+          "h": 460
+        }
+      },
+      {
+        "frame": 6,
+        "file": "frames/rock_throw_west_06.png",
+        "placement": {
+          "x": 307,
+          "y": 797,
+          "w": 538,
+          "h": 331
+        }
+      }
+    ],
+    "strict_green_pixels_recolored": 6,
+    "strict_magenta_visible_pixels": 0
+  }
+}

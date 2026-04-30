@@ -1,0 +1,162 @@
+{
+  "createdAt": "20260430_124538",
+  "canvasSize": [
+    192,
+    192
+  ],
+  "anchorX": 96,
+  "baselineY": 181,
+  "backupRoot": "D:\\projects\\MotherSeed2D\\assets\\characters\\green_warrior_v4\\_normalization_backups\\normalize_20260430_124538",
+  "animations": {
+    "idle": {
+      "target_height": 156,
+      "max_width": 176,
+      "frameCount": 32,
+      "before": {
+        "heightRange": [
+          141,
+          163
+        ],
+        "widthRange": [
+          111,
+          141
+        ]
+      },
+      "after": {
+        "heightRange": [
+          156,
+          156
+        ],
+        "widthRange": [
+          117,
+          136
+        ]
+      }
+    },
+    "walk": {
+      "target_height": 156,
+      "max_width": 176,
+      "frameCount": 4,
+      "before": {
+        "heightRange": [
+          116,
+          117
+        ],
+        "widthRange": [
+          84,
+          84
+        ]
+      },
+      "after": {
+        "heightRange": [
+          156,
+          156
+        ],
+        "widthRange": [
+          112,
+          113
+        ]
+      }
+    },
+    "sprint": {
+      "target_height": 156,
+      "max_width": 176,
+      "frameCount": 32,
+      "before": {
+        "heightRange": [
+          139,
+          155
+        ],
+        "widthRange": [
+          99,
+          149
+        ]
+      },
+      "after": {
+        "heightRange": [
+          156,
+          156
+        ],
+        "widthRange": [
+          108,
+          163
+        ]
+      }
+    },
+    "dodge": {
+      "target_height": 136,
+      "max_width": 176,
+      "frameCount": 16,
+      "before": {
+        "heightRange": [
+          59,
+          112
+        ],
+        "widthRange": [
+          70,
+          112
+        ]
+      },
+      "after": {
+        "heightRange": [
+          113,
+          136
+        ],
+        "widthRange": [
+          110,
+          176
+        ]
+      }
+    },
+    "attack": {
+      "target_height": 156,
+      "max_width": 176,
+      "frameCount": 24,
+      "before": {
+        "heightRange": [
+          115,
+          177
+        ],
+        "widthRange": [
+          85,
+          174
+        ]
+      },
+      "after": {
+        "heightRange": [
+          116,
+          156
+        ],
+        "widthRange": [
+          75,
+          176
+        ]
+      }
+    },
+    "special": {
+      "target_height": 156,
+      "max_width": 176,
+      "frameCount": 8,
+      "before": {
+        "heightRange": [
+          122,
+          179
+        ],
+        "widthRange": [
+          125,
+          167
+        ]
+      },
+      "after": {
+        "heightRange": [
+          129,
+          156
+        ],
+        "widthRange": [
+          120,
+          176
+        ]
+      }
+    }
+  }
+}

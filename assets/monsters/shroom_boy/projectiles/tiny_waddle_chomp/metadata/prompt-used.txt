@@ -1,0 +1,1 @@
+Directional tiny shroom waddling and chomping strips. South/front and north/back generated as a 2x6 source-style sheet; west mirrored from the accepted east animation; east strip copied from the accepted animation frames.

@@ -6,7 +6,7 @@ This review uses the Game Studio web-game-foundations checklist: simulation/rend
 
 The project is now correctly aligned around a 2D character in a 2D world. The current Canvas 2D runtime is a reasonable foundation for the next phase, provided the code is split into clear modules before more gameplay scope is added.
 
-The prototype is healthy for proving combat feel. It is not yet healthy as a long-term architecture because `src/main.ts` currently owns almost every responsibility.
+The prototype is healthy for proving combat feel. The first structural refactor is now in place: `src/main.ts` is a bootstrap that delegates state, simulation, rendering, UI, and audio to focused modules.
 
 ## What Is Already Good
 
@@ -21,14 +21,14 @@ The prototype is healthy for proving combat feel. It is not yet healthy as a lon
 
 ## Main Risks
 
-- `src/main.ts` is 1,567 lines and owns content, simulation state, input handling, asset loading, rendering, UI rendering, and the game loop.
-- Gameplay rules mutate objects that the renderer also reads directly, so there is no portable simulation state yet.
-- Input is stored as raw keyboard codes instead of mapped actions.
-- Content is partly hardcoded in TypeScript and partly represented by asset JSON files, with no single asset/content manifest boundary.
+- `src/main.ts` used to own content, simulation state, input handling, asset loading, rendering, UI rendering, and the game loop. It is now bootstrap-only.
+- Gameplay state now lives in `src/game/state.ts`, but more tests are needed before treating the simulation as fully portable.
+- Input has explicit gameplay actions in `src/game/input-actions.ts`; menu navigation still handles some browser keys directly at the bootstrap layer.
+- Content is partly hardcoded in TypeScript and partly represented by asset JSON files, with no single asset/content manifest boundary yet.
 - Ability behavior is handled with conditionals keyed by ability IDs, which will become brittle as classes and weapons expand.
 - Enemy attack behavior is hardcoded rather than authored as data.
 - Save data, debug overlays, deterministic seeds, and performance probes are not defined yet.
-- The root folder has no `README.md`, so a new collaborator has to infer setup and direction from the plan files.
+- Root `AGENTS.md` and `docs/CODEMAP.md` now document where agents should look and what boundaries to respect.
 
 ## Foundation Decision
 
@@ -50,8 +50,7 @@ Consider Phaser later only if one of these becomes expensive in the custom runti
 ```text
 src/
   app/
-    bootstrap.ts
-    loop.ts
+    audio.ts
   game/
     state.ts
     simulation.ts
@@ -79,12 +78,14 @@ src/
   render/canvas2d/
     renderer.ts
     camera.ts
-    sprites.ts
-    telegraphs.ts
+    sprite-loader.ts
+    character-sprites.ts
+    monster-sprites.ts
   ui/
+    app-shell.ts
     hud.ts
     character-select.ts
-    title-screen.ts
+    pause-menu.ts
     event-log.ts
 ```
 
@@ -96,11 +97,11 @@ This structure keeps the current renderer, but makes the simulation portable. If
 
 Goal: make the current game easier to change without changing behavior.
 
-- Move shared types and pure math helpers into `src/game/types.ts` and `src/game/math.ts`.
-- Move `characterClasses` and ability definitions into `src/game/content/classes.ts`.
-- Move world constants, obstacles, decorations, and world asset rects into `src/game/content/world-assets.ts` and `src/game/world/arena.ts`.
-- Move player, enemy, gear, cooldowns, target lock, timers, and event log entries into a serializable `GameState`.
-- Keep `src/main.ts` as bootstrap only.
+- Shared types and pure math helpers live in `src/game/types.ts` and `src/game/math.ts`.
+- `characterClasses` and ability definitions live in `src/game/content/classes.ts`.
+- World constants, decorations, and world asset rects live in `src/game/content/world-assets.ts` and `src/game/world/arena.ts`.
+- Player, enemy, gear, cooldowns, target lock, timers, and UI flow live in `GameState`.
+- `src/main.ts` is bootstrap only.
 - Add `createInitialGameState(selectedClassId, seed)` so restarts and future saves are deterministic.
 
 Definition of done:
@@ -127,10 +128,10 @@ Definition of done:
 
 Goal: make combat rules testable and portable.
 
-- Create `updateSimulation(state, input, delta)` for movement, stamina, cooldowns, enemy AI, combat, and loot.
-- Renderer reads snapshots from state but does not own rules.
-- UI reads a view model generated from state.
-- Replace direct DOM log writes from gameplay functions with queued simulation events.
+- `updateSimulation(state, input, delta)` now coordinates movement, stamina, cooldowns, enemy AI, combat, and loot.
+- Renderer reads state and render assets but does not own gameplay rules.
+- UI reads view models generated from state.
+- Gameplay functions emit queued `GameEvent[]` instead of writing directly to the DOM.
 - Keep Canvas-only objects such as `CanvasRenderingContext2D`, `HTMLCanvasElement`, `HTMLImageElement`, and sprite frame canvases out of simulation state.
 
 Definition of done:
@@ -192,7 +193,7 @@ Canvas 2D is aligned with the project. The current renderer should be extracted 
 
 ### Simulation
 
-The current simulation is functional but too coupled to rendering and UI. This is the highest-priority foundation issue.
+The current simulation is separated from rendering and UI enough for focused follow-up tests. The next priority is adding tests around the pure combat and movement modules.
 
 ### Input
 

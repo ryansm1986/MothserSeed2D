@@ -1,0 +1,301 @@
+{
+  "subject": "green_warrior_v4",
+  "animation": "special",
+  "variant": "spinning_special_attack_source_import",
+  "directionMode": "down_only",
+  "directions": [
+    "down"
+  ],
+  "runtimeFallback": "all non-down attack2 directions use special_down frames",
+  "frame_size": [
+    192,
+    192
+  ],
+  "frames_per_direction": 8,
+  "frameCount": 8,
+  "duration_ms": 85,
+  "baseline_y": 181,
+  "sharedScale": 0.632867,
+  "normalization": "imported user-supplied 320x320 spin_special frames, crop visible content, apply one shared scale, center horizontally, align bottom to shared baseline",
+  "assembled": "assembled/green_warrior_v4_special_down_spin_8f_192x192.png",
+  "sourceFolder": "raw/imported_original_files/green_sword_spin_special_20260430_110136",
+  "previousCanonicalArchive": "raw/replaced_canonical_outputs/special_previous_20260430_110136",
+  "maxSourceBBox": [
+    273,
+    286
+  ],
+  "maxOutputBBox": [
+    173,
+    181
+  ],
+  "strictGreenRecolored": 17,
+  "strictMagentaRecolored": 664,
+  "strictGreenVisibleAfterRebuild": 0,
+  "strictMagentaVisibleAfterRebuild": 0,
+  "frames": [
+    {
+      "direction": "down",
+      "frame": 1,
+      "file": "frames/special_down_01.png",
+      "source": "raw/imported_original_files/green_sword_spin_special_20260430_110136/spin_special-1.png",
+      "sourceBBox": [
+        39,
+        30,
+        280,
+        295
+      ],
+      "sourceVisibleSize": [
+        241,
+        265
+      ],
+      "sharedScale": 0.632867,
+      "placement": {
+        "x": 19,
+        "y": 13,
+        "w": 153,
+        "h": 168
+      },
+      "outputBBox": [
+        19,
+        13,
+        172,
+        181
+      ],
+      "strictGreenRecolored": 0,
+      "strictMagentaRecolored": 0,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 2,
+      "file": "frames/special_down_02.png",
+      "source": "raw/imported_original_files/green_sword_spin_special_20260430_110136/spin_special-2.png",
+      "sourceBBox": [
+        53,
+        12,
+        273,
+        298
+      ],
+      "sourceVisibleSize": [
+        220,
+        286
+      ],
+      "sharedScale": 0.632867,
+      "placement": {
+        "x": 26,
+        "y": 0,
+        "w": 139,
+        "h": 181
+      },
+      "outputBBox": [
+        26,
+        0,
+        165,
+        181
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaRecolored": 336,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 3,
+      "file": "frames/special_down_03.png",
+      "source": "raw/imported_original_files/green_sword_spin_special_20260430_110136/spin_special-3.png",
+      "sourceBBox": [
+        43,
+        12,
+        277,
+        298
+      ],
+      "sourceVisibleSize": [
+        234,
+        286
+      ],
+      "sharedScale": 0.632867,
+      "placement": {
+        "x": 22,
+        "y": 0,
+        "w": 148,
+        "h": 181
+      },
+      "outputBBox": [
+        22,
+        0,
+        170,
+        181
+      ],
+      "strictGreenRecolored": 13,
+      "strictMagentaRecolored": 328,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 4,
+      "file": "frames/special_down_04.png",
+      "source": "raw/imported_original_files/green_sword_spin_special_20260430_110136/spin_special-4.png",
+      "sourceBBox": [
+        24,
+        79,
+        295,
+        295
+      ],
+      "sourceVisibleSize": [
+        271,
+        216
+      ],
+      "sharedScale": 0.632867,
+      "placement": {
+        "x": 10,
+        "y": 44,
+        "w": 172,
+        "h": 137
+      },
+      "outputBBox": [
+        10,
+        44,
+        182,
+        181
+      ],
+      "strictGreenRecolored": 0,
+      "strictMagentaRecolored": 0,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 5,
+      "file": "frames/special_down_05.png",
+      "source": "raw/imported_original_files/green_sword_spin_special_20260430_110136/spin_special-5.png",
+      "sourceBBox": [
+        36,
+        83,
+        274,
+        295
+      ],
+      "sourceVisibleSize": [
+        238,
+        212
+      ],
+      "sharedScale": 0.632867,
+      "placement": {
+        "x": 20,
+        "y": 47,
+        "w": 151,
+        "h": 134
+      },
+      "outputBBox": [
+        20,
+        47,
+        171,
+        181
+      ],
+      "strictGreenRecolored": 0,
+      "strictMagentaRecolored": 0,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 6,
+      "file": "frames/special_down_06.png",
+      "source": "raw/imported_original_files/green_sword_spin_special_20260430_110136/spin_special-6.png",
+      "sourceBBox": [
+        61,
+        87,
+        268,
+        295
+      ],
+      "sourceVisibleSize": [
+        207,
+        208
+      ],
+      "sharedScale": 0.632867,
+      "placement": {
+        "x": 30,
+        "y": 49,
+        "w": 131,
+        "h": 132
+      },
+      "outputBBox": [
+        30,
+        49,
+        161,
+        181
+      ],
+      "strictGreenRecolored": 0,
+      "strictMagentaRecolored": 0,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 7,
+      "file": "frames/special_down_07.png",
+      "source": "raw/imported_original_files/green_sword_spin_special_20260430_110136/spin_special-7.png",
+      "sourceBBox": [
+        28,
+        46,
+        291,
+        295
+      ],
+      "sourceVisibleSize": [
+        263,
+        249
+      ],
+      "sharedScale": 0.632867,
+      "placement": {
+        "x": 13,
+        "y": 23,
+        "w": 166,
+        "h": 158
+      },
+      "outputBBox": [
+        13,
+        23,
+        179,
+        181
+      ],
+      "strictGreenRecolored": 0,
+      "strictMagentaRecolored": 0,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 8,
+      "file": "frames/special_down_08.png",
+      "source": "raw/imported_original_files/green_sword_spin_special_20260430_110136/spin_special-8.png",
+      "sourceBBox": [
+        18,
+        103,
+        291,
+        295
+      ],
+      "sourceVisibleSize": [
+        273,
+        192
+      ],
+      "sharedScale": 0.632867,
+      "placement": {
+        "x": 9,
+        "y": 59,
+        "w": 173,
+        "h": 122
+      },
+      "outputBBox": [
+        9,
+        59,
+        182,
+        181
+      ],
+      "strictGreenRecolored": 0,
+      "strictMagentaRecolored": 0,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    }
+  ]
+}

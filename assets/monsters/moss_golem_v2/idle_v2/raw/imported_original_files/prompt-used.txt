@@ -1,0 +1,1 @@
+Moss golem 8-direction idle sheet from attached reference; 8 rows by 4 columns; rows S, SE, E, NE, N, NW, W, SW; source-style pixel art; face/head must show only eyes when visible, no mouth or nose; pure #FF00FF background; consistent scale and feet alignment.

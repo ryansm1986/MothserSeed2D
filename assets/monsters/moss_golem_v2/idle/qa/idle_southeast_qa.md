@@ -25,5 +25,6 @@ QA checks:
 - Final frames are `384x384` with transparent backgrounds.
 - Standard preview, 4x preview, focused QA preview, and looping GIF exist.
 - Base-set stone, moss, vine, green eye, and green core colors are preserved with no requested equipment changes.
+- Face consistency pass: source `southeast.png` head/mask details were overlaid on all 5 normalized frames so the face reads as glowing eyes only, with no generated mouth, nose, snout, lips, or teeth.
 
 Final QA status: `approved`

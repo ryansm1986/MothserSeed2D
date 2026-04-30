@@ -1,0 +1,20 @@
+{
+  "target": "creature",
+  "mode": "attack",
+  "direction": "south",
+  "cell_size": 128,
+  "rows": 2,
+  "cols": 3,
+  "duration": 120,
+  "source_base_animation": "D:\\projects\\MotherSeed2D\\assets\\monsters\\shroom_boy\\mouth_throw\\sheet-transparent.png",
+  "replacement_final_frame": "D:\\projects\\MotherSeed2D\\assets\\monsters\\shroom_boy\\mouth_throw_south\\replacement_down_frame\\down-final-1.png",
+  "frame_policy": "frames 1-5 copied from original mouth_throw; frame 6 replaced with generated true south/down pre-release pose",
+  "frame_labels": [
+    "attack-1",
+    "attack-2",
+    "attack-3",
+    "attack-4",
+    "attack-5",
+    "attack-6"
+  ]
+}

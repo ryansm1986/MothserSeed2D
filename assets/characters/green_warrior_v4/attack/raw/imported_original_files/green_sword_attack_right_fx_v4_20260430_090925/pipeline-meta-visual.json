@@ -1,0 +1,120 @@
+{
+  "source": "D:\\projects\\agent-sprite-forge-main\\output\\green_sword_attack_right_fx_v4\\raw-sheet.png",
+  "method": "visual_component_grouping",
+  "frame_count": 6,
+  "cell_size": 256,
+  "duration": 95,
+  "centroids": [
+    161.3603211321268,
+    592.3096975672763,
+    880.1983180245735,
+    1235.7795796922746,
+    1595.769610672824,
+    1941.0930779813193
+  ],
+  "frames": [
+    {
+      "label": "attack_right-1",
+      "source_bbox": [
+        40,
+        192,
+        297,
+        523
+      ],
+      "output_bbox": [
+        41,
+        10,
+        214,
+        236
+      ],
+      "edge_touch": false,
+      "components": 1
+    },
+    {
+      "label": "attack_right-2",
+      "source_bbox": [
+        435,
+        148,
+        690,
+        527
+      ],
+      "output_bbox": [
+        52,
+        9,
+        203,
+        237
+      ],
+      "edge_touch": false,
+      "components": 8
+    },
+    {
+      "label": "attack_right-3",
+      "source_bbox": [
+        774,
+        122,
+        985,
+        527
+      ],
+      "output_bbox": [
+        69,
+        8,
+        186,
+        238
+      ],
+      "edge_touch": false,
+      "components": 3
+    },
+    {
+      "label": "attack_right-4",
+      "source_bbox": [
+        1076,
+        217,
+        1377,
+        540
+      ],
+      "output_bbox": [
+        23,
+        10,
+        233,
+        236
+      ],
+      "edge_touch": false,
+      "components": 3
+    },
+    {
+      "label": "attack_right-5",
+      "source_bbox": [
+        1440,
+        303,
+        1775,
+        542
+      ],
+      "output_bbox": [
+        15,
+        78,
+        241,
+        236
+      ],
+      "edge_touch": false,
+      "components": 1
+    },
+    {
+      "label": "attack_right-6",
+      "source_bbox": [
+        1773,
+        272,
+        2145,
+        525
+      ],
+      "output_bbox": [
+        14,
+        84,
+        242,
+        237
+      ],
+      "edge_touch": false,
+      "components": 6
+    }
+  ],
+  "edge_touch_frames": []
+}

@@ -1,0 +1,471 @@
+{
+  "subject": "green_warrior_v4",
+  "animation": "idle",
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up",
+    "down_left",
+    "up_left",
+    "up_right",
+    "down_right"
+  ],
+  "frame_size": [
+    192,
+    192
+  ],
+  "max_frames_per_direction": 4,
+  "duration_ms": 220,
+  "assembled": "assembled/green_warrior_v4_idle_8dir_4f_192x192.png",
+  "frames": [
+    {
+      "direction": "down",
+      "frame": 1,
+      "file": "frames/idle_down_01.png",
+      "source": "raw/imported_original_files/green-warrior-idle-cardinal/down-1.png",
+      "bbox": [
+        24,
+        15,
+        167,
+        181
+      ],
+      "strictGreenRecolored": 5,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 2,
+      "file": "frames/idle_down_02.png",
+      "source": "raw/imported_original_files/green-warrior-idle-cardinal/down-2.png",
+      "bbox": [
+        24,
+        14,
+        167,
+        181
+      ],
+      "strictGreenRecolored": 10,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 3,
+      "file": "frames/idle_down_03.png",
+      "source": "raw/imported_original_files/green-warrior-idle-cardinal/down-3.png",
+      "bbox": [
+        24,
+        15,
+        168,
+        181
+      ],
+      "strictGreenRecolored": 10,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 4,
+      "file": "frames/idle_down_04.png",
+      "source": "raw/imported_original_files/green-warrior-idle-cardinal/down-4.png",
+      "bbox": [
+        23,
+        15,
+        168,
+        181
+      ],
+      "strictGreenRecolored": 5,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 1,
+      "file": "frames/idle_left_01.png",
+      "source": "raw/imported_original_files/green-warrior-idle-cardinal/left-1.png",
+      "bbox": [
+        33,
+        27,
+        159,
+        181
+      ],
+      "strictGreenRecolored": 6,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 2,
+      "file": "frames/idle_left_02.png",
+      "source": "raw/imported_original_files/green-warrior-idle-cardinal/left-2.png",
+      "bbox": [
+        34,
+        27,
+        158,
+        181
+      ],
+      "strictGreenRecolored": 8,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 3,
+      "file": "frames/idle_left_03.png",
+      "source": "raw/imported_original_files/green-warrior-idle-cardinal/left-3.png",
+      "bbox": [
+        34,
+        28,
+        157,
+        181
+      ],
+      "strictGreenRecolored": 10,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 4,
+      "file": "frames/idle_left_04.png",
+      "source": "raw/imported_original_files/green-warrior-idle-cardinal/left-4.png",
+      "bbox": [
+        34,
+        27,
+        158,
+        181
+      ],
+      "strictGreenRecolored": 11,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 1,
+      "file": "frames/idle_right_01.png",
+      "source": "raw/imported_original_files/green-warrior-idle-cardinal/right-1.png",
+      "bbox": [
+        38,
+        29,
+        153,
+        181
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 2,
+      "file": "frames/idle_right_02.png",
+      "source": "raw/imported_original_files/green-warrior-idle-cardinal/right-2.png",
+      "bbox": [
+        37,
+        29,
+        155,
+        181
+      ],
+      "strictGreenRecolored": 7,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 3,
+      "file": "frames/idle_right_03.png",
+      "source": "raw/imported_original_files/green-warrior-idle-cardinal/right-3.png",
+      "bbox": [
+        37,
+        28,
+        154,
+        181
+      ],
+      "strictGreenRecolored": 10,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 4,
+      "file": "frames/idle_right_04.png",
+      "source": "raw/imported_original_files/green-warrior-idle-cardinal/right-4.png",
+      "bbox": [
+        38,
+        28,
+        154,
+        181
+      ],
+      "strictGreenRecolored": 6,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 1,
+      "file": "frames/idle_up_01.png",
+      "source": "raw/imported_original_files/green-warrior-idle-cardinal/up-1.png",
+      "bbox": [
+        34,
+        28,
+        158,
+        181
+      ],
+      "strictGreenRecolored": 8,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 2,
+      "file": "frames/idle_up_02.png",
+      "source": "raw/imported_original_files/green-warrior-idle-cardinal/up-2.png",
+      "bbox": [
+        34,
+        28,
+        158,
+        181
+      ],
+      "strictGreenRecolored": 5,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 3,
+      "file": "frames/idle_up_03.png",
+      "source": "raw/imported_original_files/green-warrior-idle-cardinal/up-3.png",
+      "bbox": [
+        33,
+        28,
+        159,
+        181
+      ],
+      "strictGreenRecolored": 8,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 4,
+      "file": "frames/idle_up_04.png",
+      "source": "raw/imported_original_files/green-warrior-idle-cardinal/up-4.png",
+      "bbox": [
+        33,
+        28,
+        158,
+        181
+      ],
+      "strictGreenRecolored": 6,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_left",
+      "frame": 1,
+      "file": "frames/idle_down_left_01.png",
+      "source": "raw/imported_original_files/green-warrior-idle-diagonal/down-left-1.png",
+      "bbox": [
+        26,
+        15,
+        165,
+        181
+      ],
+      "strictGreenRecolored": 14,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_left",
+      "frame": 2,
+      "file": "frames/idle_down_left_02.png",
+      "source": "raw/imported_original_files/green-warrior-idle-diagonal/down-left-2.png",
+      "bbox": [
+        24,
+        14,
+        168,
+        181
+      ],
+      "strictGreenRecolored": 7,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_left",
+      "frame": 3,
+      "file": "frames/idle_down_left_03.png",
+      "source": "raw/imported_original_files/green-warrior-idle-diagonal/down-left-3.png",
+      "bbox": [
+        26,
+        14,
+        166,
+        181
+      ],
+      "strictGreenRecolored": 14,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_left",
+      "frame": 4,
+      "file": "frames/idle_down_left_04.png",
+      "source": "raw/imported_original_files/green-warrior-idle-diagonal/down-left-4.png",
+      "bbox": [
+        26,
+        15,
+        166,
+        181
+      ],
+      "strictGreenRecolored": 8,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_left",
+      "frame": 1,
+      "file": "frames/idle_up_left_01.png",
+      "source": "raw/imported_original_files/green-warrior-idle-diagonal/up-left-1.png",
+      "bbox": [
+        36,
+        36,
+        156,
+        181
+      ],
+      "strictGreenRecolored": 9,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_left",
+      "frame": 2,
+      "file": "frames/idle_up_left_02.png",
+      "source": "raw/imported_original_files/green-warrior-idle-diagonal/up-left-2.png",
+      "bbox": [
+        36,
+        36,
+        156,
+        181
+      ],
+      "strictGreenRecolored": 9,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_left",
+      "frame": 3,
+      "file": "frames/idle_up_left_03.png",
+      "source": "raw/imported_original_files/green-warrior-idle-diagonal/up-left-3.png",
+      "bbox": [
+        37,
+        36,
+        155,
+        181
+      ],
+      "strictGreenRecolored": 7,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_left",
+      "frame": 4,
+      "file": "frames/idle_up_left_04.png",
+      "source": "raw/imported_original_files/green-warrior-idle-diagonal/up-left-4.png",
+      "bbox": [
+        37,
+        36,
+        154,
+        181
+      ],
+      "strictGreenRecolored": 10,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_right",
+      "frame": 1,
+      "file": "frames/idle_up_right_01.png",
+      "source": "raw/imported_original_files/green-warrior-idle-diagonal/up-right-1.png",
+      "bbox": [
+        38,
+        30,
+        154,
+        181
+      ],
+      "strictGreenRecolored": 12,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_right",
+      "frame": 2,
+      "file": "frames/idle_up_right_02.png",
+      "source": "raw/imported_original_files/green-warrior-idle-diagonal/up-right-2.png",
+      "bbox": [
+        38,
+        30,
+        154,
+        181
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_right",
+      "frame": 3,
+      "file": "frames/idle_up_right_03.png",
+      "source": "raw/imported_original_files/green-warrior-idle-diagonal/up-right-3.png",
+      "bbox": [
+        38,
+        30,
+        154,
+        181
+      ],
+      "strictGreenRecolored": 10,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_right",
+      "frame": 4,
+      "file": "frames/idle_up_right_04.png",
+      "source": "raw/imported_original_files/green-warrior-idle-diagonal/up-right-4.png",
+      "bbox": [
+        37,
+        30,
+        154,
+        181
+      ],
+      "strictGreenRecolored": 8,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_right",
+      "frame": 1,
+      "file": "frames/idle_down_right_01.png",
+      "source": "raw/imported_original_files/green-warrior-idle-diagonal/down-right-1.png",
+      "bbox": [
+        31,
+        16,
+        161,
+        181
+      ],
+      "strictGreenRecolored": 12,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_right",
+      "frame": 2,
+      "file": "frames/idle_down_right_02.png",
+      "source": "raw/imported_original_files/green-warrior-idle-diagonal/down-right-2.png",
+      "bbox": [
+        31,
+        17,
+        160,
+        181
+      ],
+      "strictGreenRecolored": 10,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_right",
+      "frame": 3,
+      "file": "frames/idle_down_right_03.png",
+      "source": "raw/imported_original_files/green-warrior-idle-diagonal/down-right-3.png",
+      "bbox": [
+        31,
+        16,
+        161,
+        181
+      ],
+      "strictGreenRecolored": 9,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_right",
+      "frame": 4,
+      "file": "frames/idle_down_right_04.png",
+      "source": "raw/imported_original_files/green-warrior-idle-diagonal/down-right-4.png",
+      "bbox": [
+        32,
+        16,
+        160,
+        181
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    }
+  ]
+}

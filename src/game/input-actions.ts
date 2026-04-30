@@ -11,7 +11,15 @@ export type GameplayAction =
   | "special-1"
   | "special-2"
   | "special-3"
-  | "equip";
+  | "equip"
+  | "confirm"
+  | "cancel"
+  | "pause";
+
+export type InputState = {
+  pressedActions: Set<GameplayAction>;
+  sprintExhaustedUntilRelease: boolean;
+};
 
 const gameplayKeyBindings: Record<string, GameplayAction> = {
   KeyW: "move-up",
@@ -26,6 +34,8 @@ const gameplayKeyBindings: Record<string, GameplayAction> = {
   Digit2: "special-2",
   Digit3: "special-3",
   KeyE: "equip",
+  Enter: "confirm",
+  Escape: "pause",
 };
 
 export function gameplayActionForCode(code: string): GameplayAction | null {
@@ -39,4 +49,16 @@ export function movementFromActions(actions: ReadonlySet<GameplayAction>): Vec2 
   if (actions.has("move-left")) input.x -= 1;
   if (actions.has("move-right")) input.x += 1;
   return input;
+}
+
+export function createInputState(): InputState {
+  return {
+    pressedActions: new Set<GameplayAction>(),
+    sprintExhaustedUntilRelease: false,
+  };
+}
+
+export function clearInputState(input: InputState) {
+  input.pressedActions.clear();
+  input.sprintExhaustedUntilRelease = false;
 }

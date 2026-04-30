@@ -1,0 +1,1 @@
+Shroom boy mouth throw south/down cardinal variant. Frames 1-5 are copied from the original mouth_throw animation; frame 6 was regenerated as a true front-facing/down pre-release throw pose with the miniature held toward the bottom/front before release.

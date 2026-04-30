@@ -1,0 +1,21 @@
+{
+  "target": "creature",
+  "mode": "walk_chomp",
+  "direction": "west",
+  "cell_size": 128,
+  "frames": 6,
+  "strip_size": [
+    768,
+    128
+  ],
+  "duration": 120,
+  "source": "mirrored accepted east animation",
+  "frame_labels": [
+    "west-1",
+    "west-2",
+    "west-3",
+    "west-4",
+    "west-5",
+    "west-6"
+  ]
+}

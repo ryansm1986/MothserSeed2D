@@ -1,0 +1,695 @@
+{
+  "subject": "green_warrior_v4",
+  "animation": "attack",
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up",
+    "down_left",
+    "up_left",
+    "up_right",
+    "down_right"
+  ],
+  "frame_size": [
+    192,
+    192
+  ],
+  "max_frames_per_direction": 6,
+  "duration_ms": 100,
+  "assembled": "assembled/green_warrior_v4_attack_8dir_6f_192x192.png",
+  "frames": [
+    {
+      "direction": "down",
+      "frame": 1,
+      "file": "frames/attack_down_01.png",
+      "source": "raw/imported_original_files/green-warrior-attack/down-attack-1-192.png",
+      "bbox": [
+        32,
+        37,
+        159,
+        179
+      ],
+      "strictGreenRecolored": 16,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 2,
+      "file": "frames/attack_down_02.png",
+      "source": "raw/imported_original_files/green-warrior-attack/down-attack-2-192.png",
+      "bbox": [
+        27,
+        54,
+        164,
+        179
+      ],
+      "strictGreenRecolored": 9,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 3,
+      "file": "frames/attack_down_03.png",
+      "source": "raw/imported_original_files/green-warrior-attack/down-attack-3-192.png",
+      "bbox": [
+        40,
+        12,
+        152,
+        179
+      ],
+      "strictGreenRecolored": 3,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 4,
+      "file": "frames/attack_down_04.png",
+      "source": "raw/imported_original_files/green-warrior-attack/down-attack-4-192.png",
+      "bbox": [
+        24,
+        61,
+        166,
+        179
+      ],
+      "strictGreenRecolored": 9,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 5,
+      "file": "frames/attack_down_05.png",
+      "source": "raw/imported_original_files/green-warrior-attack/down-attack-5-192.png",
+      "bbox": [
+        33,
+        45,
+        159,
+        179
+      ],
+      "strictGreenRecolored": 6,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 6,
+      "file": "frames/attack_down_06.png",
+      "source": "raw/imported_original_files/green-warrior-attack/down-attack-6-192.png",
+      "bbox": [
+        33,
+        37,
+        159,
+        179
+      ],
+      "strictGreenRecolored": 10,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 1,
+      "file": "frames/attack_left_01.png",
+      "source": "raw/imported_original_files/green-warrior-attack/left-attack-1-192.png",
+      "bbox": [
+        37,
+        44,
+        155,
+        175
+      ],
+      "strictGreenRecolored": 7,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 2,
+      "file": "frames/attack_left_02.png",
+      "source": "raw/imported_original_files/green-warrior-attack/left-attack-2-192.png",
+      "bbox": [
+        24,
+        66,
+        167,
+        175
+      ],
+      "strictGreenRecolored": 8,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 3,
+      "file": "frames/attack_left_03.png",
+      "source": "raw/imported_original_files/green-warrior-attack/left-attack-3-192.png",
+      "bbox": [
+        49,
+        28,
+        142,
+        175
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 4,
+      "file": "frames/attack_left_04.png",
+      "source": "raw/imported_original_files/green-warrior-attack/left-attack-4-192.png",
+      "bbox": [
+        25,
+        63,
+        167,
+        175
+      ],
+      "strictGreenRecolored": 6,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 5,
+      "file": "frames/attack_left_05.png",
+      "source": "raw/imported_original_files/green-warrior-attack/left-attack-5-192.png",
+      "bbox": [
+        23,
+        66,
+        169,
+        174
+      ],
+      "strictGreenRecolored": 8,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 6,
+      "file": "frames/attack_left_06.png",
+      "source": "raw/imported_original_files/green-warrior-attack/left-attack-6-192.png",
+      "bbox": [
+        37,
+        45,
+        155,
+        175
+      ],
+      "strictGreenRecolored": 7,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 1,
+      "file": "frames/attack_right_01.png",
+      "source": "raw/imported_original_files/green-warrior-attack/right-attack-1-192.png",
+      "bbox": [
+        38,
+        43,
+        154,
+        175
+      ],
+      "strictGreenRecolored": 7,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 2,
+      "file": "frames/attack_right_02.png",
+      "source": "raw/imported_original_files/green-warrior-attack/right-attack-2-192.png",
+      "bbox": [
+        25,
+        67,
+        167,
+        175
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 3,
+      "file": "frames/attack_right_03.png",
+      "source": "raw/imported_original_files/green-warrior-attack/right-attack-3-192.png",
+      "bbox": [
+        49,
+        27,
+        143,
+        175
+      ],
+      "strictGreenRecolored": 5,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 4,
+      "file": "frames/attack_right_04.png",
+      "source": "raw/imported_original_files/green-warrior-attack/right-attack-4-192.png",
+      "bbox": [
+        26,
+        61,
+        165,
+        175
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 5,
+      "file": "frames/attack_right_05.png",
+      "source": "raw/imported_original_files/green-warrior-attack/right-attack-5-192.png",
+      "bbox": [
+        23,
+        63,
+        169,
+        175
+      ],
+      "strictGreenRecolored": 9,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 6,
+      "file": "frames/attack_right_06.png",
+      "source": "raw/imported_original_files/green-warrior-attack/right-attack-6-192.png",
+      "bbox": [
+        39,
+        43,
+        154,
+        175
+      ],
+      "strictGreenRecolored": 6,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 1,
+      "file": "frames/attack_up_01.png",
+      "source": "raw/imported_original_files/green-warrior-attack/up-attack-1-192.png",
+      "bbox": [
+        36,
+        40,
+        156,
+        175
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 2,
+      "file": "frames/attack_up_02.png",
+      "source": "raw/imported_original_files/green-warrior-attack/up-attack-2-192.png",
+      "bbox": [
+        27,
+        57,
+        165,
+        175
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 3,
+      "file": "frames/attack_up_03.png",
+      "source": "raw/imported_original_files/green-warrior-attack/up-attack-3-192.png",
+      "bbox": [
+        48,
+        27,
+        144,
+        175
+      ],
+      "strictGreenRecolored": 7,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 4,
+      "file": "frames/attack_up_04.png",
+      "source": "raw/imported_original_files/green-warrior-attack/up-attack-4-192.png",
+      "bbox": [
+        48,
+        24,
+        143,
+        175
+      ],
+      "strictGreenRecolored": 3,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 5,
+      "file": "frames/attack_up_05.png",
+      "source": "raw/imported_original_files/green-warrior-attack/up-attack-5-192.png",
+      "bbox": [
+        16,
+        64,
+        175,
+        175
+      ],
+      "strictGreenRecolored": 19,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 6,
+      "file": "frames/attack_up_06.png",
+      "source": "raw/imported_original_files/green-warrior-attack/up-attack-6-192.png",
+      "bbox": [
+        36,
+        40,
+        155,
+        175
+      ],
+      "strictGreenRecolored": 5,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_left",
+      "frame": 1,
+      "file": "frames/attack_down_left_01.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/down-left-attack-1-192.png",
+      "bbox": [
+        34,
+        39,
+        158,
+        174
+      ],
+      "strictGreenRecolored": 5,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_left",
+      "frame": 2,
+      "file": "frames/attack_down_left_02.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/down-left-attack-2-192.png",
+      "bbox": [
+        25,
+        60,
+        166,
+        174
+      ],
+      "strictGreenRecolored": 2,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_left",
+      "frame": 3,
+      "file": "frames/attack_down_left_03.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/down-left-attack-3-192.png",
+      "bbox": [
+        49,
+        17,
+        143,
+        174
+      ],
+      "strictGreenRecolored": 9,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_left",
+      "frame": 4,
+      "file": "frames/attack_down_left_04.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/down-left-attack-4-192.png",
+      "bbox": [
+        30,
+        56,
+        162,
+        174
+      ],
+      "strictGreenRecolored": 3,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_left",
+      "frame": 5,
+      "file": "frames/attack_down_left_05.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/down-left-attack-5-192.png",
+      "bbox": [
+        37,
+        56,
+        155,
+        174
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_left",
+      "frame": 6,
+      "file": "frames/attack_down_left_06.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/down-left-attack-6-192.png",
+      "bbox": [
+        35,
+        39,
+        157,
+        174
+      ],
+      "strictGreenRecolored": 3,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_left",
+      "frame": 1,
+      "file": "frames/attack_up_left_01.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/up-left-attack-1-192.png",
+      "bbox": [
+        39,
+        43,
+        153,
+        174
+      ],
+      "strictGreenRecolored": 1,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_left",
+      "frame": 2,
+      "file": "frames/attack_up_left_02.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/up-left-attack-2-192.png",
+      "bbox": [
+        31,
+        63,
+        161,
+        174
+      ],
+      "strictGreenRecolored": 6,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_left",
+      "frame": 3,
+      "file": "frames/attack_up_left_03.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/up-left-attack-3-192.png",
+      "bbox": [
+        49,
+        28,
+        142,
+        174
+      ],
+      "strictGreenRecolored": 8,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_left",
+      "frame": 4,
+      "file": "frames/attack_up_left_04.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/up-left-attack-4-192.png",
+      "bbox": [
+        51,
+        29,
+        141,
+        174
+      ],
+      "strictGreenRecolored": 2,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_left",
+      "frame": 5,
+      "file": "frames/attack_up_left_05.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/up-left-attack-5-192.png",
+      "bbox": [
+        19,
+        68,
+        172,
+        174
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_left",
+      "frame": 6,
+      "file": "frames/attack_up_left_06.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/up-left-attack-6-192.png",
+      "bbox": [
+        39,
+        43,
+        153,
+        174
+      ],
+      "strictGreenRecolored": 5,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_right",
+      "frame": 1,
+      "file": "frames/attack_up_right_01.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/up-right-attack-1-192.png",
+      "bbox": [
+        43,
+        38,
+        148,
+        174
+      ],
+      "strictGreenRecolored": 6,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_right",
+      "frame": 2,
+      "file": "frames/attack_up_right_02.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/up-right-attack-2-192.png",
+      "bbox": [
+        31,
+        67,
+        160,
+        174
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_right",
+      "frame": 3,
+      "file": "frames/attack_up_right_03.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/up-right-attack-3-192.png",
+      "bbox": [
+        50,
+        24,
+        141,
+        174
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_right",
+      "frame": 4,
+      "file": "frames/attack_up_right_04.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/up-right-attack-4-192.png",
+      "bbox": [
+        47,
+        37,
+        144,
+        174
+      ],
+      "strictGreenRecolored": 3,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_right",
+      "frame": 5,
+      "file": "frames/attack_up_right_05.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/up-right-attack-5-192.png",
+      "bbox": [
+        27,
+        63,
+        164,
+        174
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_right",
+      "frame": 6,
+      "file": "frames/attack_up_right_06.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/up-right-attack-6-192.png",
+      "bbox": [
+        43,
+        37,
+        148,
+        174
+      ],
+      "strictGreenRecolored": 9,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_right",
+      "frame": 1,
+      "file": "frames/attack_down_right_01.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/down-right-attack-1-192.png",
+      "bbox": [
+        39,
+        40,
+        152,
+        174
+      ],
+      "strictGreenRecolored": 3,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_right",
+      "frame": 2,
+      "file": "frames/attack_down_right_02.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/down-right-attack-2-192.png",
+      "bbox": [
+        29,
+        63,
+        162,
+        174
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_right",
+      "frame": 3,
+      "file": "frames/attack_down_right_03.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/down-right-attack-3-192.png",
+      "bbox": [
+        49,
+        25,
+        143,
+        174
+      ],
+      "strictGreenRecolored": 3,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_right",
+      "frame": 4,
+      "file": "frames/attack_down_right_04.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/down-right-attack-4-192.png",
+      "bbox": [
+        29,
+        57,
+        162,
+        174
+      ],
+      "strictGreenRecolored": 5,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_right",
+      "frame": 5,
+      "file": "frames/attack_down_right_05.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/down-right-attack-5-192.png",
+      "bbox": [
+        28,
+        54,
+        163,
+        174
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_right",
+      "frame": 6,
+      "file": "frames/attack_down_right_06.png",
+      "source": "raw/imported_original_files/green-warrior-attack-diagonal/down-right-attack-6-192.png",
+      "bbox": [
+        39,
+        41,
+        153,
+        174
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    }
+  ]
+}

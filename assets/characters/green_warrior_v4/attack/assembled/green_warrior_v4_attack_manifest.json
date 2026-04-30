@@ -1,0 +1,841 @@
+{
+  "subject": "green_warrior_v4",
+  "animation": "attack",
+  "directionMode": "4_direction_cardinal",
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "runtimeDiagonalFallbacks": {
+    "down_left": "down",
+    "down_right": "down",
+    "up_left": "up",
+    "up_right": "up"
+  },
+  "frame_size": [
+    192,
+    192
+  ],
+  "frames_per_direction": 6,
+  "frameCount": 24,
+  "duration_ms": 240,
+  "baseline_y": 181,
+  "sharedScale": 0.780172,
+  "normalization": "crop visible source content from 256x256 generator frames, apply one shared scale to preserve every sword/effect extent, center horizontally, align bottom to shared baseline",
+  "assembled": "assembled/green_warrior_v4_attack_4dir_6f_192x192.png",
+  "sourceFolders": [
+    "raw/imported_original_files/green_sword_attack_down_fx_20260430_090925",
+    "raw/imported_original_files/green_sword_attack_left_fx_20260430_090925",
+    "raw/imported_original_files/green_sword_attack_right_fx_v4_20260430_090925",
+    "raw/imported_original_files/green_sword_attack_up_north_v2_20260430_090925"
+  ],
+  "previousCanonicalArchive": "raw/replaced_canonical_outputs/attack_previous_20260430_090925",
+  "maxSourceBBox": [
+    228,
+    232
+  ],
+  "maxOutputBBox": [
+    178,
+    181
+  ],
+  "strictGreenRecolored": 149,
+  "strictMagentaRecolored": 3843,
+  "strictGreenVisibleAfterRebuild": 0,
+  "strictMagentaVisibleAfterRebuild": 0,
+  "frames": [
+    {
+      "direction": "down",
+      "frame": 1,
+      "file": "frames/attack_down_01.png",
+      "source": "raw/imported_original_files/green_sword_attack_down_fx_20260430_090925/attack_down-1.png",
+      "sourceBBox": [
+        38,
+        10,
+        218,
+        236
+      ],
+      "sourceVisibleSize": [
+        180,
+        226
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 26,
+        "y": 5,
+        "w": 140,
+        "h": 176
+      },
+      "outputBBox": [
+        26,
+        5,
+        166,
+        181
+      ],
+      "strictGreenRecolored": 5,
+      "strictMagentaRecolored": 139,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 2,
+      "file": "frames/attack_down_02.png",
+      "source": "raw/imported_original_files/green_sword_attack_down_fx_20260430_090925/attack_down-2.png",
+      "sourceBBox": [
+        49,
+        9,
+        206,
+        237
+      ],
+      "sourceVisibleSize": [
+        157,
+        228
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 35,
+        "y": 3,
+        "w": 122,
+        "h": 178
+      },
+      "outputBBox": [
+        35,
+        3,
+        157,
+        181
+      ],
+      "strictGreenRecolored": 10,
+      "strictMagentaRecolored": 189,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 3,
+      "file": "frames/attack_down_03.png",
+      "source": "raw/imported_original_files/green_sword_attack_down_fx_20260430_090925/attack_down-3.png",
+      "sourceBBox": [
+        63,
+        8,
+        192,
+        238
+      ],
+      "sourceVisibleSize": [
+        129,
+        230
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 45,
+        "y": 2,
+        "w": 101,
+        "h": 179
+      },
+      "outputBBox": [
+        45,
+        2,
+        146,
+        181
+      ],
+      "strictGreenRecolored": 8,
+      "strictMagentaRecolored": 151,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 4,
+      "file": "frames/attack_down_04.png",
+      "source": "raw/imported_original_files/green_sword_attack_down_fx_20260430_090925/attack_down-4.png",
+      "sourceBBox": [
+        33,
+        9,
+        222,
+        237
+      ],
+      "sourceVisibleSize": [
+        189,
+        228
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 22,
+        "y": 3,
+        "w": 147,
+        "h": 178
+      },
+      "outputBBox": [
+        22,
+        3,
+        169,
+        181
+      ],
+      "strictGreenRecolored": 8,
+      "strictMagentaRecolored": 183,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 5,
+      "file": "frames/attack_down_05.png",
+      "source": "raw/imported_original_files/green_sword_attack_down_fx_20260430_090925/attack_down-5.png",
+      "sourceBBox": [
+        15,
+        61,
+        241,
+        236
+      ],
+      "sourceVisibleSize": [
+        226,
+        175
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 8,
+        "y": 44,
+        "w": 176,
+        "h": 137
+      },
+      "outputBBox": [
+        8,
+        44,
+        184,
+        181
+      ],
+      "strictGreenRecolored": 0,
+      "strictMagentaRecolored": 122,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 6,
+      "file": "frames/attack_down_06.png",
+      "source": "raw/imported_original_files/green_sword_attack_down_fx_20260430_090925/attack_down-6.png",
+      "sourceBBox": [
+        15,
+        28,
+        241,
+        236
+      ],
+      "sourceVisibleSize": [
+        226,
+        208
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 8,
+        "y": 19,
+        "w": 176,
+        "h": 162
+      },
+      "outputBBox": [
+        8,
+        19,
+        184,
+        181
+      ],
+      "strictGreenRecolored": 6,
+      "strictMagentaRecolored": 137,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 1,
+      "file": "frames/attack_left_01.png",
+      "source": "raw/imported_original_files/green_sword_attack_left_fx_20260430_090925/attack_left-1.png",
+      "sourceBBox": [
+        36,
+        9,
+        220,
+        237
+      ],
+      "sourceVisibleSize": [
+        184,
+        228
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 24,
+        "y": 3,
+        "w": 144,
+        "h": 178
+      },
+      "outputBBox": [
+        24,
+        3,
+        168,
+        181
+      ],
+      "strictGreenRecolored": 7,
+      "strictMagentaRecolored": 138,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 2,
+      "file": "frames/attack_left_02.png",
+      "source": "raw/imported_original_files/green_sword_attack_left_fx_20260430_090925/attack_left-2.png",
+      "sourceBBox": [
+        57,
+        8,
+        199,
+        238
+      ],
+      "sourceVisibleSize": [
+        142,
+        230
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 40,
+        "y": 2,
+        "w": 111,
+        "h": 179
+      },
+      "outputBBox": [
+        40,
+        2,
+        151,
+        181
+      ],
+      "strictGreenRecolored": 24,
+      "strictMagentaRecolored": 192,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 3,
+      "file": "frames/attack_left_03.png",
+      "source": "raw/imported_original_files/green_sword_attack_left_fx_20260430_090925/attack_left-3.png",
+      "sourceBBox": [
+        69,
+        8,
+        186,
+        238
+      ],
+      "sourceVisibleSize": [
+        117,
+        230
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 50,
+        "y": 2,
+        "w": 91,
+        "h": 179
+      },
+      "outputBBox": [
+        50,
+        2,
+        141,
+        181
+      ],
+      "strictGreenRecolored": 3,
+      "strictMagentaRecolored": 172,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 4,
+      "file": "frames/attack_left_04.png",
+      "source": "raw/imported_original_files/green_sword_attack_left_fx_20260430_090925/attack_left-4.png",
+      "sourceBBox": [
+        16,
+        21,
+        240,
+        235
+      ],
+      "sourceVisibleSize": [
+        224,
+        214
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 8,
+        "y": 14,
+        "w": 175,
+        "h": 167
+      },
+      "outputBBox": [
+        8,
+        14,
+        183,
+        181
+      ],
+      "strictGreenRecolored": 2,
+      "strictMagentaRecolored": 175,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 5,
+      "file": "frames/attack_left_05.png",
+      "source": "raw/imported_original_files/green_sword_attack_left_fx_20260430_090925/attack_left-5.png",
+      "sourceBBox": [
+        14,
+        83,
+        242,
+        237
+      ],
+      "sourceVisibleSize": [
+        228,
+        154
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 7,
+        "y": 61,
+        "w": 178,
+        "h": 120
+      },
+      "outputBBox": [
+        7,
+        61,
+        185,
+        181
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaRecolored": 139,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 6,
+      "file": "frames/attack_left_06.png",
+      "source": "raw/imported_original_files/green_sword_attack_left_fx_20260430_090925/attack_left-6.png",
+      "sourceBBox": [
+        14,
+        58,
+        242,
+        237
+      ],
+      "sourceVisibleSize": [
+        228,
+        179
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 7,
+        "y": 41,
+        "w": 178,
+        "h": 140
+      },
+      "outputBBox": [
+        7,
+        41,
+        185,
+        181
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaRecolored": 172,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 1,
+      "file": "frames/attack_right_01.png",
+      "source": "raw/imported_original_files/green_sword_attack_right_fx_v4_20260430_090925/attack_right-1.png",
+      "sourceBBox": [
+        41,
+        10,
+        214,
+        236
+      ],
+      "sourceVisibleSize": [
+        173,
+        226
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 28,
+        "y": 5,
+        "w": 135,
+        "h": 176
+      },
+      "outputBBox": [
+        28,
+        5,
+        163,
+        181
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaRecolored": 138,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 2,
+      "file": "frames/attack_right_02.png",
+      "source": "raw/imported_original_files/green_sword_attack_right_fx_v4_20260430_090925/attack_right-2.png",
+      "sourceBBox": [
+        52,
+        9,
+        203,
+        237
+      ],
+      "sourceVisibleSize": [
+        151,
+        228
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 37,
+        "y": 3,
+        "w": 118,
+        "h": 178
+      },
+      "outputBBox": [
+        37,
+        3,
+        155,
+        181
+      ],
+      "strictGreenRecolored": 5,
+      "strictMagentaRecolored": 196,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 3,
+      "file": "frames/attack_right_03.png",
+      "source": "raw/imported_original_files/green_sword_attack_right_fx_v4_20260430_090925/attack_right-3.png",
+      "sourceBBox": [
+        69,
+        8,
+        186,
+        238
+      ],
+      "sourceVisibleSize": [
+        117,
+        230
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 50,
+        "y": 2,
+        "w": 91,
+        "h": 179
+      },
+      "outputBBox": [
+        50,
+        2,
+        141,
+        181
+      ],
+      "strictGreenRecolored": 6,
+      "strictMagentaRecolored": 156,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 4,
+      "file": "frames/attack_right_04.png",
+      "source": "raw/imported_original_files/green_sword_attack_right_fx_v4_20260430_090925/attack_right-4.png",
+      "sourceBBox": [
+        23,
+        10,
+        233,
+        236
+      ],
+      "sourceVisibleSize": [
+        210,
+        226
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 14,
+        "y": 5,
+        "w": 164,
+        "h": 176
+      },
+      "outputBBox": [
+        14,
+        5,
+        178,
+        181
+      ],
+      "strictGreenRecolored": 13,
+      "strictMagentaRecolored": 219,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 5,
+      "file": "frames/attack_right_05.png",
+      "source": "raw/imported_original_files/green_sword_attack_right_fx_v4_20260430_090925/attack_right-5.png",
+      "sourceBBox": [
+        15,
+        78,
+        241,
+        236
+      ],
+      "sourceVisibleSize": [
+        226,
+        158
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 8,
+        "y": 58,
+        "w": 176,
+        "h": 123
+      },
+      "outputBBox": [
+        8,
+        58,
+        184,
+        181
+      ],
+      "strictGreenRecolored": 7,
+      "strictMagentaRecolored": 152,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 6,
+      "file": "frames/attack_right_06.png",
+      "source": "raw/imported_original_files/green_sword_attack_right_fx_v4_20260430_090925/attack_right-6.png",
+      "sourceBBox": [
+        14,
+        84,
+        242,
+        237
+      ],
+      "sourceVisibleSize": [
+        228,
+        153
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 7,
+        "y": 62,
+        "w": 178,
+        "h": 119
+      },
+      "outputBBox": [
+        7,
+        62,
+        185,
+        181
+      ],
+      "strictGreenRecolored": 5,
+      "strictMagentaRecolored": 166,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 1,
+      "file": "frames/attack_up_01.png",
+      "source": "raw/imported_original_files/green_sword_attack_up_north_v2_20260430_090925/attack_up-1.png",
+      "sourceBBox": [
+        31,
+        9,
+        225,
+        237
+      ],
+      "sourceVisibleSize": [
+        194,
+        228
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 20,
+        "y": 3,
+        "w": 151,
+        "h": 178
+      },
+      "outputBBox": [
+        20,
+        3,
+        171,
+        181
+      ],
+      "strictGreenRecolored": 6,
+      "strictMagentaRecolored": 119,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 2,
+      "file": "frames/attack_up_02.png",
+      "source": "raw/imported_original_files/green_sword_attack_up_north_v2_20260430_090925/attack_up-2.png",
+      "sourceBBox": [
+        53,
+        8,
+        202,
+        238
+      ],
+      "sourceVisibleSize": [
+        149,
+        230
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 38,
+        "y": 2,
+        "w": 116,
+        "h": 179
+      },
+      "outputBBox": [
+        38,
+        2,
+        154,
+        181
+      ],
+      "strictGreenRecolored": 7,
+      "strictMagentaRecolored": 166,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 3,
+      "file": "frames/attack_up_03.png",
+      "source": "raw/imported_original_files/green_sword_attack_up_north_v2_20260430_090925/attack_up-3.png",
+      "sourceBBox": [
+        71,
+        7,
+        185,
+        239
+      ],
+      "sourceVisibleSize": [
+        114,
+        232
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 51,
+        "y": 0,
+        "w": 89,
+        "h": 181
+      },
+      "outputBBox": [
+        51,
+        0,
+        140,
+        181
+      ],
+      "strictGreenRecolored": 7,
+      "strictMagentaRecolored": 133,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 4,
+      "file": "frames/attack_up_04.png",
+      "source": "raw/imported_original_files/green_sword_attack_up_north_v2_20260430_090925/attack_up-4.png",
+      "sourceBBox": [
+        42,
+        10,
+        213,
+        236
+      ],
+      "sourceVisibleSize": [
+        171,
+        226
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 29,
+        "y": 5,
+        "w": 133,
+        "h": 176
+      },
+      "outputBBox": [
+        29,
+        5,
+        162,
+        181
+      ],
+      "strictGreenRecolored": 1,
+      "strictMagentaRecolored": 189,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 5,
+      "file": "frames/attack_up_05.png",
+      "source": "raw/imported_original_files/green_sword_attack_up_north_v2_20260430_090925/attack_up-5.png",
+      "sourceBBox": [
+        14,
+        66,
+        242,
+        237
+      ],
+      "sourceVisibleSize": [
+        228,
+        171
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 7,
+        "y": 48,
+        "w": 178,
+        "h": 133
+      },
+      "outputBBox": [
+        7,
+        48,
+        185,
+        181
+      ],
+      "strictGreenRecolored": 3,
+      "strictMagentaRecolored": 133,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 6,
+      "file": "frames/attack_up_06.png",
+      "source": "raw/imported_original_files/green_sword_attack_up_north_v2_20260430_090925/attack_up-6.png",
+      "sourceBBox": [
+        23,
+        9,
+        233,
+        237
+      ],
+      "sourceVisibleSize": [
+        210,
+        228
+      ],
+      "sharedScale": 0.780172,
+      "placement": {
+        "x": 14,
+        "y": 3,
+        "w": 164,
+        "h": 178
+      },
+      "outputBBox": [
+        14,
+        3,
+        178,
+        181
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaRecolored": 167,
+      "strictGreenVisible": 0,
+      "strictMagentaVisible": 0
+    }
+  ]
+}

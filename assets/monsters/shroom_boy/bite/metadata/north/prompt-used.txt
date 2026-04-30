@@ -1,0 +1,1 @@
+Regenerated north/back-facing mushroom monster bite animation with generous margins, 2x3 pixel-art sheet on solid #FF00FF magenta background; frames: wind-up, hidden open, strike away, snap, recoil, settle; same scale and containment.

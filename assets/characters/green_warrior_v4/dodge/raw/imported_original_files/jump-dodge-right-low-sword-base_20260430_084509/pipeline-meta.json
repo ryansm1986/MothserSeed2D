@@ -1,0 +1,160 @@
+{
+  "target": "player",
+  "mode": "jump_dodge",
+  "prompt": "Right-facing jump dodge animation from new base pose; source identity preserved; huge sword remains gripped in right hand in every frame; 1x4 strip.",
+  "role": "",
+  "input": "D:\\projects\\agent-sprite-forge-main\\generated-assets\\jump-dodge-right-low-sword-base\\raw-sheet.png",
+  "threshold": 100,
+  "edge_threshold": 150,
+  "duration": 90,
+  "rows": 1,
+  "cols": 4,
+  "cell_size": 128,
+  "fit_scale": 0.88,
+  "trim_border": 4,
+  "edge_clean_depth": 3,
+  "align": "center",
+  "shared_scale": true,
+  "component_mode": "all",
+  "component_padding": 20,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "frame_labels": [
+    "jump_dodge_right-1",
+    "jump_dodge_right-2",
+    "jump_dodge_right-3",
+    "jump_dodge_right-4"
+  ],
+  "frames": [
+    {
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        506,
+        777
+      ],
+      "component_mode": "all",
+      "component_count": 3,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        47,
+        291,
+        372,
+        580
+      ],
+      "edge_touch": false,
+      "output_size": [
+        76,
+        68
+      ],
+      "paste_position": [
+        26,
+        30
+      ]
+    },
+    {
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        506,
+        0,
+        1012,
+        777
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        68,
+        219,
+        471,
+        512
+      ],
+      "edge_touch": false,
+      "output_size": [
+        95,
+        69
+      ],
+      "paste_position": [
+        16,
+        29
+      ]
+    },
+    {
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        1012,
+        0,
+        1518,
+        777
+      ],
+      "component_mode": "all",
+      "component_count": 4,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        22,
+        188,
+        498,
+        551
+      ],
+      "edge_touch": false,
+      "output_size": [
+        112,
+        85
+      ],
+      "paste_position": [
+        8,
+        21
+      ]
+    },
+    {
+      "grid": [
+        0,
+        3
+      ],
+      "source_box": [
+        1518,
+        0,
+        2024,
+        777
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        0,
+        280,
+        375,
+        552
+      ],
+      "edge_touch": true,
+      "output_size": [
+        88,
+        64
+      ],
+      "paste_position": [
+        20,
+        32
+      ]
+    }
+  ],
+  "edge_touch_frames": [
+    [
+      0,
+      3
+    ]
+  ]
+}

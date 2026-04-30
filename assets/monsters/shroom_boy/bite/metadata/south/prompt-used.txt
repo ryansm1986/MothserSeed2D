@@ -1,0 +1,1 @@
+Reference-matched mushroom monster bite animation, 2x3 pixel-art sheet on solid #FF00FF magenta background; preserve squat tan mushroom body, red-orange spotted cap, glowing orange eyes, jagged mouth; frames: wind-up, open, strike, snap, recoil, settle; same scale and containment.

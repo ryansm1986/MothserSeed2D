@@ -1,0 +1,161 @@
+{
+  "name": "moss-golem-idle-8dir",
+  "cell_size": [
+    128,
+    128
+  ],
+  "sheet_layout": {
+    "rows": 8,
+    "cols": 4
+  },
+  "row_order": [
+    "south",
+    "southeast",
+    "east",
+    "northeast",
+    "north",
+    "northwest",
+    "west",
+    "southwest"
+  ],
+  "frames_per_direction": 4,
+  "duration_ms": 150,
+  "directions": {
+    "south": {
+      "row": 0,
+      "source_frame_numbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "frames": [
+        "direction-frames/south/idle-south-1.png",
+        "direction-frames/south/idle-south-2.png",
+        "direction-frames/south/idle-south-3.png",
+        "direction-frames/south/idle-south-4.png"
+      ],
+      "strip": "direction-strips/moss-golem-idle-south-strip.png",
+      "gif": "direction-gifs/moss-golem-idle-south.gif"
+    },
+    "southeast": {
+      "row": 1,
+      "source_frame_numbers": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "frames": [
+        "direction-frames/southeast/idle-southeast-1.png",
+        "direction-frames/southeast/idle-southeast-2.png",
+        "direction-frames/southeast/idle-southeast-3.png",
+        "direction-frames/southeast/idle-southeast-4.png"
+      ],
+      "strip": "direction-strips/moss-golem-idle-southeast-strip.png",
+      "gif": "direction-gifs/moss-golem-idle-southeast.gif"
+    },
+    "east": {
+      "row": 2,
+      "source_frame_numbers": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "frames": [
+        "direction-frames/east/idle-east-1.png",
+        "direction-frames/east/idle-east-2.png",
+        "direction-frames/east/idle-east-3.png",
+        "direction-frames/east/idle-east-4.png"
+      ],
+      "strip": "direction-strips/moss-golem-idle-east-strip.png",
+      "gif": "direction-gifs/moss-golem-idle-east.gif"
+    },
+    "northeast": {
+      "row": 3,
+      "source_frame_numbers": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "frames": [
+        "direction-frames/northeast/idle-northeast-1.png",
+        "direction-frames/northeast/idle-northeast-2.png",
+        "direction-frames/northeast/idle-northeast-3.png",
+        "direction-frames/northeast/idle-northeast-4.png"
+      ],
+      "strip": "direction-strips/moss-golem-idle-northeast-strip.png",
+      "gif": "direction-gifs/moss-golem-idle-northeast.gif"
+    },
+    "north": {
+      "row": 4,
+      "source_frame_numbers": [
+        17,
+        18,
+        19,
+        20
+      ],
+      "frames": [
+        "direction-frames/north/idle-north-1.png",
+        "direction-frames/north/idle-north-2.png",
+        "direction-frames/north/idle-north-3.png",
+        "direction-frames/north/idle-north-4.png"
+      ],
+      "strip": "direction-strips/moss-golem-idle-north-strip.png",
+      "gif": "direction-gifs/moss-golem-idle-north.gif"
+    },
+    "northwest": {
+      "row": 5,
+      "source_frame_numbers": [
+        21,
+        22,
+        23,
+        24
+      ],
+      "frames": [
+        "direction-frames/northwest/idle-northwest-1.png",
+        "direction-frames/northwest/idle-northwest-2.png",
+        "direction-frames/northwest/idle-northwest-3.png",
+        "direction-frames/northwest/idle-northwest-4.png"
+      ],
+      "strip": "direction-strips/moss-golem-idle-northwest-strip.png",
+      "gif": "direction-gifs/moss-golem-idle-northwest.gif"
+    },
+    "west": {
+      "row": 6,
+      "source_frame_numbers": [
+        25,
+        26,
+        27,
+        28
+      ],
+      "frames": [
+        "direction-frames/west/idle-west-1.png",
+        "direction-frames/west/idle-west-2.png",
+        "direction-frames/west/idle-west-3.png",
+        "direction-frames/west/idle-west-4.png"
+      ],
+      "strip": "direction-strips/moss-golem-idle-west-strip.png",
+      "gif": "direction-gifs/moss-golem-idle-west.gif"
+    },
+    "southwest": {
+      "row": 7,
+      "source_frame_numbers": [
+        29,
+        30,
+        31,
+        32
+      ],
+      "frames": [
+        "direction-frames/southwest/idle-southwest-1.png",
+        "direction-frames/southwest/idle-southwest-2.png",
+        "direction-frames/southwest/idle-southwest-3.png",
+        "direction-frames/southwest/idle-southwest-4.png"
+      ],
+      "strip": "direction-strips/moss-golem-idle-southwest-strip.png",
+      "gif": "direction-gifs/moss-golem-idle-southwest.gif"
+    }
+  }
+}

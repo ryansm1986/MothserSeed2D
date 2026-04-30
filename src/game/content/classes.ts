@@ -1,4 +1,4 @@
-import warriorPortraitUrl from "../../../assets/characters/green_warrior/portrait/green_warrior_character_select_portrait.png?url";
+import warriorPortraitUrl from "../../../assets/characters/green_warrior_v4/portrait.png?url";
 import purpleMagePortraitUrl from "../../../assets/characters/purple_mage/portrait.png?url";
 import type { CharacterClass, ClassId } from "../types";
 
@@ -8,7 +8,7 @@ export const characterClasses: Record<ClassId, CharacterClass> = {
     name: "Warrior",
     title: "Oathbound Vanguard",
     weapon: "Sword and Shield",
-    role: "Break chains, survive close range, punish openings.",
+    role: "Spin through close range and send cyclone waves across the grove.",
     status: "Implemented",
     implemented: true,
     accent: "#f2d36b",
@@ -16,9 +16,7 @@ export const characterClasses: Record<ClassId, CharacterClass> = {
     glyph: "W",
     stats: { health: 140, stamina: 100, meter: 100 },
     abilities: [
-      { key: "1", id: "shield-break", name: "Shield Break", cost: 25, cooldown: 3.2, range: 125 },
-      { key: "2", id: "guarded-rush", name: "Guarded Rush", cost: 35, cooldown: 6.5, range: 360 },
-      { key: "3", id: "cleaving-arc", name: "Cleaving Arc", cost: 50, cooldown: 7, range: 165 },
+      { key: "1", id: "motherslash", name: "Motherslash", cost: 50, cooldown: 8.5, range: 520 },
     ],
   },
   ranger: {

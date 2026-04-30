@@ -56,6 +56,8 @@ npm run preview
 
 - `GAME_PLAN.md`: 2D ARPG vision, mechanics, milestones, and technical direction.
 - `FOUNDATION_REVIEW.md`: current architecture review and improvement plan.
+- `AGENTS.md`: quick orientation for coding agents.
+- `docs/CODEMAP.md`: current source ownership and module map.
 - `docs/PLAYABLE_CHARACTERS.md`: how to add, tune, asset-load, and smoke-test playable characters.
 - `tools/krita/README.md`: repeatable workflow for exporting warrior sprite animations.
 

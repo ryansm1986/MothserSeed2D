@@ -1,0 +1,120 @@
+{
+  "source": "D:\\projects\\agent-sprite-forge-main\\output\\green_sword_attack_down_fx\\raw-sheet.png",
+  "method": "visual_component_grouping",
+  "frame_count": 6,
+  "cell_size": 256,
+  "duration": 95,
+  "centroids": [
+    172.55835084682903,
+    563.1737292787353,
+    909.1789633675099,
+    1270.1904971403433,
+    1610.9585669022667,
+    1949.4869269949065
+  ],
+  "frames": [
+    {
+      "label": "attack_down-1",
+      "source_bbox": [
+        48,
+        211,
+        309,
+        536
+      ],
+      "output_bbox": [
+        38,
+        10,
+        218,
+        236
+      ],
+      "edge_touch": false,
+      "components": 1
+    },
+    {
+      "label": "attack_down-2",
+      "source_bbox": [
+        436,
+        178,
+        690,
+        542
+      ],
+      "output_bbox": [
+        49,
+        9,
+        206,
+        237
+      ],
+      "edge_touch": false,
+      "components": 1
+    },
+    {
+      "label": "attack_down-3",
+      "source_bbox": [
+        790,
+        123,
+        1032,
+        545
+      ],
+      "output_bbox": [
+        63,
+        8,
+        192,
+        238
+      ],
+      "edge_touch": false,
+      "components": 2
+    },
+    {
+      "label": "attack_down-4",
+      "source_bbox": [
+        1114,
+        219,
+        1405,
+        567
+      ],
+      "output_bbox": [
+        33,
+        9,
+        222,
+        237
+      ],
+      "edge_touch": false,
+      "components": 1
+    },
+    {
+      "label": "attack_down-5",
+      "source_bbox": [
+        1457,
+        297,
+        1783,
+        553
+      ],
+      "output_bbox": [
+        15,
+        61,
+        241,
+        236
+      ],
+      "edge_touch": false,
+      "components": 1
+    },
+    {
+      "label": "attack_down-6",
+      "source_bbox": [
+        1820,
+        252,
+        2139,
+        546
+      ],
+      "output_bbox": [
+        15,
+        28,
+        241,
+        236
+      ],
+      "edge_touch": false,
+      "components": 1
+    }
+  ],
+  "edge_touch_frames": []
+}

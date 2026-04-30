@@ -1,0 +1,1 @@
+4-cardinal-direction run sheet. Rows: down, left, right, up. 4 grounded run frames per row. Slight forward lean in direction of movement. Oversized sword drags behind relative to direction. Double padding, solid #FF00FF background.

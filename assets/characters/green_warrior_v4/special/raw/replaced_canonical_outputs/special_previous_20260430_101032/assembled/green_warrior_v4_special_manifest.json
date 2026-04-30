@@ -1,0 +1,467 @@
+{
+  "subject": "green_warrior_v4",
+  "animation": "special",
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "frame_size": [
+    192,
+    192
+  ],
+  "max_frames_per_direction": 8,
+  "duration_ms": 120,
+  "assembled": "assembled/green_warrior_v4_special_4dir_8f_192x192.png",
+  "frames": [
+    {
+      "direction": "down",
+      "frame": 1,
+      "file": "frames/special_down_01.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/down-special-1-192.png",
+      "bbox": [
+        52,
+        64,
+        139,
+        174
+      ],
+      "strictGreenRecolored": 5,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 2,
+      "file": "frames/special_down_02.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/down-special-2-192.png",
+      "bbox": [
+        50,
+        80,
+        141,
+        174
+      ],
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 3,
+      "file": "frames/special_down_03.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/down-special-3-192.png",
+      "bbox": [
+        53,
+        64,
+        138,
+        174
+      ],
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 4,
+      "file": "frames/special_down_04.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/down-special-4-192.png",
+      "bbox": [
+        61,
+        17,
+        131,
+        174
+      ],
+      "strictGreenRecolored": 5,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 5,
+      "file": "frames/special_down_05.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/down-special-5-192.png",
+      "bbox": [
+        45,
+        73,
+        146,
+        174
+      ],
+      "strictGreenRecolored": 1,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 6,
+      "file": "frames/special_down_06.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/down-special-6-192.png",
+      "bbox": [
+        41,
+        64,
+        151,
+        174
+      ],
+      "strictGreenRecolored": 7,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 7,
+      "file": "frames/special_down_07.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/down-special-7-192.png",
+      "bbox": [
+        54,
+        54,
+        137,
+        174
+      ],
+      "strictGreenRecolored": 7,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 8,
+      "file": "frames/special_down_08.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/down-special-8-192.png",
+      "bbox": [
+        52,
+        65,
+        139,
+        174
+      ],
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 1,
+      "file": "frames/special_left_01.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/left-special-1-192.png",
+      "bbox": [
+        54,
+        63,
+        138,
+        174
+      ],
+      "strictGreenRecolored": 2,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 2,
+      "file": "frames/special_left_02.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/left-special-2-192.png",
+      "bbox": [
+        47,
+        76,
+        145,
+        174
+      ],
+      "strictGreenRecolored": 3,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 3,
+      "file": "frames/special_left_03.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/left-special-3-192.png",
+      "bbox": [
+        52,
+        63,
+        139,
+        174
+      ],
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 4,
+      "file": "frames/special_left_04.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/left-special-4-192.png",
+      "bbox": [
+        61,
+        28,
+        130,
+        174
+      ],
+      "strictGreenRecolored": 2,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 5,
+      "file": "frames/special_left_05.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/left-special-5-192.png",
+      "bbox": [
+        43,
+        71,
+        149,
+        174
+      ],
+      "strictGreenRecolored": 5,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 6,
+      "file": "frames/special_left_06.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/left-special-6-192.png",
+      "bbox": [
+        41,
+        66,
+        151,
+        174
+      ],
+      "strictGreenRecolored": 1,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 7,
+      "file": "frames/special_left_07.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/left-special-7-192.png",
+      "bbox": [
+        55,
+        58,
+        137,
+        174
+      ],
+      "strictGreenRecolored": 1,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 8,
+      "file": "frames/special_left_08.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/left-special-8-192.png",
+      "bbox": [
+        53,
+        63,
+        138,
+        174
+      ],
+      "strictGreenRecolored": 6,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 1,
+      "file": "frames/special_right_01.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/right-special-1-192.png",
+      "bbox": [
+        55,
+        64,
+        137,
+        174
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 2,
+      "file": "frames/special_right_02.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/right-special-2-192.png",
+      "bbox": [
+        51,
+        78,
+        140,
+        174
+      ],
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 3,
+      "file": "frames/special_right_03.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/right-special-3-192.png",
+      "bbox": [
+        52,
+        66,
+        139,
+        174
+      ],
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 4,
+      "file": "frames/special_right_04.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/right-special-4-192.png",
+      "bbox": [
+        62,
+        37,
+        129,
+        174
+      ],
+      "strictGreenRecolored": 2,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 5,
+      "file": "frames/special_right_05.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/right-special-5-192.png",
+      "bbox": [
+        40,
+        82,
+        152,
+        174
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 6,
+      "file": "frames/special_right_06.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/right-special-6-192.png",
+      "bbox": [
+        36,
+        65,
+        155,
+        174
+      ],
+      "strictGreenRecolored": 2,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 7,
+      "file": "frames/special_right_07.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/right-special-7-192.png",
+      "bbox": [
+        63,
+        57,
+        129,
+        174
+      ],
+      "strictGreenRecolored": 5,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 8,
+      "file": "frames/special_right_08.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/right-special-8-192.png",
+      "bbox": [
+        55,
+        64,
+        137,
+        174
+      ],
+      "strictGreenRecolored": 10,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 1,
+      "file": "frames/special_up_01.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/up-special-1-192.png",
+      "bbox": [
+        52,
+        66,
+        140,
+        174
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 2,
+      "file": "frames/special_up_02.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/up-special-2-192.png",
+      "bbox": [
+        47,
+        79,
+        144,
+        174
+      ],
+      "strictGreenRecolored": 2,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 3,
+      "file": "frames/special_up_03.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/up-special-3-192.png",
+      "bbox": [
+        49,
+        71,
+        142,
+        174
+      ],
+      "strictGreenRecolored": 1,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 4,
+      "file": "frames/special_up_04.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/up-special-4-192.png",
+      "bbox": [
+        68,
+        39,
+        124,
+        174
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 5,
+      "file": "frames/special_up_05.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/up-special-5-192.png",
+      "bbox": [
+        40,
+        77,
+        152,
+        174
+      ],
+      "strictGreenRecolored": 3,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 6,
+      "file": "frames/special_up_06.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/up-special-6-192.png",
+      "bbox": [
+        35,
+        65,
+        157,
+        174
+      ],
+      "strictGreenRecolored": 2,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 7,
+      "file": "frames/special_up_07.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/up-special-7-192.png",
+      "bbox": [
+        59,
+        64,
+        133,
+        174
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 8,
+      "file": "frames/special_up_08.png",
+      "source": "raw/imported_original_files/green-warrior-special-cardinal-4dir-8frame-final/up-special-8-192.png",
+      "bbox": [
+        51,
+        66,
+        140,
+        174
+      ],
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    }
+  ]
+}

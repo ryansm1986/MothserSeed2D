@@ -24,5 +24,6 @@ QA checks:
 - Final frames are `384x384` with transparent backgrounds.
 - Standard preview, 4x preview, focused QA preview, and looping GIF exist.
 - Base-set stone, moss, vine, heavy arm, and rear-facing silhouette features are preserved.
+- Face consistency pass: source `northeast.png` head/mask details were overlaid on all 5 normalized frames so the face reads as glowing eye only, with no generated mouth, nose, snout, lips, or teeth.
 
 Final QA status: `approved`

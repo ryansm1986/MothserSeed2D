@@ -1,0 +1,112 @@
+{
+  "subject": "green_warrior_v4",
+  "frame_size": [
+    192,
+    192
+  ],
+  "animations": {
+    "idle": {
+      "directions": [
+        "down",
+        "left",
+        "right",
+        "up",
+        "down_left",
+        "up_left",
+        "up_right",
+        "down_right"
+      ],
+      "frameCount": 32,
+      "maxFramesPerDirection": 4,
+      "manifest": "idle/assembled/green_warrior_v4_idle_manifest.json"
+    },
+    "walk": {
+      "directionMode": "4_direction_cardinal",
+      "directions": [
+        "up"
+      ],
+      "pendingDirections": [
+        "down",
+        "left",
+        "right"
+      ],
+      "frameCount": 4,
+      "maxFramesPerDirection": 4,
+      "manifest": "walk/assembled/green_warrior_v4_walk_manifest.json"
+    },
+    "attack": {
+      "directionMode": "4_direction_cardinal",
+      "directions": [
+        "down",
+        "left",
+        "right",
+        "up"
+      ],
+      "runtimeDiagonalFallbacks": {
+        "down_left": "down",
+        "down_right": "down",
+        "up_left": "up",
+        "up_right": "up"
+      },
+      "frameCount": 24,
+      "maxFramesPerDirection": 6,
+      "manifest": "attack/assembled/green_warrior_v4_attack_manifest.json"
+    },
+    "special": {
+      "variant": "spinning_special_attack_source_import",
+      "directionMode": "down_only",
+      "directions": [
+        "down"
+      ],
+      "runtimeFallback": "all non-down attack2 directions use down special frames",
+      "frameCount": 8,
+      "maxFramesPerDirection": 8,
+      "manifest": "special/assembled/green_warrior_v4_special_manifest.json"
+    },
+    "sprint": {
+      "directions": [
+        "down",
+        "left",
+        "right",
+        "up",
+        "down_left",
+        "up_left",
+        "up_right",
+        "down_right"
+      ],
+      "frameCount": 32,
+      "maxFramesPerDirection": 4,
+      "manifest": "sprint/assembled/green_warrior_v4_sprint_manifest.json"
+    },
+    "dodge": {
+      "directionMode": "4_direction_cardinal",
+      "directions": [
+        "down",
+        "left",
+        "right",
+        "up"
+      ],
+      "runtimeDiagonalFallbacks": {
+        "down_left": "down",
+        "down_right": "down",
+        "up_left": "up",
+        "up_right": "up"
+      },
+      "frameCount": 16,
+      "maxFramesPerDirection": 4,
+      "manifest": "dodge/assembled/green_warrior_v4_dodge_manifest.json"
+    }
+  },
+  "notes": [
+    "Organized user-supplied generator outputs into canonical animation folders.",
+    "Source generator folders are archived under each animation raw/imported_original_files folder.",
+    "Organized user-supplied sprint generator outputs into canonical sprint folder.",
+    "Replaced diagonal sprint frames from green_warrior_run_diagonal_update_20260429_203221.",
+    "Replaced diagonal sprint frames from loose 896x224 diagonal strips archived under sprint/raw/imported_original_files/green_warrior_run_diagonal_strips_update_20260429_213137.",
+    "Organized walk_up regen into canonical four-direction walk folder from green_sword_walk_up_regen_20260430_082620.",
+    "Organized jump dodge source folders into canonical dodge animation from 20260430_084509.",
+    "Replaced attack animation with new four-direction sword FX frames from 20260430_090925.",
+    "Generated down-only spinning special attack from v4 attack frames with green-gold circular sword FX at 20260430_101032.",
+    "Replaced special animation with imported green_sword_spin_special source frames from 20260430_110136."
+  ]
+}

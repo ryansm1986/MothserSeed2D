@@ -1,0 +1,75 @@
+{
+  "target": "player",
+  "mode": "jump_dodge",
+  "rows": 1,
+  "cols": 4,
+  "source": "raw-sheet.png",
+  "custom_content_aware_split": true,
+  "largest_component_filter": true,
+  "raw_boxes": [
+    [
+      42,
+      287,
+      602,
+      593
+    ],
+    [
+      570,
+      214,
+      1061,
+      533
+    ],
+    [
+      1030,
+      184,
+      1491,
+      560
+    ],
+    [
+      1459,
+      276,
+      1905,
+      565
+    ]
+  ],
+  "frame_size": [
+    128,
+    128
+  ],
+  "padded_size": [
+    1169,
+    138
+  ],
+  "padded_boxes": [
+    [
+      32,
+      37,
+      105,
+      101
+    ],
+    [
+      361,
+      36,
+      450,
+      102
+    ],
+    [
+      706,
+      32,
+      787,
+      106
+    ],
+    [
+      1043,
+      38,
+      1137,
+      99
+    ]
+  ],
+  "gutters": [
+    256,
+    256,
+    256
+  ],
+  "qa": "Visual QA: sword remains gripped in right hand in all 4 frames; tiny detached artifacts removed via largest connected component filtering."
+}

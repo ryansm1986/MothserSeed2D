@@ -1,0 +1,15 @@
+{
+  "source": "D:\\projects\\MotherSeed2D\\assets\\characters\\green_warrior_v4\\special\\special_effects\\raw\\circle_special_effect_hollow_outer_pulse_alpha.png",
+  "imagegenChromakeySource": "D:\\projects\\MotherSeed2D\\assets\\characters\\green_warrior_v4\\special\\special_effects\\raw\\circle_special_effect_hollow_outer_pulse_imagegen_chromakey.png",
+  "outputStrip": "D:\\projects\\MotherSeed2D\\assets\\characters\\green_warrior_v4\\special\\special_effects\\circle_special_effect_hollow_outer_pulse_8f_256x768.png",
+  "framesDir": "D:\\projects\\MotherSeed2D\\assets\\characters\\green_warrior_v4\\special\\special_effects\\hollow_outer_pulse_frames",
+  "frameCount": 8,
+  "frameSize": {
+    "width": 256,
+    "height": 768
+  },
+  "layout": "single row, 8 equal frames, left to right",
+  "animation": "Hollow golden ring starts readable, pulses on the outer circumference, grows outward, then fades while staying hollow.",
+  "background": "transparent alpha, derived from #ff00ff chroma-key source",
+  "notes": "Kept the clean imagegen slot layout rather than over-scaling into square cells, which introduced clipping artifacts."
+}

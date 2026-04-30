@@ -2,7 +2,7 @@
 
 This guide documents how playable characters are currently added and tuned in MotherSeed 2D.
 
-The game is a custom Canvas 2D and TypeScript prototype. Character select and HUD are DOM overlays, while the world, sprites, projectiles, and spell effects are drawn on the canvas. The current code is intentionally prototype-shaped: class data lives in content files, but some runtime behavior still lives in `src/main.ts`. When adding a character, keep edits narrow and follow the existing boundaries until the character runtime is extracted into smaller systems.
+The game is a custom Canvas 2D and TypeScript prototype. Character select and HUD are DOM overlays, while the world, sprites, projectiles, and spell effects are drawn on the canvas. Runtime behavior is split by ownership: content in `src/game/content`, simulation in `src/game/combat`, Canvas drawing/loading in `src/render/canvas2d`, and DOM rendering in `src/ui`.
 
 ## Core Files
 
@@ -12,8 +12,16 @@ The game is a custom Canvas 2D and TypeScript prototype. Character select and HU
   Defines character select data, stats, ability metadata, portraits, and character order.
 - `src/game/input-actions.ts`
   Maps physical keys to gameplay actions such as `special-1`, `special-2`, and `special-3`.
-- `src/main.ts`
-  Loads character sprite assets, owns the player state, runs combat rules, draws sprites and effects, updates HUD, and handles character select.
+- `src/game/state.ts`
+  Defines serializable player, enemy, combat runtime, and UI flow state.
+- `src/game/combat/abilities.ts`
+  Dispatches auto attacks and special behavior by `ability.id`.
+- `src/render/canvas2d/character-sprites.ts`
+  Loads playable character sprite frame sets.
+- `src/render/canvas2d/renderer.ts`
+  Draws playable characters and owns draw profiles/visual scale.
+- `src/ui/character-select.ts` and `src/ui/hud.ts`
+  Render character select and HUD view models from state/content data.
 - `assets/characters/<character_id>/`
   Stores character portraits, sprites, generated frames, projectiles, spells, previews, and QA files.
 - `docs/SPRITE_GIF_FRAME_EXTRACTION.md`
@@ -24,16 +32,14 @@ The game is a custom Canvas 2D and TypeScript prototype. Character select and HU
 The current playable character path has these stages:
 
 1. `characterClasses` and `characterOrder` render character select.
-2. `applySelectedClass()` copies class stats into the shared `player` state.
-3. `loadSprites()` loads a `PlayerSpriteSet` for implemented classes.
-4. `activePlayerSpriteSet()` chooses the current class sprite set for animation and drawing.
-5. `updatePlayer()` chooses the current animation from movement, dodge, auto attack, and special state.
-6. `updateAutoAttack()` runs the default attack behavior for the selected class.
-7. `castSpecial()` dispatches ability behavior by `ability.id`.
-8. `drawPlayer()`, projectile draw functions, and spell draw functions render the player-facing visuals.
-9. `updateHud()` reads the active class and ability metadata for the panels.
-
-Longer term, class-specific combat and asset manifests should move out of `src/main.ts`, but today that file is the integration point.
+2. `applySelectedClass()` in `src/game/state.ts` copies class stats into player state.
+3. `loadPlayerSprites()` in `src/render/canvas2d/character-sprites.ts` loads a `PlayerSpriteSet` for implemented classes.
+4. `renderer.ts` chooses the active sprite set for animation and drawing.
+5. `updatePlayer()` in `src/game/combat/player.ts` chooses movement/dodge animation intent.
+6. `updateAutoAttack()` in `src/game/combat/abilities.ts` runs default attacks.
+7. `castSpecial()` in `src/game/combat/abilities.ts` dispatches special behavior by `ability.id`.
+8. Projectile/spell state updates live in `src/game/combat/projectiles.ts`; visuals are drawn in `renderer.ts`.
+9. `renderHud()` reads state and ability metadata for the panels.
 
 ## Add A Playable Character
 
@@ -133,11 +139,11 @@ idle_south_01.png
 special_cast_northeast_01.png
 ```
 
-If a character uses compass names, add a direction mapping like `purpleMageDirectionAssets` in `src/main.ts`. GIFs can be useful as source exports, but runtime animations should be extracted into normalized PNG frame sequences so the game loop controls timing and each animation family has a consistent canvas and baseline. Use `tools/extract_gif_frames.py`; the workflow is documented in `docs/SPRITE_GIF_FRAME_EXTRACTION.md`.
+If a character uses compass names, add a direction mapping like `purpleMageDirectionAssets` in `src/render/canvas2d/character-sprites.ts`. GIFs can be useful as source exports, but runtime animations should be extracted into normalized PNG frame sequences so the game loop controls timing and each animation family has a consistent canvas and baseline. Use `tools/extract_gif_frames.py`; the workflow is documented in `docs/SPRITE_GIF_FRAME_EXTRACTION.md`.
 
 ### 4. Load Sprite Frames
 
-In `src/main.ts`, add an asset glob for the character frames:
+In `src/render/canvas2d/character-sprites.ts`, add an asset glob for the character frames:
 
 ```ts
 const purpleMageFrameUrls = import.meta.glob([
@@ -169,7 +175,7 @@ Add a loader that returns a complete `PlayerSpriteSet`. Every direction should p
 
 Fallbacks are fine during prototyping. For example, the purple mage currently uses normalized cardinal idle frames, `walk_v2/frames` for walking, dedicated dodge frames for dodge rolls, sprint frames for sprint/run, `attack/frames` for Magic Missile, and `special_cast/frames` for Moonfall casting. If one sprint direction is missing during asset production, prefer an explicit fallback such as mirroring the opposite diagonal over silently dropping back to walk frames.
 
-Register the sprite set in `loadSprites()`:
+Register the sprite set in `loadPlayerSprites()`:
 
 ```ts
 playerSprites = {
@@ -210,7 +216,7 @@ When a character mixes source canvas sizes, prefer `targetContentHeight` on its 
 
 ### 6. Implement The Default Attack
 
-Default attacks currently live in `updateAutoAttack()`.
+Default attacks live in `updateAutoAttack()` in `src/game/combat/abilities.ts`.
 
 For melee classes, use short range and direct damage:
 
@@ -249,7 +255,7 @@ Keep projectile state serializable where possible. Do not store canvas contexts,
 
 ### 7. Implement Specials
 
-Special metadata lives in `classes.ts`, but behavior is dispatched by `ability.id` in `castSpecial()`.
+Special metadata lives in `classes.ts`, but behavior is dispatched by `ability.id` in `castSpecial()` in `src/game/combat/abilities.ts`.
 
 Use the ability metadata for:
 
@@ -275,7 +281,7 @@ if (ability.id === "moonfall") {
 }
 ```
 
-For delayed effects, use a state object and update it each frame. Apply damage once at a clear impact point, then remove the effect after its visual recovery. Moonfall uses `attack2` as the special animation state, maps the purple mage to `special_cast/frames`, and queues the falling moon after `moonfallCastTiming.releaseDelay` so the spell effect lines up with the cast pose.
+For delayed effects, use a state object and update it each frame. Apply damage once at a clear impact point, then remove the effect after its visual recovery. Moonfall uses `attack2` as the special animation state, maps the purple mage to `special_cast/frames`, and queues the falling moon after `moonfallCastTiming.releaseDelay` so the spell effect lines up with the cast pose. Motherslash uses the warrior `special/frames` spin animation, then updates `motherslashWaves` so pulse damage follows the outward cyclone rings.
 
 ### 8. Add Effect Assets
 
@@ -320,7 +326,7 @@ Load them in `loadWorldAssets()` or a future dedicated effect loader:
 
 Use `makeImageFrame()` for transparent PNGs. Use `makeGreenScreenFrame()` only for green-keyed generated images that need runtime cleanup. Prefer normalized transparent PNG assets when possible. For fixed-canvas effect animations, preserve the shared canvas so every frame anchors consistently; use a specialized cleanup loader such as `makeMoonfallFrame()` only when generated guide artifacts need to be hidden at runtime.
 
-Spell audio should be dispatched from gameplay timing, not draw code. For example, Moonfall plays its voice line and portal sound in `castSpecial()` when the cast succeeds, then plays the crash sound from `updateMoonfallStrikes()` when the animation enters its final frame.
+Spell audio should be dispatched from gameplay timing, not draw code. For example, Moonfall emits voice and portal sound events in `castSpecial()` when the cast succeeds, then emits the crash sound from `updateMoonfallStrikes()` when the animation reaches impact.
 
 ### 9. Update HUD And Character Select Text
 
@@ -348,13 +354,13 @@ Use this table for common changes.
 | Rename class, title, weapon, role | `src/game/content/classes.ts` |
 | Change health, stamina, or max meter | `stats` in `classes.ts` |
 | Change special cost, cooldown, or range | `abilities` in `classes.ts` |
-| Change special behavior or damage | `castSpecial()` in `src/main.ts` |
-| Change default attack range, cadence, or damage | `updateAutoAttack()` in `src/main.ts` |
+| Change special behavior or damage | `castSpecial()` in `src/game/combat/abilities.ts` |
+| Change default attack range, cadence, or damage | `updateAutoAttack()` in `src/game/combat/abilities.ts` |
 | Change projectile speed or lifetime | The class projectile state/update functions |
-| Change sprite scale or baseline | Character draw profile in `src/main.ts` |
+| Change sprite scale or baseline | Character draw profile in `src/render/canvas2d/renderer.ts` |
 | Change portrait | `portraitUrl` import and asset file |
 | Change keyboard mapping | `src/game/input-actions.ts` |
-| Change target lock or click-to-clear targeting | `lockTarget()`, `clearTarget()`, and canvas click handling in `src/main.ts` |
+| Change target lock or click-to-clear targeting | `lockTarget()`, `clearTarget()`, and `isEnemyAtWorldPoint()` in `src/game/combat/player.ts` |
 | Change character select order | `characterOrder` in `classes.ts` |
 
 Balance changes should usually be made in one pass, then verified with a short fight. Watch time-to-kill, meter gain speed, cooldown uptime, and whether enemy telegraphs stay readable.
@@ -419,15 +425,15 @@ These are not rules. They are safe first values for a prototype fight against th
 
 ## Refactor Direction
 
-As playable classes grow, avoid adding too much more class logic directly to `src/main.ts`. The next good extraction is:
+As playable classes grow, avoid adding class logic to `src/main.ts`. The current extracted ownership is:
 
 ```text
 src/game/content/classes.ts
-src/game/content/player-assets.ts
-src/game/combat/player-attacks.ts
-src/game/combat/player-specials.ts
-src/game/render/player-render.ts
-src/game/render/effects-render.ts
+src/game/combat/abilities.ts
+src/game/combat/player.ts
+src/game/combat/projectiles.ts
+src/render/canvas2d/character-sprites.ts
+src/render/canvas2d/renderer.ts
 ```
 
 Keep the same rule from the game foundations: simulation owns state and rules; rendering owns sprites, draw order, camera, and visual effects; DOM owns character select and HUD text.

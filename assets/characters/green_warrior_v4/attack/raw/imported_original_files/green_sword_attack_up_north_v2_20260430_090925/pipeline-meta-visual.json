@@ -1,0 +1,120 @@
+{
+  "source": "D:\\projects\\agent-sprite-forge-main\\output\\green_sword_attack_up_north_v2\\raw-sheet.png",
+  "method": "visual_component_grouping",
+  "frame_count": 6,
+  "cell_size": 256,
+  "duration": 95,
+  "centroids": [
+    192.11619636868278,
+    553.8585946154217,
+    899.9062446367715,
+    1221.1062511112805,
+    1573.1259957365646,
+    1929.754264392324
+  ],
+  "frames": [
+    {
+      "label": "attack_up-1",
+      "source_bbox": [
+        46,
+        255,
+        340,
+        598
+      ],
+      "output_bbox": [
+        31,
+        9,
+        225,
+        237
+      ],
+      "edge_touch": false,
+      "components": 1
+    },
+    {
+      "label": "attack_up-2",
+      "source_bbox": [
+        430,
+        188,
+        699,
+        598
+      ],
+      "output_bbox": [
+        53,
+        8,
+        202,
+        238
+      ],
+      "edge_touch": false,
+      "components": 1
+    },
+    {
+      "label": "attack_up-3",
+      "source_bbox": [
+        795,
+        118,
+        1034,
+        595
+      ],
+      "output_bbox": [
+        71,
+        7,
+        185,
+        239
+      ],
+      "edge_touch": false,
+      "components": 1
+    },
+    {
+      "label": "attack_up-4",
+      "source_bbox": [
+        1103,
+        273,
+        1351,
+        596
+      ],
+      "output_bbox": [
+        42,
+        10,
+        213,
+        236
+      ],
+      "edge_touch": false,
+      "components": 1
+    },
+    {
+      "label": "attack_up-5",
+      "source_bbox": [
+        1405,
+        326,
+        1760,
+        596
+      ],
+      "output_bbox": [
+        14,
+        66,
+        242,
+        237
+      ],
+      "edge_touch": false,
+      "components": 1
+    },
+    {
+      "label": "attack_up-6",
+      "source_bbox": [
+        1798,
+        254,
+        2115,
+        597
+      ],
+      "output_bbox": [
+        23,
+        9,
+        233,
+        237
+      ],
+      "edge_touch": false,
+      "components": 3
+    }
+  ],
+  "edge_touch_frames": []
+}

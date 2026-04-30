@@ -1,0 +1,1125 @@
+{
+  "subject": "green_warrior_v4",
+  "animation": "sprint",
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up",
+    "down_left",
+    "up_left",
+    "up_right",
+    "down_right"
+  ],
+  "frame_size": [
+    192,
+    192
+  ],
+  "frames_per_direction": 4,
+  "duration_ms": 105,
+  "baseline_y": 181,
+  "normalization": "split 896x224 diagonal strips into four 224px slots, crop visible content, center horizontally, align bottom to shared baseline",
+  "assembled": "assembled/green_warrior_v4_sprint_8dir_4f_192x192.png",
+  "latest_diagonal_replacement": {
+    "source": "raw/imported_original_files/green_warrior_run_diagonal_strips_update_20260429_213137",
+    "updated_at": "20260429_213137",
+    "directions": [
+      "down_left",
+      "up_left",
+      "up_right",
+      "down_right"
+    ],
+    "strip_files": [
+      "southwest-strip.png",
+      "northwest-strip.png",
+      "northeast-strip.png",
+      "southeast-strip.png"
+    ],
+    "source_frame_size": [
+      224,
+      224
+    ],
+    "max_output_bbox": [
+      149,
+      155
+    ],
+    "strict_green_recolored": 0,
+    "strict_magenta_recolored": 0,
+    "frames": [
+      {
+        "file": "southwest-strip.png",
+        "direction": "down_left",
+        "frame": 1,
+        "sourceSlot": [
+          0,
+          0,
+          224,
+          224
+        ],
+        "sourceBbox": [
+          38,
+          38,
+          185,
+          188
+        ],
+        "trimmedSize": [
+          147,
+          150
+        ],
+        "outputBbox": [
+          22,
+          31,
+          169,
+          181
+        ]
+      },
+      {
+        "file": "southwest-strip.png",
+        "direction": "down_left",
+        "frame": 2,
+        "sourceSlot": [
+          224,
+          0,
+          224,
+          224
+        ],
+        "sourceBbox": [
+          38,
+          41,
+          185,
+          188
+        ],
+        "trimmedSize": [
+          147,
+          147
+        ],
+        "outputBbox": [
+          22,
+          34,
+          169,
+          181
+        ]
+      },
+      {
+        "file": "southwest-strip.png",
+        "direction": "down_left",
+        "frame": 3,
+        "sourceSlot": [
+          448,
+          0,
+          224,
+          224
+        ],
+        "sourceBbox": [
+          38,
+          40,
+          185,
+          188
+        ],
+        "trimmedSize": [
+          147,
+          148
+        ],
+        "outputBbox": [
+          22,
+          33,
+          169,
+          181
+        ]
+      },
+      {
+        "file": "southwest-strip.png",
+        "direction": "down_left",
+        "frame": 4,
+        "sourceSlot": [
+          672,
+          0,
+          224,
+          224
+        ],
+        "sourceBbox": [
+          42,
+          40,
+          181,
+          188
+        ],
+        "trimmedSize": [
+          139,
+          148
+        ],
+        "outputBbox": [
+          26,
+          33,
+          165,
+          181
+        ]
+      },
+      {
+        "file": "northwest-strip.png",
+        "direction": "up_left",
+        "frame": 1,
+        "sourceSlot": [
+          0,
+          0,
+          224,
+          224
+        ],
+        "sourceBbox": [
+          41,
+          45,
+          183,
+          188
+        ],
+        "trimmedSize": [
+          142,
+          143
+        ],
+        "outputBbox": [
+          25,
+          38,
+          167,
+          181
+        ]
+      },
+      {
+        "file": "northwest-strip.png",
+        "direction": "up_left",
+        "frame": 2,
+        "sourceSlot": [
+          224,
+          0,
+          224,
+          224
+        ],
+        "sourceBbox": [
+          38,
+          43,
+          185,
+          188
+        ],
+        "trimmedSize": [
+          147,
+          145
+        ],
+        "outputBbox": [
+          22,
+          36,
+          169,
+          181
+        ]
+      },
+      {
+        "file": "northwest-strip.png",
+        "direction": "up_left",
+        "frame": 3,
+        "sourceSlot": [
+          448,
+          0,
+          224,
+          224
+        ],
+        "sourceBbox": [
+          40,
+          43,
+          183,
+          188
+        ],
+        "trimmedSize": [
+          143,
+          145
+        ],
+        "outputBbox": [
+          24,
+          36,
+          167,
+          181
+        ]
+      },
+      {
+        "file": "northwest-strip.png",
+        "direction": "up_left",
+        "frame": 4,
+        "sourceSlot": [
+          672,
+          0,
+          224,
+          224
+        ],
+        "sourceBbox": [
+          41,
+          44,
+          183,
+          188
+        ],
+        "trimmedSize": [
+          142,
+          144
+        ],
+        "outputBbox": [
+          25,
+          37,
+          167,
+          181
+        ]
+      },
+      {
+        "file": "northeast-strip.png",
+        "direction": "up_right",
+        "frame": 1,
+        "sourceSlot": [
+          0,
+          0,
+          224,
+          224
+        ],
+        "sourceBbox": [
+          43,
+          46,
+          180,
+          188
+        ],
+        "trimmedSize": [
+          137,
+          142
+        ],
+        "outputBbox": [
+          28,
+          39,
+          165,
+          181
+        ]
+      },
+      {
+        "file": "northeast-strip.png",
+        "direction": "up_right",
+        "frame": 2,
+        "sourceSlot": [
+          224,
+          0,
+          224,
+          224
+        ],
+        "sourceBbox": [
+          43,
+          47,
+          180,
+          188
+        ],
+        "trimmedSize": [
+          137,
+          141
+        ],
+        "outputBbox": [
+          28,
+          40,
+          165,
+          181
+        ]
+      },
+      {
+        "file": "northeast-strip.png",
+        "direction": "up_right",
+        "frame": 3,
+        "sourceSlot": [
+          448,
+          0,
+          224,
+          224
+        ],
+        "sourceBbox": [
+          46,
+          47,
+          177,
+          188
+        ],
+        "trimmedSize": [
+          131,
+          141
+        ],
+        "outputBbox": [
+          30,
+          40,
+          161,
+          181
+        ]
+      },
+      {
+        "file": "northeast-strip.png",
+        "direction": "up_right",
+        "frame": 4,
+        "sourceSlot": [
+          672,
+          0,
+          224,
+          224
+        ],
+        "sourceBbox": [
+          47,
+          47,
+          177,
+          188
+        ],
+        "trimmedSize": [
+          130,
+          141
+        ],
+        "outputBbox": [
+          31,
+          40,
+          161,
+          181
+        ]
+      },
+      {
+        "file": "southeast-strip.png",
+        "direction": "down_right",
+        "frame": 1,
+        "sourceSlot": [
+          0,
+          0,
+          224,
+          224
+        ],
+        "sourceBbox": [
+          42,
+          40,
+          181,
+          188
+        ],
+        "trimmedSize": [
+          139,
+          148
+        ],
+        "outputBbox": [
+          26,
+          33,
+          165,
+          181
+        ]
+      },
+      {
+        "file": "southeast-strip.png",
+        "direction": "down_right",
+        "frame": 2,
+        "sourceSlot": [
+          224,
+          0,
+          224,
+          224
+        ],
+        "sourceBbox": [
+          44,
+          40,
+          179,
+          188
+        ],
+        "trimmedSize": [
+          135,
+          148
+        ],
+        "outputBbox": [
+          28,
+          33,
+          163,
+          181
+        ]
+      },
+      {
+        "file": "southeast-strip.png",
+        "direction": "down_right",
+        "frame": 3,
+        "sourceSlot": [
+          448,
+          0,
+          224,
+          224
+        ],
+        "sourceBbox": [
+          40,
+          43,
+          182,
+          190
+        ],
+        "trimmedSize": [
+          142,
+          147
+        ],
+        "outputBbox": [
+          25,
+          34,
+          167,
+          181
+        ]
+      },
+      {
+        "file": "southeast-strip.png",
+        "direction": "down_right",
+        "frame": 4,
+        "sourceSlot": [
+          672,
+          0,
+          224,
+          224
+        ],
+        "sourceBbox": [
+          45,
+          41,
+          179,
+          188
+        ],
+        "trimmedSize": [
+          134,
+          147
+        ],
+        "outputBbox": [
+          29,
+          34,
+          163,
+          181
+        ]
+      }
+    ]
+  },
+  "frames": [
+    {
+      "direction": "down",
+      "frame": 1,
+      "file": "frames/sprint_down_01.png",
+      "source": "raw/imported_original_files/green_warrior_run_cardinal_4dir_final/run_cardinal-1.png",
+      "sourceBBox": [
+        51,
+        37,
+        172,
+        190
+      ],
+      "placement": {
+        "x": 35,
+        "y": 28,
+        "w": 121,
+        "h": 153
+      },
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 2,
+      "file": "frames/sprint_down_02.png",
+      "source": "raw/imported_original_files/green_warrior_run_cardinal_4dir_final/run_cardinal-2.png",
+      "sourceBBox": [
+        50,
+        39,
+        174,
+        193
+      ],
+      "placement": {
+        "x": 34,
+        "y": 27,
+        "w": 124,
+        "h": 154
+      },
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 3,
+      "file": "frames/sprint_down_03.png",
+      "source": "raw/imported_original_files/green_warrior_run_cardinal_4dir_final/run_cardinal-3.png",
+      "sourceBBox": [
+        55,
+        39,
+        168,
+        190
+      ],
+      "placement": {
+        "x": 39,
+        "y": 30,
+        "w": 113,
+        "h": 151
+      },
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down",
+      "frame": 4,
+      "file": "frames/sprint_down_04.png",
+      "source": "raw/imported_original_files/green_warrior_run_cardinal_4dir_final/run_cardinal-4.png",
+      "sourceBBox": [
+        51,
+        39,
+        173,
+        194
+      ],
+      "placement": {
+        "x": 35,
+        "y": 26,
+        "w": 122,
+        "h": 155
+      },
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 1,
+      "file": "frames/sprint_left_01.png",
+      "source": "raw/imported_original_files/green_warrior_run_cardinal_4dir_final/run_cardinal-5.png",
+      "sourceBBox": [
+        41,
+        46,
+        191,
+        189
+      ],
+      "placement": {
+        "x": 21,
+        "y": 38,
+        "w": 150,
+        "h": 143
+      },
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 2,
+      "file": "frames/sprint_left_02.png",
+      "source": "raw/imported_original_files/green_warrior_run_cardinal_4dir_final/run_cardinal-6.png",
+      "sourceBBox": [
+        38,
+        47,
+        186,
+        189
+      ],
+      "placement": {
+        "x": 22,
+        "y": 39,
+        "w": 148,
+        "h": 142
+      },
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 3,
+      "file": "frames/sprint_left_03.png",
+      "source": "raw/imported_original_files/green_warrior_run_cardinal_4dir_final/run_cardinal-7.png",
+      "sourceBBox": [
+        38,
+        46,
+        185,
+        189
+      ],
+      "placement": {
+        "x": 22,
+        "y": 38,
+        "w": 147,
+        "h": 143
+      },
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "left",
+      "frame": 4,
+      "file": "frames/sprint_left_04.png",
+      "source": "raw/imported_original_files/green_warrior_run_cardinal_4dir_final/run_cardinal-8.png",
+      "sourceBBox": [
+        38,
+        46,
+        186,
+        189
+      ],
+      "placement": {
+        "x": 22,
+        "y": 38,
+        "w": 148,
+        "h": 143
+      },
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 1,
+      "file": "frames/sprint_right_01.png",
+      "source": "raw/imported_original_files/green_warrior_run_cardinal_4dir_final/run_cardinal-9.png",
+      "sourceBBox": [
+        40,
+        50,
+        183,
+        189
+      ],
+      "placement": {
+        "x": 24,
+        "y": 42,
+        "w": 143,
+        "h": 139
+      },
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 2,
+      "file": "frames/sprint_right_02.png",
+      "source": "raw/imported_original_files/green_warrior_run_cardinal_4dir_final/run_cardinal-10.png",
+      "sourceBBox": [
+        41,
+        50,
+        183,
+        189
+      ],
+      "placement": {
+        "x": 25,
+        "y": 42,
+        "w": 142,
+        "h": 139
+      },
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 3,
+      "file": "frames/sprint_right_03.png",
+      "source": "raw/imported_original_files/green_warrior_run_cardinal_4dir_final/run_cardinal-11.png",
+      "sourceBBox": [
+        43,
+        50,
+        179,
+        189
+      ],
+      "placement": {
+        "x": 28,
+        "y": 42,
+        "w": 136,
+        "h": 139
+      },
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "right",
+      "frame": 4,
+      "file": "frames/sprint_right_04.png",
+      "source": "raw/imported_original_files/green_warrior_run_cardinal_4dir_final/run_cardinal-12.png",
+      "sourceBBox": [
+        41,
+        50,
+        174,
+        189
+      ],
+      "placement": {
+        "x": 29,
+        "y": 42,
+        "w": 133,
+        "h": 139
+      },
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 1,
+      "file": "frames/sprint_up_01.png",
+      "source": "raw/imported_original_files/green_warrior_run_cardinal_4dir_final/run_cardinal-13.png",
+      "sourceBBox": [
+        62,
+        46,
+        161,
+        189
+      ],
+      "placement": {
+        "x": 46,
+        "y": 38,
+        "w": 99,
+        "h": 143
+      },
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 2,
+      "file": "frames/sprint_up_02.png",
+      "source": "raw/imported_original_files/green_warrior_run_cardinal_4dir_final/run_cardinal-14.png",
+      "sourceBBox": [
+        62,
+        46,
+        162,
+        189
+      ],
+      "placement": {
+        "x": 46,
+        "y": 38,
+        "w": 100,
+        "h": 143
+      },
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 3,
+      "file": "frames/sprint_up_03.png",
+      "source": "raw/imported_original_files/green_warrior_run_cardinal_4dir_final/run_cardinal-15.png",
+      "sourceBBox": [
+        62,
+        46,
+        161,
+        189
+      ],
+      "placement": {
+        "x": 46,
+        "y": 38,
+        "w": 99,
+        "h": 143
+      },
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up",
+      "frame": 4,
+      "file": "frames/sprint_up_04.png",
+      "source": "raw/imported_original_files/green_warrior_run_cardinal_4dir_final/run_cardinal-16.png",
+      "sourceBBox": [
+        62,
+        46,
+        162,
+        189
+      ],
+      "placement": {
+        "x": 46,
+        "y": 38,
+        "w": 100,
+        "h": 143
+      },
+      "strictGreenRecolored": 0,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_left",
+      "frame": 1,
+      "file": "frames/sprint_down_left_01.png",
+      "source": "raw/imported_original_files/green_warrior_run_diagonal_update_20260429_203221/run_diag-1.png",
+      "sourceBBox": [
+        36,
+        37,
+        187,
+        190
+      ],
+      "placement": {
+        "x": 20,
+        "y": 28,
+        "w": 151,
+        "h": 153
+      },
+      "strictGreenRecolored": 5,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_left",
+      "frame": 2,
+      "file": "frames/sprint_down_left_02.png",
+      "source": "raw/imported_original_files/green_warrior_run_diagonal_update_20260429_203221/run_diag-2.png",
+      "sourceBBox": [
+        36,
+        39,
+        187,
+        190
+      ],
+      "placement": {
+        "x": 20,
+        "y": 30,
+        "w": 151,
+        "h": 151
+      },
+      "strictGreenRecolored": 9,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_left",
+      "frame": 3,
+      "file": "frames/sprint_down_left_03.png",
+      "source": "raw/imported_original_files/green_warrior_run_diagonal_update_20260429_203221/run_diag-3.png",
+      "sourceBBox": [
+        38,
+        38,
+        187,
+        190
+      ],
+      "placement": {
+        "x": 21,
+        "y": 29,
+        "w": 149,
+        "h": 152
+      },
+      "strictGreenRecolored": 7,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_left",
+      "frame": 4,
+      "file": "frames/sprint_down_left_04.png",
+      "source": "raw/imported_original_files/green_warrior_run_diagonal_update_20260429_203221/run_diag-4.png",
+      "sourceBBox": [
+        40,
+        38,
+        183,
+        190
+      ],
+      "placement": {
+        "x": 24,
+        "y": 29,
+        "w": 143,
+        "h": 152
+      },
+      "strictGreenRecolored": 7,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_left",
+      "frame": 1,
+      "file": "frames/sprint_up_left_01.png",
+      "source": "raw/imported_original_files/green_warrior_run_diagonal_update_20260429_203221/run_diag-5.png",
+      "sourceBBox": [
+        39,
+        43,
+        185,
+        190
+      ],
+      "placement": {
+        "x": 23,
+        "y": 34,
+        "w": 146,
+        "h": 147
+      },
+      "strictGreenRecolored": 3,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_left",
+      "frame": 2,
+      "file": "frames/sprint_up_left_02.png",
+      "source": "raw/imported_original_files/green_warrior_run_diagonal_update_20260429_203221/run_diag-6.png",
+      "sourceBBox": [
+        36,
+        41,
+        186,
+        190
+      ],
+      "placement": {
+        "x": 21,
+        "y": 32,
+        "w": 150,
+        "h": 149
+      },
+      "strictGreenRecolored": 12,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_left",
+      "frame": 3,
+      "file": "frames/sprint_up_left_03.png",
+      "source": "raw/imported_original_files/green_warrior_run_diagonal_update_20260429_203221/run_diag-7.png",
+      "sourceBBox": [
+        38,
+        41,
+        185,
+        189
+      ],
+      "placement": {
+        "x": 22,
+        "y": 33,
+        "w": 147,
+        "h": 148
+      },
+      "strictGreenRecolored": 6,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_left",
+      "frame": 4,
+      "file": "frames/sprint_up_left_04.png",
+      "source": "raw/imported_original_files/green_warrior_run_diagonal_update_20260429_203221/run_diag-8.png",
+      "sourceBBox": [
+        39,
+        42,
+        185,
+        190
+      ],
+      "placement": {
+        "x": 23,
+        "y": 33,
+        "w": 146,
+        "h": 148
+      },
+      "strictGreenRecolored": 3,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_right",
+      "frame": 1,
+      "file": "frames/sprint_up_right_01.png",
+      "source": "raw/imported_original_files/green_warrior_run_diagonal_update_20260429_203221/run_diag-9.png",
+      "sourceBBox": [
+        41,
+        44,
+        182,
+        190
+      ],
+      "placement": {
+        "x": 25,
+        "y": 35,
+        "w": 141,
+        "h": 146
+      },
+      "strictGreenRecolored": 5,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_right",
+      "frame": 2,
+      "file": "frames/sprint_up_right_02.png",
+      "source": "raw/imported_original_files/green_warrior_run_diagonal_update_20260429_203221/run_diag-10.png",
+      "sourceBBox": [
+        41,
+        45,
+        182,
+        190
+      ],
+      "placement": {
+        "x": 25,
+        "y": 36,
+        "w": 141,
+        "h": 145
+      },
+      "strictGreenRecolored": 5,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_right",
+      "frame": 3,
+      "file": "frames/sprint_up_right_03.png",
+      "source": "raw/imported_original_files/green_warrior_run_diagonal_update_20260429_203221/run_diag-11.png",
+      "sourceBBox": [
+        44,
+        45,
+        179,
+        190
+      ],
+      "placement": {
+        "x": 28,
+        "y": 36,
+        "w": 135,
+        "h": 145
+      },
+      "strictGreenRecolored": 4,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "up_right",
+      "frame": 4,
+      "file": "frames/sprint_up_right_04.png",
+      "source": "raw/imported_original_files/green_warrior_run_diagonal_update_20260429_203221/run_diag-12.png",
+      "sourceBBox": [
+        45,
+        46,
+        179,
+        190
+      ],
+      "placement": {
+        "x": 29,
+        "y": 37,
+        "w": 134,
+        "h": 144
+      },
+      "strictGreenRecolored": 3,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_right",
+      "frame": 1,
+      "file": "frames/sprint_down_right_01.png",
+      "source": "raw/imported_original_files/green_warrior_run_diagonal_update_20260429_203221/run_diag-13.png",
+      "sourceBBox": [
+        40,
+        38,
+        183,
+        190
+      ],
+      "placement": {
+        "x": 24,
+        "y": 29,
+        "w": 143,
+        "h": 152
+      },
+      "strictGreenRecolored": 13,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_right",
+      "frame": 2,
+      "file": "frames/sprint_down_right_02.png",
+      "source": "raw/imported_original_files/green_warrior_run_diagonal_update_20260429_203221/run_diag-14.png",
+      "sourceBBox": [
+        42,
+        39,
+        181,
+        190
+      ],
+      "placement": {
+        "x": 26,
+        "y": 30,
+        "w": 139,
+        "h": 151
+      },
+      "strictGreenRecolored": 3,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_right",
+      "frame": 3,
+      "file": "frames/sprint_down_right_03.png",
+      "source": "raw/imported_original_files/green_warrior_run_diagonal_update_20260429_203221/run_diag-15.png",
+      "sourceBBox": [
+        43,
+        43,
+        180,
+        190
+      ],
+      "placement": {
+        "x": 27,
+        "y": 34,
+        "w": 137,
+        "h": 147
+      },
+      "strictGreenRecolored": 5,
+      "strictMagentaVisible": 0
+    },
+    {
+      "direction": "down_right",
+      "frame": 4,
+      "file": "frames/sprint_down_right_04.png",
+      "source": "raw/imported_original_files/green_warrior_run_diagonal_update_20260429_203221/run_diag-16.png",
+      "sourceBBox": [
+        43,
+        39,
+        181,
+        190
+      ],
+      "placement": {
+        "x": 27,
+        "y": 30,
+        "w": 138,
+        "h": 151
+      },
+      "strictGreenRecolored": 3,
+      "strictMagentaVisible": 0
+    }
+  ]
+}

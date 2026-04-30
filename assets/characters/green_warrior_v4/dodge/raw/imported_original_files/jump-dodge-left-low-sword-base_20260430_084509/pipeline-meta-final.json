@@ -1,0 +1,197 @@
+{
+  "target": "player",
+  "mode": "jump_dodge_left",
+  "prompt": "Left-facing dodge jump animation from base pose; source identity preserved; huge sword remains gripped in character right hand in every frame; 1x4 strip.",
+  "role": "",
+  "input": "D:\\projects\\agent-sprite-forge-main\\generated-assets\\jump-dodge-left-low-sword-base\\raw-sheet.png",
+  "threshold": 100,
+  "edge_threshold": 150,
+  "duration": 90,
+  "rows": 1,
+  "cols": 4,
+  "cell_size": 128,
+  "fit_scale": 0.88,
+  "trim_border": 4,
+  "edge_clean_depth": 3,
+  "align": "center",
+  "shared_scale": true,
+  "component_mode": "all",
+  "component_padding": 20,
+  "min_component_area": 1,
+  "edge_touch_margin": 3,
+  "frame_labels": [
+    "jump_dodge_left-1",
+    "jump_dodge_left-2",
+    "jump_dodge_left-3",
+    "jump_dodge_left-4"
+  ],
+  "frames": [
+    {
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        543,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        139,
+        270,
+        535,
+        549
+      ],
+      "edge_touch": false,
+      "output_size": [
+        106,
+        74
+      ],
+      "paste_position": [
+        11,
+        27
+      ]
+    },
+    {
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        543,
+        0,
+        1086,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 2,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        99,
+        208,
+        519,
+        502
+      ],
+      "edge_touch": false,
+      "output_size": [
+        112,
+        78
+      ],
+      "paste_position": [
+        8,
+        25
+      ]
+    },
+    {
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        1086,
+        0,
+        1629,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        101,
+        181,
+        434,
+        513
+      ],
+      "edge_touch": false,
+      "output_size": [
+        89,
+        89
+      ],
+      "paste_position": [
+        19,
+        19
+      ]
+    },
+    {
+      "grid": [
+        0,
+        3
+      ],
+      "source_box": [
+        1629,
+        0,
+        2172,
+        724
+      ],
+      "component_mode": "all",
+      "component_count": 2,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        64,
+        280,
+        445,
+        581
+      ],
+      "edge_touch": false,
+      "output_size": [
+        102,
+        80
+      ],
+      "paste_position": [
+        13,
+        24
+      ]
+    }
+  ],
+  "edge_touch_frames": [],
+  "padded_outputs": {
+    "sheet-padded-transparent.png": [
+      1241,
+      153
+    ],
+    "sheet-padded-magenta.png": [
+      1241,
+      153
+    ],
+    "gutters": [
+      256,
+      256,
+      256
+    ],
+    "boxes": [
+      [
+        32,
+        39,
+        138,
+        113
+      ],
+      [
+        394,
+        37,
+        506,
+        115
+      ],
+      [
+        762,
+        32,
+        851,
+        121
+      ],
+      [
+        1107,
+        36,
+        1209,
+        116
+      ]
+    ]
+  },
+  "qa": "Visual QA: left-facing dodge jump. Sword remains gripped in the character right hand in all 4 frames; standard split passed edge-touch rejection."
+}

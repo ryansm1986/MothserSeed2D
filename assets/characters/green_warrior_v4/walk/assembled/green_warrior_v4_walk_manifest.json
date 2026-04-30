@@ -1,0 +1,117 @@
+{
+  "subject": "green_warrior_v4",
+  "animation": "walk",
+  "direction_mode": "4_direction_cardinal",
+  "directions": [
+    "up"
+  ],
+  "pending_directions": [
+    "down",
+    "left",
+    "right"
+  ],
+  "frame_size": [
+    192,
+    192
+  ],
+  "frames_per_direction": 4,
+  "duration_ms": 140,
+  "baseline_y": 181,
+  "normalization": "crop visible content from 128px source frames, center horizontally in 192x192, align bottom to shared baseline",
+  "assembled": "assembled/green_warrior_v4_walk_4dir_4f_192x192.png",
+  "latest_import": {
+    "source": "raw/imported_original_files/green_sword_walk_up_regen_20260430_082620",
+    "updated_at": "20260430_082620",
+    "directions": [
+      "up"
+    ],
+    "strict_green_recolored": 0,
+    "strict_magenta_recolored": 3,
+    "max_output_bbox": [
+      84,
+      117
+    ],
+    "frames": [
+      {
+        "file": "walk_up-1.png",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "sourceBbox": [
+          22,
+          6,
+          106,
+          123
+        ],
+        "output": "frames/walk_up_01.png",
+        "outputBbox": [
+          54,
+          64,
+          138,
+          181
+        ]
+      },
+      {
+        "file": "walk_up-2.png",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "sourceBbox": [
+          22,
+          6,
+          106,
+          123
+        ],
+        "output": "frames/walk_up_02.png",
+        "outputBbox": [
+          54,
+          64,
+          138,
+          181
+        ]
+      },
+      {
+        "file": "walk_up-3.png",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "sourceBbox": [
+          22,
+          7,
+          106,
+          123
+        ],
+        "output": "frames/walk_up_03.png",
+        "outputBbox": [
+          54,
+          65,
+          138,
+          181
+        ]
+      },
+      {
+        "file": "walk_up-4.png",
+        "sourceSize": [
+          128,
+          128
+        ],
+        "sourceBbox": [
+          22,
+          6,
+          106,
+          123
+        ],
+        "output": "frames/walk_up_04.png",
+        "outputBbox": [
+          54,
+          64,
+          138,
+          181
+        ]
+      }
+    ]
+  }
+}

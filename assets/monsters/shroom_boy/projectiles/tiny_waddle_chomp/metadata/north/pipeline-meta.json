@@ -1,0 +1,21 @@
+{
+  "target": "creature",
+  "mode": "walk_chomp",
+  "direction": "north",
+  "cell_size": 128,
+  "frames": 6,
+  "strip_size": [
+    768,
+    128
+  ],
+  "duration": 120,
+  "source": "generated south/north sheet",
+  "frame_labels": [
+    "north-1",
+    "north-2",
+    "north-3",
+    "north-4",
+    "north-5",
+    "north-6"
+  ]
+}

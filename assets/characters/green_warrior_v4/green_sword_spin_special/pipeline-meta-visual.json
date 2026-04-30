@@ -1,0 +1,156 @@
+{
+  "source": "D:\\projects\\agent-sprite-forge-main\\output\\green_sword_spin_special_wave_down_insert\\raw-sheet.png",
+  "method": "visual_component_grouping",
+  "frame_count": 8,
+  "cell_size": 320,
+  "duration": 85,
+  "centroids": [
+    123.2022116270684,
+    391.76330407351537,
+    623.2767704996252,
+    851.485002726777,
+    1106.9869595821142,
+    1317.041155654661,
+    1548.6849236769551,
+    1782.1427855254763
+  ],
+  "frames": [
+    {
+      "label": "spin_special-1",
+      "source_bbox": [
+        3,
+        260,
+        264,
+        545
+      ],
+      "output_bbox": [
+        39,
+        30,
+        280,
+        295
+      ],
+      "edge_touch": false,
+      "components": 9
+    },
+    {
+      "label": "spin_special-2",
+      "source_bbox": [
+        279,
+        229,
+        517,
+        543
+      ],
+      "output_bbox": [
+        53,
+        12,
+        273,
+        298
+      ],
+      "edge_touch": false,
+      "components": 11
+    },
+    {
+      "label": "spin_special-3",
+      "source_bbox": [
+        500,
+        227,
+        739,
+        534
+      ],
+      "output_bbox": [
+        43,
+        12,
+        277,
+        298
+      ],
+      "edge_touch": false,
+      "components": 8
+    },
+    {
+      "label": "spin_special-4",
+      "source_bbox": [
+        719,
+        302,
+        990,
+        538
+      ],
+      "output_bbox": [
+        24,
+        79,
+        295,
+        295
+      ],
+      "edge_touch": false,
+      "components": 3
+    },
+    {
+      "label": "spin_special-5",
+      "source_bbox": [
+        979,
+        325,
+        1227,
+        557
+      ],
+      "output_bbox": [
+        36,
+        83,
+        274,
+        295
+      ],
+      "edge_touch": false,
+      "components": 4
+    },
+    {
+      "label": "spin_special-6",
+      "source_bbox": [
+        1217,
+        321,
+        1434,
+        549
+      ],
+      "output_bbox": [
+        61,
+        87,
+        268,
+        295
+      ],
+      "edge_touch": false,
+      "components": 1
+    },
+    {
+      "label": "spin_special-7",
+      "source_bbox": [
+        1415,
+        281,
+        1678,
+        549
+      ],
+      "output_bbox": [
+        28,
+        46,
+        291,
+        295
+      ],
+      "edge_touch": false,
+      "components": 13
+    },
+    {
+      "label": "spin_special-8",
+      "source_bbox": [
+        1655,
+        333,
+        1938,
+        545
+      ],
+      "output_bbox": [
+        18,
+        103,
+        291,
+        295
+      ],
+      "edge_touch": false,
+      "components": 3
+    }
+  ],
+  "edge_touch_frames": []
+}

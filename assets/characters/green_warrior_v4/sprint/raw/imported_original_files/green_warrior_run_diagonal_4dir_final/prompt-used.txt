@@ -1,0 +1,1 @@
+4-diagonal-direction run sheet. Rows: southwest/down-left, northwest/up-left, northeast/up-right, southeast/down-right. 4 grounded run frames per row. Slight forward lean in diagonal direction of movement. Oversized sword drags behind opposite movement direction. Double padding, solid #FF00FF background.

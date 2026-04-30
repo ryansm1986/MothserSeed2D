@@ -1,0 +1,123 @@
+{
+  "source": "D:\\projects\\MotherSeed2D\\assets\\characters\\green_warrior_v4\\special\\special_effects\\raw\\circle_special_effect_hollow_outer_pulse_padded_alpha.png",
+  "imagegenChromakeySource": "D:\\projects\\MotherSeed2D\\assets\\characters\\green_warrior_v4\\special\\special_effects\\raw\\circle_special_effect_hollow_outer_pulse_padded_imagegen_chromakey.png",
+  "outputStrip": "D:\\projects\\MotherSeed2D\\assets\\characters\\green_warrior_v4\\special\\special_effects\\circle_special_effect_hollow_outer_pulse_padded_8f_768x768.png",
+  "framesDir": "D:\\projects\\MotherSeed2D\\assets\\characters\\green_warrior_v4\\special\\special_effects\\hollow_outer_pulse_padded_frames",
+  "frameCount": 8,
+  "frameSize": {
+    "width": 768,
+    "height": 768
+  },
+  "layout": "single row, 8 equal frames, 5x-style expanded padding via 768px cells",
+  "detectedSourceBboxes": [
+    [
+      57,
+      409,
+      127,
+      464
+    ],
+    [
+      244,
+      377,
+      352,
+      483
+    ],
+    [
+      466,
+      349,
+      614,
+      494
+    ],
+    [
+      724,
+      322,
+      897,
+      508
+    ],
+    [
+      995,
+      295,
+      1202,
+      519
+    ],
+    [
+      1272,
+      256,
+      1513,
+      541
+    ],
+    [
+      1564,
+      184,
+      1843,
+      570
+    ],
+    [
+      1909,
+      295,
+      2118,
+      532
+    ]
+  ],
+  "finalFrameBboxes": [
+    [
+      345,
+      431,
+      423,
+      486
+    ],
+    [
+      321,
+      399,
+      446,
+      505
+    ],
+    [
+      301,
+      370,
+      469,
+      517
+    ],
+    [
+      288,
+      343,
+      481,
+      531
+    ],
+    [
+      271,
+      316,
+      501,
+      541
+    ],
+    [
+      251,
+      276,
+      520,
+      564
+    ],
+    [
+      228,
+      202,
+      543,
+      594
+    ],
+    [
+      262,
+      317,
+      509,
+      554
+    ]
+  ],
+  "interFrameTransparentGapsPx": [
+    666,
+    623,
+    587,
+    558,
+    518,
+    476,
+    487
+  ],
+  "animation": "Hollow golden ring starts readable, pulses on the outer circumference, grows outward, then fades while staying hollow.",
+  "background": "transparent alpha, derived from #ff00ff chroma-key source"
+}

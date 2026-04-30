@@ -14,6 +14,15 @@
   "frame_count": 5,
   "frame_width": 384,
   "frame_height": 384,
+  "face_fix": {
+    "directions": [
+      "east",
+      "southeast",
+      "northeast",
+      "northwest"
+    ],
+    "rule": "overlaid source head masks so affected directions have eyes only, no generated mouth/nose"
+  },
   "sheet": "D:\\projects\\MotherSeed2D\\assets\\monsters\\moss_golem_v2\\idle\\assembled\\moss_golem_v2_idle_8dir_5f_384x384.png",
   "magenta_preview": "D:\\projects\\MotherSeed2D\\assets\\monsters\\moss_golem_v2\\idle\\assembled\\moss_golem_v2_idle_8dir_5f_384x384_magenta_preview.png",
   "preview_2x": "D:\\projects\\MotherSeed2D\\assets\\monsters\\moss_golem_v2\\idle\\assembled\\moss_golem_v2_idle_8dir_5f_384x384_preview_2x.png",

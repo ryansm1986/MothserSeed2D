@@ -1,0 +1,63 @@
+{
+  "subject": "moss_golem_v2",
+  "animation": "idle_v2",
+  "wired_runtime_animation": "idle",
+  "frame_size": [
+    1152,
+    1152
+  ],
+  "frames_per_direction": 4,
+  "directions": [
+    "south",
+    "southeast",
+    "east",
+    "northeast",
+    "north",
+    "northwest",
+    "west",
+    "southwest"
+  ],
+  "row_order": [
+    "south",
+    "southeast",
+    "east",
+    "northeast",
+    "north",
+    "northwest",
+    "west",
+    "southwest"
+  ],
+  "columns": 4,
+  "profile": "monster_large_action_1152 / extra-large moss golem idle",
+  "anchor": {
+    "x": 576,
+    "y": 1128
+  },
+  "source_frame_size": [
+    128,
+    128
+  ],
+  "normalization": {
+    "shared_scale": 4.869565217391305,
+    "max_source_bbox": [
+      108,
+      115
+    ],
+    "target_content_height": 560,
+    "target_content_width": 620,
+    "resampling": "nearest"
+  },
+  "background": "transparent frames/sheet; green previews only",
+  "notes": [
+    "Organized from user-supplied idle_v2 intake.",
+    "Scaled into the same 1152x1152 extra-large action canvas used by moss_golem_v2 rock_slam and rock_spray.",
+    "Frames are bottom-center anchored at x=576, y=1128 to match the existing moss golem action baseline.",
+    "Runtime idle animation is wired to load this idle_v2 folder."
+  ],
+  "files": {
+    "sheet": "D:\\projects\\MotherSeed2D\\assets\\monsters\\moss_golem_v2\\idle_v2\\assembled\\moss_golem_v2_idle_v2_8dir_4f_1152x1152.png",
+    "preview_quarter": "D:\\projects\\MotherSeed2D\\assets\\monsters\\moss_golem_v2\\idle_v2\\assembled\\moss_golem_v2_idle_v2_8dir_4f_1152x1152_preview_quarter.png",
+    "green_preview": "D:\\projects\\MotherSeed2D\\assets\\monsters\\moss_golem_v2\\idle_v2\\assembled\\moss_golem_v2_idle_v2_8dir_4f_1152x1152_green_preview.png",
+    "frames_dir": "D:\\projects\\MotherSeed2D\\assets\\monsters\\moss_golem_v2\\idle_v2\\frames"
+  }
+}

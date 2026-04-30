@@ -1,0 +1,208 @@
+{
+  "subject": "green_warrior_v4",
+  "animation": "special",
+  "variant": "spinning_special_attack",
+  "directionMode": "down_only",
+  "directions": [
+    "down"
+  ],
+  "runtimeFallback": "all non-down attack2 directions use special_down frames",
+  "frame_size": [
+    192,
+    192
+  ],
+  "frames_per_direction": 8,
+  "frameCount": 8,
+  "duration_ms": 160,
+  "baseline_y": 181,
+  "normalization": "generated from canonical v4 attack_down frames, transparent 192x192 canvas, stable baseline, procedural green-gold circular sword spin effects",
+  "assembled": "assembled/green_warrior_v4_special_down_spin_8f_192x192.png",
+  "generatedSource": "raw/generated_spin_special/spin_special_down_20260430_101032",
+  "previousCanonicalArchive": "raw/replaced_canonical_outputs/special_previous_20260430_101032",
+  "maxOutputBBox": [
+    177,
+    178
+  ],
+  "strictGreenRecolored": 0,
+  "strictMagentaRecolored": 0,
+  "strictGreenVisibleAfterRebuild": 0,
+  "strictMagentaVisibleAfterRebuild": 0,
+  "frames": [
+    {
+      "direction": "down",
+      "frame": 1,
+      "file": "frames/special_down_01.png",
+      "source": "raw/generated_spin_special/spin_special_down_20260430_101032/spin_special_down_source_01_attack_down_01.png",
+      "baseAttackFrame": "attack/frames/attack_down_01.png",
+      "bodyOffset": [
+        0,
+        0
+      ],
+      "spinAngleDegrees": 210,
+      "effectRadius": [
+        52,
+        18
+      ],
+      "bbox": [
+        26,
+        5,
+        166,
+        181
+      ]
+    },
+    {
+      "direction": "down",
+      "frame": 2,
+      "file": "frames/special_down_02.png",
+      "source": "raw/generated_spin_special/spin_special_down_20260430_101032/spin_special_down_source_02_attack_down_02.png",
+      "baseAttackFrame": "attack/frames/attack_down_02.png",
+      "bodyOffset": [
+        -2,
+        1
+      ],
+      "spinAngleDegrees": 250,
+      "effectRadius": [
+        62,
+        24
+      ],
+      "bbox": [
+        32,
+        4,
+        161,
+        182
+      ]
+    },
+    {
+      "direction": "down",
+      "frame": 3,
+      "file": "frames/special_down_03.png",
+      "source": "raw/generated_spin_special/spin_special_down_20260430_101032/spin_special_down_source_03_attack_down_04.png",
+      "baseAttackFrame": "attack/frames/attack_down_04.png",
+      "bodyOffset": [
+        2,
+        -1
+      ],
+      "spinAngleDegrees": 295,
+      "effectRadius": [
+        72,
+        30
+      ],
+      "bbox": [
+        22,
+        2,
+        171,
+        180
+      ]
+    },
+    {
+      "direction": "down",
+      "frame": 4,
+      "file": "frames/special_down_04.png",
+      "source": "raw/generated_spin_special/spin_special_down_20260430_101032/spin_special_down_source_04_attack_down_05.png",
+      "baseAttackFrame": "attack/frames/attack_down_05.png",
+      "bodyOffset": [
+        0,
+        -2
+      ],
+      "spinAngleDegrees": 335,
+      "effectRadius": [
+        82,
+        34
+      ],
+      "bbox": [
+        8,
+        42,
+        184,
+        179
+      ]
+    },
+    {
+      "direction": "down",
+      "frame": 5,
+      "file": "frames/special_down_05.png",
+      "source": "raw/generated_spin_special/spin_special_down_20260430_101032/spin_special_down_source_05_attack_down_06.png",
+      "baseAttackFrame": "attack/frames/attack_down_06.png",
+      "bodyOffset": [
+        1,
+        -1
+      ],
+      "spinAngleDegrees": 20,
+      "effectRadius": [
+        86,
+        36
+      ],
+      "bbox": [
+        8,
+        18,
+        185,
+        180
+      ]
+    },
+    {
+      "direction": "down",
+      "frame": 6,
+      "file": "frames/special_down_06.png",
+      "source": "raw/generated_spin_special/spin_special_down_20260430_101032/spin_special_down_source_06_attack_down_05.png",
+      "baseAttackFrame": "attack/frames/attack_down_05.png",
+      "bodyOffset": [
+        -1,
+        0
+      ],
+      "spinAngleDegrees": 65,
+      "effectRadius": [
+        76,
+        32
+      ],
+      "bbox": [
+        7,
+        44,
+        183,
+        181
+      ]
+    },
+    {
+      "direction": "down",
+      "frame": 7,
+      "file": "frames/special_down_07.png",
+      "source": "raw/generated_spin_special/spin_special_down_20260430_101032/spin_special_down_source_07_attack_down_04.png",
+      "baseAttackFrame": "attack/frames/attack_down_04.png",
+      "bodyOffset": [
+        2,
+        1
+      ],
+      "spinAngleDegrees": 115,
+      "effectRadius": [
+        64,
+        25
+      ],
+      "bbox": [
+        24,
+        4,
+        171,
+        182
+      ]
+    },
+    {
+      "direction": "down",
+      "frame": 8,
+      "file": "frames/special_down_08.png",
+      "source": "raw/generated_spin_special/spin_special_down_20260430_101032/spin_special_down_source_08_attack_down_02.png",
+      "baseAttackFrame": "attack/frames/attack_down_02.png",
+      "bodyOffset": [
+        0,
+        0
+      ],
+      "spinAngleDegrees": 165,
+      "effectRadius": [
+        54,
+        20
+      ],
+      "bbox": [
+        35,
+        3,
+        157,
+        181
+      ]
+    }
+  ]
+}
