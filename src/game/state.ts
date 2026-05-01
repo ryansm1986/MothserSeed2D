@@ -2,6 +2,8 @@ import { characterClasses } from "./content/classes";
 import { world } from "./world/arena";
 import type {
   AnimationName,
+  AutoAttackLoopState,
+  BranchLatticeState,
   CardinalDirectionName,
   ClassId,
   CombatState,
@@ -170,6 +172,8 @@ export type CombatRuntimeState = {
   targetLocked: boolean;
   droppedGear: GearDrop | null;
   equippedGear: GearDrop;
+  branchLattice: BranchLatticeState;
+  autoLoop: AutoAttackLoopState;
   playerRespawnTimer: number;
   respawnTimer: number;
   roomIndex: number;
@@ -181,6 +185,7 @@ export type UiFlowState = {
   isCharacterSelectActive: boolean;
   isPaused: boolean;
   isInventoryOpen: boolean;
+  isBranchLatticeOpen: boolean;
   pauseMenuSource: "gameplay" | "title" | null;
 };
 
@@ -285,11 +290,14 @@ export function createInitialGameState(selectedClassId: ClassId = "warrior"): Ga
       targetLocked: true,
       droppedGear: null,
       equippedGear: {
-        name: "Recruit's Buckler",
+        name: "Recruit's Greatsword",
         rarity: "Common",
         power: 0,
         ability: "Every third auto-attack deals +5 damage.",
+        frame: createFrameGear(selectedClassId, "Common"),
       },
+      branchLattice: createBranchLatticeState(selectedClassId, "Common"),
+      autoLoop: createAutoAttackLoopState(),
       playerRespawnTimer: 0,
       respawnTimer: 0,
       roomIndex: 0,
@@ -300,6 +308,7 @@ export function createInitialGameState(selectedClassId: ClassId = "warrior"): Ga
       isCharacterSelectActive: false,
       isPaused: false,
       isInventoryOpen: false,
+      isBranchLatticeOpen: false,
       pauseMenuSource: null,
     },
   };
@@ -309,8 +318,19 @@ export function selectedClass(state: GameState) {
   return characterClasses[state.selectedClassId];
 }
 
-export function activeAbilities(state: GameState) {
-  return selectedClass(state).abilities;
+export function activeWeaponSpecials(state: GameState) {
+  const specials = state.combat.equippedGear.frame.weaponSpecials.length > 0
+    ? state.combat.equippedGear.frame.weaponSpecials
+    : selectedClass(state).abilities;
+
+  return specials.map((special, index) => ({ ...special, key: String(index + 1) }));
+}
+
+export function activeLatticeSequence(state: GameState) {
+  const options = state.combat.equippedGear.frame.latticeAbilityOptions;
+  return state.combat.branchLattice.abilitySlotIds.map((optionId) =>
+    optionId ? options.find((candidate) => candidate.id === optionId) ?? null : null,
+  );
 }
 
 export function allEnemies(state: GameState): EnemyState[] {
@@ -349,7 +369,13 @@ export function createEnemyAttackCooldowns(): Record<TelegraphKind, number> {
 }
 
 export function isGameplayActive(state: GameState) {
-  return !state.ui.isTitleActive && !state.ui.isCharacterSelectActive && !state.ui.isPaused && !state.ui.isInventoryOpen;
+  return (
+    !state.ui.isTitleActive &&
+    !state.ui.isCharacterSelectActive &&
+    !state.ui.isPaused &&
+    !state.ui.isInventoryOpen &&
+    !state.ui.isBranchLatticeOpen
+  );
 }
 
 export function isGameplayVisible(state: GameState) {
@@ -368,6 +394,9 @@ export function applySelectedClass(state: GameState, classId: ClassId = state.se
   state.player.maxMeter = currentClass.stats.meter;
   state.player.meter = 0;
   state.combat.cooldowns = {};
+  state.combat.equippedGear.frame = createFrameGear(classId, state.combat.equippedGear.rarity);
+  state.combat.branchLattice = createBranchLatticeState(classId, state.combat.equippedGear.rarity);
+  state.combat.autoLoop = createAutoAttackLoopState();
   return true;
 }
 
@@ -377,4 +406,120 @@ export function logEvent(message: string, detail = ""): GameEvent {
 
 export function soundEvent(id: SoundEventId): GameEvent {
   return { kind: "sound", id };
+}
+
+export function createBranchLatticeState(classId: ClassId, rarity: GearDrop["rarity"]): BranchLatticeState {
+  const frame = createFrameGear(classId, rarity);
+  return {
+    abilitySlotIds: [frame.latticeAbilityOptions[0]?.id ?? null, null, null, null],
+    modifierSlotIds: [null, null, null, null],
+    selectedAbilitySlot: 0,
+    selectedModifierSlot: 0,
+    isPreviewOpen: false,
+  };
+}
+
+export function createAutoAttackLoopState(): AutoAttackLoopState {
+  return {
+    currentSlotIndex: 0,
+    slotTimer: 0,
+    restartTimer: 0,
+    hasteTimer: 0,
+    hasteMultiplier: 1,
+    lastResolvedKind: null,
+  };
+}
+
+export function createFrameGear(classId: ClassId, rarity: GearDrop["rarity"]) {
+  const weaponSpecials = characterClasses[classId].abilities.map((ability, index) => ({ ...ability, key: String(index + 1) }));
+  const isMage = classId === "mage";
+  const weaponRange = isMage ? 520 : 120;
+  const latticeAbilityOptions = [
+    {
+      id: "lattice:basic-attack-1",
+      kind: "basic_attack_1" as const,
+      name: "Basic Attack 1",
+      detail: "Weapon auto strike. Feeds later combo abilities.",
+      glyph: "A1",
+      range: weaponRange,
+      baseCooldown: 0.82,
+    },
+    {
+      id: "lattice:haste-1s",
+      kind: "haste" as const,
+      name: "Haste",
+      detail: "Speeds up the rest of the auto sequence for 1 second.",
+      glyph: "HS",
+      range: 999,
+      baseCooldown: 0.28,
+      duration: 1,
+    },
+    {
+      id: "lattice:combo-attack",
+      kind: "combo_attack" as const,
+      name: "Combo Attack",
+      detail: "Chains after Basic Attack 1 for an extra weapon hit.",
+      glyph: "CA",
+      range: weaponRange,
+      baseCooldown: 0.74,
+    },
+  ];
+
+  const commonModifiers = [
+    {
+      id: "mod:fire",
+      name: "Fire Modifier",
+      detail: "Adds a small fire hit to compatible auto abilities.",
+      glyph: "FI",
+      tone: "common" as const,
+    },
+    {
+      id: "mod:sap-fed",
+      name: "Sap Fed",
+      detail: "Preview: slightly improves meter economy.",
+      glyph: "SF",
+      tone: "common" as const,
+    },
+  ];
+  const uncommonModifiers = [
+    {
+      id: "mod:quickroot",
+      name: "Quickroot",
+      detail: "Preview: trims recovery windows.",
+      glyph: "QR",
+      tone: "uncommon" as const,
+    },
+    {
+      id: "mod:amber-vein",
+      name: "Amber Vein",
+      detail: "Preview: increases burst potential.",
+      glyph: "AV",
+      tone: "uncommon" as const,
+    },
+  ];
+  const rareModifiers = [
+    {
+      id: "mod:motherseed-echo",
+      name: "Motherseed Echo",
+      detail: "Preview: repeats a portion of the linked effect.",
+      glyph: "ME",
+      tone: "rare" as const,
+    },
+    {
+      id: "mod:star-bloom",
+      name: "Star Bloom",
+      detail: "Preview: widens the linked branch's area.",
+      glyph: "SB",
+      tone: "rare" as const,
+    },
+  ];
+
+  const modifierOptions =
+    rarity === "Rare"
+      ? [...commonModifiers, ...uncommonModifiers, ...rareModifiers]
+      : rarity === "Uncommon"
+        ? [...commonModifiers, ...uncommonModifiers]
+        : commonModifiers;
+
+  return { weaponSpecials, latticeAbilityOptions, modifierOptions };
 }

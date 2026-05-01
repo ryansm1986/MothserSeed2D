@@ -1,4 +1,4 @@
-import { activeAbilities, selectedClass, type GameState } from "../game/state";
+import { activeLatticeSequence, activeWeaponSpecials, selectedClass, type GameState } from "../game/state";
 
 type InventoryItem = {
   name: string;
@@ -35,7 +35,8 @@ function renderItem(item: InventoryItem, className = "") {
 
 export function renderInventory(state: GameState): InventoryViewModel {
   const currentClass = selectedClass(state);
-  const abilities = activeAbilities(state);
+  const specials = activeWeaponSpecials(state);
+  const autoAbilities = activeLatticeSequence(state).filter((ability): ability is NonNullable<typeof ability> => Boolean(ability));
   const gear = state.combat.equippedGear;
   const droppedGear = state.combat.droppedGear;
   const accent = currentClass.accent;
@@ -66,7 +67,7 @@ export function renderInventory(state: GameState): InventoryViewModel {
     { label: "Legs", item: { name: "Rootguard Greaves", detail: "Steady footing over roots and ruin.", glyph: "LG", tone: "common" as const } },
     { label: "Amulet", item: { name: "Seed Amulet", detail: "A living keepsake bound to the grove.", glyph: "AM", tone: "rare" as const } },
     { label: "Ring", item: { name: "Root Ring", detail: "A carved ring warm with saplight.", glyph: "R1", tone: "uncommon" as const } },
-    { label: "Ring", item: abilities[0] ? { name: `${abilities[0].name} Signet`, detail: `${abilities[0].cost} meter`, glyph: "R2", tone: "class" as const } : null },
+    { label: "Ring", item: specials[0] ? { name: `${specials[0].name} Signet`, detail: `${specials[0].cost} meter`, glyph: "R2", tone: "class" as const } : null },
     { label: "Feet", item: { name: "Trail Boots", detail: "Soft steps over roots and ruin.", glyph: "BT", tone: "common" as const } },
   ];
 
@@ -83,11 +84,17 @@ export function renderInventory(state: GameState): InventoryViewModel {
     { name: "Verdant Flask", detail: "Restores a small burst of life.", glyph: "LF", tone: "uncommon" },
     { name: "Bluecap Draught", detail: "Restores stamina after a sprint.", glyph: "ST", tone: "common" },
     { name: "Amber Seed", detail: "A warm seed for difficult fights.", glyph: "SD", tone: "rare" },
-    ...abilities.map((ability) => ({
-      name: ability.name,
-      detail: `${ability.cost} meter, ${ability.cooldown}s recovery`,
-      glyph: ability.key,
+    ...specials.map((special) => ({
+      name: special.name,
+      detail: `Weapon special: ${special.cost} meter, ${special.cooldown}s recovery`,
+      glyph: special.key,
       tone: "class" as const,
+    })),
+    ...autoAbilities.map((ability) => ({
+      name: ability.name,
+      detail: `Auto loop: ${ability.detail}`,
+      glyph: ability.glyph,
+      tone: "uncommon" as const,
     })),
     { name: gear.name, detail: gear.ability, glyph: gear.rarity[0], tone: gearTone },
   ];
@@ -116,7 +123,12 @@ export function renderInventory(state: GameState): InventoryViewModel {
   const potionsHtml = potionItems.map((item) => renderItem(item, "quick")).join("");
   const featured = droppedGear
     ? { name: droppedGear.name, detail: droppedGear.ability, rarity: droppedGear.rarity, note: "New drop" }
-    : { name: gear.name, detail: gear.ability, rarity: gear.rarity, note: "Equipped gear" };
+    : {
+        name: gear.name,
+        detail: `${gear.ability} Specials: ${gear.frame.weaponSpecials.map((special) => special.name).join(", ") || "None"}. Auto: ${gear.frame.latticeAbilityOptions.map((ability) => ability.name).join(", ") || "None"}.`,
+        rarity: gear.rarity,
+        note: "Equipped gear",
+      };
   const detailsHtml = `
     <span>${escapeHtml(featured.note)}</span>
     <strong>${escapeHtml(featured.name)}</strong>

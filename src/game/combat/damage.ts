@@ -2,6 +2,7 @@ import { world } from "../world/arena";
 import { generateGear } from "./gear";
 import {
   allEnemies,
+  createAutoAttackLoopState,
   livingEnemies,
   logEvent,
   promoteEnemy,
@@ -39,7 +40,7 @@ export function dealSpecificEnemyDamage(state: GameState, enemy: EnemyState, amo
       state.combat.shroomSporeClouds.length = 0;
       state.combat.shroomlings.length = 0;
       state.combat.treeGoblinHeads.length = 0;
-      state.combat.droppedGear = generateGear();
+      state.combat.droppedGear = generateGear(state.selectedClassId);
       state.combat.respawnTimer = 5.2;
       events.push(logEvent(`${state.combat.droppedGear.rarity} drop: ${state.combat.droppedGear.name}`, "Press E to equip"));
     }
@@ -82,6 +83,7 @@ export function defeatPlayer(state: GameState, events: GameEvent[]) {
   state.combat.shroomSporeClouds.length = 0;
   state.combat.shroomlings.length = 0;
   state.combat.treeGoblinHeads.length = 0;
+  state.combat.autoLoop = createAutoAttackLoopState();
   state.combat.playerRespawnTimer = 3.2;
   events.push(logEvent("You fall", "Regrowing at the grove heart"));
 }
@@ -104,6 +106,7 @@ export function respawnPlayer(state: GameState, events: GameEvent[]) {
   state.combat.pendingMagicMissileCast = null;
   state.combat.pendingMoonfallCast = null;
   state.combat.cooldowns = {};
+  state.combat.autoLoop = createAutoAttackLoopState();
   state.combat.motherslashWaves.length = 0;
   state.combat.enemyRockThrows.length = 0;
   state.combat.shroomSporeClouds.length = 0;
@@ -115,6 +118,7 @@ export function respawnPlayer(state: GameState, events: GameEvent[]) {
 export function respawnEnemy(state: GameState, events: GameEvent[]) {
   spawnRoomEnemy(state);
   clearRoomProjectiles(state);
+  state.combat.autoLoop = createAutoAttackLoopState();
   const encounterNames = [state.enemy, ...state.extraEnemies].map((enemy) => enemy.name).join(" and ");
   events.push(logEvent(`${encounterNames} enter the circle`, ""));
 }

@@ -7,7 +7,7 @@ export const characterClasses: Record<ClassId, CharacterClass> = {
     id: "warrior",
     name: "Warrior",
     title: "Oathbound Vanguard",
-    weapon: "Sword and Shield",
+    weapon: "Two-Handed Sword",
     role: "Spin through close range and send cyclone waves across the grove.",
     status: "Implemented",
     implemented: true,

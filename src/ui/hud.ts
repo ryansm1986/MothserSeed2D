@@ -1,4 +1,4 @@
-import { activeAbilities, allEnemies, livingEnemies, selectedClass, type GameState } from "../game/state";
+import { activeLatticeSequence, activeWeaponSpecials, allEnemies, livingEnemies, selectedClass, type GameState } from "../game/state";
 
 export type HudViewModel = {
   playerHtml: string;
@@ -25,6 +25,14 @@ export function renderHud(state: GameState): HudViewModel {
   const activeEnemyCount = livingEnemies(state).length;
   const gear = state.combat.equippedGear;
   const droppedGear = state.combat.droppedGear;
+  const autoLoop = state.combat.autoLoop;
+  const currentAutoAbility = activeLatticeSequence(state)[autoLoop.currentSlotIndex];
+  const autoStatus = autoLoop.restartTimer > 0
+    ? `Restart ${autoLoop.restartTimer.toFixed(1)}s`
+    : currentAutoAbility
+      ? `${currentAutoAbility.name}${autoLoop.slotTimer > 0 ? ` ${autoLoop.slotTimer.toFixed(1)}s` : ""}`
+      : "No auto";
+  const hasteStatus = autoLoop.hasteTimer > 0 ? `Haste ${autoLoop.hasteTimer.toFixed(1)}s` : "Normal";
   const targetHtml = state.combat.targetLocked
     ? `
       <div class="label-row"><strong>${state.enemy.name}</strong><span>${state.enemy.state === "dead" ? "Respawning" : `${Math.ceil(state.enemy.health)} / ${state.enemy.maxHealth}`}</span></div>
@@ -32,6 +40,8 @@ export function renderHud(state: GameState): HudViewModel {
       <div class="label-row"><span>Chain</span><span>${state.enemy.chainTag || "None"}</span></div>
       <div class="label-row"><span>Encounter</span><span>${activeEnemyCount} / ${encounterCount}</span></div>
       <div class="label-row"><span>Gear</span><span>${gear.rarity}</span></div>
+      <div class="label-row"><span>Auto Loop</span><span>${autoStatus}</span></div>
+      <div class="label-row"><span>Tempo</span><span>${hasteStatus}</span></div>
       <div class="${droppedGear ? "loot" : ""}">${droppedGear ? `${droppedGear.name}: ${droppedGear.ability}` : gear.ability}</div>
     `
     : `
@@ -39,10 +49,11 @@ export function renderHud(state: GameState): HudViewModel {
       <div class="bar"><div class="fill target-health" style="--value:0"></div></div>
       <div class="label-row"><span>Chain</span><span>None</span></div>
       <div class="label-row"><span>Gear</span><span>${gear.rarity}</span></div>
+      <div class="label-row"><span>Auto Loop</span><span>${autoStatus}</span></div>
       <div class="${droppedGear ? "loot" : ""}">${droppedGear ? `${droppedGear.name}: ${droppedGear.ability}` : gear.ability}</div>
     `;
 
-  const abilitiesHtml = activeAbilities(state)
+  const abilitiesHtml = activeWeaponSpecials(state)
     .map((ability) => {
       const cooldown = state.combat.cooldowns[ability.id] ?? 0;
       const ready = cooldown <= 0 && state.player.meter >= ability.cost;

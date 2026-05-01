@@ -1,0 +1,36 @@
+{
+  "source": "assets/ui/Title_No_Text.png",
+  "size": [
+    1942,
+    809
+  ],
+  "frames": [
+    "assets/ui/title-animation/title-no-text-fx-00.png",
+    "assets/ui/title-animation/title-no-text-fx-01.png",
+    "assets/ui/title-animation/title-no-text-fx-02.png",
+    "assets/ui/title-animation/title-no-text-fx-03.png",
+    "assets/ui/title-animation/title-no-text-fx-04.png",
+    "assets/ui/title-animation/title-no-text-fx-05.png",
+    "assets/ui/title-animation/title-no-text-fx-06.png",
+    "assets/ui/title-animation/title-no-text-fx-07.png",
+    "assets/ui/title-animation/title-no-text-fx-08.png",
+    "assets/ui/title-animation/title-no-text-fx-09.png",
+    "assets/ui/title-animation/title-no-text-fx-10.png",
+    "assets/ui/title-animation/title-no-text-fx-11.png",
+    "assets/ui/title-animation/title-no-text-fx-12.png",
+    "assets/ui/title-animation/title-no-text-fx-13.png",
+    "assets/ui/title-animation/title-no-text-fx-14.png",
+    "assets/ui/title-animation/title-no-text-fx-15.png"
+  ],
+  "animatedWebp": "assets/ui/title-animation/title-no-text-fx.webp",
+  "previewGif": "assets/ui/title-animation/title-no-text-fx-preview.gif",
+  "frameDurationMs": 95,
+  "effects": [
+    "subtle central glow pulse",
+    "localized warm light response",
+    "lake-only shimmer",
+    "tight waterfall vertical flow",
+    "small firefly twinkles"
+  ],
+  "notes": "Rebuilt from the original source image with no full-frame scanline, stripe, or banding overlays."
+}

@@ -14,14 +14,14 @@
 
 ## Game State And Simulation
 
-- `src/game/state.ts` defines player, enemy, combat runtime, UI flow, and events.
+- `src/game/state.ts` defines player, enemy, combat runtime, weapon Specials, Branch Lattice auto-loop state, UI flow, and events.
 - `src/game/simulation.ts` coordinates the frame update and returns `GameEvent[]`.
 - `src/game/combat/player.ts` owns movement, stamina, dodge, target lock, and facing.
 - `src/game/combat/enemy-ai.ts` owns Rootbound Elite movement, windup/active/recovery states, and hit checks.
-- `src/game/combat/abilities.ts` owns auto attacks, cooldowns, and special dispatch by `ability.id`.
+- `src/game/combat/abilities.ts` owns Branch Lattice auto-loop execution, weapon Special cooldowns, and special dispatch by `special.id`.
 - `src/game/combat/projectiles.ts` owns Magic Missile and Moonfall state updates.
 - `src/game/combat/damage.ts` owns damage, chains, death, respawn, and loot drop transitions.
-- `src/game/combat/gear.ts` owns gear generation and equipping.
+- `src/game/combat/gear.ts` owns gear generation, weapon Special/frame option generation, equipping, and Branch Lattice assignment normalization.
 
 ## Content And World
 
@@ -46,6 +46,7 @@
 - `src/ui/hud.ts` creates and applies the HUD view model.
 - `src/ui/character-select.ts` creates and applies character select view models.
 - `src/ui/inventory.ts` creates and applies the DOM inventory view model.
+- `src/ui/branch-lattice.ts` creates and applies the Branch Lattice overlay view model.
 - `src/ui/mobile-controls.ts` maps phone-only virtual controls onto the existing `InputState`.
 - `src/ui/pause-menu.ts` owns pause tabs and copy.
 - `src/ui/event-log.ts` applies log events.

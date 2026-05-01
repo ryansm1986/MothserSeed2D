@@ -44,15 +44,60 @@ export type GearDrop = {
   rarity: "Common" | "Uncommon" | "Rare";
   power: number;
   ability: string;
+  frame: FrameGear;
 };
 
-export type Ability = {
+export type SpecialAbility = {
   key: string;
   id: string;
   name: string;
   cost: number;
   cooldown: number;
   range: number;
+};
+
+export type LatticeAbilityKind = "basic_attack_1" | "combo_attack" | "haste";
+
+export type LatticeAbilityOption = {
+  id: string;
+  kind: LatticeAbilityKind;
+  name: string;
+  detail: string;
+  glyph: string;
+  range: number;
+  baseCooldown: number;
+  duration?: number;
+};
+
+export type FrameModifierOption = {
+  id: string;
+  name: string;
+  detail: string;
+  glyph: string;
+  tone: "common" | "uncommon" | "rare";
+};
+
+export type FrameGear = {
+  weaponSpecials: SpecialAbility[];
+  latticeAbilityOptions: LatticeAbilityOption[];
+  modifierOptions: FrameModifierOption[];
+};
+
+export type BranchLatticeState = {
+  abilitySlotIds: Array<string | null>;
+  modifierSlotIds: Array<string | null>;
+  selectedAbilitySlot: number | null;
+  selectedModifierSlot: number | null;
+  isPreviewOpen: boolean;
+};
+
+export type AutoAttackLoopState = {
+  currentSlotIndex: number;
+  slotTimer: number;
+  restartTimer: number;
+  hasteTimer: number;
+  hasteMultiplier: number;
+  lastResolvedKind: LatticeAbilityKind | null;
 };
 
 export type ClassId = "warrior" | "ranger" | "mage" | "thief" | "cleric";
@@ -73,5 +118,5 @@ export type CharacterClass = {
     stamina: number;
     meter: number;
   };
-  abilities: Ability[];
+  abilities: SpecialAbility[];
 };

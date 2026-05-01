@@ -9,6 +9,7 @@ export type MobileControlElements = {
   specialButtons: HTMLButtonElement[];
   equipButton: HTMLButtonElement;
   inventoryButton: HTMLButtonElement;
+  branchLatticeButton: HTMLButtonElement;
   pauseButton: HTMLButtonElement;
   rotatePrompt: HTMLElement;
 };
@@ -28,6 +29,7 @@ type MobileControlOptions = {
   onSpecial(index: number): void;
   onEquip(): void;
   onInventory(): void;
+  onBranchLattice(): void;
   onPause(): void;
 };
 
@@ -136,6 +138,7 @@ export function createMobileControls(options: MobileControlOptions): MobileContr
   bindCommandButton(elements.targetButton, options.onTarget, options.canUseGameplayInput);
   bindCommandButton(elements.equipButton, options.onEquip, options.canUseGameplayInput);
   bindCommandButton(elements.inventoryButton, options.onInventory);
+  bindCommandButton(elements.branchLatticeButton, options.onBranchLattice);
   bindCommandButton(elements.pauseButton, options.onPause);
   elements.specialButtons.forEach((button, index) => {
     bindCommandButton(button, () => options.onSpecial(index), options.canUseGameplayInput);

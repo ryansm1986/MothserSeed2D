@@ -7,15 +7,15 @@ The game is a custom Canvas 2D and TypeScript prototype. Character select and HU
 ## Core Files
 
 - `src/game/types.ts`
-  Defines `ClassId`, `CharacterClass`, `Ability`, animation names, and shared gameplay types.
+  Defines `ClassId`, `CharacterClass`, `SpecialAbility`, Branch Lattice auto ability types, animation names, and shared gameplay types.
 - `src/game/content/classes.ts`
-  Defines character select data, stats, ability metadata, portraits, and character order.
+  Defines character select data, stats, starting weapon Special metadata, portraits, and character order.
 - `src/game/input-actions.ts`
   Maps physical keys to gameplay actions such as `special-1`, `special-2`, and `special-3`.
 - `src/game/state.ts`
   Defines serializable player, enemy, combat runtime, and UI flow state.
 - `src/game/combat/abilities.ts`
-  Dispatches auto attacks and special behavior by `ability.id`.
+  Dispatches Branch Lattice auto attacks and weapon Special behavior by `special.id`.
 - `src/render/canvas2d/character-sprites.ts`
   Loads playable character sprite frame sets.
 - `src/render/canvas2d/renderer.ts`
@@ -36,8 +36,8 @@ The current playable character path has these stages:
 3. `loadPlayerSprites()` in `src/render/canvas2d/character-sprites.ts` loads a `PlayerSpriteSet` for implemented classes.
 4. `renderer.ts` chooses the active sprite set for animation and drawing.
 5. `updatePlayer()` in `src/game/combat/player.ts` chooses movement/dodge animation intent.
-6. `updateAutoAttack()` in `src/game/combat/abilities.ts` runs default attacks.
-7. `castSpecial()` in `src/game/combat/abilities.ts` dispatches special behavior by `ability.id`.
+6. `updateAutoAttack()` in `src/game/combat/abilities.ts` runs the Branch Lattice auto-attack loop.
+7. `castSpecial()` in `src/game/combat/abilities.ts` dispatches weapon Special behavior by `special.id`.
 8. Projectile/spell state updates live in `src/game/combat/projectiles.ts`; visuals are drawn in `renderer.ts`.
 9. `renderHud()` reads state and ability metadata for the panels.
 
@@ -216,7 +216,7 @@ When a character mixes source canvas sizes, prefer `targetContentHeight` on its 
 
 ### 6. Implement The Default Attack
 
-Default attacks live in `updateAutoAttack()` in `src/game/combat/abilities.ts`.
+Default attacks are Branch Lattice auto abilities and live in `updateAutoAttack()` in `src/game/combat/abilities.ts`.
 
 For melee classes, use short range and direct damage:
 
@@ -255,7 +255,7 @@ Keep projectile state serializable where possible. Do not store canvas contexts,
 
 ### 7. Implement Specials
 
-Special metadata lives in `classes.ts`, but behavior is dispatched by `ability.id` in `castSpecial()` in `src/game/combat/abilities.ts`.
+Starting weapon Special metadata is seeded from `classes.ts`, but behavior is dispatched by `special.id` in `castSpecial()` in `src/game/combat/abilities.ts`.
 
 Use the ability metadata for:
 
@@ -333,7 +333,7 @@ Spell audio should be dispatched from gameplay timing, not draw code. For exampl
 Most HUD and character select UI updates automatically from `CharacterClass` data:
 
 - Character name and stats.
-- Ability names, keys, costs, cooldowns.
+- Weapon Special names, keys, costs, cooldowns.
 - Portrait and accent color.
 - Implemented or planned state.
 

@@ -1,9 +1,14 @@
 import titleImageUrl from "../../assets/Title.png?url";
+import titleNoTextAnimationUrl from "../../assets/ui/title-animation/title-no-text-fx.webp?url";
+import titleTextAnimationUrl from "../../assets/ui/title-text-shimmer-v2-alpha/title-text-shimmer-v2-alpha-extended-22.webp?url";
 import inventoryPanelUrl from "../../assets/ui/inventory-panel-drawer-v2.png?url";
+import branchLatticeBackgroundUrl from "../../assets/ui/branch-lattice-background.png?url";
 
 export type AppShell = {
   shell: HTMLDivElement;
   titleScreen: HTMLElement;
+  titleBackgroundImage: HTMLImageElement;
+  titleLogoImage: HTMLImageElement;
   startButton: HTMLButtonElement;
   titleControlsButton: HTMLButtonElement;
   titleSoundButton: HTMLButtonElement;
@@ -26,6 +31,13 @@ export type AppShell = {
   inventoryPack: HTMLElement;
   inventoryPotions: HTMLElement;
   inventoryDetails: HTMLElement;
+  branchLatticeMenu: HTMLElement;
+  branchLatticeFrame: HTMLDivElement;
+  branchLatticeCloseButton: HTMLButtonElement;
+  branchLatticeAbilities: HTMLElement;
+  branchLatticeModifiers: HTMLElement;
+  branchLatticeSockets: HTMLElement;
+  branchLatticeDetails: HTMLElement;
   pauseMenu: HTMLElement;
   pauseFrame: HTMLDivElement;
   pauseKicker: HTMLElement;
@@ -45,6 +57,7 @@ export type AppShell = {
   mobileSpecialButtons: HTMLButtonElement[];
   mobileEquipButton: HTMLButtonElement;
   mobileInventoryButton: HTMLButtonElement;
+  mobileBranchLatticeButton: HTMLButtonElement;
   mobilePauseButton: HTMLButtonElement;
   mobileRotatePrompt: HTMLElement;
   canvas: HTMLCanvasElement;
@@ -59,7 +72,9 @@ export function createAppShell(): AppShell {
 
   app.innerHTML = `
     <div class="game-shell"></div>
-    <section class="title-screen" style="--title-image: url('${titleImageUrl}')">
+    <section class="title-screen" style="--title-image: url('${titleNoTextAnimationUrl}')">
+      <img class="title-background-preload" src="${titleNoTextAnimationUrl}" alt="" aria-hidden="true" decoding="async" fetchpriority="high" />
+      <img class="title-logo-animation" src="${titleTextAnimationUrl}" alt="MotherSeed" decoding="async" fetchpriority="high" />
       <nav class="title-menu" aria-label="Main menu">
         <button class="title-menu-option start-button" type="button">Start</button>
         <button class="title-menu-option title-controls-button" type="button">Controls</button>
@@ -110,6 +125,7 @@ export function createAppShell(): AppShell {
           <div><kbd>1-3</kbd><span>Specials</span></div>
           <div><kbd>E</kbd><span>Equip</span></div>
           <div><kbd>I</kbd><span>Inventory</span></div>
+          <div><kbd>O</kbd><span>Lattice</span></div>
         </section>
       </div>
     </div>
@@ -129,6 +145,36 @@ export function createAppShell(): AppShell {
           <section class="inventory-potions" id="inventory-potions" aria-label="Quick items"></section>
           <aside class="inventory-details" id="inventory-details"></aside>
         </div>
+      </div>
+    </section>
+    <section class="branch-lattice-menu is-hidden" role="dialog" aria-modal="true" aria-labelledby="branch-lattice-title" style="--branch-lattice-art: url('${branchLatticeBackgroundUrl}')">
+      <div class="branch-lattice-frame" tabindex="-1">
+        <header class="branch-lattice-header">
+          <div class="branch-title-ornament"></div>
+          <h1 id="branch-lattice-title">Branch Lattice</h1>
+          <button class="branch-lattice-close-button" type="button" aria-label="Close Branch Lattice">Close</button>
+        </header>
+        <div class="branch-lattice-content">
+          <aside class="branch-panel branch-abilities-panel" aria-label="Frame auto abilities">
+            <h2>Auto Abilities</h2>
+            <div class="branch-ability-list" id="branch-ability-list"></div>
+          </aside>
+          <section class="branch-lattice-column" aria-label="Lattice sockets">
+            <div class="branch-vines" id="branch-sockets"></div>
+          </section>
+          <aside class="branch-panel branch-modifiers-panel" aria-label="Frame modifiers">
+            <h2>Modifiers</h2>
+            <div class="branch-modifier-list" id="branch-modifier-list"></div>
+          </aside>
+        </div>
+        <aside class="branch-lattice-details" id="branch-lattice-details"></aside>
+        <footer class="branch-lattice-footer">
+          <div><kbd>Mouse</kbd><span>Slot option</span></div>
+          <div><kbd>R</kbd><span>Remove modifier</span></div>
+          <div><kbd>C</kbd><span>Clear branch</span></div>
+          <div><kbd>P</kbd><span>Preview</span></div>
+          <div><kbd>Esc</kbd><span>Back</span></div>
+        </footer>
       </div>
     </section>
     <section class="pause-menu is-hidden" role="dialog" aria-modal="true" aria-labelledby="pause-title">
@@ -158,6 +204,7 @@ export function createAppShell(): AppShell {
                 <div><kbd>3</kbd><span>Third special</span></div>
                 <div><kbd>E</kbd><span>Equip drop</span></div>
                 <div><kbd>I</kbd><span>Inventory</span></div>
+                <div><kbd>O</kbd><span>Branch Lattice</span></div>
                 <div><kbd>Esc</kbd><span>Pause</span></div>
               </div>
               <div class="control-list mobile-control-list" aria-label="Phone controls">
@@ -192,6 +239,7 @@ export function createAppShell(): AppShell {
     <section class="mobile-controls" aria-label="Phone gameplay controls">
       <div class="mobile-top-actions" aria-label="Phone menu controls">
         <button class="mobile-button mobile-inventory-button" type="button" aria-label="Open inventory">Bag</button>
+        <button class="mobile-button mobile-branch-lattice-button" type="button" aria-label="Open Branch Lattice">Lattice</button>
         <button class="mobile-button mobile-pause-button" type="button" aria-label="Pause game">Menu</button>
       </div>
       <div class="mobile-move-pad" role="application" aria-label="Move">
@@ -224,6 +272,8 @@ export function createAppShell(): AppShell {
   return {
     shell,
     titleScreen: document.querySelector<HTMLElement>(".title-screen")!,
+    titleBackgroundImage: document.querySelector<HTMLImageElement>(".title-background-preload")!,
+    titleLogoImage: document.querySelector<HTMLImageElement>(".title-logo-animation")!,
     startButton: document.querySelector<HTMLButtonElement>(".start-button")!,
     titleControlsButton: document.querySelector<HTMLButtonElement>(".title-controls-button")!,
     titleSoundButton: document.querySelector<HTMLButtonElement>(".title-sound-button")!,
@@ -246,6 +296,13 @@ export function createAppShell(): AppShell {
     inventoryPack: document.querySelector<HTMLElement>("#inventory-pack")!,
     inventoryPotions: document.querySelector<HTMLElement>("#inventory-potions")!,
     inventoryDetails: document.querySelector<HTMLElement>("#inventory-details")!,
+    branchLatticeMenu: document.querySelector<HTMLElement>(".branch-lattice-menu")!,
+    branchLatticeFrame: document.querySelector<HTMLDivElement>(".branch-lattice-frame")!,
+    branchLatticeCloseButton: document.querySelector<HTMLButtonElement>(".branch-lattice-close-button")!,
+    branchLatticeAbilities: document.querySelector<HTMLElement>("#branch-ability-list")!,
+    branchLatticeModifiers: document.querySelector<HTMLElement>("#branch-modifier-list")!,
+    branchLatticeSockets: document.querySelector<HTMLElement>("#branch-sockets")!,
+    branchLatticeDetails: document.querySelector<HTMLElement>("#branch-lattice-details")!,
     pauseMenu: document.querySelector<HTMLElement>(".pause-menu")!,
     pauseFrame: document.querySelector<HTMLDivElement>(".pause-frame")!,
     pauseKicker: document.querySelector<HTMLElement>(".pause-kicker")!,
@@ -265,6 +322,7 @@ export function createAppShell(): AppShell {
     mobileSpecialButtons: Array.from(document.querySelectorAll<HTMLButtonElement>(".mobile-special-button")),
     mobileEquipButton: document.querySelector<HTMLButtonElement>(".mobile-equip-button")!,
     mobileInventoryButton: document.querySelector<HTMLButtonElement>(".mobile-inventory-button")!,
+    mobileBranchLatticeButton: document.querySelector<HTMLButtonElement>(".mobile-branch-lattice-button")!,
     mobilePauseButton: document.querySelector<HTMLButtonElement>(".mobile-pause-button")!,
     mobileRotatePrompt: document.querySelector<HTMLElement>(".mobile-rotate-prompt")!,
     canvas,

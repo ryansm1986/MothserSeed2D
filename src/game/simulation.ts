@@ -76,7 +76,7 @@ function updateCombat(state: GameState, delta: number, events: GameEvent[], fram
   });
 
   updateBleed(state, delta, events);
-  updateAutoAttack(state, events);
+  updateAutoAttack(state, delta, events);
   updateEnemy(state, delta, events);
 }
 

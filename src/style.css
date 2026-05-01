@@ -155,13 +155,50 @@ canvas {
     var(--title-image) 50% 50% / cover no-repeat;
 }
 
+.title-background-preload {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.title-logo-animation {
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  top: clamp(18px, 5vh, 52px);
+  left: 50%;
+  width: min(1720px, 108vw);
+  max-width: none;
+  height: auto;
+  opacity: 0;
+  transform: translate(-50%, -8px);
+}
+
+.title-screen.is-title-intro-ready .title-logo-animation {
+  animation: title-logo-fade-in 700ms ease forwards;
+}
+
 .title-menu {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: grid;
   gap: 7px;
   justify-items: center;
   width: min(320px, 100%);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+}
+
+.title-screen.is-title-menu-ready .title-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition:
+    opacity 520ms ease,
+    transform 520ms ease;
 }
 
 .title-menu-option {
@@ -227,6 +264,18 @@ canvas {
 
 .title-screen .title-menu-option {
   cursor: pointer;
+}
+
+@keyframes title-logo-fade-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }
 
 .character-select {
@@ -1285,6 +1334,722 @@ canvas {
   content: "";
 }
 
+.branch-lattice-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  color: var(--ui-ink);
+  background:
+    radial-gradient(circle at 50% 18%, rgba(206, 255, 105, 0.2), transparent 18%),
+    radial-gradient(circle at 50% 52%, rgba(123, 196, 84, 0.18), transparent 34%),
+    linear-gradient(180deg, rgba(2, 7, 7, 0.94), rgba(4, 13, 10, 0.98));
+  backdrop-filter: blur(4px);
+}
+
+.branch-lattice-frame {
+  position: relative;
+  width: min(1180px, 100%);
+  height: min(920px, calc(100vh - 36px));
+  min-height: 620px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  gap: 12px;
+  overflow: hidden;
+  padding: clamp(18px, 2vw, 30px);
+  border: 1px solid rgba(255, 224, 138, 0.42);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(255, 224, 138, 0.28), transparent 10%, transparent 90%, rgba(255, 224, 138, 0.28)),
+    radial-gradient(circle at 50% 48%, rgba(160, 220, 75, 0.18), transparent 30%),
+    repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 10px),
+    linear-gradient(180deg, #07130e, #020706 72%);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.72),
+    inset 0 0 0 4px rgba(0, 0, 0, 0.42),
+    inset 0 0 80px rgba(173, 224, 83, 0.13);
+}
+
+.branch-lattice-frame:focus {
+  outline: none;
+}
+
+.branch-lattice-frame::before,
+.branch-lattice-frame::after {
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  width: 28px;
+  border-top: 1px solid rgba(255, 224, 138, 0.48);
+  border-bottom: 1px solid rgba(255, 224, 138, 0.48);
+  background:
+    radial-gradient(circle at 50% 8%, rgba(255, 224, 138, 0.72), transparent 18%),
+    radial-gradient(circle at 50% 92%, rgba(255, 224, 138, 0.72), transparent 18%),
+    repeating-linear-gradient(180deg, transparent 0 34px, rgba(157, 218, 77, 0.22) 34px 42px, transparent 42px 72px);
+  content: "";
+  opacity: 0.84;
+  pointer-events: none;
+}
+
+.branch-lattice-frame::before {
+  left: 14px;
+  border-left: 1px solid rgba(255, 224, 138, 0.42);
+  border-radius: 16px 0 0 16px;
+}
+
+.branch-lattice-frame::after {
+  right: 14px;
+  border-right: 1px solid rgba(255, 224, 138, 0.42);
+  border-radius: 0 16px 16px 0;
+}
+
+.branch-lattice-header {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  min-height: 84px;
+}
+
+.branch-title-ornament {
+  position: absolute;
+  inset: 8px 26% 4px;
+  border: 1px solid rgba(255, 224, 138, 0.52);
+  border-radius: 42px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(183, 255, 81, 0.42), transparent 26%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.24), rgba(255, 224, 138, 0.05));
+  box-shadow:
+    inset 0 0 24px rgba(0, 0, 0, 0.72),
+    0 0 24px rgba(210, 255, 102, 0.13);
+}
+
+.branch-lattice-header h1 {
+  position: relative;
+  margin: 0;
+  color: #ffe08a;
+  font-family: Georgia, "Times New Roman", "Trajan Pro", serif;
+  font-size: clamp(34px, 5vw, 58px);
+  font-weight: 500;
+  line-height: 1;
+  text-shadow:
+    0 2px 0 #221804,
+    0 0 22px rgba(255, 224, 138, 0.32);
+}
+
+.branch-lattice-close-button {
+  position: absolute;
+  right: 44px;
+  top: 22px;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 224, 138, 0.38);
+  border-radius: 4px;
+  color: rgba(246, 239, 208, 0.78);
+  background: rgba(4, 10, 8, 0.74);
+  cursor: pointer;
+  font-family: "Lucida Console", Monaco, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.branch-lattice-close-button:hover,
+.branch-lattice-close-button:focus-visible {
+  outline: none;
+  border-color: rgba(255, 224, 138, 0.86);
+  color: #102016;
+  background: #ffe08a;
+}
+
+.branch-lattice-content {
+  position: relative;
+  z-index: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(210px, 0.72fr) minmax(300px, 1fr) minmax(210px, 0.72fr);
+  gap: clamp(18px, 4vw, 70px);
+  align-items: stretch;
+  padding: 0 clamp(24px, 5vw, 58px);
+}
+
+.branch-panel {
+  align-self: center;
+  height: min(620px, 88%);
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  border: 1px solid rgba(255, 224, 138, 0.34);
+  border-radius: 4px;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.54)),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 8px);
+  box-shadow:
+    inset 0 0 0 3px rgba(0, 0, 0, 0.36),
+    0 0 28px rgba(0, 0, 0, 0.28);
+}
+
+.branch-panel h2 {
+  margin: 0;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255, 224, 138, 0.28);
+  color: rgba(255, 240, 168, 0.88);
+  font-family: Georgia, "Times New Roman", "Trajan Pro", serif;
+  font-size: 17px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.branch-ability-list,
+.branch-modifier-list {
+  min-height: 0;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  overflow: auto;
+  padding: 14px;
+}
+
+.branch-option {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  grid-template-rows: auto auto;
+  gap: 3px 10px;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid rgba(255, 224, 138, 0.18);
+  border-radius: 5px;
+  color: rgba(246, 239, 208, 0.82);
+  background: rgba(2, 7, 6, 0.62);
+  cursor: pointer;
+  text-align: left;
+  user-select: none;
+}
+
+.branch-option:hover,
+.branch-option:focus-visible,
+.branch-option.is-assigned {
+  outline: none;
+  border-color: rgba(255, 224, 138, 0.78);
+  box-shadow: 0 0 18px rgba(173, 224, 83, 0.14);
+}
+
+.branch-option[draggable="true"],
+.branch-socket[draggable="true"] {
+  cursor: grab;
+}
+
+.branch-option.is-dragging,
+.branch-socket.is-dragging {
+  opacity: 0.52;
+  cursor: grabbing;
+}
+
+.branch-panel.is-drag-target,
+.branch-ability-list.is-drag-target,
+.branch-modifier-list.is-drag-target {
+  outline: 1px solid rgba(255, 224, 138, 0.72);
+  outline-offset: -6px;
+  background: rgba(183, 255, 81, 0.06);
+}
+
+.branch-option span {
+  grid-row: 1 / 3;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 224, 138, 0.38);
+  border-radius: 50%;
+  color: #ffe08a;
+  background: radial-gradient(circle, rgba(150, 214, 76, 0.2), rgba(0, 0, 0, 0.46));
+  font-family: "Lucida Console", Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.branch-option strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: #fff0a8;
+  font-family: "Lucida Console", Monaco, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.branch-option em {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: rgba(246, 239, 208, 0.58);
+  font-style: normal;
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.branch-option.uncommon span,
+.modifier-socket.uncommon span {
+  color: #bff08b;
+}
+
+.branch-option.rare span,
+.modifier-socket.rare span {
+  color: #9ad9ed;
+}
+
+.branch-lattice-column {
+  position: relative;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+}
+
+.branch-lattice-column::before {
+  position: absolute;
+  top: 2%;
+  bottom: 2%;
+  left: 50%;
+  width: min(260px, 74%);
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 50% 12%, rgba(183, 255, 81, 0.22), transparent 20%),
+    radial-gradient(ellipse at 50% 50%, rgba(183, 255, 81, 0.16), transparent 34%),
+    radial-gradient(ellipse at 50% 86%, rgba(183, 255, 81, 0.22), transparent 20%);
+  content: "";
+  filter: blur(0.2px);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.branch-vines {
+  position: relative;
+  width: min(320px, 100%);
+  min-height: 0;
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(8, minmax(48px, 1fr));
+  justify-items: center;
+  align-items: center;
+}
+
+.branch-vines::before {
+  position: absolute;
+  top: 7%;
+  bottom: 7%;
+  left: 50%;
+  width: 12px;
+  border: 1px solid rgba(255, 224, 138, 0.4);
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, transparent, rgba(184, 255, 83, 0.7), transparent),
+    rgba(51, 91, 31, 0.54);
+  box-shadow:
+    0 0 22px rgba(183, 255, 81, 0.3),
+    inset 0 0 10px rgba(0, 0, 0, 0.5);
+  content: "";
+  transform: translateX(-50%);
+}
+
+.branch-socket {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  border: 1px solid rgba(255, 224, 138, 0.58);
+  border-radius: 50%;
+  color: rgba(246, 239, 208, 0.72);
+  background:
+    radial-gradient(circle at 50% 42%, rgba(8, 23, 13, 0.92), rgba(0, 0, 0, 0.7) 68%),
+    rgba(0, 0, 0, 0.64);
+  box-shadow:
+    0 0 18px rgba(183, 255, 81, 0.16),
+    inset 0 0 0 4px rgba(255, 224, 138, 0.09),
+    inset 0 0 18px rgba(0, 0, 0, 0.82);
+  cursor: pointer;
+}
+
+.branch-socket:hover,
+.branch-socket:focus-visible,
+.branch-socket.is-selected,
+.branch-socket.is-drag-target {
+  outline: none;
+  border-color: #fff0a8;
+  box-shadow:
+    0 0 26px rgba(183, 255, 81, 0.36),
+    inset 0 0 0 4px rgba(255, 224, 138, 0.16),
+    inset 0 0 18px rgba(0, 0, 0, 0.82);
+}
+
+.ability-socket {
+  width: clamp(92px, 10vw, 132px);
+  aspect-ratio: 1;
+}
+
+.ability-socket span {
+  color: #ffe08a;
+  font-family: "Lucida Console", Monaco, Consolas, monospace;
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 900;
+  text-shadow: 0 0 12px currentColor;
+}
+
+.ability-socket strong {
+  max-width: 86%;
+  overflow-wrap: anywhere;
+  color: rgba(246, 239, 208, 0.72);
+  font-family: "Lucida Console", Monaco, Consolas, monospace;
+  font-size: 9px;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.modifier-socket {
+  width: clamp(48px, 5.4vw, 66px);
+  aspect-ratio: 1;
+}
+
+.modifier-socket span {
+  color: rgba(246, 239, 208, 0.72);
+  font-family: "Lucida Console", Monaco, Consolas, monospace;
+  font-size: clamp(12px, 1.25vw, 16px);
+  font-weight: 900;
+}
+
+.branch-lattice-details {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 100%);
+  justify-self: center;
+  display: grid;
+  gap: 8px;
+  padding: 10px 16px;
+  border-top: 1px solid rgba(255, 224, 138, 0.28);
+  border-bottom: 1px solid rgba(255, 224, 138, 0.2);
+  color: rgba(246, 239, 208, 0.76);
+  background: rgba(0, 0, 0, 0.24);
+  text-align: center;
+}
+
+.branch-lattice-details span,
+.branch-lattice-details em {
+  color: rgba(246, 239, 208, 0.55);
+  font-family: "Lucida Console", Monaco, Consolas, monospace;
+  font-size: 10px;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.branch-lattice-details strong {
+  color: #ffe08a;
+  font-family: Georgia, "Times New Roman", "Trajan Pro", serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.branch-lattice-details p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.branch-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.branch-detail-grid div {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.branch-detail-grid b {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: rgba(246, 239, 208, 0.86);
+  font-family: "Lucida Console", Monaco, Consolas, monospace;
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.branch-preview-copy {
+  color: #bff08b;
+}
+
+.branch-lattice-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 22px;
+  padding-top: 4px;
+  color: rgba(246, 239, 208, 0.72);
+  font-family: "Lucida Console", Monaco, Consolas, monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.branch-lattice-footer div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.branch-lattice-footer kbd {
+  display: grid;
+  place-items: center;
+  min-width: 28px;
+  min-height: 26px;
+  padding: 0 6px;
+  border: 1px solid rgba(255, 224, 138, 0.48);
+  border-radius: 4px;
+  color: #ffe08a;
+  background: rgba(0, 0, 0, 0.38);
+}
+
+.branch-empty-copy {
+  margin: 0;
+  color: rgba(246, 239, 208, 0.58);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Painted Branch Lattice panel alignment. Coordinates are percentage-based so
+   the interactive DOM tracks the background art as the frame scales. */
+.branch-lattice-menu {
+  overflow: hidden;
+  padding: 12px;
+  align-items: center;
+  justify-items: start;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(2px);
+}
+
+.branch-lattice-frame {
+  width: min(900px, calc(100vw - 24px), 76vh);
+  height: min(1180px, calc(100vh - 24px));
+  min-height: 0;
+  display: block;
+  margin-left: 0;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  aspect-ratio: 1095 / 1437;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.08)),
+    var(--branch-lattice-art) center / 100% 100% no-repeat;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.82);
+}
+
+.branch-lattice-frame::before,
+.branch-lattice-frame::after,
+.branch-title-ornament {
+  display: none;
+}
+
+.branch-lattice-header {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  min-height: 0;
+  pointer-events: none;
+}
+
+.branch-lattice-header h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.branch-lattice-close-button {
+  right: 7.4%;
+  top: 4.2%;
+  min-height: 30px;
+  pointer-events: auto;
+  border-color: rgba(255, 224, 138, 0.26);
+  color: rgba(255, 240, 168, 0.72);
+  background: rgba(1, 5, 4, 0.58);
+}
+
+.branch-lattice-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  padding: 0;
+}
+
+.branch-panel {
+  position: absolute;
+  height: auto;
+  min-height: 0;
+  display: block;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.branch-abilities-panel {
+  left: 7.9%;
+  top: 20.6%;
+  width: 19.8%;
+  height: 63.8%;
+}
+
+.branch-modifiers-panel {
+  left: 70.4%;
+  top: 20.6%;
+  width: 20.4%;
+  height: 63.8%;
+}
+
+.branch-panel h2 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.branch-ability-list,
+.branch-modifier-list {
+  position: absolute;
+  inset: 8.5% 5.5% 3.5%;
+  gap: 8px;
+  padding: 0 4px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 224, 138, 0.46) rgba(0, 0, 0, 0.22);
+}
+
+.branch-option {
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 3px 8px;
+  padding: 8px;
+  border-color: rgba(255, 224, 138, 0.16);
+  color: rgba(246, 239, 208, 0.82);
+  background: rgba(0, 0, 0, 0.38);
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+.branch-option span {
+  width: 31px;
+  font-size: 10px;
+}
+
+.branch-option strong {
+  font-size: 10px;
+}
+
+.branch-option em {
+  font-size: 10px;
+}
+
+.branch-lattice-column {
+  position: absolute;
+  left: 31.3%;
+  top: 13.9%;
+  width: 37.6%;
+  height: 74.8%;
+  display: grid;
+  place-items: center;
+}
+
+.branch-lattice-column::before,
+.branch-vines::before {
+  display: none;
+}
+
+.branch-vines {
+  width: 100%;
+  height: 100%;
+  grid-template-rows: repeat(8, minmax(0, 1fr));
+}
+
+.branch-socket {
+  background:
+    radial-gradient(circle at 50% 38%, rgba(38, 91, 28, 0.94), rgba(2, 8, 5, 0.9) 56%, rgba(0, 0, 0, 0.74) 72%),
+    rgba(0, 0, 0, 0.62);
+  box-shadow:
+    0 0 18px rgba(183, 255, 81, 0.36),
+    0 0 0 3px rgba(33, 18, 2, 0.8),
+    inset 0 0 0 3px rgba(255, 224, 138, 0.13),
+    inset 0 0 20px rgba(0, 0, 0, 0.88);
+}
+
+.ability-socket {
+  width: clamp(64px, 9vh, 96px);
+}
+
+.modifier-socket {
+  width: clamp(38px, 5.5vh, 56px);
+}
+
+.ability-socket strong {
+  color: rgba(255, 240, 168, 0.86);
+  font-size: 8px;
+}
+
+.branch-lattice-details {
+  position: absolute;
+  z-index: 2;
+  left: 26%;
+  right: 26%;
+  top: 84.9%;
+  width: auto;
+  max-height: 6.4%;
+  overflow: hidden;
+  gap: 3px;
+  padding: 6px 12px;
+  border-color: rgba(255, 224, 138, 0.18);
+  background: rgba(0, 0, 0, 0.38);
+}
+
+.branch-lattice-details span,
+.branch-lattice-details em {
+  font-size: 8px;
+}
+
+.branch-lattice-details strong {
+  font-size: 14px;
+}
+
+.branch-lattice-details p {
+  display: none;
+}
+
+.branch-detail-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.branch-detail-grid b {
+  font-size: 8px;
+}
+
+.branch-lattice-footer {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .pause-menu {
   position: fixed;
   inset: 0;
@@ -1537,6 +2302,11 @@ canvas {
 
   .title-menu {
     gap: 9px;
+  }
+
+  .title-logo-animation {
+    top: clamp(18px, 4vh, 34px);
+    width: min(190vw, 980px);
   }
 
   .character-select {
@@ -1963,6 +2733,46 @@ canvas {
   .pause-menu .mobile-control-list {
     display: grid;
   }
+
+  .branch-lattice-menu {
+    padding: 10px;
+  }
+
+  .branch-lattice-frame {
+    height: calc(100vh - 20px);
+    min-height: 0;
+    overflow: auto;
+    grid-template-rows: auto auto auto auto;
+    padding: 16px;
+  }
+
+  .branch-title-ornament {
+    inset: 8px 8% 4px;
+  }
+
+  .branch-lattice-close-button {
+    right: 18px;
+    top: 18px;
+  }
+
+  .branch-lattice-content {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 0;
+  }
+
+  .branch-panel {
+    height: auto;
+    max-height: 220px;
+  }
+
+  .branch-lattice-column {
+    min-height: 520px;
+  }
+
+  .branch-detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (hover: none) and (pointer: coarse) and (orientation: landscape) and (max-height: 380px) {
@@ -2043,5 +2853,92 @@ canvas {
 
   .pause-menu .mobile-control-list {
     display: grid;
+  }
+}
+
+@media (max-width: 900px), (max-height: 680px) {
+  .branch-lattice-menu {
+    align-items: start;
+    overflow: auto;
+    padding: 10px;
+  }
+
+  .branch-lattice-frame {
+    width: min(calc(100vw - 20px), 76vh);
+    height: 680px;
+    min-height: 680px;
+    max-height: none;
+    display: block;
+    overflow: hidden;
+    padding: 0;
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.08)),
+      var(--branch-lattice-art) center / 100% 100% no-repeat;
+  }
+
+  .branch-lattice-content {
+    position: absolute;
+    inset: 0;
+    display: block;
+    padding: 0;
+  }
+
+  .branch-abilities-panel {
+    left: 7.9%;
+    top: 20.6%;
+    width: 19.8%;
+    height: 63.8%;
+  }
+
+  .branch-modifiers-panel {
+    left: 70.4%;
+    top: 20.6%;
+    width: 20.4%;
+    height: 63.8%;
+  }
+
+  .branch-panel {
+    position: absolute;
+    height: auto;
+    max-height: none;
+  }
+
+  .branch-lattice-column {
+    left: 31.3%;
+    top: 13.9%;
+    width: 37.6%;
+    height: 74.8%;
+    min-height: 0;
+  }
+
+  .branch-option {
+    grid-template-columns: 1fr;
+    padding: 6px;
+  }
+
+  .branch-option span {
+    width: 26px;
+  }
+
+  .branch-option em {
+    display: none;
+  }
+
+  .ability-socket {
+    width: clamp(54px, 8.4vh, 78px);
+  }
+
+  .modifier-socket {
+    width: clamp(32px, 4.8vh, 46px);
+  }
+
+  .branch-lattice-details {
+    left: 22%;
+    right: 22%;
+    top: 84.7%;
+  }
+
+  .branch-detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
