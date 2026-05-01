@@ -46,6 +46,7 @@
 - `src/ui/hud.ts` creates and applies the HUD view model.
 - `src/ui/character-select.ts` creates and applies character select view models.
 - `src/ui/inventory.ts` creates and applies the DOM inventory view model.
+- `src/ui/mobile-controls.ts` maps phone-only virtual controls onto the existing `InputState`.
 - `src/ui/pause-menu.ts` owns pause tabs and copy.
 - `src/ui/event-log.ts` applies log events.
 
@@ -53,5 +54,6 @@
 
 - Keep `main.ts` small; do not put gameplay, rendering, or DOM templates back into it.
 - Keep Canvas objects in `render/canvas2d`, DOM objects in `ui`, and plain serializable state in `game`.
+- Keep touch controls as UI input adapters that emit existing gameplay actions; do not add mobile-only simulation state.
 - When adding a new feature, choose the module by ownership, not by convenience.
 - Preserve current asset paths unless the task is specifically about asset cleanup.

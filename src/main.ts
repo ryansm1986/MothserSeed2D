@@ -25,6 +25,7 @@ import { applyCharacterSelect, renderCharacterSelect } from "./ui/character-sele
 import { pushGameEvents, pushLog } from "./ui/event-log";
 import { applyHud, renderHud } from "./ui/hud";
 import { applyInventory, renderInventory } from "./ui/inventory";
+import { createMobileControls } from "./ui/mobile-controls";
 import { initializePauseTabs, selectPauseTab, setPauseMenuCopy } from "./ui/pause-menu";
 
 const shell = createAppShell();
@@ -36,6 +37,27 @@ const audio = createAudioManager({
   musicVolumeValue: shell.musicVolumeValue,
   sfxVolumeValue: shell.sfxVolumeValue,
 });
+const mobileControls = createMobileControls({
+  elements: {
+    root: shell.mobileControls,
+    movePad: shell.mobileMovePad,
+    moveThumb: shell.mobileMoveThumb,
+    dodgeButton: shell.mobileDodgeButton,
+    targetButton: shell.mobileTargetButton,
+    specialButtons: shell.mobileSpecialButtons,
+    equipButton: shell.mobileEquipButton,
+    inventoryButton: shell.mobileInventoryButton,
+    pauseButton: shell.mobilePauseButton,
+    rotatePrompt: shell.mobileRotatePrompt,
+  },
+  inputState,
+  canUseGameplayInput: () => isGameplayActive(state),
+  onTarget: () => handleEvents(lockTarget(state)),
+  onSpecial: (index) => handleEvents(castSpecial(state, index)),
+  onEquip: () => handleEvents(equipDrop(state)),
+  onInventory: () => toggleInventory(),
+  onPause: () => togglePauseMenu(),
+});
 
 let renderer: CanvasRenderer | null = null;
 let frameLookup: AnimationFrameLookup | undefined;
@@ -46,6 +68,17 @@ function handleEvents(events: readonly GameEvent[]) {
   pushGameEvents(shell.eventLog, events, (event) => {
     if (event.kind === "sound") audio.playEventSound(event.id);
   });
+}
+
+function clearAllInput() {
+  clearInputState(inputState);
+  mobileControls.clear();
+}
+
+function syncMobileControls() {
+  mobileControls.setActive(isGameplayVisible(state));
+  mobileControls.setGameplayInputActive(isGameplayActive(state));
+  mobileControls.setGameplayVisible(isGameplayVisible(state));
 }
 
 function updateHud() {
@@ -81,7 +114,7 @@ function showCharacterSelect() {
   state.ui.isPaused = false;
   state.ui.isInventoryOpen = false;
   state.ui.pauseMenuSource = null;
-  clearInputState(inputState);
+  clearAllInput();
   audio.stopGameplayMusic();
   audio.playTitleMusic();
   shell.inventoryMenu.classList.add("is-hidden");
@@ -98,7 +131,7 @@ function showTitleScreen() {
   state.ui.isPaused = false;
   state.ui.isInventoryOpen = false;
   state.ui.pauseMenuSource = null;
-  clearInputState(inputState);
+  clearAllInput();
   audio.stopGameplayMusic();
   audio.playTitleMusic();
   shell.inventoryMenu.classList.add("is-hidden");
@@ -115,7 +148,7 @@ function openPauseMenu(tabName = "controls", source: "gameplay" | "title" = "gam
   state.ui.isPaused = source === "gameplay";
   state.ui.isInventoryOpen = false;
   state.ui.pauseMenuSource = source;
-  clearInputState(inputState);
+  clearAllInput();
   setPauseMenuCopy(shell, source);
   audio.updateAudioSettingsUi();
   selectPauseTab(shell, tabName);
@@ -128,7 +161,7 @@ function closePauseMenu() {
   if (!state.ui.pauseMenuSource) return;
   state.ui.isPaused = false;
   state.ui.pauseMenuSource = null;
-  clearInputState(inputState);
+  clearAllInput();
   shell.pauseMenu.classList.add("is-hidden");
 }
 
@@ -143,7 +176,7 @@ function togglePauseMenu() {
 function openInventory() {
   if (!isGameplayVisible(state) || state.ui.isPaused || state.ui.pauseMenuSource) return;
   state.ui.isInventoryOpen = true;
-  clearInputState(inputState);
+  clearAllInput();
   updateInventory();
   shell.inventoryMenu.classList.remove("is-hidden");
   requestAnimationFrame(() => shell.inventoryFrame.focus());
@@ -152,7 +185,7 @@ function openInventory() {
 function closeInventory() {
   if (!state.ui.isInventoryOpen) return;
   state.ui.isInventoryOpen = false;
-  clearInputState(inputState);
+  clearAllInput();
   shell.inventoryMenu.classList.add("is-hidden");
 }
 
@@ -204,6 +237,7 @@ function animate(now: number) {
     handleEvents(updateSimulation(state, inputState, delta, frameLookup));
     updateHud();
   }
+  syncMobileControls();
 
   renderer?.draw(state, delta);
 

@@ -27,7 +27,7 @@ Run `npm run build` after code changes.
 - `src/game/content/`: authored gameplay/content data such as classes, enemies, and world asset rects.
 - `src/game/world/`: arena data and gameplay collision.
 - `src/render/canvas2d/`: Canvas-only sprite loading, camera, render assets, draw profiles, and drawing.
-- `src/ui/`: DOM shell, HUD, character select, pause menu, and event log rendering.
+- `src/ui/`: DOM shell, HUD, character select, pause menu, event log rendering, inventory, and phone touch controls.
 - `assets/`: source and generated art/audio. Do not reorganize asset churn while doing code refactors.
 - `tools/`: asset pipeline scripts.
 
@@ -52,3 +52,4 @@ Run `npm run build` after code changes.
 - Change sprite loading: `src/render/canvas2d/character-sprites.ts`, `monster-sprites.ts`, or `sprite-loader.ts`.
 - Change drawing/visual scale: `src/render/canvas2d/renderer.ts`.
 - Change HUD/menus: `src/ui/` and `src/style.css`.
+- Change phone-only controls: `src/ui/mobile-controls.ts`, `src/ui/app-shell.ts`, and phone media queries in `src/style.css`.

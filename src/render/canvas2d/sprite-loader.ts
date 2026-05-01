@@ -66,6 +66,8 @@ const motherslashWaveFrameUrls = import.meta.glob(
   },
 ) as Record<string, string>;
 
+const pendingImages = new Set<HTMLImageElement>();
+
 export async function loadRenderAssets(): Promise<RenderAssets> {
   const [playerSprites, monsterSprites, worldFrames] = await Promise.all([
     loadPlayerSprites(),
@@ -160,13 +162,28 @@ async function loadWorldAndEffectAssets(): Promise<Omit<RenderAssets, "playerSpr
   };
 }
 
-export function loadImage(url: string): Promise<HTMLImageElement> {
+export function loadImage(url: string, attempt = 0): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
     const image = new Image();
-    image.onload = () => resolve(image);
-    image.onerror = () => reject(new Error(`Failed to load ${url}`));
+    pendingImages.add(image);
+    image.onload = () => {
+      pendingImages.delete(image);
+      resolve(image);
+    };
+    image.onerror = () => {
+      pendingImages.delete(image);
+      if (attempt < 1) {
+        resolve(loadImage(withImageRetryToken(url, attempt + 1)));
+        return;
+      }
+      reject(new Error(`Failed to load ${url}`));
+    };
     image.src = url;
   });
+}
+
+function withImageRetryToken(url: string, attempt: number) {
+  return `${url}${url.includes("?") ? "&" : "?"}retry=${attempt}`;
 }
 
 export function makeTransparentFrame(image: HTMLImageElement, frame: FrameRect): SpriteFrame {

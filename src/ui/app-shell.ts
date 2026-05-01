@@ -37,6 +37,16 @@ export type AppShell = {
   sfxVolumeInput: HTMLInputElement;
   musicVolumeValue: HTMLElement;
   sfxVolumeValue: HTMLElement;
+  mobileControls: HTMLElement;
+  mobileMovePad: HTMLElement;
+  mobileMoveThumb: HTMLElement;
+  mobileDodgeButton: HTMLButtonElement;
+  mobileTargetButton: HTMLButtonElement;
+  mobileSpecialButtons: HTMLButtonElement[];
+  mobileEquipButton: HTMLButtonElement;
+  mobileInventoryButton: HTMLButtonElement;
+  mobilePauseButton: HTMLButtonElement;
+  mobileRotatePrompt: HTMLElement;
   canvas: HTMLCanvasElement;
 };
 
@@ -137,7 +147,7 @@ export function createAppShell(): AppShell {
           </nav>
           <div class="pause-content">
             <section class="pause-panel" data-pause-panel="controls" aria-label="Controls">
-              <div class="control-list">
+              <div class="control-list desktop-control-list">
                 <div><kbd>WASD</kbd><span>Move</span></div>
                 <div><kbd>Shift</kbd><span>Sprint</span></div>
                 <div><kbd>Space</kbd><span>Dodge</span></div>
@@ -149,6 +159,16 @@ export function createAppShell(): AppShell {
                 <div><kbd>E</kbd><span>Equip drop</span></div>
                 <div><kbd>I</kbd><span>Inventory</span></div>
                 <div><kbd>Esc</kbd><span>Pause</span></div>
+              </div>
+              <div class="control-list mobile-control-list" aria-label="Phone controls">
+                <div><kbd>Pad</kbd><span>Move</span></div>
+                <div><kbd>Edge</kbd><span>Sprint</span></div>
+                <div><kbd>Dodge</kbd><span>Roll through danger</span></div>
+                <div><kbd>Target</kbd><span>Lock nearest enemy</span></div>
+                <div><kbd>1-3</kbd><span>Specials</span></div>
+                <div><kbd>Equip</kbd><span>Equip drop</span></div>
+                <div><kbd>Bag</kbd><span>Inventory</span></div>
+                <div><kbd>Menu</kbd><span>Pause</span></div>
               </div>
             </section>
             <section class="pause-panel is-hidden" data-pause-panel="sound" aria-label="Sound">
@@ -167,6 +187,32 @@ export function createAppShell(): AppShell {
             </section>
           </div>
         </div>
+      </div>
+    </section>
+    <section class="mobile-controls" aria-label="Phone gameplay controls">
+      <div class="mobile-top-actions" aria-label="Phone menu controls">
+        <button class="mobile-button mobile-inventory-button" type="button" aria-label="Open inventory">Bag</button>
+        <button class="mobile-button mobile-pause-button" type="button" aria-label="Pause game">Menu</button>
+      </div>
+      <div class="mobile-move-pad" role="application" aria-label="Move">
+        <div class="mobile-move-ring">
+          <div class="mobile-move-thumb"></div>
+        </div>
+        <span>Move</span>
+      </div>
+      <div class="mobile-action-cluster" aria-label="Phone action controls">
+        <button class="mobile-button mobile-target-button" type="button" aria-label="Lock target">Target</button>
+        <button class="mobile-button mobile-dodge-button" type="button" aria-label="Dodge">Dodge</button>
+        <button class="mobile-button mobile-special-button" type="button" data-mobile-special="0" aria-label="Use special 1">1</button>
+        <button class="mobile-button mobile-special-button" type="button" data-mobile-special="1" aria-label="Use special 2">2</button>
+        <button class="mobile-button mobile-special-button" type="button" data-mobile-special="2" aria-label="Use special 3">3</button>
+        <button class="mobile-button mobile-equip-button" type="button" aria-label="Equip drop">Equip</button>
+      </div>
+    </section>
+    <section class="mobile-rotate-prompt" aria-label="Rotate phone">
+      <div>
+        <strong>Rotate phone</strong>
+        <span>Landscape mode keeps the grove and controls playable.</span>
       </div>
     </section>
   `;
@@ -211,6 +257,16 @@ export function createAppShell(): AppShell {
     sfxVolumeInput: document.querySelector<HTMLInputElement>("#sfx-volume")!,
     musicVolumeValue: document.querySelector<HTMLElement>("#music-volume-value")!,
     sfxVolumeValue: document.querySelector<HTMLElement>("#sfx-volume-value")!,
+    mobileControls: document.querySelector<HTMLElement>(".mobile-controls")!,
+    mobileMovePad: document.querySelector<HTMLElement>(".mobile-move-pad")!,
+    mobileMoveThumb: document.querySelector<HTMLElement>(".mobile-move-thumb")!,
+    mobileDodgeButton: document.querySelector<HTMLButtonElement>(".mobile-dodge-button")!,
+    mobileTargetButton: document.querySelector<HTMLButtonElement>(".mobile-target-button")!,
+    mobileSpecialButtons: Array.from(document.querySelectorAll<HTMLButtonElement>(".mobile-special-button")),
+    mobileEquipButton: document.querySelector<HTMLButtonElement>(".mobile-equip-button")!,
+    mobileInventoryButton: document.querySelector<HTMLButtonElement>(".mobile-inventory-button")!,
+    mobilePauseButton: document.querySelector<HTMLButtonElement>(".mobile-pause-button")!,
+    mobileRotatePrompt: document.querySelector<HTMLElement>(".mobile-rotate-prompt")!,
     canvas,
   };
 }
