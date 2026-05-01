@@ -3,6 +3,7 @@ import titleNoTextAnimationUrl from "../../assets/ui/title-animation/title-no-te
 import titleTextAnimationUrl from "../../assets/ui/title-text-shimmer-v2-alpha/title-text-shimmer-v2-alpha-extended-22.webp?url";
 import inventoryPanelUrl from "../../assets/ui/inventory-panel-drawer-v2.png?url";
 import branchLatticeBackgroundUrl from "../../assets/ui/branch-lattice-background.png?url";
+import branchLatticeCloseUrl from "../../assets/ui/branch-lattice-close/sheet-transparent.png?url";
 
 export type AppShell = {
   shell: HTMLDivElement;
@@ -152,7 +153,9 @@ export function createAppShell(): AppShell {
         <header class="branch-lattice-header">
           <div class="branch-title-ornament"></div>
           <h1 id="branch-lattice-title">Branch Lattice</h1>
-          <button class="branch-lattice-close-button" type="button" aria-label="Close Branch Lattice">Close</button>
+          <button class="branch-lattice-close-button" type="button" aria-label="Close Branch Lattice" style="--branch-lattice-close-art: url('${branchLatticeCloseUrl}')">
+            <span class="branch-lattice-close-label">Close</span>
+          </button>
         </header>
         <div class="branch-lattice-content">
           <aside class="branch-panel branch-abilities-panel" aria-label="Frame auto abilities">

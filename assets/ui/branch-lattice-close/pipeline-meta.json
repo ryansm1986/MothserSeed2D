@@ -1,0 +1,59 @@
+{
+  "target": "asset",
+  "mode": "single",
+  "prompt": "Ornate fantasy close button matching the attached Branch Lattice X reference, solid magenta keyed background.",
+  "role": "",
+  "input": "C:\\Users\\there\\.codex\\generated_images\\019de449-7ff0-7ad2-b0ea-02753e4908ed\\ig_05daff104519f1060169f50f5308f481948eeab279f70508a0.png",
+  "threshold": 45,
+  "edge_threshold": 150,
+  "duration": 200,
+  "rows": 1,
+  "cols": 1,
+  "cell_size": 128,
+  "fit_scale": 0.94,
+  "trim_border": 4,
+  "edge_clean_depth": 1,
+  "align": "center",
+  "shared_scale": false,
+  "component_mode": "all",
+  "component_padding": 0,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "frame_labels": [
+    "branch-lattice-close-1"
+  ],
+  "frames": [
+    {
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        119,
+        70,
+        1138,
+        1155
+      ],
+      "edge_touch": false,
+      "output_size": [
+        113,
+        120
+      ],
+      "paste_position": [
+        7,
+        4
+      ]
+    }
+  ],
+  "edge_touch_frames": []
+}

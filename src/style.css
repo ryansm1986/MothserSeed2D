@@ -1443,26 +1443,65 @@ canvas {
   position: absolute;
   right: 44px;
   top: 22px;
-  min-height: 34px;
-  padding: 0 12px;
-  border: 1px solid rgba(255, 224, 138, 0.38);
-  border-radius: 4px;
-  color: rgba(246, 239, 208, 0.78);
-  background: rgba(4, 10, 8, 0.74);
+  width: 58px;
+  height: 58px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: transparent;
+  background: var(--branch-lattice-close-art) center / contain no-repeat;
   cursor: pointer;
   font-family: "Lucida Console", Monaco, Consolas, monospace;
-  font-size: 10px;
+  font-size: 0;
   font-weight: 900;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  filter:
+    brightness(0.86)
+    saturate(0.95)
+    drop-shadow(0 4px 10px rgba(0, 0, 0, 0.72));
+  transition:
+    filter 160ms ease,
+    transform 160ms ease;
+}
+
+.branch-lattice-close-button::after {
+  position: absolute;
+  inset: 9%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(255, 243, 170, 0.3), transparent 58%),
+    radial-gradient(circle, rgba(166, 255, 85, 0.2), transparent 68%);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
 }
 
 .branch-lattice-close-button:hover,
 .branch-lattice-close-button:focus-visible {
   outline: none;
-  border-color: rgba(255, 224, 138, 0.86);
-  color: #102016;
-  background: #ffe08a;
+  filter:
+    brightness(1.28)
+    saturate(1.16)
+    drop-shadow(0 0 14px rgba(255, 224, 138, 0.54))
+    drop-shadow(0 0 24px rgba(129, 209, 77, 0.28));
+  transform: translateY(-1px) scale(1.05);
+}
+
+.branch-lattice-close-button:hover::after,
+.branch-lattice-close-button:focus-visible::after {
+  opacity: 1;
+}
+
+.branch-lattice-close-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 .branch-lattice-content {
@@ -1875,11 +1914,9 @@ canvas {
 .branch-lattice-close-button {
   right: 7.4%;
   top: 4.2%;
-  min-height: 30px;
+  width: clamp(44px, 5.4%, 58px);
+  height: clamp(44px, 5.4%, 58px);
   pointer-events: auto;
-  border-color: rgba(255, 224, 138, 0.26);
-  color: rgba(255, 240, 168, 0.72);
-  background: rgba(1, 5, 4, 0.58);
 }
 
 .branch-lattice-content {
@@ -2753,6 +2790,8 @@ canvas {
   .branch-lattice-close-button {
     right: 18px;
     top: 18px;
+    width: 46px;
+    height: 46px;
   }
 
   .branch-lattice-content {
