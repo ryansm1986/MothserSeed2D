@@ -10,7 +10,7 @@ type TitleIntroElements = {
 };
 
 const TITLE_LOGO_DELAY_MS = 1000;
-const TITLE_MENU_DELAY_MS = 1000;
+const TITLE_MENU_DELAY_MS = 3000;
 
 function waitForImage(image: HTMLImageElement) {
   if (image.complete && image.naturalWidth > 0) return Promise.resolve();

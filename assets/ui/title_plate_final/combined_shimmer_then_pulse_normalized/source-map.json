@@ -1,0 +1,458 @@
+{
+  "source_plate": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\base.png",
+  "input_sequence": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse",
+  "method": "normalized each frame by detected plate bbox, resized to base.png plate bbox, and locked alpha silhouette to base.png",
+  "frame_count": 24,
+  "dimensions": {
+    "width": 1774,
+    "height": 887
+  },
+  "base_bbox": [
+    87,
+    124,
+    1687,
+    763
+  ],
+  "durations_ms": [
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    110,
+    110,
+    110,
+    110,
+    110,
+    110,
+    110,
+    110,
+    110,
+    110,
+    110,
+    110
+  ],
+  "sequence": "frames 01-12 text shimmer; frames 13-18 pulse loop 1; frames 19-24 pulse loop 2",
+  "outputs": {
+    "gif": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse_normalized\\title_plate_shimmer_then_pulse_normalized.gif",
+    "preview_sheet": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse_normalized\\preview_sheet.png",
+    "frames_dir": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse_normalized"
+  },
+  "frames": [
+    {
+      "frame": 1,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_01.png",
+      "detected_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_01.png"
+    },
+    {
+      "frame": 2,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_02.png",
+      "detected_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_02.png"
+    },
+    {
+      "frame": 3,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_03.png",
+      "detected_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_03.png"
+    },
+    {
+      "frame": 4,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_04.png",
+      "detected_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_04.png"
+    },
+    {
+      "frame": 5,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_05.png",
+      "detected_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_05.png"
+    },
+    {
+      "frame": 6,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_06.png",
+      "detected_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_06.png"
+    },
+    {
+      "frame": 7,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_07.png",
+      "detected_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_07.png"
+    },
+    {
+      "frame": 8,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_08.png",
+      "detected_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_08.png"
+    },
+    {
+      "frame": 9,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_09.png",
+      "detected_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_09.png"
+    },
+    {
+      "frame": 10,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_10.png",
+      "detected_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_10.png"
+    },
+    {
+      "frame": 11,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_11.png",
+      "detected_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_11.png"
+    },
+    {
+      "frame": 12,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_12.png",
+      "detected_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_12.png"
+    },
+    {
+      "frame": 13,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_13.png",
+      "detected_bbox": [
+        77,
+        120,
+        1692,
+        764
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_13.png"
+    },
+    {
+      "frame": 14,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_14.png",
+      "detected_bbox": [
+        77,
+        121,
+        1692,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_14.png"
+    },
+    {
+      "frame": 15,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_15.png",
+      "detected_bbox": [
+        78,
+        121,
+        1692,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_15.png"
+    },
+    {
+      "frame": 16,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_16.png",
+      "detected_bbox": [
+        80,
+        121,
+        1693,
+        765
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_16.png"
+    },
+    {
+      "frame": 17,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_17.png",
+      "detected_bbox": [
+        78,
+        119,
+        1695,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_17.png"
+    },
+    {
+      "frame": 18,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_18.png",
+      "detected_bbox": [
+        78,
+        120,
+        1692,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_18.png"
+    },
+    {
+      "frame": 19,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_19.png",
+      "detected_bbox": [
+        77,
+        120,
+        1692,
+        764
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_19.png"
+    },
+    {
+      "frame": 20,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_20.png",
+      "detected_bbox": [
+        77,
+        121,
+        1692,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_20.png"
+    },
+    {
+      "frame": 21,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_21.png",
+      "detected_bbox": [
+        78,
+        121,
+        1692,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_21.png"
+    },
+    {
+      "frame": 22,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_22.png",
+      "detected_bbox": [
+        80,
+        121,
+        1693,
+        765
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_22.png"
+    },
+    {
+      "frame": 23,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_23.png",
+      "detected_bbox": [
+        78,
+        119,
+        1695,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_23.png"
+    },
+    {
+      "frame": 24,
+      "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse\\frame_24.png",
+      "detected_bbox": [
+        78,
+        120,
+        1692,
+        763
+      ],
+      "normalized_to_bbox": [
+        87,
+        124,
+        1687,
+        763
+      ],
+      "file": "frame_24.png"
+    }
+  ]
+}

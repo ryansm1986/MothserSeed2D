@@ -167,9 +167,9 @@ canvas {
   pointer-events: none;
   position: absolute;
   z-index: 1;
-  top: clamp(18px, 5vh, 52px);
+  top: clamp(34px, 8vh, 76px);
   left: 50%;
-  width: min(1720px, 108vw);
+  width: min(780px, 38vw);
   max-width: none;
   height: auto;
   opacity: 0;
@@ -177,7 +177,7 @@ canvas {
 }
 
 .title-screen.is-title-intro-ready .title-logo-animation {
-  animation: title-logo-fade-in 700ms ease forwards;
+  animation: title-logo-fade-in 875ms ease forwards;
 }
 
 .title-menu {
@@ -2342,8 +2342,8 @@ canvas {
   }
 
   .title-logo-animation {
-    top: clamp(18px, 4vh, 34px);
-    width: min(190vw, 980px);
+    top: clamp(22px, 7vh, 46px);
+    width: min(92vw, 520px);
   }
 
   .character-select {

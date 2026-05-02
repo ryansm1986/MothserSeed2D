@@ -1,0 +1,16 @@
+{
+  "source_frames": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_magenta\\pulse_crystal_seed_text_sheen\\frames",
+  "runtime_asset": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_magenta\\pulse_crystal_seed_text_sheen\\title_plate_pulse_crystal_seed_text_sheen_1024.webp",
+  "preview_sheet_checkerboard": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_magenta\\pulse_crystal_seed_text_sheen\\preview_sheet_checkerboard.png",
+  "frame_count": 48,
+  "source_dimensions": {
+    "width": 1774,
+    "height": 887
+  },
+  "runtime_dimensions": {
+    "width": 1024,
+    "height": 512
+  },
+  "duration_ms_per_frame": 80,
+  "format_note": "Animated WebP preserves alpha and is used by the title screen img element."
+}

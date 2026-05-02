@@ -1,6 +1,6 @@
 import titleImageUrl from "../../assets/Title.png?url";
 import titleNoTextAnimationUrl from "../../assets/ui/title-animation/title-no-text-fx.webp?url";
-import titleTextAnimationUrl from "../../assets/ui/title-text-shimmer-v2-alpha/title-text-shimmer-v2-alpha-extended-22.webp?url";
+import titleTextAnimationUrl from "../../assets/ui/title_plate_magenta/pulse_crystal_seed_text_sheen/title_plate_pulse_crystal_seed_text_sheen_1024.webp?url";
 import inventoryPanelUrl from "../../assets/ui/inventory-panel-drawer-v2.png?url";
 import branchLatticeBackgroundUrl from "../../assets/ui/branch-lattice-background.png?url";
 import branchLatticeCloseUrl from "../../assets/ui/branch-lattice-close/sheet-transparent.png?url";

@@ -1,0 +1,591 @@
+{
+  "frames": 20,
+  "frame_size": [
+    2048,
+    1024
+  ],
+  "duration_ms": 120,
+  "scale": 1.0,
+  "sources": [
+    {
+      "frame": 1,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f526f17c148193a66759f7b76dfb8f.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_01.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "bbox": [
+        87,
+        123,
+        1687,
+        763
+      ],
+      "output_bbox": [
+        224,
+        192,
+        1824,
+        832
+      ],
+      "placement": [
+        224,
+        192
+      ],
+      "scaled_size": [
+        1600,
+        640
+      ]
+    },
+    {
+      "frame": 2,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f527346f24819381626dc4f2c1f2af.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_02.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "bbox": [
+        80,
+        121,
+        1688,
+        795
+      ],
+      "output_bbox": [
+        220,
+        175,
+        1828,
+        849
+      ],
+      "placement": [
+        220,
+        175
+      ],
+      "scaled_size": [
+        1608,
+        674
+      ]
+    },
+    {
+      "frame": 3,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f5277f8bb0819392477cbd14a6cbdd.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_03.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "bbox": [
+        88,
+        120,
+        1686,
+        777
+      ],
+      "output_bbox": [
+        225,
+        183,
+        1823,
+        840
+      ],
+      "placement": [
+        225,
+        183
+      ],
+      "scaled_size": [
+        1598,
+        657
+      ]
+    },
+    {
+      "frame": 4,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f527c002448193bb32d1de2108b2fd.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_04.png",
+      "source_size": [
+        1758,
+        895
+      ],
+      "bbox": [
+        89,
+        127,
+        1672,
+        763
+      ],
+      "output_bbox": [
+        232,
+        194,
+        1815,
+        830
+      ],
+      "placement": [
+        232,
+        194
+      ],
+      "scaled_size": [
+        1583,
+        636
+      ]
+    },
+    {
+      "frame": 5,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f5280ff9e4819398505efa2adce966.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_05.png",
+      "source_size": [
+        1717,
+        916
+      ],
+      "bbox": [
+        48,
+        126,
+        1662,
+        762
+      ],
+      "output_bbox": [
+        217,
+        194,
+        1831,
+        830
+      ],
+      "placement": [
+        217,
+        194
+      ],
+      "scaled_size": [
+        1614,
+        636
+      ]
+    },
+    {
+      "frame": 6,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f52856aa4c8193867da943ac01b5cf.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_06.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "bbox": [
+        78,
+        121,
+        1694,
+        771
+      ],
+      "output_bbox": [
+        216,
+        187,
+        1832,
+        837
+      ],
+      "placement": [
+        216,
+        187
+      ],
+      "scaled_size": [
+        1616,
+        650
+      ]
+    },
+    {
+      "frame": 7,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f5289eceec81938fc8638d09f33ca6.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_07.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "bbox": [
+        88,
+        112,
+        1686,
+        813
+      ],
+      "output_bbox": [
+        225,
+        161,
+        1823,
+        862
+      ],
+      "placement": [
+        225,
+        161
+      ],
+      "scaled_size": [
+        1598,
+        701
+      ]
+    },
+    {
+      "frame": 8,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f528e5dcc4819384ba762fe91b0687.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_08.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "bbox": [
+        88,
+        120,
+        1686,
+        798
+      ],
+      "output_bbox": [
+        225,
+        173,
+        1823,
+        851
+      ],
+      "placement": [
+        225,
+        173
+      ],
+      "scaled_size": [
+        1598,
+        678
+      ]
+    },
+    {
+      "frame": 9,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f52934b8388193b749894f2be10784.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_09.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "bbox": [
+        81,
+        120,
+        1694,
+        771
+      ],
+      "output_bbox": [
+        217,
+        186,
+        1830,
+        837
+      ],
+      "placement": [
+        217,
+        186
+      ],
+      "scaled_size": [
+        1613,
+        651
+      ]
+    },
+    {
+      "frame": 10,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f5297b2a148193b15930486e90e8d0.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_10.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "bbox": [
+        89,
+        121,
+        1686,
+        806
+      ],
+      "output_bbox": [
+        225,
+        169,
+        1822,
+        854
+      ],
+      "placement": [
+        225,
+        169
+      ],
+      "scaled_size": [
+        1597,
+        685
+      ]
+    },
+    {
+      "frame": 11,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f529ce953881939d2442551db7d550.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_11.png",
+      "source_size": [
+        1672,
+        941
+      ],
+      "bbox": [
+        80,
+        142,
+        1593,
+        756
+      ],
+      "output_bbox": [
+        267,
+        205,
+        1780,
+        819
+      ],
+      "placement": [
+        267,
+        205
+      ],
+      "scaled_size": [
+        1513,
+        614
+      ]
+    },
+    {
+      "frame": 12,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f52a7a394c819393224413020e2945.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_12.png",
+      "source_size": [
+        1672,
+        941
+      ],
+      "bbox": [
+        76,
+        143,
+        1610,
+        769
+      ],
+      "output_bbox": [
+        257,
+        199,
+        1791,
+        825
+      ],
+      "placement": [
+        257,
+        199
+      ],
+      "scaled_size": [
+        1534,
+        626
+      ]
+    },
+    {
+      "frame": 13,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f52ac622c081939d85a0a8592d37b6.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_13.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "bbox": [
+        87,
+        122,
+        1685,
+        765
+      ],
+      "output_bbox": [
+        225,
+        190,
+        1823,
+        833
+      ],
+      "placement": [
+        225,
+        190
+      ],
+      "scaled_size": [
+        1598,
+        643
+      ]
+    },
+    {
+      "frame": 14,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f52b01047c819399908eaa25c99dca.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_14.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "bbox": [
+        80,
+        113,
+        1694,
+        768
+      ],
+      "output_bbox": [
+        217,
+        184,
+        1831,
+        839
+      ],
+      "placement": [
+        217,
+        184
+      ],
+      "scaled_size": [
+        1614,
+        655
+      ]
+    },
+    {
+      "frame": 15,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f52b47fdc08193b04ad998a32a4980.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_15.png",
+      "source_size": [
+        1748,
+        899
+      ],
+      "bbox": [
+        65,
+        118,
+        1685,
+        770
+      ],
+      "output_bbox": [
+        214,
+        186,
+        1834,
+        838
+      ],
+      "placement": [
+        214,
+        186
+      ],
+      "scaled_size": [
+        1620,
+        652
+      ]
+    },
+    {
+      "frame": 16,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f52b8e692c8193a3a16d4768e046fa.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_16.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "bbox": [
+        80,
+        124,
+        1692,
+        768
+      ],
+      "output_bbox": [
+        218,
+        190,
+        1830,
+        834
+      ],
+      "placement": [
+        218,
+        190
+      ],
+      "scaled_size": [
+        1612,
+        644
+      ]
+    },
+    {
+      "frame": 17,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f52bda5a548193a12d1d2e7bcc8ab6.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_17.png",
+      "source_size": [
+        1717,
+        916
+      ],
+      "bbox": [
+        69,
+        125,
+        1628,
+        760
+      ],
+      "output_bbox": [
+        244,
+        194,
+        1803,
+        829
+      ],
+      "placement": [
+        244,
+        194
+      ],
+      "scaled_size": [
+        1559,
+        635
+      ]
+    },
+    {
+      "frame": 18,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f52c28c0048193869f5001ccab3836.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_18.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "bbox": [
+        87,
+        125,
+        1682,
+        771
+      ],
+      "output_bbox": [
+        226,
+        189,
+        1821,
+        835
+      ],
+      "placement": [
+        226,
+        189
+      ],
+      "scaled_size": [
+        1595,
+        646
+      ]
+    },
+    {
+      "frame": 19,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f52c6d80588193b5466b2c2bb644ff.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_19.png",
+      "source_size": [
+        1672,
+        941
+      ],
+      "bbox": [
+        98,
+        156,
+        1575,
+        748
+      ],
+      "output_bbox": [
+        285,
+        216,
+        1762,
+        808
+      ],
+      "placement": [
+        285,
+        216
+      ],
+      "scaled_size": [
+        1477,
+        592
+      ]
+    },
+    {
+      "frame": 20,
+      "source": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f52cc9d88881938145be976d302e68.png",
+      "raw_copy": "assets\\ui\\title-plate-shimmer-20-imagen\\raw-frames\\raw_frame_20.png",
+      "source_size": [
+        1774,
+        887
+      ],
+      "bbox": [
+        69,
+        118,
+        1692,
+        770
+      ],
+      "output_bbox": [
+        212,
+        186,
+        1835,
+        838
+      ],
+      "placement": [
+        212,
+        186
+      ],
+      "scaled_size": [
+        1623,
+        652
+      ]
+    }
+  ]
+}

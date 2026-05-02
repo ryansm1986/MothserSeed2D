@@ -1,0 +1,331 @@
+{
+  "input_sequence": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse_normalized",
+  "method": "copied normalized alpha-locked PNG frames and rebuilt transparent GIF preview",
+  "frame_count": 24,
+  "dimensions": {
+    "width": 1774,
+    "height": 887
+  },
+  "durations_ms": [
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    85,
+    110,
+    110,
+    110,
+    110,
+    110,
+    110,
+    110,
+    110,
+    110,
+    110,
+    110,
+    110
+  ],
+  "outputs": {
+    "gif": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse_transparent\\title_plate_shimmer_then_pulse_transparent.gif",
+    "preview_sheet_checkerboard": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse_transparent\\preview_sheet_checkerboard.png",
+    "frames_dir": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_final\\combined_shimmer_then_pulse_transparent"
+  },
+  "note": "PNG frames have full alpha transparency. GIF preview uses single-color transparency due to GIF format limits.",
+  "frames": [
+    {
+      "frame": 1,
+      "file": "frame_01.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 2,
+      "file": "frame_02.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 3,
+      "file": "frame_03.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 4,
+      "file": "frame_04.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 5,
+      "file": "frame_05.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 6,
+      "file": "frame_06.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 7,
+      "file": "frame_07.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 8,
+      "file": "frame_08.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 9,
+      "file": "frame_09.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 10,
+      "file": "frame_10.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 11,
+      "file": "frame_11.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 12,
+      "file": "frame_12.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 13,
+      "file": "frame_13.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 14,
+      "file": "frame_14.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 15,
+      "file": "frame_15.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 16,
+      "file": "frame_16.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 17,
+      "file": "frame_17.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 18,
+      "file": "frame_18.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 19,
+      "file": "frame_19.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 20,
+      "file": "frame_20.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 21,
+      "file": "frame_21.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 22,
+      "file": "frame_22.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 23,
+      "file": "frame_23.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 24,
+      "file": "frame_24.png",
+      "transparent_pixels": 925387,
+      "has_alpha": true,
+      "corner_alphas": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

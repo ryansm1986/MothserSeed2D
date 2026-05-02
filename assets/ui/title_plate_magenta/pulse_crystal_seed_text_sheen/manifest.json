@@ -1,0 +1,35 @@
+{
+  "source": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_magenta\\base.png",
+  "frame_count": 48,
+  "duration_ms_per_frame": 80,
+  "canvas": {
+    "width": 1774,
+    "height": 887
+  },
+  "unique_frame_sizes": [
+    [
+      1774,
+      887
+    ]
+  ],
+  "base_transparent_alpha_bbox": [
+    90,
+    116,
+    1682,
+    739
+  ],
+  "outputs": {
+    "transparent_base": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_magenta\\pulse_crystal_seed_text_sheen\\base_transparent.png",
+    "animated_png_transparent": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_magenta\\pulse_crystal_seed_text_sheen\\title_plate_crystal_seed_pulse_text_sheen.png",
+    "gif_preview_half_size_dark_matte": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_magenta\\pulse_crystal_seed_text_sheen\\title_plate_crystal_seed_pulse_text_sheen_preview.gif",
+    "checkerboard_preview_sheet": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_magenta\\pulse_crystal_seed_text_sheen\\preview_sheet_checkerboard.png",
+    "frames_dir": "D:\\projects\\MotherSeed2D\\assets\\ui\\title_plate_magenta\\pulse_crystal_seed_text_sheen\\frames"
+  },
+  "notes": [
+    "Only files inside title_plate_magenta were used.",
+    "Magenta was keyed out from base.png and cleared from transparent RGB before glow compositing.",
+    "Every frame is 1774x887 and the title plate base is composited at x=0 y=0.",
+    "Green pulsing glow is fixed to the top crystal and hollow seed/heart region.",
+    "Letter sheen is masked to the gold title text and moves across the letters."
+  ]
+}

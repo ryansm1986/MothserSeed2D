@@ -1,0 +1,1 @@
+20 imagegen-created MotherSeed plated title frames, one frame per prompt, with text shimmer traveling once and green lights pulsing slowly. Postprocessed to true alpha and normalized to a 2048x1024 padded canvas.

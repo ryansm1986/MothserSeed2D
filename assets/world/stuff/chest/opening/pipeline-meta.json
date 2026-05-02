@@ -1,26 +1,26 @@
 {
-  "source_generation": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f50f75548081938b960ca21174ca8c.png",
-  "raw_copy": "assets\\world\\stuff\\chest\\opening\\raw-sheet-transparent-prompt.png",
+  "source_generation": "C:\\Users\\there\\.codex\\generated_images\\019de4ec-9d3f-7e52-a77b-b91a180a124c\\ig_0bbc50cb209f0a4c0169f51339cd688193b5bdfa39b6cda94b.png",
+  "raw_copy": "assets\\world\\stuff\\chest\\opening\\raw-sheet-blue-key.png",
   "rows": 1,
   "cols": 8,
   "frame_size": 256,
   "duration_ms": 120,
   "align": "bottom-center",
-  "shared_scale": 0.7801418439716312,
-  "cleanup": "transparent-background prompt generation; converted baked checkerboard preview to true alpha",
+  "shared_scale": 0.8627450980392157,
+  "cleanup": "blue-dominant background keyed to true alpha; generated for easier stripping than magenta/checkerboard",
   "frames": [
     {
       "frame": 1,
       "source_bbox": [
-        28,
-        315,
-        239,
-        493
+        31,
+        284,
+        256,
+        478
       ],
       "output_bbox": [
-        45,
-        99,
-        210,
+        31,
+        71,
+        225,
         238
       ],
       "size": [
@@ -31,15 +31,15 @@
     {
       "frame": 2,
       "source_bbox": [
-        25,
-        315,
-        235,
-        495
+        33,
+        285,
+        258,
+        480
       ],
       "output_bbox": [
-        46,
-        98,
-        210,
+        31,
+        70,
+        225,
         238
       ],
       "size": [
@@ -50,15 +50,15 @@
     {
       "frame": 3,
       "source_bbox": [
-        21,
-        296,
-        231,
-        499
+        34,
+        276,
+        251,
+        486
       ],
       "output_bbox": [
-        46,
-        22,
-        210,
+        34,
+        57,
+        221,
         238
       ],
       "size": [
@@ -69,15 +69,15 @@
     {
       "frame": 4,
       "source_bbox": [
-        20,
-        286,
-        229,
-        499
+        30,
+        259,
+        252,
+        488
       ],
       "output_bbox": [
-        46,
-        21,
-        209,
+        32,
+        40,
+        224,
         238
       ],
       "size": [
@@ -88,15 +88,15 @@
     {
       "frame": 5,
       "source_bbox": [
-        27,
-        268,
-        240,
-        500
+        21,
+        244,
+        250,
+        488
       ],
       "output_bbox": [
-        45,
-        21,
-        211,
+        29,
+        27,
+        227,
         238
       ],
       "size": [
@@ -107,15 +107,15 @@
     {
       "frame": 6,
       "source_bbox": [
-        22,
-        257,
-        238,
-        500
+        16,
+        236,
+        250,
+        488
       ],
       "output_bbox": [
-        43,
+        27,
         21,
-        212,
+        229,
         238
       ],
       "size": [
@@ -126,15 +126,15 @@
     {
       "frame": 7,
       "source_bbox": [
-        12,
-        222,
-        229,
-        500
+        9,
+        234,
+        247,
+        489
       ],
       "output_bbox": [
-        43,
-        21,
-        212,
+        26,
+        18,
+        230,
         238
       ],
       "size": [
@@ -145,15 +145,15 @@
     {
       "frame": 8,
       "source_bbox": [
-        3,
-        218,
-        219,
-        500
+        7,
+        236,
+        246,
+        489
       ],
       "output_bbox": [
-        43,
-        18,
-        212,
+        25,
+        20,
+        231,
         238
       ],
       "size": [
